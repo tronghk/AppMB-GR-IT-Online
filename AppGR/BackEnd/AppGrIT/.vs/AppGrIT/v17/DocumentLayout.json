@@ -80,7 +80,7 @@
               "RelativeDocumentMoniker": "Data\\UserDAO.cs",
               "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\UserDAO.cs",
               "RelativeToolTip": "Data\\UserDAO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T06:05:00.117Z",
               "EditorCaption": ""
@@ -131,8 +131,7 @@
               "RelativeToolTip": "Data\\ConnectFirebase.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T08:06:57.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T08:06:57.903Z"
             },
             {
               "$type": "Document",
@@ -180,8 +179,7 @@
               "RelativeToolTip": "Authentication\\TokenServices.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAzwCUAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-12T10:35:44.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-12T10:35:44.686Z"
             },
             {
               "$type": "Document",
