@@ -1,5 +1,6 @@
 ﻿using AppGrIT.Data;
 using AppGrIT.Entity;
+using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using Firebase.Auth;
@@ -12,18 +13,21 @@ namespace AppGrIT.Services.Imployement
     {
        
       
-        private readonly UserDAO _userManger;
+        private readonly UsersDAO _userDao;
+        private readonly IRoles _roleManager;
         private readonly IConfiguration _configuration;
 
-        public UserServices(IConfiguration configuration, UserDAO user)
+
+        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role)
         {
             _configuration = configuration;
-            _userManger = user;
+            _userDao = user;
+            _roleManager = role;
         }
 
         public async Task<ResponseModel> CreateAccount(AccountIdentity account)
         {
-            var result = await _userManger.AddUserFirebase(account);
+            var result = await _userDao.AddUserAsync(account);
             return result;
         }
 
@@ -33,7 +37,13 @@ namespace AppGrIT.Services.Imployement
             {
                 FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
                 FirebaseAuthLink link = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
-            }catch (Exception ex)
+                return new ResponseModel
+                {
+                    Status = "Ok",
+                    Message = link.FirebaseToken
+                };
+            }
+            catch (Exception ex)
             {
                 return new ResponseModel
                 {
@@ -42,39 +52,60 @@ namespace AppGrIT.Services.Imployement
                     Message = "login fail"
                 };
             }
-            return new ResponseModel
-            {
-                Status = "Ok",
-                Message = "appect login"
-            };
+           
 
         }
 
         public async Task<ResponseModel> SignUpAsync(SignUpModel model)
         {
-            //check mail
-
-            // check duplicate
-
-            var user = new AccountIdentity
+            try
             {
-                Email = model.Email,    
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Birthday = model.Birthday,
+                FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
+                var us = new AccountIdentity
+                {
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Birthday = model.Birthday,
+                };
+
+                //tạo tk
+                FirebaseAuthLink link = await firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password);
+                var result = await CreateAccount(us);
+                //xét quyền mặc định
+                await SetRoleDefault(model.Email,SynthesizeRoles.CUSTOMER);
+
+                return result;
+            }
+            catch
+            {
+                return new ResponseModel
+                {
+                    Status = "Fail",
+                    Message = "Email exist"
+                };
+            }
+
+        }
+        public async Task <ResponseModel> SetRoleDefault(string Email, string roleName)
+        {
+            Roles role = await _roleManager.GetRoleAsync(roleName);
+            if (role == null) {
+                RolesModel model = new RolesModel
+                {
+                    RoleName = roleName,
+                    Despripsion = "Khách hàng"
+                };
+                await _roleManager.AddRoleAsync(model);
+            }
+
+            UserRoleModel us = new UserRoleModel
+            {
+                Email = Email,
+                RoleName = roleName,
             };
-
-            //tạo tk
-            FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
-            FirebaseAuthLink link = await firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password);
-            var result = await CreateAccount(user);
-            //xét quyền mặc định
-
-
-            // xác thực email :
-
-            return result;
-
+            var reuslt = await _roleManager.AddUserRolesAsync(us);
+            return reuslt;
         }
         
         

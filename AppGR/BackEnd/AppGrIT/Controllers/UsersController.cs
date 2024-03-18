@@ -27,7 +27,6 @@ namespace AppGrIT.Controllers
         }
 
         [HttpPost("/signup")]
-
         public async Task<IActionResult> Signup(SignUpModel model)
         {
            
