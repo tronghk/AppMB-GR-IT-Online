@@ -21,13 +21,16 @@ namespace AppGrIT.Entity
         [Required]
         public int countLocked = 0;
         [Required]
-        public bool locked = false;
+        public bool Locked = false;
 
         [Required]
-        public DateTime timeLocked;
+        public DateTime TimeLocked;
         [Required]
         public DateTime Birthday { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
+
+        [Required]
+        public string UserId { get; set; } = null!;
     }
 }

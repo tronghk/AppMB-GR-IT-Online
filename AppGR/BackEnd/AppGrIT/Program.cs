@@ -48,9 +48,11 @@ builder.Services.AddAuthentication(options =>
         };
     });
 builder.Services.AddScoped<ConnectFirebase>();
-builder.Services.AddScoped<UserDAO>();
+builder.Services.AddScoped<UsersDAO>();
+builder.Services.AddScoped<RolesDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
+builder.Services.AddScoped<IRoles, RoleServices>();
 
 var app = builder.Build();
 
