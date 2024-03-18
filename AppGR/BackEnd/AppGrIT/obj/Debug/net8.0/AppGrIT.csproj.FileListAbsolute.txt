@@ -50,3 +50,9 @@ E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis
 E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Auth.dll
 E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Core.dll
 E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\FireSharp.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.Extensions.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Extensions.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Primitives.dll

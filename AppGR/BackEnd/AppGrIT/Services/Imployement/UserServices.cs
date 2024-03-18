@@ -1,4 +1,5 @@
-﻿using AppGrIT.Entity;
+﻿using AppGrIT.Data;
+using AppGrIT.Entity;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using Firebase.Auth;
@@ -9,13 +10,28 @@ namespace AppGrIT.Services.Imployement
 {
     public class UserServices : IUsers
     {
-        private const string API_key = "AIzaSyBaiAShjOJltsKlLltkrIJ4z_ZETAprT-A";
+       
+      
+        private readonly UserDAO _userManger;
+        private readonly IConfiguration _configuration;
+
+        public UserServices(IConfiguration configuration, UserDAO user)
+        {
+            _configuration = configuration;
+            _userManger = user;
+        }
+
+        public async Task<ResponseModel> CreateAccount(AccountIdentity account)
+        {
+            var result = await _userManger.AddUserFirebase(account);
+            return result;
+        }
 
         public async Task<ResponseModel> SignInAsync(SignInModel model)
         {
            try
             {
-                FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(API_key));
+                FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
                 FirebaseAuthLink link = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
             }catch (Exception ex)
             {
@@ -38,6 +54,7 @@ namespace AppGrIT.Services.Imployement
         {
             //check mail
 
+            // check duplicate
 
             var user = new AccountIdentity
             {
@@ -48,20 +65,18 @@ namespace AppGrIT.Services.Imployement
             };
 
             //tạo tk
-            FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(API_key));
+            FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
             FirebaseAuthLink link = await firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password);
-
+            var result = await CreateAccount(user);
             //xét quyền mặc định
 
 
             // xác thực email :
 
-            return new ResponseModel
-            {
-                Status = "Ok",
-                Message = "comfirm"
-            };
+            return result;
 
         }
+        
+        
     }
 }

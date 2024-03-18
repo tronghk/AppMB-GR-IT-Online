@@ -1,4 +1,5 @@
 using AppGrIT.Authentication;
+using AppGrIT.Data;
 using AppGrIT.Services;
 using AppGrIT.Services.Imployement;
 using FirebaseAdmin;
@@ -46,8 +47,11 @@ builder.Services.AddAuthentication(options =>
             .GetBytes(builder.Configuration["JWT:Secret"]!))
         };
     });
+builder.Services.AddScoped<ConnectFirebase>();
+builder.Services.AddScoped<UserDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

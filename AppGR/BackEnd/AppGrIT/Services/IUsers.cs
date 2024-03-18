@@ -1,4 +1,5 @@
-﻿using AppGrIT.Model;
+﻿using AppGrIT.Entity;
+using AppGrIT.Model;
 using AppGrIT.Models;
 
 namespace AppGrIT.Services
@@ -7,5 +8,7 @@ namespace AppGrIT.Services
     {
         public Task<ResponseModel> SignUpAsync(SignUpModel model);
         public Task<ResponseModel> SignInAsync(SignInModel model);
+        public Task<ResponseModel> CreateAccount(AccountIdentity account);
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using AppGrIT.Authentication;
+using AppGrIT.Data;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using AppGrIT.Services;
@@ -31,7 +32,7 @@ namespace AppGrIT.Controllers
         {
            
             var result = await _userManager.SignUpAsync(model);
-            if(!result.Status.Equals("Ok"))
+            if(!result.Status!.Equals("Ok"))
             {
                 return BadRequest(result);
             }

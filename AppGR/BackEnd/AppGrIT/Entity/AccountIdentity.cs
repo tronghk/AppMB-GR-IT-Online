@@ -16,6 +16,16 @@ namespace AppGrIT.Entity
         public string Email { get; set; } = null!;
 
         [Required]
+        public bool EmailComfirm = false;
+
+        [Required]
+        public int countLocked = 0;
+        [Required]
+        public bool locked = false;
+
+        [Required]
+        public DateTime timeLocked;
+        [Required]
         public DateTime Birthday { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
