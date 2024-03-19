@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\authentication\\itoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:authentication\\itoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\data\\rolesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\rolesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\authentication\\itoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:authentication\\itoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -106,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 219,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -174,13 +174,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RolesDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
               "RelativeDocumentMoniker": "Data\\RolesDAO.cs",
               "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
               "RelativeToolTip": "Data\\RolesDAO.cs",
-              "ViewState": "AQIAALMAAAAAAAAAAAAswMYAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:46:49.948Z",
               "EditorCaption": ""
@@ -223,13 +223,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IToken.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Authentication\\IToken.cs",
               "RelativeDocumentMoniker": "Authentication\\IToken.cs",
               "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Authentication\\IToken.cs",
               "RelativeToolTip": "Authentication\\IToken.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBIAAABFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T00:42:34.701Z",
               "EditorCaption": ""
