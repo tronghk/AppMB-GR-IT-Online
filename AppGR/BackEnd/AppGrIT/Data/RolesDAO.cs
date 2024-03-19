@@ -197,6 +197,10 @@ namespace AppGrIT.Data
                 };
             }
         }
+        public void test()
+        {
+            string abc = "";
+        }
 
-    }
+}
 }
