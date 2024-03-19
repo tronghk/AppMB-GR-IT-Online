@@ -5,7 +5,7 @@ namespace AppGrIT.Entity
     public class Roles
     {
         [Required]
-        public string IdRole { get; set; } = null!;
+        public string RoleId { get; set; } = null!;
         [Required]
         public string RoleName { get; set; } = null!;
         [Required]

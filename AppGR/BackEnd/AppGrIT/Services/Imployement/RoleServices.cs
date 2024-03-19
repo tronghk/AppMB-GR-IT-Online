@@ -1,5 +1,6 @@
 ﻿using AppGrIT.Data;
 using AppGrIT.Entity;
+using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using Microsoft.AspNetCore.Identity;
@@ -33,8 +34,8 @@ namespace AppGrIT.Services.Imployement
             {
                 return new ResponseModel
                 {
-                    Status = "Fail",
-                    Message = ""
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_CREATE_FAIL
                 };
             }
             Roles role = await _roleDao.GetRole(model.RoleName);
@@ -42,13 +43,13 @@ namespace AppGrIT.Services.Imployement
             {
                 return new ResponseModel
                 {
-                    Status = "Fail",
-                    Message = ""
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_CREATE_FAIL
                 };
             }
             UserRoles us = new UserRoles
             {
-                RoleId = role.IdRole,
+                RoleId = role.RoleId,
                 UserId = user.UserId
             };
             var result = await _roleDao.AddUserRoleAsync(us);
@@ -69,6 +70,13 @@ namespace AppGrIT.Services.Imployement
         public Task<Roles> GetRoleAsync(string roleName)
         {
            return _roleDao.GetRole(roleName);
+        }
+
+        public async Task<List<string>> GetUserRoles(string userId)
+        {
+            List<UserRoles> listUserRoles = await _roleDao.GetUserRolesAsync(userId);
+            List<string> listRoles = await _roleDao.GetRoleNameAsync(listUserRoles);
+            return listRoles;
         }
     }
 }

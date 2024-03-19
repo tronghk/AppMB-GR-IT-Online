@@ -39,7 +39,7 @@ namespace AppGrIT.Services.Imployement
                 FirebaseAuthLink link = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
                 return new ResponseModel
                 {
-                    Status = "Ok",
+                    Status = StatusResponse.STATUS_OK,
                     Message = link.FirebaseToken
                 };
             }
@@ -47,7 +47,7 @@ namespace AppGrIT.Services.Imployement
             {
                 return new ResponseModel
                 {
-                    Status = "Fail"
+                    Status = StatusResponse.STATUS_ERROR
                   ,
                     Message = "login fail"
                 };
@@ -81,7 +81,7 @@ namespace AppGrIT.Services.Imployement
             {
                 return new ResponseModel
                 {
-                    Status = "Fail",
+                    Status = StatusResponse.STATUS_ERROR,
                     Message = "Email exist"
                 };
             }
@@ -107,7 +107,16 @@ namespace AppGrIT.Services.Imployement
             var reuslt = await _roleManager.AddUserRolesAsync(us);
             return reuslt;
         }
-        
-        
+
+        public async Task<ResponseModel> UpdateRefeshTokenAccountAsync(string email, string refreshToken, DateTime expiryTime)
+        {
+            var result = await _userDao.UpdateRefreshToken(email, refreshToken, expiryTime);
+            return result;
+        }
+
+        public async Task<AccountIdentity> GetUserAsync(string email)
+        {
+           return await _userDao.GetUserAsync(email);
+        }
     }
 }

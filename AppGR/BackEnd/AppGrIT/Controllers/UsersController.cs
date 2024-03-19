@@ -1,9 +1,11 @@
 ﻿
 using AppGrIT.Authentication;
 using AppGrIT.Data;
+using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using AppGrIT.Services;
+using BookManager.Model;
 using Firebase.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -31,11 +33,16 @@ namespace AppGrIT.Controllers
         {
            
             var result = await _userManager.SignUpAsync(model);
-            if(!result.Status!.Equals("Ok"))
+            if(!result.Status!.Equals(StatusResponse.STATUS_OK))
             {
                 return BadRequest(result);
             }
-            return Ok(result);
+            var token = await _tokenManager.GenerareTokenModel(new SignInModel
+            {
+                Email = model.Email,
+                Password = model.Password,
+            });
+            return Ok(token);
 
            
         }
@@ -43,21 +50,32 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> Login(SignInModel signInModel)
         {
            var result = await _userManager.SignInAsync(signInModel);
-            if (result.Status.Equals("Ok"))
+            if (result.Status!.Equals(StatusResponse.STATUS_OK))
             {
                 var token = await _tokenManager.GenerareTokenModel(signInModel);
                 return Ok(token);
             }
             else
             {
-                return BadRequest("fail");
+                return BadRequest(result);
             }
         }
-        [Authorize]
+        [Authorize (Roles =(SynthesizeRoles.CUSTOMER))]
         [HttpGet("/getall")]
         public async Task<IActionResult> getall()
         {
             return Ok("abc");
+        }
+        [HttpPost("/refresh-token")]
+        public async Task<IActionResult> RefreshToken(TokenModel tokenModel) {
+            var result = await _tokenManager.CheckToken(tokenModel);
+            if (result.Status!.Equals(StatusResponse.STATUS_ERROR))
+            {
+                return Unauthorized(result);
+            }
+            var claimsPrincal = _tokenManager.GetPrincipalFromExpiredToken(tokenModel.AccessToken);
+            var token = await _tokenManager.RefreshToken(claimsPrincal!.Claims.ToList(), claimsPrincal.Identity!.Name!);
+            return Ok(token);
         }
     }
 }
