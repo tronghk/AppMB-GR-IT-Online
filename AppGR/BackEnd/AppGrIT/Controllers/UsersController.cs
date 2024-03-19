@@ -77,5 +77,6 @@ namespace AppGrIT.Controllers
             var token = await _tokenManager.RefreshToken(claimsPrincal!.Claims.ToList(), claimsPrincal.Identity!.Name!);
             return Ok(token);
         }
+       
     }
 }
