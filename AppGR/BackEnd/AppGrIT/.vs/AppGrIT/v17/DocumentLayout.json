@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\data\\rolesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\rolesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\authentication\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -106,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 219,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -174,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RolesDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
               "RelativeDocumentMoniker": "Data\\RolesDAO.cs",
@@ -199,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UsersController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
