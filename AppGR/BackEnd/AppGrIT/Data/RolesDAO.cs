@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Security.Principal;
 using FireSharp;
 using Firebase.Auth;
+using AppGrIT.Helper;
 
 namespace AppGrIT.Data
 {
@@ -25,8 +26,8 @@ namespace AppGrIT.Data
                 
                 return new ResponseModel
                 {
-                    Status = "Ok",
-                    Message = "Register success"
+                    Status = StatusResponse.STATUS_OK,
+                    Message = MessageResponse.MESSAGE_CREATE_SUCCESS
 
                 };
             }
@@ -34,7 +35,7 @@ namespace AppGrIT.Data
             {
                 return new ResponseModel
                 {
-                    Status = "Fail",
+                    Status = StatusResponse.STATUS_ERROR,
                     Message = ex.Message
                 };
             }
@@ -45,11 +46,11 @@ namespace AppGrIT.Data
             {
                 // path Role/data
                 PushResponse response = await _firebase._client.PushAsync("Roles/", role);
-                role.IdRole = response.Result.name;
-                await _firebase._client.SetAsync("Roles/" + role.IdRole, role);
+                role.RoleId = response.Result.name;
+                await _firebase._client.SetAsync("Roles/" + role.RoleId, role);
                 return new ResponseModel
                 {
-                    Status = "Ok",
+                    Status = StatusResponse.STATUS_OK,
                     Message = "Success"
 
                 };
@@ -58,10 +59,25 @@ namespace AppGrIT.Data
             {
                 return new ResponseModel
                 {
-                    Status = "Fail",
+                    Status = StatusResponse.STATUS_ERROR,
                     Message = ex.Message
                 };
             }
+        }
+        public async Task<List<Roles>> GetAllRoles()
+        {
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Roles");
+            dynamic data = JsonConvert.DeserializeObject<dynamic>(firebaseResponse.Body);
+            var list = new List<Roles>();
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    Roles us = JsonConvert.DeserializeObject<Roles>(((JProperty)item).Value.ToString());
+                    list.Add(us);
+                }
+            }
+            return list;
         }
         public async Task<List<UserRoles>> GetUserRolesAsync(string UserId)
         {
@@ -87,6 +103,24 @@ namespace AppGrIT.Data
             {
                 return new List<UserRoles>();
             }
+        }
+        public async Task<List<string>> GetRoleNameAsync(List<UserRoles> list)
+        {
+            List<string> roles = new List<string>();
+            List<Roles> rolesList = await GetAllRoles();
+            foreach (var value in list)
+            {
+                foreach (var role in rolesList)
+                {
+                    if (role.RoleId.Equals(value.RoleId))
+                    {
+                        roles.Add(role.RoleName);
+                        break;
+                    }
+                }
+            }
+            return roles;
+          
         }
         public async Task<Roles> GetRole(string roleName)
         {
@@ -141,14 +175,14 @@ namespace AppGrIT.Data
                 if (value.Equals(""))
                     return new ResponseModel
                     {
-                        Status = "Fail",
+                        Status = StatusResponse.STATUS_ERROR,
                         Message = "Can not find"
                     };
 
                  await _firebase._client.DeleteAsync("UserRoles/" +value);
                 return new ResponseModel
                 {
-                    Status = "Ok",
+                    Status = StatusResponse.STATUS_OK,
                     Message = "Success"
                 };
 
@@ -158,7 +192,7 @@ namespace AppGrIT.Data
             {
                 return new ResponseModel
                 {
-                    Status = "Fail",
+                    Status = StatusResponse.STATUS_ERROR,
                     Message = ex.Message
                 };
             }

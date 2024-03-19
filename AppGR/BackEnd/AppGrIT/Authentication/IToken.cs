@@ -1,4 +1,5 @@
 ﻿
+using AppGrIT.Model;
 using AppGrIT.Models;
 using BookManager.Model;
 using FirebaseAdmin;
@@ -14,5 +15,9 @@ namespace AppGrIT.Authentication
     public interface IToken
     {
         public Task<TokenModel> GenerareTokenModel(SignInModel model);
+        public Task<TokenModel> RefreshToken(List<Claim> authClaims, string email);
+        public Task<ResponseModel> CheckToken(TokenModel tokenModel);
+
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token);
     }
 }

@@ -12,6 +12,6 @@ namespace AppGrIT.Services
         public Task<ResponseModel> AddUserRolesAsync(UserRoleModel model);
 
         public Task<Roles> GetRoleAsync(string roleName);
-
+        public Task<List<string>> GetUserRoles(string email);
     }
 }

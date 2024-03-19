@@ -11,6 +11,22 @@
   },
   {
     "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "RefreshToken",
+    "RelativePath": "refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tokenModel",
+        "Type": "BookManager.Model.TokenModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "Login",
     "RelativePath": "signin",
     "HttpMethod": "POST",

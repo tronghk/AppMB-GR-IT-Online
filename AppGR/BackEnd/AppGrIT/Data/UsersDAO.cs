@@ -1,12 +1,16 @@
 ﻿using AppGrIT.Entity;
+using AppGrIT.Helper;
 using AppGrIT.Model;
 using Firebase.Auth;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
+using System.Security.Principal;
 using static Google.Apis.Requests.BatchRequest;
 
 namespace AppGrIT.Data
@@ -22,12 +26,14 @@ namespace AppGrIT.Data
         {
             try
             {
+                
                 PushResponse response = await _firebase._client.PushAsync("Users/", account);
+
                 account.UserId = response.Result.name;
                 SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
                 return new ResponseModel
                 {
-                    Status = "Ok",
+                    Status = StatusResponse.STATUS_OK,
                     Message = "Register success"
                     
                 };
@@ -35,7 +41,7 @@ namespace AppGrIT.Data
             {
                 return new ResponseModel
                 {
-                    Status =  "Fail",
+                    Status =  StatusResponse.STATUS_ERROR,
                     Message = ex.Message
                 };
             }
@@ -76,6 +82,29 @@ namespace AppGrIT.Data
                 return account;
             return null!;
 
+        }
+        public async Task<ResponseModel> UpdateRefreshToken(string email, string RefreshToken, DateTime exrityTime)
+        {
+
+            try
+            {
+                var user = await GetUserAsync(email);
+                await _firebase._client.SetAsync("Users/" + user.UserId + "/RefreshToken", RefreshToken);
+                await _firebase._client.SetAsync("Users/" + user.UserId + "/RefreshTokenExpiryTime", exrityTime);
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_OK,
+                };
+            }
+            catch 
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Error RefreshToken"
+                };
+            }
+            
         }
 
 
