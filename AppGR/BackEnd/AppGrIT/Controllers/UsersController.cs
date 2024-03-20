@@ -27,7 +27,7 @@ namespace AppGrIT.Controllers
             _tokenManager = tokenManager;
             _userManager = userManager;
         }
-
+       
         [HttpPost("/signup")]
         public async Task<IActionResult> Signup(SignUpModel model)
         {
