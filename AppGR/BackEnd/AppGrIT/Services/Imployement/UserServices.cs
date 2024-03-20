@@ -64,9 +64,7 @@ namespace AppGrIT.Services.Imployement
                 var us = new AccountIdentity
                 {
                     Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Birthday = model.Birthday,
+                   
                 };
 
                 //tạo tk
