@@ -60,11 +60,12 @@ namespace AppGrIT.Controllers
                 return BadRequest(result);
             }
         }
-        [Authorize (Roles =(SynthesizeRoles.CUSTOMER))]
         [HttpGet("/getall")]
         public async Task<IActionResult> getall()
         {
-            return Ok("abc");
+            Dictionary<Dictionary<string,string>> dic = new Dictionary<string, string>();
+            dic.Add("key", "value");
+            return Ok(dic);
         }
         [HttpPost("/refresh-token")]
         public async Task<IActionResult> RefreshToken(TokenModel tokenModel) {
