@@ -266,8 +266,7 @@
               "RelativeToolTip": "Services\\IUsers.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T12:06:28.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T12:06:28.898Z"
             },
             {
               "$type": "Document",
@@ -279,8 +278,7 @@
               "RelativeToolTip": "Services\\Imployement\\UserServices.cs",
               "ViewState": "AQIAAHEAAAAAAAAAAAAswA4AAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T10:11:50.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T10:11:50.425Z"
             },
             {
               "$type": "Document",
@@ -292,8 +290,7 @@
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AQIAABgAAAAAAAAAAIAywCMAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T10:17:36.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T10:17:36.161Z"
             },
             {
               "$type": "Document",
@@ -305,8 +302,7 @@
               "RelativeToolTip": "Models\\SignUpModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwBEAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T10:13:33.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T10:13:33.567Z"
             },
             {
               "$type": "Document",
@@ -318,8 +314,7 @@
               "RelativeToolTip": "Models\\EditPostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T08:23:45.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T08:23:45.854Z"
             },
             {
               "$type": "Document",
@@ -331,8 +326,7 @@
               "RelativeToolTip": "Models\\AddPostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T08:21:14.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T08:21:14.388Z"
             },
             {
               "$type": "Document",
@@ -344,8 +338,7 @@
               "RelativeToolTip": "Models\\UserInforModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwBEAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T05:44:00.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T05:44:00.688Z"
             },
             {
               "$type": "Document",
@@ -355,7 +348,7 @@
               "RelativeDocumentMoniker": "Data\\UsersDAO.cs",
               "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\UsersDAO.cs",
               "RelativeToolTip": "Data\\UsersDAO.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAQwFUAAAAJAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAuwFUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:48:41.55Z",
               "EditorCaption": ""
@@ -370,8 +363,7 @@
               "RelativeToolTip": "Entity\\UserInfors.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T07:23:18.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T07:23:18.391Z"
             },
             {
               "$type": "Document",
@@ -383,8 +375,7 @@
               "RelativeToolTip": "Services\\Imployement\\RoleServices.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T10:41:30.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T10:41:30.988Z"
             },
             {
               "$type": "Document",
@@ -396,8 +387,7 @@
               "RelativeToolTip": "Services\\IRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T10:41:12.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T10:41:12.738Z"
             },
             {
               "$type": "Document",
@@ -409,8 +399,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAADIAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T10:45:13.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T10:45:13.888Z"
             },
             {
               "$type": "Document",
@@ -422,8 +411,7 @@
               "RelativeToolTip": "Models\\UserRenewalModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T08:36:16.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T08:36:16.705Z"
             },
             {
               "$type": "Document",
