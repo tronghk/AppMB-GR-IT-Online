@@ -15,6 +15,7 @@ namespace AppGrIT.Model
 
         [Required] public DateTime Birthday { get; set; }
 
+        [Required] public string Gender { get; set; } = null!;
         [Required]
         public string PasswordConfirmation { get; set; } =null!;
     }

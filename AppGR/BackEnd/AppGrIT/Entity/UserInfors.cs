@@ -5,15 +5,15 @@ namespace AppGrIT.Entity
     public class UserInfors
     {
         [Required]
-        public string Firstname
+        public string FirstName
         { get; set; } = null!;
         [Required]
-        public string Lastname { get; set; } = null!;
+        public string LastName { get; set; } = null!;
         [Required]
         public string Gender { get; set; } = null!;
         [Required]
-        public string Birthday
-        { get; set; } = null!;
+        public DateTime Birthday
+        { get; set; }
 
         public string Address
         { get; set; } = null!;

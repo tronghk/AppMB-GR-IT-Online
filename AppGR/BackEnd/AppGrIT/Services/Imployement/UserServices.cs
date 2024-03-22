@@ -39,7 +39,7 @@ namespace AppGrIT.Services.Imployement
                 FirebaseAuthLink link = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = link.FirebaseToken
                 };
             }
@@ -67,9 +67,26 @@ namespace AppGrIT.Services.Imployement
                    
                 };
 
+
                 //tạo tk
                 FirebaseAuthLink link = await firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password);
                 var result = await CreateAccount(us);
+
+                if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+                {
+                    AccountIdentity acc = await _userDao.GetUserAsync(model.Email);
+                    var infor = new UserInfors
+                    {
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Gender = model.Gender,
+                        Birthday = model.Birthday,
+                        UserId = acc.UserId
+                    };
+                    var userInfor = await CreateUserInfo(infor);
+                }
+
+               
                 //xét quyền mặc định
                 await SetRoleDefault(model.Email,SynthesizeRoles.CUSTOMER);
 
@@ -84,6 +101,11 @@ namespace AppGrIT.Services.Imployement
                 };
             }
 
+        }
+        private async Task<ResponseModel> CreateUserInfo(UserInfors userInfors)
+        {
+           var result = await _userDao.AddUserInforAsync(userInfors);
+            return result;
         }
         public async Task <ResponseModel> SetRoleDefault(string Email, string roleName)
         {

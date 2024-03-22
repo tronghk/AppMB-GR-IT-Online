@@ -14,10 +14,8 @@ namespace AppGrIT.Models
         { get; set; } = null!;
         public DateTime Birthday
         { get; set; }
-        [Required]
         public string Address
         { get; set; } = null!;
-        [Required]
         public string UserId
         { get; set; } = null!;
         public string Phone

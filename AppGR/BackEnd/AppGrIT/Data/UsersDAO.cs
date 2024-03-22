@@ -1,6 +1,7 @@
 ﻿using AppGrIT.Entity;
 using AppGrIT.Helper;
 using AppGrIT.Model;
+using AppGrIT.Models;
 using Firebase.Auth;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -33,7 +34,7 @@ namespace AppGrIT.Data
                 SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Register success"
                     
                 };
@@ -47,6 +48,29 @@ namespace AppGrIT.Data
             }
 
            
+        }
+
+        public async Task<ResponseModel> AddUserInforAsync(UserInfors userInfors)
+        {
+            try
+            {
+                PushResponse response = await _firebase._client.PushAsync("UserInfors/", userInfors);
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = MessageResponse.MESSAGE_CREATE_SUCCESS
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = ex.Message
+                };
+            }
+
+
         }
         public async Task<List<AccountIdentity>> GetUsersAsync()
         {

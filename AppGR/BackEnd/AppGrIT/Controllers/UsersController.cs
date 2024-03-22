@@ -33,7 +33,7 @@ namespace AppGrIT.Controllers
         {
            
             var result = await _userManager.SignUpAsync(model);
-            if(!result.Status!.Equals(StatusResponse.STATUS_OK))
+            if(!result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
             {
                 return BadRequest(result);
             }
