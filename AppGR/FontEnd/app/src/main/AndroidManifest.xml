@@ -15,6 +15,7 @@
         android:theme="@style/Theme.AppGrIT"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".activities.activity_home"
             android:exported="false" />
         <activity
@@ -22,6 +23,14 @@
             android:exported="false" />
         <activity
             android:name=".activities.activity_signup"
+=======
+            android:name=".UserActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user"
+            android:theme="@style/Theme.AppGrIT" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+>>>>>>> 517ada56883020623a43a83b9032cd38badb72d3
             android:exported="false" />
         <activity
             android:name=".MainActivity"
