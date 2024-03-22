@@ -24,6 +24,15 @@
             android:name=".activities.activity_signup"
             android:exported="false" />
         <activity
+            android:name=".UserActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user"
+
+            android:theme="@style/Theme.AppGrIT" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
