@@ -63,9 +63,8 @@ namespace AppGrIT.Controllers
         [HttpGet("/getall")]
         public async Task<IActionResult> getall()
         {
-            Dictionary<Dictionary<string,string>> dic = new Dictionary<string, string>();
-            dic.Add("key", "value");
-            return Ok(dic);
+            
+            return Unauthorized("");
         }
         [HttpPost("/refresh-token")]
         public async Task<IActionResult> RefreshToken(TokenModel tokenModel) {
