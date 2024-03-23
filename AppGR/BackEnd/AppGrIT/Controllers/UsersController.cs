@@ -7,11 +7,15 @@ using AppGrIT.Models;
 using AppGrIT.Services;
 using BookManager.Model;
 using Firebase.Auth;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using System.Text.Json.Nodes;
 
 namespace AppGrIT.Controllers
 {
@@ -57,14 +61,18 @@ namespace AppGrIT.Controllers
             }
             else
             {
+               
                 return BadRequest(result);
             }
         }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpGet("/getall")]
         public async Task<IActionResult> getall()
         {
-            
-            return Unauthorized("");
+
+            var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+            string accesss_token = token.Result!;
+            return Ok(accesss_token);
         }
         [HttpPost("/refresh-token")]
         public async Task<IActionResult> RefreshToken(TokenModel tokenModel) {
@@ -77,6 +85,76 @@ namespace AppGrIT.Controllers
             var token = await _tokenManager.RefreshToken(claimsPrincal!.Claims.ToList(), claimsPrincal.Identity!.Name!);
             return Ok(token);
         }
+
+        [HttpGet("/reset-password")]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            var result = await _userManager.ForgotPassword(email);
+            if (result.Status!.Equals(StatusResponse.STATUS_OK))
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpPost("/verification-email")]
+        public async Task<IActionResult> VerificationEmail(SignInModel model)
+        {
+            var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+            string accesss_token = token.Result!;
+            if (_tokenManager.CheckDupEmailToToken(accesss_token, model.Email))
+            {
+                var result = await _userManager.VertificationEmail(model);
+                if (result.Status!.Equals(StatusResponse.STATUS_OK))
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
+            return Unauthorized();
+           
+           
+           
+        }
+
+        [Authorize(Roles =SynthesizeRoles.CUSTOMER)]
+        [HttpPost("/change-password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
+        {
+
+            var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+            string accesss_token = token.Result!;
+            if (_tokenManager.CheckDupEmailToToken(accesss_token, model.Email))
+            {
+                var result = await _userManager.ChangePasswordModel(model);
+                if (result.Status!.Equals(StatusResponse.STATUS_OK))
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
+            return Unauthorized();
+
+
+           
+           
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpGet("/user")]
+        public async Task<IActionResult> GetUser(string email)
+        {
+            if(await _userManager.GetUserAsync(email) != null)
+            {
+                var us = await _userManager.GetInforUser(email);
+                return Ok(us);
+            }
+            return BadRequest(new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_NOTFOUND
+            });
+        }
        
+
     }
 }

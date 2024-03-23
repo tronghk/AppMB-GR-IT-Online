@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "ChangePassword",
+    "RelativePath": "change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.ChangePasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "getall",
     "RelativePath": "getall",
     "HttpMethod": "GET",
@@ -21,6 +37,22 @@
         "Name": "tokenModel",
         "Type": "BookManager.Model.TokenModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "ForgotPassword",
+    "RelativePath": "reset-password",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -52,6 +84,38 @@
       {
         "Name": "model",
         "Type": "AppGrIT.Model.SignUpModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "GetUser",
+    "RelativePath": "user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "VerificationEmail",
+    "RelativePath": "verification-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.SignInModel",
         "IsRequired": true
       }
     ],

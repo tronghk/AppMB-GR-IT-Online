@@ -12,8 +12,8 @@ namespace AppGrIT.Entity
         [Required]
         public string Gender { get; set; } = null!;
         [Required]
-        public string Birthday
-        { get; set; } = null!;
+        public DateTime Birthday
+        { get; set; }
 
         public string Address
         { get; set; } = null!;

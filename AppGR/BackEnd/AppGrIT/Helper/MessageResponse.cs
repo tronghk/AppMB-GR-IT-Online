@@ -9,6 +9,8 @@
         public const string MESSAGE_UPDATE_FAIL = "Update Fail";
         public const string MESSAGE_DELETE_SUCCESS = "Delete success";
         public const string MESSAGE_DELETE_FAIL = "Delete Fail";
+        public const string MESSAGE_LOGIN_FAIL = "Login Fail";
+        public const string MESSAGE_NOTDUPLICATE = "Not Duplicate";
 
 
     }

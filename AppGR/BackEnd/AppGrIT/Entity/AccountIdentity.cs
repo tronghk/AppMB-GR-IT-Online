@@ -7,10 +7,6 @@ namespace AppGrIT.Entity
         [Required]
         [EmailAddress]
         public string Email { get; set; } = null!;
-
-        [Required]
-        public bool EmailComfirm = false;
-
         [Required]
         public int countLocked = 0;
         [Required]
