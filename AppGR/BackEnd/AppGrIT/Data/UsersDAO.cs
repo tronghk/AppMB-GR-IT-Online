@@ -50,6 +50,7 @@ namespace AppGrIT.Data
            
         }
 
+<<<<<<< HEAD
         public async Task<ResponseModel> AddUserInforAsync(UserInfors userInfors)
         {
             try
@@ -59,6 +60,19 @@ namespace AppGrIT.Data
                 {
                     Status = StatusResponse.STATUS_SUCCESS,
                     Message = MessageResponse.MESSAGE_CREATE_SUCCESS
+=======
+        public async Task<ResponseModel> AddUserInforsAsync(UserInfors account)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("UserInfors/", account);
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_OK,
+                    Message = "Register success"
+
+>>>>>>> trong
                 };
             }
             catch (Exception ex)
@@ -72,6 +86,30 @@ namespace AppGrIT.Data
 
 
         }
+<<<<<<< HEAD
+=======
+        public async void LockUser(AccountIdentity account, DateTime timeLock)
+        {
+
+            account.Locked = true;
+            account.TimeLocked = timeLock;
+            SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+        }
+        public async Task<string> UnlockUserAsync(AccountIdentity account)
+        {
+
+            account.Locked = false;
+            account.countLocked = 0;
+            SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+            return "ok";
+        }
+        public async void UpLock(AccountIdentity account)
+        {
+            int count = account.countLocked;
+            account.countLocked = count + 1;
+            SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+        }
+>>>>>>> trong
         public async Task<List<AccountIdentity>> GetUsersAsync()
         {
            
@@ -104,6 +142,25 @@ namespace AppGrIT.Data
             }
             if (result)
                 return account;
+            return null!;
+
+        }
+
+        public async Task<UserInfors> GetUserInforAsync(string UserId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            UserInfors userInfors = null!;
+            foreach(var item in jsonResponse) {
+                var value = item.Value!.ToString();
+                //path Object
+                userInfors = JsonConvert.DeserializeObject<UserInfors>(value);
+                if(userInfors.UserId.Equals(UserId))
+                {
+                   return userInfors;
+                }
+            }
             return null!;
 
         }

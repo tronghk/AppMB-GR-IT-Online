@@ -12,7 +12,11 @@ namespace AppGrIT.Services
         public Task<ResponseModel> UpdateRefeshTokenAccountAsync(string email, string refreshToken, DateTime expiryTime);
 
         public Task <AccountIdentity> GetUserAsync(string email);
-      
+        public Task<ResponseModel> ForgotPassword(string email);
+        public Task<ResponseModel> VertificationEmail(SignInModel model);
+
+        public Task<ResponseModel> ChangePasswordModel(ChangePasswordModel model);
+        public Task<UserInforModel> GetInforUser(string email);
 
     }
 }
