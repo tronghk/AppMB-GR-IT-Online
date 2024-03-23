@@ -16,6 +16,7 @@
         tools:targetApi="31">
         <activity
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:name=".activities.activity_home"
             android:exported="false" />
         <activity
@@ -24,9 +25,13 @@
         <activity
             android:name=".activities.activity_signup"
 =======
+=======
+            android:name=".MarketplaceActivity"
+            android:exported="false" />
+        <activity
+>>>>>>> thanhtruc
             android:name=".UserActivity"
             android:exported="false"
-            android:label="@string/title_activity_user"
             android:theme="@style/Theme.AppGrIT" />
         <activity
             android:name=".ForgotPasswordActivity"
