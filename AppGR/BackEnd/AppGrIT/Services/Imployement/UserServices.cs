@@ -109,7 +109,6 @@ namespace AppGrIT.Services.Imployement
                 FirebaseAuthLink link = await _firebaseAuth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password);
               
                 var result = await CreateAccount(us);
-<<<<<<< HEAD
 
                 if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
                 {
@@ -126,7 +125,6 @@ namespace AppGrIT.Services.Imployement
                 }
 
                
-=======
                 UserInforModel userInfos = new UserInforModel
                 {
                     Firstname = model.FirstName,
@@ -135,7 +133,6 @@ namespace AppGrIT.Services.Imployement
 
                 };
                 await CreateUserInfors(userInfos, model.Email);
->>>>>>> trong
                 //xét quyền mặc định
                 await SetRoleDefault(model.Email,SynthesizeRoles.CUSTOMER);
               
@@ -151,19 +148,18 @@ namespace AppGrIT.Services.Imployement
             }
 
         }
-<<<<<<< HEAD
         private async Task<ResponseModel> CreateUserInfo(UserInfors userInfors)
         {
-           var result = await _userDao.AddUserInforAsync(userInfors);
+            var result = await _userDao.AddUserInforAsync(userInfors);
             return result;
-=======
+        }
         private async Task<ResponseModel> CreateUserInfors(UserInforModel model,string email)
         {
             var user = await GetUserAsync(email);
             UserInfors us = new UserInfors
             {
-                Firstname = model.Firstname,
-                Lastname = model.LastName,
+                FirstName = model.Firstname,
+                LastName = model.LastName,
                 Birthday = model.Birthday,
                 Gender = model.Gender,
                 Address = model.Address,
@@ -177,7 +173,8 @@ namespace AppGrIT.Services.Imployement
                 Status = StatusResponse.STATUS_SUCCESS,
 
             };
->>>>>>> trong
+
+
         }
         public async Task <ResponseModel> SetRoleDefault(string Email, string roleName)
         {
@@ -317,8 +314,8 @@ namespace AppGrIT.Services.Imployement
             var userInfor = await _userDao.GetUserInforAsync(UserId);
             UserInforModel us = new UserInforModel
             {
-                Firstname = userInfor.Firstname,
-                LastName = userInfor.Lastname,
+                Firstname = userInfor.FirstName,
+                LastName = userInfor.LastName,
                 Gender = userInfor.Gender,
                 Birthday = userInfor.Birthday,
                 Address = userInfor.Address,

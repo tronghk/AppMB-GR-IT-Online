@@ -50,9 +50,11 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<ConnectFirebase>();
 builder.Services.AddScoped<UsersDAO>();
 builder.Services.AddScoped<RolesDAO>();
+builder.Services.AddScoped<ExpressionDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
+builder.Services.AddScoped<IExpression, ExpressionServices>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

@@ -50,7 +50,6 @@ namespace AppGrIT.Data
            
         }
 
-<<<<<<< HEAD
         public async Task<ResponseModel> AddUserInforAsync(UserInfors userInfors)
         {
             try
@@ -60,8 +59,22 @@ namespace AppGrIT.Data
                 {
                     Status = StatusResponse.STATUS_SUCCESS,
                     Message = MessageResponse.MESSAGE_CREATE_SUCCESS
-=======
-        public async Task<ResponseModel> AddUserInforsAsync(UserInfors account)
+
+                };
+            }
+
+
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = ex.Message
+                };
+            }
+        }
+
+            public async Task<ResponseModel> AddUserInforsAsync(UserInfors account)
         {
             try
             {
@@ -71,8 +84,6 @@ namespace AppGrIT.Data
                 {
                     Status = StatusResponse.STATUS_OK,
                     Message = "Register success"
-
->>>>>>> trong
                 };
             }
             catch (Exception ex)
@@ -86,8 +97,6 @@ namespace AppGrIT.Data
 
 
         }
-<<<<<<< HEAD
-=======
         public async void LockUser(AccountIdentity account, DateTime timeLock)
         {
 
@@ -109,7 +118,6 @@ namespace AppGrIT.Data
             account.countLocked = count + 1;
             SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
         }
->>>>>>> trong
         public async Task<List<AccountIdentity>> GetUsersAsync()
         {
            
