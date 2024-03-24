@@ -15,6 +15,18 @@
         android:theme="@style/Theme.AppGrIT"
         tools:targetApi="31">
         <activity
+            android:name=".activities.ListUserLike"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CreatePostHome"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CreateMarketplace"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DetailMarketplace"
+            android:exported="false" />
+        <activity
             android:name=".activities.activity_home"
             android:exported="false" />
         <activity

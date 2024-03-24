@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_signup"
         android:layout_marginTop="16dp"
-        android:hint="First Name" />
+        android:hint="First Name"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
     <!-- Last Name EditText -->
     <EditText
@@ -42,7 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_text_first_name"
         android:layout_marginTop="8dp"
-        android:hint="Last Name" />
+        android:hint="Last Name"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
     <!-- Email EditText -->
     <EditText
@@ -52,7 +54,8 @@
         android:layout_below="@id/edit_text_last_name"
         android:layout_marginTop="8dp"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
     <!-- Password EditText -->
     <EditText
@@ -62,7 +65,8 @@
         android:layout_below="@id/edit_text_email"
         android:layout_marginTop="8dp"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
     <!-- Confirm Password EditText -->
     <EditText
@@ -72,7 +76,8 @@
         android:layout_below="@id/edit_text_password"
         android:layout_marginTop="8dp"
         android:hint="Confirm Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
     <!-- Birthday EditText -->
     <EditText
@@ -82,7 +87,8 @@
         android:layout_below="@id/edit_text_confirm_password"
         android:layout_marginTop="8dp"
         android:hint="Birthday (YYYY-MM-DD)"
-        android:inputType="date" />
+        android:inputType="date"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
     <!-- Sign Up Button -->
     <Button
