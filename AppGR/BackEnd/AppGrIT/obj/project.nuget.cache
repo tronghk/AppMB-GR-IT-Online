@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9uJ8UsTY7qcjf8m27AW+wj9Kxv60m5ogO9ncjiGm3EAhzb+Ce0TueHR75wjONrqsyLsL/rMswOWrTEBkgULjjQ==",
+  "dgSpecHash": "b4awlbk5ik93HfYsg4M4ctI0E9d7bYLH26FLLqkCZPQ50wUDaYrOc84CsTjM9rb6aM0kFErAOmQbjeqKZTTSDA==",
   "success": true,
   "projectFilePath": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TrongHK\\.nuget\\packages\\firebaseadmin\\2.4.0\\firebaseadmin.2.4.0.nupkg.sha512",
     "C:\\Users\\TrongHK\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
+    "C:\\Users\\TrongHK\\.nuget\\packages\\firebasestorage.net\\1.0.3\\firebasestorage.net.1.0.3.nupkg.sha512",
     "C:\\Users\\TrongHK\\.nuget\\packages\\firesharp\\2.0.4\\firesharp.2.0.4.nupkg.sha512",
     "C:\\Users\\TrongHK\\.nuget\\packages\\google.api.gax\\3.2.0\\google.api.gax.3.2.0.nupkg.sha512",
     "C:\\Users\\TrongHK\\.nuget\\packages\\google.api.gax.rest\\3.2.0\\google.api.gax.rest.3.2.0.nupkg.sha512",

@@ -9,18 +9,15 @@ namespace AppGrIT.Models
         [Required]
         public string LastName
         { get; set; } = null!;
-        [Required]
-        public string Gender
-        { get; set; } = null!;
+        public string? Gender
+        { get; set; }
         public DateTime Birthday
         { get; set; }
-        [Required]
-        public string Address
-        { get; set; } = null!;
-        [Required]
+        public string? Address
+        { get; set; }
         public string UserId
         { get; set; } = null!;
-        public string Phone
-        { get; set; } = null!;
+        public string? Phone
+        { get; set; }
     }
 }

@@ -19,6 +19,9 @@ namespace AppGrIT.Entity
         public DateTime PostTime
         { get; set; }
 
+        [Required]
+
+        public string PostType { get; set; } = null!;
 
 
 

@@ -4,6 +4,7 @@ using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using Firebase.Auth;
+using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
 using FireSharp.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -137,7 +138,7 @@ namespace AppGrIT.Services.Imployement
             UserInfors us = new UserInfors
             {
                 Firstname = model.Firstname,
-                Lastname = model.LastName,
+                LastName = model.LastName,
                 Birthday = model.Birthday,
                 Gender = model.Gender,
                 Address = model.Address,
@@ -291,7 +292,7 @@ namespace AppGrIT.Services.Imployement
             UserInforModel us = new UserInforModel
             {
                 Firstname = userInfor.Firstname,
-                LastName = userInfor.Lastname,
+                LastName = userInfor.LastName,
                 Gender = userInfor.Gender,
                 Birthday = userInfor.Birthday,
                 Address = userInfor.Address,
@@ -303,5 +304,25 @@ namespace AppGrIT.Services.Imployement
 
         }
 
+        public async Task<ResponseModel> EditUserInfors(UserInforModel model)
+        {
+            var us = new UserInfors
+            {
+                Firstname = model.Firstname,
+                LastName = model.LastName,
+                Gender = model.Gender!,
+                Birthday = model.Birthday,
+                Address = model.Address!,
+                UserId = model.UserId,
+                Phone = model.Phone!,
+            };
+            var result = await _userDao.EditUserInfors(us);
+            return result;
+        }
+
+        public async Task<AccountIdentity> GetUserToUserId(string userId)
+        {
+           return await _userDao.GetUserToUserIdAsync(userId);
+        }
     }
 }

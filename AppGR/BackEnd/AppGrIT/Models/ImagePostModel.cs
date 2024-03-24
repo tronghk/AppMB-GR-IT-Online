@@ -4,13 +4,11 @@ namespace AppGrIT.Models
 {
     public class ImagePostModel
     {
-        [Required]
-        public string ImageContent
-        { get; set; } = null!;
+        public string? ImageContent
+        { get; set; }
 
-        [Required]
-        public string ImagePath
-        { get; set; } = null!;
+        public string? ImagePath
+        { get; set; }
 
     }
 }

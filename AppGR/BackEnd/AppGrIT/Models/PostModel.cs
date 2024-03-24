@@ -1,19 +1,20 @@
-﻿namespace AppGrIT.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AppGrIT.Models
 {
     public class PostModel
     {
-        public string PostId
-        { get; set; } = null!;
+        public string? PostId
+        { get; set; }
+        public string? UserId
+        { get; set; }
 
         public DateTime PostTime { get; set; }
 
 
 
-        public string Content
-        { get; set; } = null!;
-
-        public List<ExpressionModel> Expressions { get; set; } = new List<ExpressionModel>();
-
-        public List<ImagePostModel> ImagePosts { get; set; } = new List<ImagePostModel>();
+        public string? Content
+        { get; set; }
+        public string? PostType { get; set; }
     }
 }

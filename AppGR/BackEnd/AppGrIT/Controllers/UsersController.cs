@@ -7,6 +7,7 @@ using AppGrIT.Models;
 using AppGrIT.Services;
 using BookManager.Model;
 using Firebase.Auth;
+using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -25,19 +26,21 @@ namespace AppGrIT.Controllers
     {
 
         private readonly IUsers _userManager;
+        private readonly IPosts _postManager;
         private readonly IToken _tokenManager;
-        public UsersController(IUsers userManager, IToken tokenManager)
+        public UsersController(IUsers userManager, IToken tokenManager, IPosts post)
         {
             _tokenManager = tokenManager;
             _userManager = userManager;
+            _postManager = post;
         }
-       
+
         [HttpPost("/signup")]
         public async Task<IActionResult> Signup(SignUpModel model)
         {
-           
+
             var result = await _userManager.SignUpAsync(model);
-            if(!result.Status!.Equals(StatusResponse.STATUS_OK))
+            if (!result.Status!.Equals(StatusResponse.STATUS_OK))
             {
                 return BadRequest(result);
             }
@@ -48,12 +51,12 @@ namespace AppGrIT.Controllers
             });
             return Ok(token);
 
-           
+
         }
         [HttpPost("/signin")]
         public async Task<IActionResult> Login(SignInModel signInModel)
         {
-           var result = await _userManager.SignInAsync(signInModel);
+            var result = await _userManager.SignInAsync(signInModel);
             if (result.Status!.Equals(StatusResponse.STATUS_OK))
             {
                 var token = await _tokenManager.GenerareTokenModel(signInModel);
@@ -61,21 +64,19 @@ namespace AppGrIT.Controllers
             }
             else
             {
-               
+
                 return BadRequest(result);
             }
         }
-        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpGet("/getall")]
-        public async Task<IActionResult> getall()
+        public async Task<IActionResult> getall(string userId)
         {
 
-            var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
-            string accesss_token = token.Result!;
-            return Ok(accesss_token);
+            return Ok(await _userManager.GetUserToUserId(userId));
         }
         [HttpPost("/refresh-token")]
-        public async Task<IActionResult> RefreshToken(TokenModel tokenModel) {
+        public async Task<IActionResult> RefreshToken(TokenModel tokenModel)
+        {
             var result = await _tokenManager.CheckToken(tokenModel);
             if (result.Status!.Equals(StatusResponse.STATUS_ERROR))
             {
@@ -112,12 +113,12 @@ namespace AppGrIT.Controllers
                 return BadRequest(result);
             }
             return Unauthorized();
-           
-           
-           
+
+
+
         }
 
-        [Authorize(Roles =SynthesizeRoles.CUSTOMER)]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpPost("/change-password")]
         public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
         {
@@ -136,25 +137,89 @@ namespace AppGrIT.Controllers
             return Unauthorized();
 
 
-           
-           
+
+
         }
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpGet("/user")]
         public async Task<IActionResult> GetUser(string email)
         {
-            if(await _userManager.GetUserAsync(email) != null)
+            var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+            string accesss_token = token.Result!;
+            if (_tokenManager.CheckDupEmailToToken(accesss_token, email))
             {
-                var us = await _userManager.GetInforUser(email);
-                return Ok(us);
+                if (await _userManager.GetUserAsync(email) != null)
+                {
+                    var us = await _userManager.GetInforUser(email);
+                    return Ok(us);
+                }
+                return BadRequest(new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_NOTFOUND
+                });
             }
-            return BadRequest(new ResponseModel
-            {
-                Status = StatusResponse.STATUS_ERROR,
-                Message = MessageResponse.MESSAGE_NOTFOUND
-            });
-        }
-       
+            return Unauthorized();
 
+        }
+
+        [HttpPut("/edit-user")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> EditUserInfor(UserInforModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId);
+            if (user != null)
+            {
+                var email = user.Email;
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, email))
+                {
+                    var result = await _userManager.EditUserInfors(model);
+                    if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+                    {
+                        return Ok(result);
+                    }
+                    return BadRequest(result);
+                }
+            }
+
+            return Unauthorized();
+
+        }
+
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpPost("/add-image-instead-user")]
+        public async Task<IActionResult> AddImageInsteadUser(PostModel model)
+        {
+
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            if (user != null )
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.CreatePostAsync(model);
+
+                    if (result!= null)
+                    {
+                       
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = MessageResponse.MESSAGE_CREATE_FAIL
+                        });
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
     }
 }

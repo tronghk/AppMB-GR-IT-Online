@@ -10,9 +10,9 @@ namespace AppGrIT.Models
         [Required]
         public string UserId
         { get; set; } = null!;
-        public string Content
+        public string? Content
 
-        { get; set; } = null!;
+        { get; set; }
         [Required]
         public float Price
 
