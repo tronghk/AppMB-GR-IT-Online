@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Security.Principal;
+using System.Text.Json.Nodes;
 using static Google.Apis.Requests.BatchRequest;
 
 namespace AppGrIT.Data
@@ -129,19 +130,41 @@ namespace AppGrIT.Data
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
             AccountIdentity account = null!;
             bool result = false;
+           if(jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    account = JsonConvert.DeserializeObject<AccountIdentity>(value);
+                    if (account.Email.Equals(Email))
+                    {
+                        result = true;
+                        break;
+                    }
+                }
+                if (result)
+                    return account;
+            }
+            return null!;
+
+        }
+        public async Task<AccountIdentity> GetUserToUserIdAsync(string userId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Users");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            AccountIdentity account;
             foreach (var item in jsonResponse)
             {
-               var value = item.Value!.ToString();
+                var value = item.Value!.ToString();
                 //path Object
                 account = JsonConvert.DeserializeObject<AccountIdentity>(value);
-                if (account.Email.Equals(Email))
+                if (account.UserId.Equals(userId))
                 {
-                    result = true;
-                    break;
+                    return account;
                 }
             }
-            if (result)
-                return account;
             return null!;
 
         }
@@ -186,6 +209,50 @@ namespace AppGrIT.Data
                 };
             }
             
+        }
+        public async Task<ResponseModel> EditUserInfors(UserInfors user)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+                UserInfors userInfors = null!;
+                var id = "";
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    userInfors = JsonConvert.DeserializeObject<UserInfors>(value);
+                    if (userInfors.UserId.Equals(user.UserId))
+                    {
+                        id = userInfors.UserId; break;  
+                    }
+                }
+                if(!string.IsNullOrEmpty(id))
+                {
+                    SetResponse setResponse = await _firebase._client.SetAsync("UserInfors/" + user.UserId, user);
+                    return new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_SUCCESS,
+
+                    };
+                }
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_NOTFOUND
+
+                };
+            }
+            catch
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Can not edit to db"
+
+                };
+            }
         }
 
 

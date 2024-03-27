@@ -12,9 +12,9 @@ namespace AppGrIT.Models
 
         { get; set; } = null!;
 
-        public string Content
+        public string? Content
 
-        { get; set; } = null!;
+        { get; set; }
         [Required]
         public DateTime TimeShare
 

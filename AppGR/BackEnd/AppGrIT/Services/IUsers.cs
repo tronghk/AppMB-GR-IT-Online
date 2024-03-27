@@ -18,5 +18,11 @@ namespace AppGrIT.Services
         public Task<ResponseModel> ChangePasswordModel(ChangePasswordModel model);
         public Task<UserInforModel> GetInforUser(string email);
 
+        public Task<ResponseModel> EditUserInfors(UserInforModel model);
+
+        public Task<AccountIdentity> GetUserToUserId(string userId);
+
+        public Task<UserModel> GetInfoUser(string userId);
+
     }
 }

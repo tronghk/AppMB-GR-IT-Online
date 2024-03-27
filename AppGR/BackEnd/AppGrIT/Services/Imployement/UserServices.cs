@@ -4,6 +4,7 @@ using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using Firebase.Auth;
+using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
 using FireSharp.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -20,15 +21,17 @@ namespace AppGrIT.Services.Imployement
       
         private readonly UsersDAO _userDao;
         private readonly IRoles _roleManager;
+        private readonly IPosts _postMannager;
         private readonly IConfiguration _configuration;
         private readonly FirebaseAuthProvider _firebaseAuth;
 
 
-        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role)
+        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role,IPosts post)
         {
             _configuration = configuration;
             _userDao = user;
             _roleManager = role;
+            _postMannager = post;
             _firebaseAuth = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
         }
 
@@ -163,7 +166,7 @@ namespace AppGrIT.Services.Imployement
             UserInfors us = new UserInfors
             {
                 Firstname = model.Firstname,
-                Lastname = model.LastName,
+                LastName = model.LastName,
                 Birthday = model.Birthday,
                 Gender = model.Gender,
                 Address = model.Address,
@@ -318,7 +321,7 @@ namespace AppGrIT.Services.Imployement
             UserInforModel us = new UserInforModel
             {
                 Firstname = userInfor.Firstname,
-                LastName = userInfor.Lastname,
+                LastName = userInfor.LastName,
                 Gender = userInfor.Gender,
                 Birthday = userInfor.Birthday,
                 Address = userInfor.Address,
@@ -330,5 +333,40 @@ namespace AppGrIT.Services.Imployement
 
         }
 
+        public async Task<ResponseModel> EditUserInfors(UserInforModel model)
+        {
+            var us = new UserInfors
+            {
+                Firstname = model.Firstname,
+                LastName = model.LastName,
+                Gender = model.Gender!,
+                Birthday = model.Birthday,
+                Address = model.Address!,
+                UserId = model.UserId,
+                Phone = model.Phone!,
+            };
+            var result = await _userDao.EditUserInfors(us);
+            return result;
+        }
+
+        public async Task<AccountIdentity> GetUserToUserId(string userId)
+        {
+           return await _userDao.GetUserToUserIdAsync(userId);
+        }
+
+        public async Task<UserModel> GetInfoUser(string userId)
+        {
+            var post = await _postMannager.GetPostNewInfoUser(userId);
+            var image = post.imagePost;
+            var pathImage = image[0].ImagePath;
+            var userInfo = await _userDao.GetUserInforAsync(userId);
+            var user = new UserModel
+            {
+                UserId = userId,
+                ImagePath =pathImage,
+                UserName = userInfo.LastName + userInfo.Firstname
+            };
+            return user;
+        }
     }
 }
