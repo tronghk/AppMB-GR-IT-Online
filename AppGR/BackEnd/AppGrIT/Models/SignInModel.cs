@@ -6,9 +6,10 @@ namespace AppGrIT.Models
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = null!;
 
         [Required]
-        public string Password { get; set; }
+        [MinLength(6)]
+        public string Password { get; set; } = null!;
     }
 }

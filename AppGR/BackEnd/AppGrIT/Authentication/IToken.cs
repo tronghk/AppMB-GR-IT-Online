@@ -19,5 +19,7 @@ namespace AppGrIT.Authentication
         public Task<ResponseModel> CheckToken(TokenModel tokenModel);
 
         public ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token);
+
+        public bool CheckDupEmailToToken(string? token, string email);
     }
 }

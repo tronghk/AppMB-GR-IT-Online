@@ -1,6 +1,7 @@
 ﻿using AppGrIT.Entity;
 using AppGrIT.Helper;
 using AppGrIT.Model;
+using AppGrIT.Models;
 using Firebase.Auth;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -11,6 +12,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Security.Principal;
+using System.Text.Json.Nodes;
 using static Google.Apis.Requests.BatchRequest;
 
 namespace AppGrIT.Data
@@ -33,7 +35,7 @@ namespace AppGrIT.Data
                 SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Register success"
                     
                 };
@@ -48,6 +50,67 @@ namespace AppGrIT.Data
 
            
         }
+
+<<<<<<< HEAD
+        public async Task<ResponseModel> AddUserInforAsync(UserInfors userInfors)
+        {
+            try
+            {
+                PushResponse response = await _firebase._client.PushAsync("UserInfors/", userInfors);
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = MessageResponse.MESSAGE_CREATE_SUCCESS
+=======
+        public async Task<ResponseModel> AddUserInforsAsync(UserInfors account)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("UserInfors/", account);
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_OK,
+                    Message = "Register success"
+
+>>>>>>> trong
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = ex.Message
+                };
+            }
+
+
+        }
+<<<<<<< HEAD
+=======
+        public async void LockUser(AccountIdentity account, DateTime timeLock)
+        {
+
+            account.Locked = true;
+            account.TimeLocked = timeLock;
+            SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+        }
+        public async Task<string> UnlockUserAsync(AccountIdentity account)
+        {
+
+            account.Locked = false;
+            account.countLocked = 0;
+            SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+            return "ok";
+        }
+        public async void UpLock(AccountIdentity account)
+        {
+            int count = account.countLocked;
+            account.countLocked = count + 1;
+            SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+        }
+>>>>>>> trong
         public async Task<List<AccountIdentity>> GetUsersAsync()
         {
            
@@ -67,19 +130,60 @@ namespace AppGrIT.Data
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
             AccountIdentity account = null!;
             bool result = false;
+           if(jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    account = JsonConvert.DeserializeObject<AccountIdentity>(value);
+                    if (account.Email.Equals(Email))
+                    {
+                        result = true;
+                        break;
+                    }
+                }
+                if (result)
+                    return account;
+            }
+            return null!;
+
+        }
+        public async Task<AccountIdentity> GetUserToUserIdAsync(string userId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Users");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            AccountIdentity account;
             foreach (var item in jsonResponse)
             {
-               var value = item.Value!.ToString();
+                var value = item.Value!.ToString();
                 //path Object
                 account = JsonConvert.DeserializeObject<AccountIdentity>(value);
-                if (account.Email.Equals(Email))
+                if (account.UserId.Equals(userId))
                 {
-                    result = true;
-                    break;
+                    return account;
                 }
             }
-            if (result)
-                return account;
+            return null!;
+
+        }
+
+        public async Task<UserInfors> GetUserInforAsync(string UserId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            UserInfors userInfors = null!;
+            foreach(var item in jsonResponse) {
+                var value = item.Value!.ToString();
+                //path Object
+                userInfors = JsonConvert.DeserializeObject<UserInfors>(value);
+                if(userInfors.UserId.Equals(UserId))
+                {
+                   return userInfors;
+                }
+            }
             return null!;
 
         }
@@ -105,6 +209,50 @@ namespace AppGrIT.Data
                 };
             }
             
+        }
+        public async Task<ResponseModel> EditUserInfors(UserInfors user)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+                UserInfors userInfors = null!;
+                var id = "";
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    userInfors = JsonConvert.DeserializeObject<UserInfors>(value);
+                    if (userInfors.UserId.Equals(user.UserId))
+                    {
+                        id = userInfors.UserId; break;  
+                    }
+                }
+                if(!string.IsNullOrEmpty(id))
+                {
+                    SetResponse setResponse = await _firebase._client.SetAsync("UserInfors/" + user.UserId, user);
+                    return new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_SUCCESS,
+
+                    };
+                }
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_NOTFOUND
+
+                };
+            }
+            catch
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Can not edit to db"
+
+                };
+            }
         }
 
 

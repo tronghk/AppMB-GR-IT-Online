@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "Bwvgk3a35dIfkhmRYJs1CcbXpHvOLCa/1dVpFWT+6hs=",
+  "Hash": "/3dq8tXLm73XO289VRh/y/7J5zPZcDHfmI5hZtu7D2k=",
   "Source": "AppGrIT",
   "BasePath": "_content/AppGrIT",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AppGrIT\\wwwroot",
+      "Source": "AppGrIT",
+      "ContentRoot": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\wwwroot\\",
+      "BasePath": "_content/AppGrIT",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

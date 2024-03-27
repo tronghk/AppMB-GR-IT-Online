@@ -174,5 +174,14 @@ namespace AppGrIT.Authentication
             return principal;
 
         }
+
+        public bool CheckDupEmailToToken(string? token, string email)
+        {
+            var pri = GetPrincipalFromExpiredToken(token);
+            ;
+            if (email.Equals(pri.Identity!.Name))
+                return true;
+            return false;
+        }
     }
 }

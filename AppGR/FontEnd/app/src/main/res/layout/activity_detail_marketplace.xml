@@ -1,0 +1,209 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailMarketplace">
+
+    <!-- Toolbar with back button and title -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_marketplace"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:titleTextColor="@android:color/white"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- TextView to display "Marketplace" -->
+        <TextView
+            android:id="@+id/text_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marketplace"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="130dp"
+            android:gravity="center" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Image of the product -->
+    <ImageView
+        android:id="@+id/image_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_marketplace"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/productimage1" />
+
+    <!-- Product title -->
+    <TextView
+        android:id="@+id/text_product_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_product"
+        android:padding="16dp"
+        android:text="MSI GF66 Katana i7-12650H"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Product price -->
+    <TextView
+        android:id="@+id/text_product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_product_title"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:text="5.500.000"
+        android:textSize="16sp" />
+
+    <!-- Product description title -->
+    <TextView
+        android:id="@+id/text_description_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_product_price"
+        android:paddingStart="16dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="16dp"
+        android:text="Mô tả"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Product description -->
+    <TextView
+        android:id="@+id/text_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_description_title"
+        android:padding="16dp"
+        android:text="-- Máy mới mua hồi tháng 8/2023 vẫn còn bảo hành dài"
+        android:textSize="14sp" />
+
+    <!-- Action Button Bar -->
+    <LinearLayout
+        android:id="@+id/action_buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_product_description"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <!-- Notify Button and Label -->
+        <!-- Replace the content with your icons and text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notification"
+                android:contentDescription="notify"
+                android:id="@+id/button_notify" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notify" />
+        </LinearLayout>
+
+        <!-- Message Button and Label -->
+        <!-- Replace the content with your icons and text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/messenger"
+                android:contentDescription="message"
+                android:id="@+id/button_message" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="message" />
+        </LinearLayout>
+
+        <!-- Share Button and Label -->
+        <!-- Replace the content with your icons and text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/share"
+                android:contentDescription="share"
+                android:id="@+id/button_share" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="share" />
+        </LinearLayout>
+
+        <!-- Save Button and Label -->
+        <!-- Replace the content with your icons and text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/saveinstagram"
+                android:contentDescription="save"
+                android:id="@+id/button_save" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="save" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Seller information title -->
+    <TextView
+        android:id="@+id/text_seller_info_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/action_buttons_container"
+        android:paddingStart="16dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="16dp"
+        android:text="Thông tin người bán"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Seller information -->
+    <TextView
+        android:id="@+id/text_seller_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_seller_info_title"
+        android:padding="16dp"
+        android:text="Phạm Đông\nĐã tham gia Facebook vào 2019\n⭐️⭐️⭐️⭐️⭐️ 3.2 (5 bài đánh giá)"
+        android:textSize="14sp" />
+
+    <!-- You may want to add additional views here such as action buttons or more details -->
+</RelativeLayout>
