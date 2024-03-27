@@ -1,6 +1,8 @@
 ﻿using AppGrIT.Data;
+using AppGrIT.Entity;
 using AppGrIT.Helper;
 using AppGrIT.Model;
+using AppGrIT.Models;
 using Firebase.Auth;
 using Firebase.Storage;
 using FirebaseAdmin.Auth;
@@ -23,49 +25,41 @@ namespace AppGrIT.Services.Imployement
             Bucket = _configuration["Firebase:Storage"]!;
         }
 
-        public async Task<ResponseModel> AddImagesPostAsync(IFormFile fileImage, string nameStorage)    
+        public async Task<List<string>> AddImagesPostAsync(List<IFormFile> fileImage)    
         {
 
-           
-            var fileName = fileImage.FileName;
-            nameStorage = nameStorage + fileName.Substring(fileName.Length - 4);
-            FileStream stream;
-            if(fileName.Length > 0)
+            var listLink = new List<string>();  
+            foreach (IFormFile file in fileImage)
             {
-                string path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","Images",fileName);
-              
+                var fileName = file.FileName;
+                var nameStorage = "post_" + await _imageDAO.GetCountImage() + fileName.Substring(fileName.Length - 4);
+                FileStream stream;
+                if (fileName.Length > 0)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", fileName);
 
-                using (var st = System.IO.File.Create(path))
-                {
-                    await fileImage.CopyToAsync(st);
-                }
-                  stream = new FileStream(Path.Combine(path), FileMode.Open);
-                var link = await Upload(stream, nameStorage);
-                if(link != null)
-                {
-                    if (File.Exists(path))
+
+                    using (var st = System.IO.File.Create(path))
                     {
-                        stream.Close();
-                        File.Delete(path);
+                        await file.CopyToAsync(st);
                     }
-                    return new ResponseModel
+                    stream = new FileStream(Path.Combine(path), FileMode.Open);
+                    var link = await Upload(stream, nameStorage);
+                    if (link != null)
                     {
-                        Status = StatusResponse.STATUS_SUCCESS,
-                        Message = link
-                    };
-                   
-                }
-                new ResponseModel
-                {
-                    Status = StatusResponse.STATUS_ERROR,
-                    Message = MessageResponse.MESSAGE_CREATE_FAIL
-                };
+                        if (File.Exists(path))
+                        {
+                            stream.Close();
+                            File.Delete(path);
+                        }
+                        listLink.Add(link);
 
+
+                    }
+
+                }
             }
-            return new ResponseModel
-            {
-                Status = StatusResponse.STATUS_ERROR
-            };
+            return listLink;
         }
         public async Task<string> Upload(FileStream stream, string fileName)
         {
@@ -92,6 +86,35 @@ namespace AppGrIT.Services.Imployement
             {
                 return null!;
             }
+        }
+        public async Task<PostImages> CreateImagePost(ImagePostModel model, string postId)
+        {
+            var postImage = new PostImages
+            {
+                ImageContent = model.ImageContent,
+                ImagePath = model.ImagePath,
+                PostId = postId
+            };
+           var result = await _imageDAO.CreateImageAsync(postImage);
+            return result;
+        }
+
+        public async Task<List<ImagePostModel>> GetImagePostToId(string postId)
+        {
+           var list = await _imageDAO.GetImagePostToId(postId);
+            var result = new List<ImagePostModel>();
+            foreach (var imagePost in list)
+            {
+                var im = new ImagePostModel
+                {
+                    ImagePath = imagePost.ImagePath,
+                    ImageContent = imagePost.ImageContent,
+                    ImageId = imagePost.PostImageId,
+
+                };
+                result.Add(im);
+            }
+            return result;
         }
     }
 }

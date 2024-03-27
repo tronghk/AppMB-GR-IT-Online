@@ -114,19 +114,22 @@ namespace AppGrIT.Data
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
             AccountIdentity account = null!;
             bool result = false;
-            foreach (var item in jsonResponse)
+           if(jsonResponse != null)
             {
-               var value = item.Value!.ToString();
-                //path Object
-                account = JsonConvert.DeserializeObject<AccountIdentity>(value);
-                if (account.Email.Equals(Email))
+                foreach (var item in jsonResponse)
                 {
-                    result = true;
-                    break;
+                    var value = item.Value!.ToString();
+                    //path Object
+                    account = JsonConvert.DeserializeObject<AccountIdentity>(value);
+                    if (account.Email.Equals(Email))
+                    {
+                        result = true;
+                        break;
+                    }
                 }
+                if (result)
+                    return account;
             }
-            if (result)
-                return account;
             return null!;
 
         }

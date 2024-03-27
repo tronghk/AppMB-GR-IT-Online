@@ -11,8 +11,10 @@ using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
@@ -20,7 +22,7 @@ using System.Text.Json.Nodes;
 
 namespace AppGrIT.Controllers
 {
-    [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Components.Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -190,9 +192,8 @@ namespace AppGrIT.Controllers
 
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpPost("/add-image-instead-user")]
-        public async Task<IActionResult> AddImageInsteadUser(PostModel model)
+        public async Task<IActionResult> AddImageInsteadUser([FromBody]PostModel model)
         {
-
             var user = await _userManager.GetUserToUserId(model.UserId!);
             if (user != null )
             {
@@ -221,5 +222,116 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpPut("/edit-image-instead-user")]
+        public async Task<IActionResult> EditImageInsteadUser([FromBody] PostModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            if (user != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.EditImagePostInstead(model);
+
+                    if (result != null)
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = MessageResponse.MESSAGE_CREATE_FAIL
+                        });
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpPost("/add-image-cover-user")]
+        public async Task<IActionResult> AddImageCoverUser([FromBody] PostModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            if (user != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.CreatePostAsync(model);
+
+                    if (result != null)
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = MessageResponse.MESSAGE_CREATE_FAIL
+                        });
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpPut("/edit-image-cover-user")]
+        public async Task<IActionResult> EditImageCoverUser([FromBody] PostModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            if (user != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.EditImagePostInstead(model);
+
+                    if (result != null)
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = MessageResponse.MESSAGE_CREATE_FAIL
+                        });
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [HttpGet("/get-user-id")]
+        public async Task<IActionResult> GetUserBasic(string userId)
+        {
+            var user = await _userManager.GetUserToUserId(userId!);
+            if (user != null)
+            {
+               
+                var result = await _userManager.GetInfoUser(user.UserId);
+                return Ok(result);
+
+            }
+            return NotFound();
+        }
     }
+
+   
 }

@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "AddImageCoverUser",
+    "RelativePath": "add-image-cover-user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.PostModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.ImagesController",
     "Method": "AddImagePost",
     "RelativePath": "add-image-from-post",
@@ -32,6 +48,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.ImagesController",
+    "Method": "AddListImagePost",
+    "RelativePath": "add-list-image-from-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "image",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "ChangePassword",
     "RelativePath": "change-password",
@@ -49,6 +81,38 @@
   },
   {
     "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "EditImageCoverUser",
+    "RelativePath": "edit-image-cover-user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.PostModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "EditImageInsteadUser",
+    "RelativePath": "edit-image-instead-user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.PostModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "EditUserInfor",
     "RelativePath": "edit-user",
     "HttpMethod": "PUT",
@@ -59,6 +123,22 @@
         "Name": "model",
         "Type": "AppGrIT.Models.UserInforModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "GetPostUser",
+    "RelativePath": "get-post",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

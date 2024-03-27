@@ -58,3 +58,6 @@ E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.
 E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Primitives.dll
 E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Firebase.Storage.dll
 E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.staticwebassets.runtime.json
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Workspace\Android\AppMxhIT\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

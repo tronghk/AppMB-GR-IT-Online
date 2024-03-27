@@ -21,15 +21,17 @@ namespace AppGrIT.Services.Imployement
       
         private readonly UsersDAO _userDao;
         private readonly IRoles _roleManager;
+        private readonly IPosts _postMannager;
         private readonly IConfiguration _configuration;
         private readonly FirebaseAuthProvider _firebaseAuth;
 
 
-        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role)
+        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role,IPosts post)
         {
             _configuration = configuration;
             _userDao = user;
             _roleManager = role;
+            _postMannager = post;
             _firebaseAuth = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
         }
 
@@ -323,6 +325,21 @@ namespace AppGrIT.Services.Imployement
         public async Task<AccountIdentity> GetUserToUserId(string userId)
         {
            return await _userDao.GetUserToUserIdAsync(userId);
+        }
+
+        public async Task<UserModel> GetInfoUser(string userId)
+        {
+            var post = await _postMannager.GetPostNewInfoUser(userId);
+            var image = post.imagePost;
+            var pathImage = image[0].ImagePath;
+            var userInfo = await _userDao.GetUserInforAsync(userId);
+            var user = new UserModel
+            {
+                UserId = userId,
+                ImagePath =pathImage,
+                UserName = userInfo.LastName + userInfo.Firstname
+            };
+            return user;
         }
     }
 }

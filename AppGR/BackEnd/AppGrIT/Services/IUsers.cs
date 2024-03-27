@@ -22,5 +22,7 @@ namespace AppGrIT.Services
 
         public Task<AccountIdentity> GetUserToUserId(string userId);
 
+        public Task<UserModel> GetInfoUser(string userId);
+
     }
 }

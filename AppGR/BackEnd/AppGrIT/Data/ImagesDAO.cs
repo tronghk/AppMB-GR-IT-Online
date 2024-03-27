@@ -1,7 +1,11 @@
 ﻿using AppGrIT.Entity;
 using AppGrIT.Helper;
 using AppGrIT.Model;
+using Firebase.Auth;
 using FireSharp.Response;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Security.Principal;
 
 namespace AppGrIT.Data
 {
@@ -19,8 +23,8 @@ namespace AppGrIT.Data
             {
                 PushResponse response = await _firebase._client.PushAsync("PostImages/", postImage);
 
-                    postImage.PostImageId = response.Result.name;
-                    
+                postImage.PostImageId = response.Result.name;
+                SetResponse setResponse = await _firebase._client.SetAsync("PostImages/" + postImage.PostImageId, postImage);
                 return postImage;
             }
             catch (Exception ex)
@@ -33,9 +37,6 @@ namespace AppGrIT.Data
         {
             try
             {
-              
-
-               
                 SetResponse setResponse = await _firebase._client.SetAsync("PostImages/" + postImage.PostImageId, postImage);
                 return postImage;
             }
@@ -43,6 +44,38 @@ namespace AppGrIT.Data
             {
                 return null!;
             }
+        }
+
+        public async Task<List<PostImages>> GetImagePostToId(string postId)
+        {
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostImages");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            var result = new List<PostImages>();
+          
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse!)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var im = JsonConvert.DeserializeObject<PostImages>(value);
+                    if (im.PostId.Equals(postId))
+                    {
+                        result.Add(im);
+                    }
+                }
+            }
+            return result;
+        }
+        public async Task<int> GetCountImage()
+        {
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostImages");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            if(jsonResponse == null)
+            {
+                return 0;
+            }
+            return jsonResponse.Count;
         }
     }
 }

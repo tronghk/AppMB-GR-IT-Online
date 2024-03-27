@@ -5,7 +5,6 @@ namespace AppGrIT.Entity
     public class PostImages
     {
         [Required]
-        [Key]
         public string PostImageId { get; set; } = null!;
 
         [Required]

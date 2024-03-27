@@ -1,5 +1,8 @@
-﻿using AppGrIT.Models;
+﻿using AppGrIT.Helper;
+using AppGrIT.Model;
+using AppGrIT.Models;
 using AppGrIT.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,8 +22,35 @@ namespace AppGrIT.Controllers
         {
             var list = new List<IFormFile>();
             list.Add(image);
-            var result = await _imageManager.AddImagesPostAsync(list[0],"aaa");
-            return Ok(result);
+            var result = await _imageManager.AddImagesPostAsync(list);
+            if(result.Count > 0)
+            {
+                return Ok(result);
+            }
+            return BadRequest(new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_CREATE_FAIL
+            });
+           
+        }
+
+        [HttpPost("/add-list-image-from-post")]
+        public async Task<IActionResult> AddListImagePost(List<IFormFile> image)
+        {
+           
+           
+            var result = await _imageManager.AddImagesPostAsync(image);
+            if (result.Count > 0)
+            {
+                return Ok(result);
+            }
+            return BadRequest(new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_CREATE_FAIL
+            });
+
         }
     }
 }

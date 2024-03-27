@@ -47,16 +47,21 @@ builder.Services.AddAuthentication(options =>
             .GetBytes(builder.Configuration["JWT:Secret"]!))
         };
     });
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddScoped<ConnectFirebase>();
 builder.Services.AddScoped<UsersDAO>();
 builder.Services.AddScoped<RolesDAO>();
 builder.Services.AddScoped<PostsDAO>();
 builder.Services.AddScoped<ImagesDAO>();
+builder.Services.AddScoped<PostCommentsDAO>();
+builder.Services.AddScoped<PostExpressionssDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
 builder.Services.AddScoped<IPosts, PostServices>();
 builder.Services.AddScoped<IImages, ImageServices>();
+builder.Services.AddScoped<IPostComments, PostCommentServices>();
+builder.Services.AddScoped<IPostExpressionss, PostExpressionServicess>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -87,4 +92,5 @@ app.MapControllers();
 app.UseCors();
 // sử dụng wwwroot
 app.UseStaticFiles();
+
 app.Run();
