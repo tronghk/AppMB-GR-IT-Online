@@ -15,6 +15,7 @@ namespace AppGrIT.Models
         { get; set; }
         public string? Address
         { get; set; }
+        [Required]
         public string UserId
         { get; set; } = null!;
         public string? Phone

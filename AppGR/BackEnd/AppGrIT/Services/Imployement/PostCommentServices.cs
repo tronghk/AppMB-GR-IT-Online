@@ -1,6 +1,8 @@
 ﻿
 using AppGrIT.Data;
 using AppGrIT.Entity;
+using AppGrIT.Helper;
+using AppGrIT.Model;
 using AppGrIT.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -33,21 +35,15 @@ namespace AppGrIT.Services.Imployement
                 CommentId = result.CommentId,
                 UserId = result.UserId,
                 PostId = result.PostId,
-                CommentTime = result.CommentTime
-                   ,
+                CommentTime = result.CommentTime,
                 Content = result.Content
-
-
             };
-            var user = await _userManager.GetInfoUser(result.UserId);
-            icon.UserName = user.UserName;
-            icon.UserImage = user.ImagePath;
             return icon;
         }
 
         public async Task<List<PostCommentModel>> GetPostComment(string postId)
         {
-           var result = await _postcmtDAO.GetPostComment(postId);
+            var result = await _postcmtDAO.GetPostComment(postId);
             var list = new List<PostCommentModel>();
             foreach (var item in result)
             {
@@ -55,14 +51,10 @@ namespace AppGrIT.Services.Imployement
                 {
                     UserId = item.UserId,
                     PostId = postId,
-                    CommentTime = item.CommentTime
-                    , Content = item.Content
-
-
+                    CommentTime = item.CommentTime,
+                    Content = item.Content
                 };
                 var user = await _userManager.GetInfoUser(item.UserId);
-                icon.UserName = user.UserName;
-                icon.UserImage = user.ImagePath;
                 list.Add(icon);
             }
             return list;
@@ -71,6 +63,36 @@ namespace AppGrIT.Services.Imployement
         public async Task<List<string>> GetPostIdToUserFromPostComment(string userId)
         {
             return await _postcmtDAO.GetPostIdToUserFromPostComment(userId);
+        }
+        public async Task<bool> CheckCommentDupUser(string postId, string commentId, string userId)
+        {
+            var list = await _postcmtDAO.GetPostComment(postId);
+            foreach (var item in list)
+            {
+                if(item.UserId == userId &&  item.CommentId.Equals(commentId))
+                    return true;
+            }
+            return false;
+        }
+
+        public async Task<ResponseModel> DeleteCommentAsync(string cmtId)
+        {
+           var result = await _postcmtDAO.DeletePostCommentAsync(cmtId);
+            if (result.Equals(MessageResponse.MESSAGE_DELETE_FAIL))
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_DELETE_FAIL,
+
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_SUCCESS,
+                Message = MessageResponse.MESSAGE_DELETE_SUCCESS,
+
+            };
         }
     }
 }

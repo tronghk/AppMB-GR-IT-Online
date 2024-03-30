@@ -15,6 +15,11 @@ namespace AppGrIT.Services
 
         public Task<List<PostModel>> GetListCoverPostUser(string userId);
 
+        public Task<PostModel> FindPostToIdAsync(string postId);
+        public Task<PostModel> EditPostAsync(PostModel model);
+        public Task<ResponseModel> DeletePostAsync(string postId);
+
+
 
 
     }

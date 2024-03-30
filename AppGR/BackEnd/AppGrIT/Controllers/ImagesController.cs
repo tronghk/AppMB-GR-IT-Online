@@ -52,5 +52,19 @@ namespace AppGrIT.Controllers
             });
 
         }
+        [HttpGet("/get-img-avatar-default")]
+        public async Task<IActionResult> GetAvatarDefault()
+        {
+            var result = await _imageManager.GetLinkAvatarDefault();
+            return Ok(result);
+
+        }
+        [HttpGet("/get-img-cover-default")]
+        public async Task<IActionResult> GetCoverDefault()
+        {
+            var result = await _imageManager.GetLinkCoverDefault();
+            return Ok(result);
+
+        }
     }
 }

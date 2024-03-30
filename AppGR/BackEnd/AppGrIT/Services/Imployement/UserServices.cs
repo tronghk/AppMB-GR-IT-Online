@@ -7,6 +7,7 @@ using Firebase.Auth;
 using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
 using FireSharp.Extensions;
+using Google.Api.Gax.Rest;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
@@ -20,19 +21,21 @@ namespace AppGrIT.Services.Imployement
        
       
         private readonly UsersDAO _userDao;
+        private readonly PostsDAO _postsDao;
         private readonly IRoles _roleManager;
-        private readonly IPosts _postMannager;
         private readonly IConfiguration _configuration;
         private readonly FirebaseAuthProvider _firebaseAuth;
+        private readonly ImagesDAO _imagesDao;
 
 
-        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role,IPosts post)
+        public UserServices(IConfiguration configuration, UsersDAO user, IRoles role, PostsDAO postsDao, ImagesDAO imagesDao)
         {
             _configuration = configuration;
             _userDao = user;
             _roleManager = role;
-            _postMannager = post;
             _firebaseAuth = new FirebaseAuthProvider(new FirebaseConfig(_configuration["Firebase:API_Key"]));
+            _postsDao = postsDao;
+            _imagesDao = imagesDao;
         }
 
         public async Task<ResponseModel> CreateAccount(AccountIdentity account)
@@ -329,17 +332,59 @@ namespace AppGrIT.Services.Imployement
 
         public async Task<UserModel> GetInfoUser(string userId)
         {
-            var post = await _postMannager.GetPostNewInfoUser(userId);
+            var post = await GetPostNewInfoUser(userId);
             var image = post.imagePost;
             var pathImage = image[0].ImagePath;
             var userInfo = await _userDao.GetUserInforAsync(userId);
             var user = new UserModel
             {
                 UserId = userId,
-                ImagePath =pathImage,
+                ImagePath = pathImage,
                 UserName = userInfo.LastName + userInfo.Firstname
             };
             return user;
+        }
+        private async Task<PostModel> GetPostNewInfoUser(string userId)
+        {
+            var list = await _postsDao.GetUserInstead(userId);
+
+            var idNew = list[0];
+            foreach (var post in list)
+            {
+                if (post.PostTime > idNew.PostTime)
+                {
+                    idNew = post; break;
+                }
+            }
+            var listImage = await GetImagePostToId(idNew.PostId);
+
+            return new PostModel
+            {
+                PostId = idNew.PostId,
+                Content = idNew.Content,
+                PostTime = idNew.PostTime,
+                PostType = idNew.PostType,
+                UserId = idNew.UserId!,
+                imagePost = listImage
+            };
+
+        }
+        public async Task<List<ImagePostModel>> GetImagePostToId(string postId)
+        {
+            var list = await _imagesDao.GetImagePostToId(postId);
+            var result = new List<ImagePostModel>();
+            foreach (var imagePost in list)
+            {
+                var im = new ImagePostModel
+                {
+                    ImagePath = imagePost.ImagePath,
+                    ImageContent = imagePost.ImageContent,
+                    ImageId = imagePost.PostImageId,
+
+                };
+                result.Add(im);
+            }
+            return result;
         }
     }
 }

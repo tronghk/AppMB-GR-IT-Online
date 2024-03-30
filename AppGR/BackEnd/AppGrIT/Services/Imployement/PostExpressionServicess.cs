@@ -40,5 +40,25 @@ namespace AppGrIT.Services.Imployement
         {
             return await _postExpressionDAO.GetPostIdToUserFromPostExpression(userId);
         }
+        public async Task<ExpressionModel> CreateExpressionAsync(ExpressionModel model)
+        {
+            var postCmt = new PostExpressions
+            {
+                PostId = model.PostId,
+                UserId = model.UserId,
+                Expression = model.Expression,
+
+            };
+            var result = await _postExpressionDAO.CreatePostExpressionAsync(postCmt);
+            var icon = new ExpressionModel
+            {
+                
+                UserId = result.UserId,
+                PostId = result.PostId,
+                Expression = result.Expression,
+                
+            };
+            return icon;
+        }
     }
 }

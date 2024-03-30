@@ -28,13 +28,13 @@ namespace AppGrIT.Controllers
     {
 
         private readonly IUsers _userManager;
-        private readonly IPosts _postManager;
         private readonly IToken _tokenManager;
-        public UsersController(IUsers userManager, IToken tokenManager, IPosts post)
+        private readonly IPosts _postManager;
+        public UsersController(IUsers userManager, IToken tokenManager, IPosts postManager)
         {
             _tokenManager = tokenManager;
             _userManager = userManager;
-            _postManager = post;
+            _postManager = postManager;
         }
 
         [HttpPost("/signup")]
@@ -195,6 +195,7 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> AddImageInsteadUser([FromBody]PostModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
+            model.PostType = "3";
             if (user != null )
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
@@ -227,7 +228,8 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> EditImageInsteadUser([FromBody] PostModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
-            if (user != null)
+            model.PostType = "3";
+            if (user != null && await _postManager.FindPostToIdAsync(model.PostId!) != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
@@ -259,6 +261,7 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> AddImageCoverUser([FromBody] PostModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
+            model.PostType = "2";
             if (user != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
@@ -291,7 +294,8 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> EditImageCoverUser([FromBody] PostModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
-            if (user != null)
+            model.PostType = "2";
+            if (user != null && await _postManager.FindPostToIdAsync(model.PostId) != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
@@ -324,12 +328,12 @@ namespace AppGrIT.Controllers
             var user = await _userManager.GetUserToUserId(userId!);
             if (user != null)
             {
-               
+
                 var result = await _userManager.GetInfoUser(user.UserId);
                 return Ok(result);
 
             }
-            return NotFound();
+            return NotFound("Can not find user");
         }
     }
 

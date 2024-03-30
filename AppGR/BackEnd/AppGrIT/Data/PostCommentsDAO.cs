@@ -2,6 +2,7 @@
 using FireSharp.Response;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using AppGrIT.Helper;
 
 namespace AppGrIT.Data
 {
@@ -18,10 +19,10 @@ namespace AppGrIT.Data
             List<string> postIds = new List<string>();
             FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostComments");
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
-          
-            if(jsonResponse != null)
+
+            if (jsonResponse != null)
             {
-               
+
                 foreach (var item in jsonResponse)
                 {
                     var value = item.Value!.ToString();
@@ -32,11 +33,11 @@ namespace AppGrIT.Data
                         postIds.Add(userc.PostId);
                     }
                 }
-                
-               
+
+
             }
             return postIds;
-           
+
         }
         public async Task<List<PostComments>> GetPostComment(string postId)
         {
@@ -69,14 +70,26 @@ namespace AppGrIT.Data
             {
 
                 PushResponse response = await _firebase._client.PushAsync("PostComments/", posts);
-
-                posts.PostId = response.Result.name;
-                SetResponse setResponse = await _firebase._client.SetAsync("PostComments/" + posts.PostId, posts);
+                posts.CommentId = response.Result.name;
+                SetResponse setResponse = await _firebase._client.SetAsync("PostComments/" + posts.CommentId, posts);
                 return posts;
             }
             catch (Exception ex)
             {
                 return null!;
+            }
+        }
+        public async Task<string> DeletePostCommentAsync(string cmtId)
+        {
+            try
+            {
+                await _firebase._client.DeleteAsync("PostComments/" + cmtId);
+                
+                return MessageResponse.MESSAGE_DELETE_SUCCESS.ToString();
+            }
+            catch (Exception ex)
+            {
+                return MessageResponse.MESSAGE_DELETE_FAIL.ToString();
             }
         }
     }

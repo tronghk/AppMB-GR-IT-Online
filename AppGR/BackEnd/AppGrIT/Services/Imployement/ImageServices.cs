@@ -7,6 +7,10 @@ using Firebase.Auth;
 using Firebase.Storage;
 using FirebaseAdmin.Auth;
 using FireSharp.Config;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppGrIT.Services.Imployement
 {
@@ -15,6 +19,7 @@ namespace AppGrIT.Services.Imployement
         private readonly ImagesDAO _imageDAO;
         private readonly IConfiguration _configuration;
         private readonly FirebaseAuthProvider _firebaseAuth;
+        private readonly FirebaseStorage _storage;
         private readonly string Bucket;
 
         public ImageServices(ImagesDAO image, IConfiguration configuration) {
@@ -23,6 +28,7 @@ namespace AppGrIT.Services.Imployement
             _configuration = configuration;
             _firebaseAuth = new FirebaseAuthProvider(new Firebase.Auth.FirebaseConfig(_configuration["Firebase:API_Key"]));
             Bucket = _configuration["Firebase:Storage"]!;
+            _storage= new FirebaseStorage(_configuration["Firebase:Storage"]);
         }
 
         public async Task<List<string>> AddImagesPostAsync(List<IFormFile> fileImage)    
@@ -32,7 +38,9 @@ namespace AppGrIT.Services.Imployement
             foreach (IFormFile file in fileImage)
             {
                 var fileName = file.FileName;
-                var nameStorage = "post_" + await _imageDAO.GetCountImage() + fileName.Substring(fileName.Length - 4);
+                DateTime dt = DateTime.Now; // Or whatever
+                string s = dt.ToString("yyyyMMddHHmmss");
+                string newName ="IMG-" + s + "-" + RandomChar() + fileName.Substring(fileName.Length-4);
                 FileStream stream;
                 if (fileName.Length > 0)
                 {
@@ -44,7 +52,7 @@ namespace AppGrIT.Services.Imployement
                         await file.CopyToAsync(st);
                     }
                     stream = new FileStream(Path.Combine(path), FileMode.Open);
-                    var link = await Upload(stream, nameStorage);
+                    var link = await Upload(stream, newName);
                     if (link != null)
                     {
                         if (File.Exists(path))
@@ -60,6 +68,13 @@ namespace AppGrIT.Services.Imployement
                 }
             }
             return listLink;
+        }
+        public static string RandomChar()
+        {
+            Random random = new Random();
+            const string chars = "TeamITNeverDie";
+            return new string(Enumerable.Repeat(chars, 6)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
         public async Task<string> Upload(FileStream stream, string fileName)
         {
@@ -115,6 +130,49 @@ namespace AppGrIT.Services.Imployement
                 result.Add(im);
             }
             return result;
+        }
+        public async Task<string> GetLinkAvatarDefault()
+        {
+            
+            var starsRef = _storage.Child("IMG_Default").Child("sbcf-default-avatar.png");
+            string link = await starsRef.GetDownloadUrlAsync();
+            return link;
+        }
+        public async Task<string> GetLinkCoverDefault()
+        {
+           
+            var starsRef = _storage.Child("IMG_Default").Child("cover_default.jpg");
+            string link = await starsRef.GetDownloadUrlAsync();
+            return link;
+        }
+        public async Task<string> DeleteFileStorageToPath(string url)
+        {
+            try
+            {
+                var filename = System.IO.Path.GetFileName(url).ToString();
+            int start = filename.IndexOf("IMG-");
+            int end = filename.IndexOf("?");
+            filename = filename.Substring(start,end-start);
+           
+
+            var loginInfo = await _firebaseAuth.SignInWithEmailAndPasswordAsync("user@example.com", "string");
+            var storage = new FirebaseStorage(Bucket, new FirebaseStorageOptions
+            {
+                AuthTokenAsyncFactory = () => Task.FromResult(loginInfo.FirebaseToken),
+                ThrowOnCancel = false
+            });
+
+                
+                
+                await storage.Child("images").Child(filename).DeleteAsync();
+                return MessageResponse.MESSAGE_DELETE_SUCCESS;
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                return MessageResponse.MESSAGE_DELETE_FAIL;
+            }
+
         }
     }
 }

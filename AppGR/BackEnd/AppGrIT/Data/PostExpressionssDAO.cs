@@ -88,6 +88,19 @@ namespace AppGrIT.Data
             return postIds;
 
         }
+        public async Task<PostExpressions> CreatePostExpressionAsync(PostExpressions posts)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("PostExpressions/", posts);
+                return posts;
+            }
+            catch (Exception ex)
+            {
+                return null!;
+            }
+        }
 
     }
 }

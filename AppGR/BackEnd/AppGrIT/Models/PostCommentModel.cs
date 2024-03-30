@@ -10,16 +10,8 @@ namespace AppGrIT.Models
         [Required]
         public string UserId
 
-        { get; set; } = null!;
-
-        public string UserImage
-        { get; set; }
-
-        public string UserName
-        { get; set; }
-
-        [Required]
-        public string CommentId { get; set; }
+        { get; set; } = null!;  
+        public string? CommentId { get; set; }
         [Required]
         public string Content
 
@@ -28,5 +20,6 @@ namespace AppGrIT.Models
         public DateTime CommentTime
 
         { get; set; }
+       
     }
 }

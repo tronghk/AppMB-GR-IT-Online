@@ -19,15 +19,14 @@ namespace AppGrIT.Controllers
 
         private readonly IPostComments _postCommentManager;
         private readonly IUsers _userManager;
-        private readonly IPosts _postManager;
+        
         private readonly IToken _tokenManager;
 
-        public PostCommentController(IPostComments comment, IUsers userManager, IToken tokenManager, IPosts post)
+        public PostCommentController(IPostComments comment, IUsers userManager, IToken tokenManager)
         {
             _postCommentManager = comment;
             _tokenManager = tokenManager;
             _userManager = userManager;
-            _postManager = post;
         }
         [HttpGet("/get-post-comment")]
         public async Task<IActionResult> GetListCoverUser(string postId)
@@ -67,7 +66,35 @@ namespace AppGrIT.Controllers
                     }
                 }
                 return Unauthorized();
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpDelete("/delete-comment-post")]
+        public async Task<IActionResult> DeletePostCommentUser(string commentId, string userId, string postId)
+        {
+            var user = await _userManager.GetUserToUserId(userId);
+            var cmt = await _postCommentManager.CheckCommentDupUser(postId,commentId,userId);
+            if (user != null && cmt)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    
+                    var result = await _postCommentManager.DeleteCommentAsync(commentId);
 
+                    if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(result);
+                    }
+                }
+                return Unauthorized();
             }
             return NotFound();
         }
