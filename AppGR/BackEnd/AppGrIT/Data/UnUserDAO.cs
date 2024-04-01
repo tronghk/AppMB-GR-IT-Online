@@ -37,6 +37,28 @@ namespace AppGrIT.Data
 
             return count;
         }
+        public async Task<List<UnUser>> GetListUnUser(string userId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UnUser");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            List<UnUser> list = new List<UnUser>();
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UnUser>(value);
+                    if (userc.UserId.Equals(userId))
+                    {
+                        list.Add(userc);
+                    }
+                }
+            }
+            return list;
+
+        }
 
     }
 }

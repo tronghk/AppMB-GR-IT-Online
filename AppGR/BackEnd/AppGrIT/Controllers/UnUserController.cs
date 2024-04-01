@@ -34,5 +34,17 @@ namespace AppGrIT.Controllers
             }
             return Ok(count);
         }
+        [HttpGet("/get-listUnUser")]
+        public async Task<IActionResult> GetListUnUser(string userId)
+        {
+            var user = await _unUserManager.GetListUnUser(userId!);
+
+            if (user != null)
+            {
+                var result = await _unUserManager.GetListUnUser(userId);
+                return Ok(result);
+            }
+            return NotFound();
+        }
     }
 }

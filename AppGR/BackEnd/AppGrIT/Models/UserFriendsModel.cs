@@ -13,5 +13,6 @@ namespace AppGrIT.Models
         [Required]
         public string FriendShipTime 
         { get; internal set; } = null!;
+        public string UnUserId { get; internal set; }
     }
 }
