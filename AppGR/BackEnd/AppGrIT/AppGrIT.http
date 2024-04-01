@@ -1,0 +1,6 @@
+@AppGrIT_HostAddress = https://localhost:7003
+
+GET {{AppGrIT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
