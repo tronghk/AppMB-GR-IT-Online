@@ -17,8 +17,10 @@ namespace AppGrIT.Services
         public Task<List<PostModel>> GetListCoverPostUser(string userId);
 
         public Task<PostModel> FindPostToIdAsync(string postId);
+        public Task<PostSellProductModel> FindPostSellToIdAsync(string postSellId);
         public Task<PostModel> EditPostAsync(PostModel model);
         public Task<ResponseModel> DeletePostAsync(string postId);
+        public Task<ResponseModel> DeletePostSellAsync(string postId);
 
         public Task<SharePostModel> SharePost(SharePostModel model);
         public Task<SharePostModel> GetPostShare(string postId, string userId);
@@ -28,6 +30,9 @@ namespace AppGrIT.Services
 
 
 
+        public Task<ResponseModel> HiddenPost(string userId, string postId);
 
+        public Task<PostSellProductModel> CreatePostSellAsync(PostSellProductModel model);
+        public Task<PostSellProductModel> EditPostSellAsync(PostSellProductModel model);
     }
 }

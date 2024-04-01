@@ -4,6 +4,7 @@ using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 using System.Reflection;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -256,19 +257,22 @@ namespace AppGrIT.Services.Imployement
             List<PostModel> list = new List<PostModel>();
             foreach (var post in result)
             {
+                if(!await _postDAO.CheckPostHidden(post.PostId,userId))
 
-                var p = new PostModel
                 {
-                    PostId = post.PostId,
-                    Content = post.Content,
-                    PostTime = post.PostTime,
-                    PostType = post.PostType,
-                    UserId = post.UserId!,
-                };
+                    var p = new PostModel
+                    {
+                        PostId = post.PostId,
+                        Content = post.Content,
+                        PostTime = post.PostTime,
+                        PostType = post.PostType,
+                        UserId = post.UserId!,
+                    };
 
-                var listImage = await _imageManager.GetImagePostToId(p.PostId);
-                p.imagePost = listImage;
-                list.Add(p);
+                    var listImage = await _imageManager.GetImagePostToId(p.PostId);
+                    p.imagePost = listImage;
+                    list.Add(p);
+                }
             }
             return list;
         }
@@ -461,6 +465,201 @@ namespace AppGrIT.Services.Imployement
                 listModel.Add(postModel);
             }
             return listModel;
+        }
+
+        public async Task<ResponseModel> HiddenPost(string userId, string postId)
+        {
+            var post = new PostHidden
+            {
+                UserId = userId,
+                PostId = postId
+            };
+            var reult = await _postDAO.HiddenPost(post);
+            if (reult.Equals(StatusResponse.STATUS_SUCCESS))
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = MessageResponse.MESSAGE_CREATE_SUCCESS
+                };
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_CREATE_FAIL
+            };
+        }
+
+        public async Task<PostSellProductModel> CreatePostSellAsync(PostSellProductModel model)
+        {
+            var post = new PostSellProduct
+            {
+                UserId = model.UserId!,
+                Content = model.Content!,
+                PostTime = model.PostTime,
+                Price = model.Price,
+                ProductName = model.ProductName,
+               
+            };
+            var p = await _postDAO.CreatePostSellAsync(post);
+            if (p == null)
+                return null!;
+            var list = model.imagePosts;
+            List<ImagePostModel> images = new List<ImagePostModel>();
+            foreach (var image in list)
+            {
+                var imageP = await _imageManager.CreateImagePost(image, p.PostSellProductId);
+                var im = new ImagePostModel
+                {
+                    ImagePath = imageP.ImagePath,
+                    ImageContent = imageP.ImageContent,
+                    ImageId = imageP.PostImageId,
+
+                };
+                images.Add(im);
+            }
+
+            var postModel = new PostSellProductModel
+            {
+                PostSellProductId = p.PostSellProductId,
+                UserId = p.UserId!,
+                Content = p.Content!,
+                PostTime = p.PostTime,
+                imagePosts = images,
+                ProductName = p.ProductName,
+            };
+
+            return postModel;
+        }
+
+        public async Task<PostSellProductModel> EditPostSellAsync(PostSellProductModel model)
+        {
+            var post = new PostSellProduct
+            {
+                PostSellProductId = model.PostSellProductId!,
+                UserId = model.UserId!,
+                Content = model.Content!,
+                PostTime = model.PostTime,
+                ProductName = model.ProductName
+                ,
+                Price = model.Price
+            };
+            var p = await _postDAO.EditPostSellAsync(post);
+            var postModel = new PostSellProductModel
+            {
+                PostSellProductId = p.PostSellProductId,
+                UserId = p.UserId!,
+                Content = p.Content!,
+                PostTime = p.PostTime,
+                Price = p.Price,
+                ProductName = p.ProductName
+
+            };
+            var image = model.imagePosts;
+            var listPost = await _imageManager.GetImagePostToId(model.PostSellProductId);
+            foreach (var imagePost in listPost)
+            {
+                var result = CheckImageExsist(imagePost, listPost);
+                if (result != null)
+                {
+                    if (!CheckImageContentDup(result, imagePost))
+                    {
+                        // khác content
+                        var postImage = new PostImages
+                        {
+                            PostImageId = result.ImageId!,
+                            ImageContent = imagePost.ImageContent!,
+                            ImagePath = result.ImagePath!,
+                            PostId = model.PostSellProductId!
+                        };
+                        await _imageDAO.UpdateImageAsync(postImage);
+                    }
+                    if (!CheckImagePathDup(result, imagePost))
+                    {
+                        // xóa hình trong storage
+                        await _imageManager.DeleteFileStorageToPath(result.ImagePath!);
+
+                        // cập nhật path mới
+                        var postImage = new PostImages
+                        {
+                            PostImageId = result.ImageId!,
+                            ImageContent = result.ImageContent!,
+                            ImagePath = imagePost.ImagePath!,
+                            PostId = model.PostSellProductId!
+                        };
+                        await _imageDAO.UpdateImageAsync(postImage);
+                    }
+                    // xóa khỏi danh sách chờ
+                    int index = FindIndexImageInList(result.ImageId!, listPost);
+                    listPost.RemoveAt(index);
+                }
+                else
+                {
+                    // tạo mới hình ảnh
+                    var postImage = new PostImages
+                    {
+                        ImageContent = imagePost.ImageContent!,
+                        ImagePath = imagePost.ImagePath!,
+                        PostId = model.PostSellProductId!
+                    };
+                    await _imageDAO.CreateImageAsync(postImage);
+                }
+            }
+            foreach (var value in listPost)
+            {
+                // xóa hình trong storage
+                await _imageManager.DeleteFileStorageToPath(value.ImagePath!);
+                // xóa db
+                await _imageDAO.DeleteImagePost(value.ImageId!);
+            }
+            var images = await _imageManager.GetImagePostToId(model.PostSellProductId);
+            postModel.imagePosts = images;
+            return postModel;
+        }
+
+        public async Task<PostSellProductModel> FindPostSellToIdAsync(string postSellId)
+        {
+            var idNew = await _postDAO.GetPostsSell(postSellId);
+            if (idNew == null)
+                return null;
+            var listImage = await _imageManager.GetImagePostToId(idNew.PostSellProductId);
+            var postModel = new PostSellProductModel
+            {
+                PostSellProductId = idNew.PostSellProductId,
+                Content = idNew.Content,
+                PostTime = idNew.PostTime,
+                ProductName = idNew.ProductName,
+                UserId = idNew.UserId!,
+                imagePosts = listImage
+            };
+            return postModel;
+        }
+
+        public async Task<ResponseModel> DeletePostSellAsync(string postId)
+        {
+            var listPost = await _imageManager.GetImagePostToId(postId);
+
+
+            // xóa những image cũ còn tồn tại trong db
+            foreach (var value in listPost)
+            {
+                // xóa hình trong storage
+                await _imageManager.DeleteFileStorageToPath(value.ImagePath!);
+                // xóa db
+                await _imageDAO.DeleteImagePost(value.ImageId!);
+            }
+            var result = await _postDAO.DeletePostSell(postId);
+            if (result.Equals(MessageResponse.MESSAGE_DELETE_SUCCESS))
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = result
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = result
+            };
         }
     }
 }

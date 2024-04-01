@@ -13,6 +13,11 @@ namespace AppGrIT.Models
         public string? Content
 
         { get; set; }
+        public string ProductName { get; set; }
+        [Required]
+        public List<ImagePostModel>? imagePosts { get; set; }
+        [Required]
+        public DateTime PostTime { get; set; }
         [Required]
         public float Price
 

@@ -32,6 +32,23 @@ namespace AppGrIT.Data
             {
                 return null!;
             }
+
+        }
+        public async Task<PostSellProduct> CreatePostSellAsync(PostSellProduct posts)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("PostSellProduct/", posts);
+
+                posts.PostSellProductId = response.Result.name;
+                SetResponse setResponse = await _firebase._client.SetAsync("PostSellProduct/" + posts.PostSellProductId, posts);
+                return posts;
+            }
+            catch (Exception ex)
+            {
+                return null!;
+            }
         }
         public async Task<PostShares> CreatePostShareAsync(PostShares posts)
         {
@@ -97,6 +114,18 @@ namespace AppGrIT.Data
             try
             {
                 SetResponse setResponse = await _firebase._client.SetAsync("Posts/" + posts.PostId + "/Content", posts.Content);
+                return posts;
+            }
+            catch (Exception ex)
+            {
+                return null!;
+            }
+        }
+        public async Task<PostSellProduct> EditPostSellAsync(PostSellProduct posts)
+        {
+            try
+            {
+                SetResponse setResponse = await _firebase._client.SetAsync("PostSellProduct/" + posts.PostSellProductId, posts);
                 return posts;
             }
             catch (Exception ex)
@@ -288,11 +317,50 @@ namespace AppGrIT.Data
             }
             return null;
         }
+        public async Task<PostSellProduct> GetPostsSell(string postId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostSellProduct");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+
+            if (jsonResponse != null)
+            {
+                // lọc bài viết mới
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var post = JsonConvert.DeserializeObject<PostSellProduct>(value);
+                    if (post!.PostSellProductId.Equals(postId))
+                    { return post; }
+
+                }
+
+
+
+            }
+            return null;
+        }
         public async Task<string> DeletePost(string postId)
         {
             try
             {
                 await _firebase._client.DeleteAsync("Posts/" + postId);
+                return MessageResponse.MESSAGE_DELETE_SUCCESS;
+            }
+            catch
+            {
+                return MessageResponse.MESSAGE_DELETE_FAIL;
+            }
+
+
+        }
+        public async Task<string> DeletePostSell(string postId)
+        {
+            try
+            {
+                await _firebase._client.DeleteAsync("PostSellProduct/" + postId);
                 return MessageResponse.MESSAGE_DELETE_SUCCESS;
             }
             catch
@@ -334,6 +402,53 @@ namespace AppGrIT.Data
                 return StatusResponse.STATUS_ERROR;
             }
             return StatusResponse.STATUS_ERROR;
+        }
+        public async Task<string> HiddenPost(PostHidden post)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("PostHidden", post);
+                return StatusResponse.STATUS_SUCCESS;
+            }
+            catch (Exception ex)
+            {
+                return StatusResponse.STATUS_ERROR;
+            }
+        }
+        public async Task<List<PostHidden>> GetHiddenPost(string userId)
+        {
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostHidden");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            List<PostHidden> list = new List<PostHidden>();
+            if (jsonResponse != null)
+            {
+
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<PostHidden>(value);
+                    if (userc.UserId.Equals(userId))
+                    {
+                        list.Add(userc);
+                    }
+                }
+
+
+
+            }
+            return list;
+        }
+        public async Task<bool> CheckPostHidden(string postId, string userId)
+        {
+            var list = await GetHiddenPost(userId);
+            foreach(var item in list) 
+            {
+                if(item.PostId.Equals(postId))
+                    return true;
+            }
+            return false;
         }
     }
 }
