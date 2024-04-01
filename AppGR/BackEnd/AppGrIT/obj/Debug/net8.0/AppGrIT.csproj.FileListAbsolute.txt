@@ -122,3 +122,127 @@ D:\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\refint\AppGrIT.dll
 D:\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.pdb
 D:\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.genruntimeconfig.cache
 D:\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\ref\AppGrIT.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\appsettings.Development.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\appsettings.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\firebase-config.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.exe
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.deps.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.runtimeconfig.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.pdb
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\FirebaseAdmin.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Firebase.Auth.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Firebase.Storage.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\FireSharp.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Api.Gax.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Auth.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Core.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.Extensions.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Extensions.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Primitives.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.csproj.AssemblyReference.cache
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.GeneratedMSBuildEditorConfig.editorconfig
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.AssemblyInfoInputs.cache
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.AssemblyInfo.cs
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.csproj.CoreCompileInputs.cache
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.MvcApplicationPartsAssemblyInfo.cs
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.MvcApplicationPartsAssemblyInfo.cache
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.sourcelink.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets.build.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets.development.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.AppGrIT.Microsoft.AspNetCore.StaticWebAssets.props
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.build.AppGrIT.props
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.AppGrIT.props
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.AppGrIT.props
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets.pack.json
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\scopedcss\bundle\AppGrIT.styles.css
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.csproj.Up2Date
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\refint\AppGrIT.dll
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.pdb
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.genruntimeconfig.cache
+D:\New folder\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\ref\AppGrIT.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\appsettings.Development.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\appsettings.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\firebase-config.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.exe
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.deps.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.runtimeconfig.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\AppGrIT.pdb
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\FirebaseAdmin.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Firebase.Auth.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Firebase.Storage.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\FireSharp.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Api.Gax.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Auth.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Google.Apis.Core.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.Extensions.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Threading.Tasks.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Extensions.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.Net.Http.Primitives.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.csproj.AssemblyReference.cache
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.GeneratedMSBuildEditorConfig.editorconfig
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.AssemblyInfoInputs.cache
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.AssemblyInfo.cs
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.csproj.CoreCompileInputs.cache
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.MvcApplicationPartsAssemblyInfo.cs
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.MvcApplicationPartsAssemblyInfo.cache
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.sourcelink.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets.build.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets.development.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.AppGrIT.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.build.AppGrIT.props
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.AppGrIT.props
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.AppGrIT.props
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\scopedcss\bundle\AppGrIT.styles.css
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.csproj.Up2Date
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\refint\AppGrIT.dll
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.pdb
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\AppGrIT.genruntimeconfig.cache
+D:\Android\AppMB-GR-IT-Online\AppGR\BackEnd\AppGrIT\obj\Debug\net8.0\ref\AppGrIT.dll

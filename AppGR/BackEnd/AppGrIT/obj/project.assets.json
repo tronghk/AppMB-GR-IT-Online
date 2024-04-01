@@ -6216,11 +6216,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+      "projectUniqueName": "D:\\Android\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
       "projectName": "AppGrIT",
-      "projectPath": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+      "projectPath": "D:\\Android\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
       "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\obj\\",
+      "outputPath": "D:\\Android\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",

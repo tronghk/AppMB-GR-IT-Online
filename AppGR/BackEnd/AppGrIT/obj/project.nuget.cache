@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i+fZS25v1Uz/z1H/a8V5HB/soytIoPx4aOkzX35xjSobJHwuElzZ6hWcW3VEotDdMx8jjJ6h0gyZtk4Qqcx5aw==",
+  "dgSpecHash": "E4AKa0OmQMtrVxQmolltJdk6ozLWt63T21NXwA/+tc2xgRcagP4Q+qQqp44gJQ4thevYnJ7AMswM1hPZXMyamw==",
   "success": true,
-  "projectFilePath": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+  "projectFilePath": "D:\\Android\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hoang\\.nuget\\packages\\firebaseadmin\\2.4.0\\firebaseadmin.2.4.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
