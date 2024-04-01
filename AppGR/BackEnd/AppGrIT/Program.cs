@@ -76,7 +76,7 @@ builder.Services.AddCors(options =>
             }
         );
 });
-builder.WebHost.UseUrls("www.AppGRIT.somee.com");
+//builder.WebHost.UseUrls("www.AppGRIT.somee.com");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
