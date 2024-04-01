@@ -54,7 +54,7 @@ namespace AppGrIT.Services.Imployement
                     CommentTime = item.CommentTime,
                     Content = item.Content
                 };
-                var user = await _userManager.GetInfoUser(item.UserId);
+               
                 list.Add(icon);
             }
             return list;
@@ -93,6 +93,26 @@ namespace AppGrIT.Services.Imployement
                 Message = MessageResponse.MESSAGE_DELETE_SUCCESS,
 
             };
+        }
+
+        public async Task<PostCommentModel> GetCommentAsync(string postId, string cmtId)
+        {
+            var result = await _postcmtDAO.GetPostComment(postId,cmtId);
+            if(result!= null)
+            {
+                var icon = new PostCommentModel
+                {
+                    UserId = result.UserId,
+                    PostId = postId,
+                    CommentTime = result.CommentTime,
+                    Content = result.Content
+                };
+
+                return icon;
+
+            }
+            return null!;
+               
         }
     }
 }

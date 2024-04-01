@@ -3,6 +3,8 @@ using AppGrIT.Entity;
 using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
+using Microsoft.Extensions.Hosting;
+using System.Reflection;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AppGrIT.Services.Imployement
@@ -270,6 +272,30 @@ namespace AppGrIT.Services.Imployement
             }
             return list;
         }
+
+        public async Task<List<PostModel>> GetListPostSelfUser(string userId)
+        {
+          
+            var result = await _postDAO.GetPostsSelfAsync(userId);
+            List<PostModel> list = new List<PostModel>();
+            foreach (var post in result)
+            {
+
+                var p = new PostModel
+                {
+                    PostId = post.PostId,
+                    Content = post.Content,
+                    PostTime = post.PostTime,
+                    PostType = post.PostType,
+                    UserId = post.UserId!,
+                };
+
+                var listImage = await _imageManager.GetImagePostToId(p.PostId);
+                p.imagePost = listImage;
+                list.Add(p);
+            }
+            return list;
+        }
         public async Task<List<PostModel>> GetListAvatarPostUser(string userId)
         {
             var result = await _postDAO.GetPostsAvatarAsync(userId);
@@ -360,6 +386,81 @@ namespace AppGrIT.Services.Imployement
                 imagePost = listImage
             };
             return postModel;
+        }
+
+        public async Task<SharePostModel> SharePost(SharePostModel model)
+        {
+            PostShares post = new PostShares
+            {
+                PostId = model.PostId,
+                UserId = model.UserId,
+                ContentShare = model.Content,
+                TimeShare = model.TimeShare
+            };
+            var result = await _postDAO.CreatePostShareAsync(post);
+            if (result != null)
+                return model;
+            return null;
+        }
+
+        public async Task<SharePostModel> GetPostShare(string postId, string userId)
+        {
+            PostShares post = await _postDAO.GetPostShare(postId, userId);
+            if(post!= null)
+            {
+                var postModel = new SharePostModel
+                {
+                    PostId = post.PostId,
+                    UserId = post.UserId,
+                    Content = post.ContentShare,
+                    TimeShare = post.TimeShare
+                };
+                return postModel;
+            }
+            return null!;
+        }
+
+        public async Task<ResponseModel> DeleteSharePostAsync(SharePostModel model)
+        {
+            var posts = new PostShares
+            {
+                PostId = model.PostId,
+                UserId = model.UserId,
+                ContentShare = model.Content,
+                TimeShare = model.TimeShare
+            };
+           var result = await _postDAO.DeleteSharePostAsync(posts);
+            if (result.Equals(StatusResponse.STATUS_SUCCESS))
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = MessageResponse.MESSAGE_DELETE_SUCCESS
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_DELETE_FAIL
+            };
+        }
+
+        public async Task<List<SharePostModel>> GetListPostShared(string userId)
+        {
+            var list = await _postDAO.GetListPostShare(userId);
+            var listModel = new List<SharePostModel>();
+            foreach(var post in list)
+            {
+                var postModel = new SharePostModel
+                {
+                    PostId = post.PostId,
+                    UserId = post.UserId,
+                    Content = post.ContentShare,
+                    TimeShare = post.TimeShare
+                };
+                listModel.Add(postModel);
+            }
+            return listModel;
         }
     }
 }

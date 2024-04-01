@@ -5,6 +5,7 @@ using AppGrIT.Services.Imployement;
 using FirebaseAdmin;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -47,6 +48,7 @@ builder.Services.AddAuthentication(options =>
             .GetBytes(builder.Configuration["JWT:Secret"]!))
         };
     });
+
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddScoped<ConnectFirebase>();
 builder.Services.AddScoped<UsersDAO>();
@@ -74,6 +76,7 @@ builder.Services.AddCors(options =>
             }
         );
 });
+builder.WebHost.UseUrls("www.AppGRIT.somee.com");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -91,6 +94,4 @@ app.MapControllers();
 //thêm dòng này để truyền json thành công
 app.UseCors();
 // sử dụng wwwroot
-app.UseStaticFiles();
-
 app.Run();

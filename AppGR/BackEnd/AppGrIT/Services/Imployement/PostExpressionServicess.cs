@@ -1,5 +1,7 @@
 ﻿using AppGrIT.Data;
 using AppGrIT.Entity;
+using AppGrIT.Helper;
+using AppGrIT.Model;
 using AppGrIT.Models;
 
 namespace AppGrIT.Services.Imployement
@@ -49,16 +51,94 @@ namespace AppGrIT.Services.Imployement
                 Expression = model.Expression,
 
             };
-            var result = await _postExpressionDAO.CreatePostExpressionAsync(postCmt);
-            var icon = new ExpressionModel
+            if (model.Type.Equals("1"))
             {
-                
-                UserId = result.UserId,
-                PostId = result.PostId,
-                Expression = result.Expression,
-                
+                var result = await _postExpressionDAO.CreatePostExpressionAsync(postCmt);
+                var icon = new ExpressionModel
+                {
+
+                    UserId = result.UserId,
+                    PostId = result.PostId,
+                    Expression = result.Expression,
+                    Type = "1"
+                };
+                return icon;
+            }
+            else
+            {
+                var expressionCmt = new CommentExpressions
+                {
+                    PostId = model.PostId,
+                    UserId = model.UserId,
+                    CommentId = model.CommentId!,
+                    Expression = model.Expression,
+
+                };
+                var result = await _postExpressionDAO.CreatePostCommentExpressionAsync(expressionCmt);
+                var icon = new ExpressionModel
+                {
+
+                    UserId = result.UserId,
+                    PostId = result.PostId,
+                    CommentId = result.CommentId!,
+                    Expression = result.Expression,
+                    Type = "2"
+                };
+                return icon;
+
+            }
+        
+            
+           
+        }
+
+        public async Task<ResponseModel> DeleteExpressionAsync(ExpressionModel model)
+        {
+            var postCmt = new PostExpressions
+            {
+                PostId = model.PostId,
+                UserId = model.UserId,
+                Expression = model.Expression,
+
             };
-            return icon;
+            if (model.Type.Equals("1"))
+            {
+                var result = await _postExpressionDAO.DeletePostExpressionAsync(postCmt);
+                if (result.Equals(StatusResponse.STATUS_SUCCESS))
+                {
+                    return new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_SUCCESS,
+                        Message = MessageResponse.MESSAGE_DELETE_SUCCESS,
+                    };
+                }
+            }
+            else
+            {
+                var expressionCmt = new CommentExpressions
+                {
+                    PostId = model.PostId,
+                    UserId = model.UserId,
+                    CommentId = model.CommentId!,
+                    Expression = model.Expression,
+
+                };
+                var result = await _postExpressionDAO.DeletePostCommentExpressionAsync(expressionCmt);
+                if (result.Equals(StatusResponse.STATUS_SUCCESS))
+                {
+                    return new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_SUCCESS,
+                        Message = MessageResponse.MESSAGE_DELETE_SUCCESS,
+                    };
+                }
+
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_DELETE_FAIL,
+            };
         }
     }
 }

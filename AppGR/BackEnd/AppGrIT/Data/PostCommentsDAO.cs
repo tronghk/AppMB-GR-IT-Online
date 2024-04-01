@@ -64,6 +64,31 @@ namespace AppGrIT.Data
             return postIds;
 
         }
+        public async Task<PostComments> GetPostComment(string postId, string cmtId)
+        {
+           
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostComments");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+            if (jsonResponse != null)
+            {
+
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<PostComments>(value);
+                    if (userc!.PostId.Equals(postId) && userc.CommentId.Equals(cmtId))
+                    {
+                        return userc;
+                    }
+                }
+
+
+            }
+            return null!;
+
+        }
         public async Task<PostComments> CreatePostCommentAsync(PostComments posts)
         {
             try

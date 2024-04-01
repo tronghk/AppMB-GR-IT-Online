@@ -19,14 +19,15 @@ namespace AppGrIT.Controllers
 
         private readonly IPostComments _postCommentManager;
         private readonly IUsers _userManager;
-        
+        private readonly IPosts _postManager;
         private readonly IToken _tokenManager;
 
-        public PostCommentController(IPostComments comment, IUsers userManager, IToken tokenManager)
+        public PostCommentController(IPostComments comment, IUsers userManager, IToken tokenManager, IPosts postManager)
         {
             _postCommentManager = comment;
             _tokenManager = tokenManager;
             _userManager = userManager;
+            _postManager = postManager;
         }
         [HttpGet("/get-post-comment")]
         public async Task<IActionResult> GetListCoverUser(string postId)
@@ -43,7 +44,8 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> AddPostCommentUser([FromBody] PostCommentModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
-            if (user != null)
+            var post = await _postManager.FindPostToIdAsync(model.PostId);
+            if (user != null && post != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;

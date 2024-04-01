@@ -10,6 +10,7 @@ using FireSharp.Config;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppGrIT.Services.Imployement
@@ -21,14 +22,15 @@ namespace AppGrIT.Services.Imployement
         private readonly FirebaseAuthProvider _firebaseAuth;
         private readonly FirebaseStorage _storage;
         private readonly string Bucket;
-
-        public ImageServices(ImagesDAO image, IConfiguration configuration) {
+        private IWebHostEnvironment _environment;
+        public ImageServices(ImagesDAO image, IConfiguration configuration, IWebHostEnvironment Environment) {
         
             _imageDAO = image;
             _configuration = configuration;
             _firebaseAuth = new FirebaseAuthProvider(new Firebase.Auth.FirebaseConfig(_configuration["Firebase:API_Key"]));
             Bucket = _configuration["Firebase:Storage"]!;
             _storage= new FirebaseStorage(_configuration["Firebase:Storage"]);
+            _environment = Environment;
         }
 
         public async Task<List<string>> AddImagesPostAsync(List<IFormFile> fileImage)    
@@ -44,8 +46,8 @@ namespace AppGrIT.Services.Imployement
                 FileStream stream;
                 if (fileName.Length > 0)
                 {
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", fileName);
-
+                    
+                    string path = Path.Combine(_environment.ContentRootPath, "StatisFileTesting","Images",fileName);
 
                     using (var st = System.IO.File.Create(path))
                     {

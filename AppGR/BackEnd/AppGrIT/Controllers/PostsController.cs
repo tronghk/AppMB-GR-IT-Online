@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using Microsoft.AspNetCore.Components;
 using AppGrIT.Models;
+using Firebase.Auth;
 
 namespace AppGrIT.Controllers
 {
@@ -47,6 +48,24 @@ namespace AppGrIT.Controllers
                 }
                 return Unauthorized();
 
+            }
+            return NotFound();
+        }
+        [HttpGet("/get-post-self")]
+       
+        public async Task<IActionResult> GetPostSelfUser(string userId)
+        {
+            
+              var result = await _postManager.GetListPostSelfUser(userId);
+               return Ok(result);
+        }
+        [HttpGet("/get-one-post")]
+        public async Task<IActionResult> GetPostFromPostId(string postId)
+        {
+            var post = await _postManager.FindPostToIdAsync(postId);
+            if(post != null && post.PostType!.Equals("1"))
+            {
+                return Ok(post);
             }
             return NotFound();
         }
@@ -186,6 +205,120 @@ namespace AppGrIT.Controllers
                     else
                     {
                         BadRequest(result);
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [HttpPost("/share-post")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> SharePost(SharePostModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId);
+            var post = await _postManager.FindPostToIdAsync(model.PostId);
+            var postShare =  await _postManager.GetPostShare(model.PostId, model.UserId);
+            if (user != null && post != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    if(postShare != null)
+                    {
+                        return BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = "Can not share post because post was shared"
+                        });
+                    }
+
+                    var result = await _postManager.SharePost(model);
+
+                    if (result != null)
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = "Can not shared"
+                        });
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [HttpPost("/delete-share-post")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> DeleteSharePost(SharePostModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId);
+            var post = await _postManager.FindPostToIdAsync(model.PostId);
+            var postShare = await _postManager.GetPostShare(model.PostId, model.UserId);
+            if (user != null && post != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    if (postShare == null)
+                    {
+                        return BadRequest(new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_ERROR,
+                            Message = "Can not delete because post wasn't able share"
+                        });
+                    }
+
+                    var result = await _postManager.DeleteSharePostAsync(model);
+
+                    if (result.Status.Equals(StatusResponse.STATUS_SUCCESS))
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(result);
+                    }
+                }
+                return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [HttpGet("/get-share-post")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> GetSharePost(string userId)
+        {
+            var user = await _userManager.GetUserToUserId(userId);
+           
+           
+            if (user != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    
+
+                    var result = await _postManager.GetListPostShared(userId);
+
+                    if (result.Count>0)
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        NotFound();
                     }
                 }
                 return Unauthorized();

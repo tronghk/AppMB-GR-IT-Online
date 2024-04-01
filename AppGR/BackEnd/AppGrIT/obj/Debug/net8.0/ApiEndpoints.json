@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.ExpressionController",
+    "Method": "AddPostCommentUser",
+    "RelativePath": "add-expression-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.ExpressionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "AddImageCoverUser",
     "RelativePath": "add-image-cover-user",
@@ -115,7 +131,7 @@
     "ContainingType": "AppGrIT.Controllers.PostCommentController",
     "Method": "DeletePostCommentUser",
     "RelativePath": "delete-comment-post",
-    "HttpMethod": "POST",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -138,6 +154,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.ExpressionController",
+    "Method": "DeletePostCommentUser",
+    "RelativePath": "delete-expression-post",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.ExpressionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.PostsController",
     "Method": "DeletePost",
     "RelativePath": "delete-post",
@@ -154,6 +186,22 @@
         "Name": "userId",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "DeleteSharePost",
+    "RelativePath": "delete-share-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.SharePostModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -276,6 +324,22 @@
   },
   {
     "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "GetPostFromPostId",
+    "RelativePath": "get-one-post",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
     "Method": "GetPostUser",
     "RelativePath": "get-post",
     "HttpMethod": "GET",
@@ -316,6 +380,38 @@
     "Parameters": [
       {
         "Name": "postId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "GetPostSelfUser",
+    "RelativePath": "get-post-self",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "GetSharePost",
+    "RelativePath": "get-share-post",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -382,6 +478,22 @@
         "Name": "email",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "SharePost",
+    "RelativePath": "share-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.SharePostModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -12,6 +12,8 @@ namespace AppGrIT.Models
         [Required]
         public int Expression
         { get; set; }
+        public string ? CommentId
+        { get; set; }
 
         [Required]
         public string Type
