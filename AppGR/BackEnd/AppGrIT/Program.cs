@@ -60,6 +60,7 @@ builder.Services.AddScoped<PostCommentsDAO>();
 builder.Services.AddScoped<PostExpressionssDAO>();
 builder.Services.AddScoped<UserFollowsDAO>();
 builder.Services.AddScoped<UserFriendsDAO>();
+builder.Services.AddScoped<UnUserDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
@@ -69,6 +70,7 @@ builder.Services.AddScoped<IPostComments, PostCommentServices>();
 builder.Services.AddScoped<IPostExpressionss, PostExpressionServicess>();
 builder.Services.AddScoped<IUserFollows, UserFollowsServices>();
 builder.Services.AddScoped<IUserFriends, UserFriendsServices>();
+builder.Services.AddScoped<IUnUser, UnUserServices>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
