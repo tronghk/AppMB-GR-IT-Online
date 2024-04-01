@@ -2,7 +2,10 @@
 using AppGrIT.Model;
 using AppGrIT.Services;
 using AppGrIT.Services.AppGrIT.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppGrIT.Controllers
@@ -34,5 +37,18 @@ namespace AppGrIT.Controllers
             }
             return Ok(count);
         }
+        [HttpGet("/get-listUserFriend")]
+        public async Task<IActionResult> GetListUserFriend(string userId)
+        {
+            var user = await _friendsManager.GetListUserFriends(userId!);
+
+            if (user != null)
+            {             
+                    var result = await _friendsManager.GetListUserFriends(userId);
+                    return Ok(result);                          
+            }
+            return NotFound();
+        }
+
     }
 }

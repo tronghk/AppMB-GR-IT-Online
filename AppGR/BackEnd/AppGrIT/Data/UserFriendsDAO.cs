@@ -17,17 +17,12 @@ namespace AppGrIT.Data
             FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
             int count = 0;
-
-            // Kiểm tra xem dữ liệu từ Firebase có tồn tại không
             if (jsonResponse != null)
             {
-                // Lặp qua từng mục trong dữ liệu
                 foreach (var item in jsonResponse)
                 {
                     var value = item.Value!.ToString();
-                    var userFriends = JsonConvert.DeserializeObject<UserFriends>(value);
-
-                    // Kiểm tra xem userId có tồn tại trong cấu trúc dữ liệu không
+                    var userFriends = JsonConvert.DeserializeObject<UserFriends>(value);                
                     if (userFriends != null && userFriends.UserId.Equals(userId))
                     {
                         count++;
@@ -37,5 +32,29 @@ namespace AppGrIT.Data
 
             return count;
         }
+        public async Task<List<UserFriends>> GetListUserFriends(string userId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            List<UserFriends> list = new List<UserFriends>();
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UserFriends>(value);
+                    if (userc.UserId.Equals(userId))
+                    {
+                        list.Add(userc);
+                    }
+                }
+            }
+            return list;
+
+        }
+
+
     }
 }
