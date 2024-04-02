@@ -1,6 +1,7 @@
 ﻿using AppGrIT.Data;
 using AppGrIT.Entity;
 using AppGrIT.Helper;
+using AppGrIT.Model;
 using AppGrIT.Models;
 using AppGrIT.Services.AppGrIT.Services;
 using Firebase.Auth;
@@ -75,5 +76,30 @@ namespace AppGrIT.Services.Imployement
             }
 
         }
+
+        public async Task<ResponseModel> DeleteUserFriend(UserFriendsModel model)
+        {
+            var userfr = new UserFriends
+            {
+                UserFriendId = model.UserFriendId,
+                UserId = model.UserId,
+            };
+            var result = await _userFriendsDAO.DeleteUserFriend(userfr);
+            if (result.Equals(StatusResponse.STATUS_SUCCESS))
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = MessageResponse.MESSAGE_DELETE_SUCCESS
+                };
+
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_DELETE_FAIL
+            };
+        }
+
     }
 }

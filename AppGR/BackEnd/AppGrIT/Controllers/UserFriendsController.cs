@@ -76,5 +76,25 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+
+        [HttpDelete("/delete-friend")]
+        public async Task<IActionResult> DeleteUserFriend([FromBody] UserFriendsModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            var userfl = await _userManager.GetUserToUserId(model.UserFriendId!);
+            var us = await _friendsManager.GetUserFriend(model.UserId, model.UserFriendId);
+            if (user != null && userfl != null && us != null)
+            {
+                var result = await _friendsManager.DeleteUserFriend(model);
+                if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+                {
+                    return Ok(result);
+                }
+                return
+                    BadRequest(result);
+
+            }
+            return NotFound();
+        }
     }
 }

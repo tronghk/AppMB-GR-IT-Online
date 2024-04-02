@@ -95,7 +95,30 @@ namespace AppGrIT.Data
 
         }
 
+        public async Task<string> DeleteUserFriend(UserFriends user)
+        {
 
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
 
+            if (jsonResponse != null)
+            {
+
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UserFriends>(value);
+                    if (userc.UserId.Equals(user.UserId) && userc.UserFriendId.Equals(user.UserFriendId))
+                    {
+                        var key = item.Key!.ToString();
+                        await _firebase._client.DeleteAsync(key);
+                        return StatusResponse.STATUS_SUCCESS;
+                    }
+                }
+            }
+            return StatusResponse.STATUS_ERROR;
+
+        }
     }
 }

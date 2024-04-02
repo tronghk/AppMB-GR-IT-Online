@@ -1,4 +1,6 @@
-﻿using AppGrIT.Models;
+﻿using AppGrIT.Entity;
+using AppGrIT.Model;
+using AppGrIT.Models;
 
 namespace AppGrIT.Services
 {
@@ -10,6 +12,7 @@ namespace AppGrIT.Services
 
         public Task<UserFriendsModel> GetUserFriend(string userId, string userFr);
 
-
+        public Task<ResponseModel> DeleteUserFriend(UserFriendsModel model);
+        
     }
 }
