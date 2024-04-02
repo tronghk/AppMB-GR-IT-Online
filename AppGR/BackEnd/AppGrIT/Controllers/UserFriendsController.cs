@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using AppGrIT.Models;
 
 namespace AppGrIT.Controllers
 {
@@ -15,10 +16,13 @@ namespace AppGrIT.Controllers
     public class UserFriendsController : ControllerBase
     {
         private IUserFriends _friendsManager;
+        private IUsers _userManager;
+        
 
-        public UserFriendsController(IUserFriends pression)
+        public UserFriendsController(IUserFriends pression, IUsers user)
         {
             _friendsManager = pression;
+            _userManager = user;
         }
         [HttpGet("/count-userFriend")]
         public async Task<IActionResult> CountFriends(string userId)
@@ -49,6 +53,28 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [HttpPost("/add-friend")]
+        public async Task<IActionResult> AddFriendUser([FromBody] UserFriendsModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            var userfr = await _userManager.GetUserToUserId(model.UserFriendId!);
+            
+            var us = await _friendsManager.GetUserFriend(model.UserId, model.UserFriendId);
 
+            if (user != null && userfr != null && us == null)
+            {
+                var result = await _friendsManager.CreateUserFriend(model);
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_CREATE_FAIL
+                });
+            }
+            return NotFound();
+        }
     }
 }

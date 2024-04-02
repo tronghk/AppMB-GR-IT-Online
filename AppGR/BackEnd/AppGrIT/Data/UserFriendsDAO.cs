@@ -2,6 +2,7 @@
 using FireSharp.Response;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using AppGrIT.Helper;
 
 namespace AppGrIT.Data
 {
@@ -54,6 +55,46 @@ namespace AppGrIT.Data
             return list;
 
         }
+        public async Task<string> CreateFriendAsync(UserFriends fr)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("UserFriends/", fr);
+                return StatusResponse.STATUS_SUCCESS;
+
+            }
+            catch (Exception ex)
+            {
+                return StatusResponse.STATUS_ERROR;
+                return null!;
+            }
+        }
+
+        public async Task<UserFriends> GetUserFriend(string userId, string unUserFriend)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+            if (jsonResponse != null)
+            {
+
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UserFriends>(value);
+                    if (userc.UserId.Equals(userId) && userc.UserFriendId.Equals(unUserFriend))
+                    {
+                        return userc;
+                    }
+                }
+            }
+            return null!;
+
+        }
+
 
 
     }
