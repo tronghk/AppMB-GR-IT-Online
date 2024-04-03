@@ -216,6 +216,7 @@ namespace AppGrIT.Controllers
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         public async Task<IActionResult> SharePost(SharePostModel model)
         {
+            // kiểm tra post không phải của mình
             var user = await _userManager.GetUserToUserId(model.UserId);
             var post = await _postManager.FindPostToIdAsync(model.PostId);
             var postShare =  await _postManager.GetPostShare(model.PostId, model.UserId);
@@ -243,6 +244,7 @@ namespace AppGrIT.Controllers
                     }
                     else
                     {
+                        return
                         BadRequest(new ResponseModel
                         {
                             Status = StatusResponse.STATUS_ERROR,
@@ -255,14 +257,14 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
-        [HttpPost("/delete-share-post")]
+        [HttpDelete("/delete-share-post")]
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
-        public async Task<IActionResult> DeleteSharePost(SharePostModel model)
+        public async Task<IActionResult> DeleteSharePost(string postId, string userId)
         {
-            var user = await _userManager.GetUserToUserId(model.UserId);
-            var post = await _postManager.FindPostToIdAsync(model.PostId);
-            var postShare = await _postManager.GetPostShare(model.PostId, model.UserId);
-            if (user != null && post != null)
+            var user = await _userManager.GetUserToUserId(userId);
+         
+            var postShare = await _postManager.GetPostShare(postId, userId);
+            if (user != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
@@ -277,9 +279,9 @@ namespace AppGrIT.Controllers
                         });
                     }
 
-                    var result = await _postManager.DeleteSharePostAsync(model);
+                    var result = await _postManager.DeleteSharePostAsync(postId,userId);
 
-                    if (result.Status.Equals(StatusResponse.STATUS_SUCCESS))
+                    if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
                     {
 
                         return Ok(result);
@@ -322,6 +324,124 @@ namespace AppGrIT.Controllers
                     }
                 }
                 return Unauthorized();
+
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpPost("/hidden-post")]
+        public async Task<IActionResult> HiddenPost(string postId, string userId)
+        {
+            var user = await _userManager.GetUserToUserId(userId);
+            var post = await _postManager.FindPostToIdAsync(postId);
+           
+            if (user != null && post != null)
+            {
+              
+
+                    var result = await _postManager.HiddenPost(userId,postId);
+
+                    if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(result);
+                    }
+
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.SELL_PRODUCT)]
+        [HttpPost("/add-sell-post")]
+        public async Task<IActionResult> AddSellPost([FromBody] PostSellProductModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId);
+            if (user != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.CreatePostSellAsync(model);
+                    if(result != null)
+                    {
+                        return Ok(result);
+
+                    }
+                    return BadRequest(new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_ERROR,
+                        Message = MessageResponse.MESSAGE_CREATE_FAIL
+                    });
+
+                }
+                return Unauthorized();
+                   
+
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.SELL_PRODUCT)]
+        [HttpPut("/edit-sell-post")]
+        public async Task<IActionResult> UpdateSellPost([FromBody] PostSellProductModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId);
+            var post = await _postManager.FindPostSellToIdAsync(model.PostSellProductId!);
+            if (user != null && post != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.EditPostSellAsync(model);
+                    if (result != null)
+                    {
+                        return Ok(result);
+
+                    }
+                    return BadRequest(new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_ERROR,
+                        Message = MessageResponse.MESSAGE_UPDATE_FAIL
+                    });
+
+                }
+                return Unauthorized();
+
+
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.SELL_PRODUCT)]
+        [HttpDelete("/delete-sell-post")]
+        public async Task<IActionResult> DeleteSellPost(string postSellId, string userId)
+        {
+            var user = await _userManager.GetUserToUserId(userId);
+            var post = await _postManager.FindPostSellToIdAsync(postSellId!);
+            if (user != null && post != null)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    var result = await _postManager.DeletePostSellAsync(postSellId);
+                    if (result.Status.Equals(StatusResponse.STATUS_SUCCESS))
+                    {
+                        return Ok(result);
+
+                    }
+                    return BadRequest(new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_ERROR,
+                        Message = MessageResponse.MESSAGE_DELETE_FAIL
+                    });
+
+                }
+                return Unauthorized();
+
 
             }
             return NotFound();

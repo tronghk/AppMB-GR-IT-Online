@@ -44,15 +44,16 @@ namespace AppGrIT.Services.Imployement
         }
         public async Task<ExpressionModel> CreateExpressionAsync(ExpressionModel model)
         {
-            var postCmt = new PostExpressions
-            {
-                PostId = model.PostId,
-                UserId = model.UserId,
-                Expression = model.Expression,
 
-            };
             if (model.Type.Equals("1"))
             {
+                var postCmt = new PostExpressions
+                {
+                    PostId = model.PostId,
+                    UserId = model.UserId,
+                    Expression = model.Expression,
+
+                };
                 var result = await _postExpressionDAO.CreatePostExpressionAsync(postCmt);
                 var icon = new ExpressionModel
                 {
@@ -72,6 +73,7 @@ namespace AppGrIT.Services.Imployement
                     UserId = model.UserId,
                     CommentId = model.CommentId!,
                     Expression = model.Expression,
+                   
 
                 };
                 var result = await _postExpressionDAO.CreatePostCommentExpressionAsync(expressionCmt);

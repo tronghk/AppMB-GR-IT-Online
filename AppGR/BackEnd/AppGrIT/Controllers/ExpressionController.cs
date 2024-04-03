@@ -44,7 +44,7 @@ namespace AppGrIT.Controllers
         }
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpPost("/add-expression-post")]
-        public async Task<IActionResult> AddPostCommentUser([FromBody] ExpressionModel model)
+        public async Task<IActionResult> AddExpressionUser([FromBody] ExpressionModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
             var post = await _postManager.FindPostToIdAsync(model.PostId);
@@ -56,15 +56,7 @@ namespace AppGrIT.Controllers
                 {
                     if(model.Type.Equals("1") || model.Type.Equals("2"))
                     {
-                        if (model.Type.Equals("2") && string.IsNullOrEmpty(model.CommentId))
-                        {
-                            return NotFound(new ResponseModel
-                            {
-                                Status = StatusResponse.STATUS_ERROR,
-                                Message = "Can not create expression because commentId is null"
-                            });
-                        }
-                        if (await _postCommentManager.GetCommentAsync(model.PostId, model.CommentId!) == null)
+                        if (model.Type.Equals("2") && await _postCommentManager.GetCommentAsync(model.PostId, model.CommentId!) == null)
                         {
                             return NotFound(new ResponseModel
                             {
@@ -96,7 +88,7 @@ namespace AppGrIT.Controllers
         }
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpDelete("/delete-expression-post")]
-        public async Task<IActionResult> DeletePostCommentUser([FromBody] ExpressionModel model)
+        public async Task<IActionResult> DeleteExpressionUser([FromBody] ExpressionModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
             var post = await _postManager.FindPostToIdAsync(model.PostId);

@@ -17,7 +17,7 @@
   },
   {
     "ContainingType": "AppGrIT.Controllers.ExpressionController",
-    "Method": "AddPostCommentUser",
+    "Method": "AddExpressionUser",
     "RelativePath": "add-expression-post",
     "HttpMethod": "POST",
     "IsController": true,
@@ -26,6 +26,38 @@
       {
         "Name": "model",
         "Type": "AppGrIT.Models.ExpressionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.FollowController",
+    "Method": "AddPostCommentUser",
+    "RelativePath": "add-follow",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFollowsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "AddFriendUser",
+    "RelativePath": "add-friend",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFriendsModel",
         "IsRequired": true
       }
     ],
@@ -112,6 +144,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "AddSellPost",
+    "RelativePath": "add-sell-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.PostSellProductModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "ChangePassword",
     "RelativePath": "change-password",
@@ -123,6 +171,70 @@
         "Name": "model",
         "Type": "AppGrIT.Models.ChangePasswordModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PaymentController",
+    "Method": "ConfirmPaymentClient",
+    "RelativePath": "ConfirmPaymentClient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "result",
+        "Type": "AppGrIT.Models.ResultPaymentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFollowsController",
+    "Method": "CountFollowers",
+    "RelativePath": "count-followers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UnUserController",
+    "Method": "CountUnUser",
+    "RelativePath": "count-unUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "CountFriends",
+    "RelativePath": "count-userFriend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -155,7 +267,7 @@
   },
   {
     "ContainingType": "AppGrIT.Controllers.ExpressionController",
-    "Method": "DeletePostCommentUser",
+    "Method": "DeleteExpressionUser",
     "RelativePath": "delete-expression-post",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -164,6 +276,38 @@
       {
         "Name": "model",
         "Type": "AppGrIT.Models.ExpressionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.FollowController",
+    "Method": "DeleteFollowUser",
+    "RelativePath": "delete-follow",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFollowsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "DeleteUserFriend",
+    "RelativePath": "delete-friend",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFriendsModel",
         "IsRequired": true
       }
     ],
@@ -192,16 +336,42 @@
   },
   {
     "ContainingType": "AppGrIT.Controllers.PostsController",
-    "Method": "DeleteSharePost",
-    "RelativePath": "delete-share-post",
-    "HttpMethod": "POST",
+    "Method": "DeleteSellPost",
+    "RelativePath": "delete-sell-post",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "AppGrIT.Models.SharePostModel",
-        "IsRequired": true
+        "Name": "postSellId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "DeleteSharePost",
+    "RelativePath": "delete-share-post",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -249,6 +419,22 @@
       {
         "Name": "model",
         "Type": "AppGrIT.Models.PostModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "UpdateSellPost",
+    "RelativePath": "edit-sell-post",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.PostSellProductModel",
         "IsRequired": true
       }
     ],
@@ -303,6 +489,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.FollowController",
+    "Method": "GetListFollow",
+    "RelativePath": "get-follow",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.ImagesController",
     "Method": "GetAvatarDefault",
     "RelativePath": "get-img-avatar-default",
@@ -320,6 +522,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UnUserController",
+    "Method": "GetListUnUser",
+    "RelativePath": "get-listUnUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "GetListUserFriend",
+    "RelativePath": "get-listUserFriend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -451,6 +685,37 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "HiddenPost",
+    "RelativePath": "hidden-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PaymentController",
+    "Method": "Payment",
+    "RelativePath": "payment-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "RefreshToken",
     "RelativePath": "refresh-token",
@@ -481,6 +746,22 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PaymentController",
+    "Method": "SavePayment",
+    "RelativePath": "SavePayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "AppGrIT.Controllers.PostsController",
