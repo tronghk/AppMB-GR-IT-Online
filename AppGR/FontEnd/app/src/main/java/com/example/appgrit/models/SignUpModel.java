@@ -1,19 +1,25 @@
 package com.example.appgrit.models;
 
+import java.util.Date; // Import thư viện Date
+
 public class SignUpModel {
     private String Email;
     private String Password;
     private String FirstName;
     private String LastName;
-    private String Birthday;
+    private Date Birthday; // Sử dụng kiểu dữ liệu Date thay vì LocalDateTime
+
+    private String Gender; // Thêm thuộc tính Gender để phù hợp với backend
+
     private String PasswordConfirmation;
 
-    public SignUpModel(String email, String password, String firstName, String lastName, String birthday, String passwordConfirmation) {
+    public SignUpModel(String email, String password, String firstName, String lastName, Date birthday, String gender, String passwordConfirmation) {
         Email = email;
         Password = password;
         FirstName = firstName;
         LastName = lastName;
         Birthday = birthday;
+        Gender = gender;
         PasswordConfirmation = passwordConfirmation;
     }
 
@@ -52,12 +58,20 @@ public class SignUpModel {
         LastName = lastName;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return Birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         Birthday = birthday;
+    }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String gender) {
+        Gender = gender;
     }
 
     public String getPasswordConfirmation() {

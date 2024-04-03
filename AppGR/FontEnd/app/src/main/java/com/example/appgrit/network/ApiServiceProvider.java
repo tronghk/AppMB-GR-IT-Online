@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.concurrent.TimeUnit;
 
 public class ApiServiceProvider {
-    private static final String BASE_URL = "https://be92-113-185-79-205.ngrok-free.app/";
+    private static final String BASE_URL = "http://appgrit.somee.com/";
 
     private static Retrofit retrofit = null;
 
@@ -24,7 +24,7 @@ public class ApiServiceProvider {
                     .build();
 
             Gson gson = new GsonBuilder()
-                    .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())
+                    .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer())
                     .create();
 
             retrofit = new Retrofit.Builder()
