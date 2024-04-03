@@ -216,6 +216,7 @@ namespace AppGrIT.Controllers
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         public async Task<IActionResult> SharePost(SharePostModel model)
         {
+            // kiểm tra post không phải của mình
             var user = await _userManager.GetUserToUserId(model.UserId);
             var post = await _postManager.FindPostToIdAsync(model.PostId);
             var postShare =  await _postManager.GetPostShare(model.PostId, model.UserId);
@@ -243,6 +244,7 @@ namespace AppGrIT.Controllers
                     }
                     else
                     {
+                        return
                         BadRequest(new ResponseModel
                         {
                             Status = StatusResponse.STATUS_ERROR,
@@ -255,14 +257,14 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
-        [HttpPost("/delete-share-post")]
+        [HttpDelete("/delete-share-post")]
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
-        public async Task<IActionResult> DeleteSharePost(SharePostModel model)
+        public async Task<IActionResult> DeleteSharePost(string postId, string userId)
         {
-            var user = await _userManager.GetUserToUserId(model.UserId);
-            var post = await _postManager.FindPostToIdAsync(model.PostId);
-            var postShare = await _postManager.GetPostShare(model.PostId, model.UserId);
-            if (user != null && post != null)
+            var user = await _userManager.GetUserToUserId(userId);
+         
+            var postShare = await _postManager.GetPostShare(postId, userId);
+            if (user != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
@@ -277,9 +279,9 @@ namespace AppGrIT.Controllers
                         });
                     }
 
-                    var result = await _postManager.DeleteSharePostAsync(model);
+                    var result = await _postManager.DeleteSharePostAsync(postId,userId);
 
-                    if (result.Status.Equals(StatusResponse.STATUS_SUCCESS))
+                    if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
                     {
 
                         return Ok(result);

@@ -424,14 +424,12 @@ namespace AppGrIT.Services.Imployement
             return null!;
         }
 
-        public async Task<ResponseModel> DeleteSharePostAsync(SharePostModel model)
+        public async Task<ResponseModel> DeleteSharePostAsync(string postId, string userId)
         {
             var posts = new PostShares
             {
-                PostId = model.PostId,
-                UserId = model.UserId,
-                ContentShare = model.Content,
-                TimeShare = model.TimeShare
+                PostId = postId,
+                UserId = userId,
             };
            var result = await _postDAO.DeleteSharePostAsync(posts);
             if (result.Equals(StatusResponse.STATUS_SUCCESS))

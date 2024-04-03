@@ -40,14 +40,14 @@ namespace AppGrIT.Services.Imployement
                 return new ResponseModel
                 {
                     Status = StatusResponse.STATUS_SUCCESS,
-                    Message = MessageResponse.MESSAGE_CREATE_SUCCESS
+                    Message = MessageResponse.MESSAGE_DELETE_SUCCESS
                 };
               
             }
             return new ResponseModel
             {
                 Status = StatusResponse.STATUS_ERROR,
-                Message = MessageResponse.MESSAGE_CREATE_FAIL
+                Message = MessageResponse.MESSAGE_DELETE_FAIL
             };
         }
 
@@ -60,7 +60,7 @@ namespace AppGrIT.Services.Imployement
                 var us = new UserFollowsModel
                 {
                     UserId = userFollow.UserId,
-                    UserFollowId = userFollow.UserId,
+                    UserFollowId = userFollow.UserFollowId,
                 };
                 result.Add(us);
             }
@@ -71,14 +71,19 @@ namespace AppGrIT.Services.Imployement
         {
             var userFollow = await _userFollowDAO.GetUserFollow(userId,userFl);
 
+               if(userFollow != null)
+            {
                 var us = new UserFollowsModel
                 {
                     UserId = userFollow.UserId,
                     UserFollowId = userFollow.UserId,
                 };
-               
+                return us;
+
+            }
+            return null!;
+
             
-            return us;
         }
     }
 }

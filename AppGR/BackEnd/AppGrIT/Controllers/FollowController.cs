@@ -60,7 +60,7 @@ namespace AppGrIT.Controllers
         }
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpDelete("/delete-follow")]
-        public async Task<IActionResult> DeletePostCommentUser([FromBody] UserFollowsModel model)
+        public async Task<IActionResult> DeleteFollowUser([FromBody] UserFollowsModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
             var userfl = await _userManager.GetUserToUserId(model.UserFollowId!);
@@ -87,7 +87,7 @@ namespace AppGrIT.Controllers
         }
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpGet("/get-follow")]
-        public async Task<IActionResult> DeletePostCommentUser(string userId)
+        public async Task<IActionResult> GetListFollow(string userId)
         {
             var user = await _userManager.GetUserToUserId(userId!);
            

@@ -25,7 +25,7 @@ namespace AppGrIT.Services
         public Task<SharePostModel> SharePost(SharePostModel model);
         public Task<SharePostModel> GetPostShare(string postId, string userId);
 
-        public Task<ResponseModel> DeleteSharePostAsync(SharePostModel posts);
+        public Task<ResponseModel> DeleteSharePostAsync(string postId, string userId);
         public Task<List<SharePostModel>> GetListPostShared(string userId);
 
 

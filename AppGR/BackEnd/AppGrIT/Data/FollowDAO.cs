@@ -72,7 +72,7 @@ namespace AppGrIT.Data
                     if (userc.UserId.Equals(user.UserId) && userc.UserFollowId.Equals(user.UserFollowId))
                     {
                         var key = item.Key!.ToString();
-                        await _firebase._client.DeleteAsync(key);
+                        await _firebase._client.DeleteAsync("UserFollows/"+key);
                         return StatusResponse.STATUS_SUCCESS;
                     }
                 }
