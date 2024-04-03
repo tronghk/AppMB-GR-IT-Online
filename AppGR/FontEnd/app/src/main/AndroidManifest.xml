@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AppGrIT"
         tools:targetApi="31">
         <activity
+            android:name=".FragmentProfile"
+            android:exported="false" />
+        <activity
             android:name=".activities.ListUserLike"
             android:exported="false" />
         <activity
@@ -32,9 +35,9 @@
         <activity
             android:name=".activities.activity_signin"
             android:exported="false" />
+        <activity android:name=".activities.activity_signup" />
         <activity
-            android:name=".activities.activity_signup"/>
-        <activity android:name=".DashboardActivity"
+            android:name=".DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".MarketplaceActivity"
@@ -49,14 +52,14 @@
         <activity
             android:name=".profile"
             android:exported="false" />
-
-<!--        <activity
+        <!--
+        <activity
             android:name=".button_black"
-            android:exported="false" />-->
+            android:exported="false" />
+        -->
         <activity
             android:name=".ProfileOther"
             android:exported="false" />
-
         <activity
             android:name=".HomeFragment"
             android:exported="false" />

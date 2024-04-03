@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.example.appgrit.activities.CreateMarketplace;
+import com.example.appgrit.activities.CreatePostHome;
+import com.example.appgrit.activities.DetailMarketplace;
+import com.example.appgrit.activities.ListUserLike;
 import com.example.appgrit.activities.activity_signin;
 import com.example.appgrit.activities.activity_signup;
 import com.jakewharton.threetenabp.AndroidThreeTen;
@@ -28,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
             // Chuyển đến màn hình Signup
             Intent signupIntent = new Intent(MainActivity.this, activity_signup.class);
             startActivity(signupIntent);
-        });
 
+
+        });
         buttonSignin.setOnClickListener(v -> {
             // Chuyển đến màn hình Signin
             Intent signinIntent = new Intent(MainActivity.this, activity_signin.class);
