@@ -9,7 +9,7 @@ public class ResponseModel {
     public ResponseModel() {
     }
 
-    public ResponseModel(String status, String message, TokenModel token) {
+    public ResponseModel(String status, String message) {
         Status = status;
         Message = message;
     }

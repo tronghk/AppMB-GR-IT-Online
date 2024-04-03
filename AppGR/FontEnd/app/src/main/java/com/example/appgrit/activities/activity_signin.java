@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.appgrit.MainActivity;
+import com.example.appgrit.HomeActivity;
+import com.example.appgrit.HomeFragment;
 import com.example.appgrit.R;
 import com.example.appgrit.models.SignInModel;
 import com.example.appgrit.models.TokenModel;
@@ -68,25 +69,44 @@ public class activity_signin extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Đăng nhập thành công
                     TokenModel tokenModel = response.body();
-                    // Xử lý dữ liệu tokenModel
-                    Toast.makeText(activity_signin.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-
-                    // Chuyển hướng sang màn hình chính
-                    Intent intent = new Intent(activity_signin.this, activity_home.class);
-                    startActivity(intent);
-                    finish(); // Đóng activity hiện tại để ngăn người dùng quay lại màn hình đăng nhập
+                    if (tokenModel != null) {
+                        // Nhận được token từ API
+                        handleSignInSuccess();
+                    } else {
+                        // Đăng nhập không thành công vì không nhận được token
+                        handleSignInFailure("Không nhận được token từ server");
+                    }
                 } else {
                     // Đăng nhập thất bại
-                    Toast.makeText(activity_signin.this, "Email hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
+                    handleSignInFailure("Email hoặc mật khẩu không chính xác");
                 }
             }
 
             @Override
             public void onFailure(Call<TokenModel> call, Throwable t) {
                 // Xử lý lỗi khi gọi API
-                Toast.makeText(activity_signin.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                handleNetworkFailure(t);
             }
         });
+    }
+
+    // Xử lý khi đăng nhập thành công
+    private void handleSignInSuccess() {
+        Toast.makeText(activity_signin.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+        // Chuyển hướng sang màn hình chính
+        Intent intent = new Intent(activity_signin.this, HomeActivity.class);
+        startActivity(intent);
+        finish(); // Đóng activity hiện tại để ngăn người dùng quay lại màn hình đăng nhập
+    }
+
+    // Xử lý khi đăng nhập không thành công
+    private void handleSignInFailure(String errorMessage) {
+        Toast.makeText(activity_signin.this, errorMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    // Xử lý lỗi kết nối
+    private void handleNetworkFailure(Throwable t) {
+        Toast.makeText(activity_signin.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     // Phương thức chuyển sang màn hình đăng ký

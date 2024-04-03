@@ -90,12 +90,22 @@
         android:inputType="date"
         android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
+    <!-- Gender EditText -->
+    <EditText
+        android:id="@+id/edit_text_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_birthday"
+        android:layout_marginTop="8dp"
+        android:hint="Gender"
+        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
+
     <!-- Sign Up Button -->
     <Button
         android:id="@+id/button_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_text_birthday"
+        android:layout_below="@id/edit_text_gender"
         android:layout_marginTop="16dp"
         android:text="Sign Up" />
 </RelativeLayout>

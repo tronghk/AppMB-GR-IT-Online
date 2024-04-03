@@ -1,45 +1,43 @@
 package com.example.appgrit.models;
 
-import java.time.LocalDateTime;
+import java.util.Date; // Import thư viện Date
 
 public class TokenModel {
 
-    private String accessToken;
-    private String refreshToken;
-    private LocalDateTime expiration;
+    private String AccessToken;
+    private String RefreshToken;
+    private Date Expiration;
+
     public TokenModel() {
     }
 
-    // Constructors, getters, and setters
-
-
-    public TokenModel(String accessToken, String refreshToken, LocalDateTime expiration) {
-        this.accessToken = accessToken;
-        this.refreshToken = refreshToken;
-        this.expiration = expiration;
+    public TokenModel(String accessToken, String refreshToken, Date expiration) {
+        this.AccessToken = accessToken;
+        this.RefreshToken = refreshToken;
+        this.Expiration = expiration;
     }
 
     public String getAccessToken() {
-        return accessToken;
+        return AccessToken;
     }
 
     public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+        this.AccessToken = accessToken;
     }
 
     public String getRefreshToken() {
-        return refreshToken;
+        return RefreshToken;
     }
 
     public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+        this.RefreshToken = refreshToken;
     }
 
-    public LocalDateTime getExpiration() {
-        return expiration;
+    public Date getExpiration() {
+        return Expiration;
     }
 
-    public void setExpiration(LocalDateTime expiration) {
-        this.expiration = expiration;
+    public void setExpiration(Date expiration) {
+        this.Expiration = expiration;
     }
 }

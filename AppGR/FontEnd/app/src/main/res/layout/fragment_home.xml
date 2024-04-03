@@ -5,25 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <!-- AppBarLayout chứa Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/app_bar_layout">
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/home_toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white">
+
+            <!-- Các view khác trong Toolbar -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <!-- ImageView ví dụ -->
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:src="@drawable/instagram"
-                    android:layout_alignParentStart="true"
-                    />
+                    android:layout_alignParentStart="true" />
 
+                <!-- Các ImageView khác cho các nút bổ sung -->
+                <!-- Điều chỉnh cần thiết -->
                 <ImageView
                     android:id="@+id/btn_add_post"
                     android:layout_width="wrap_content"
@@ -49,37 +57,43 @@
                     android:src="@drawable/messenger_home"
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginEnd="10dp"
-                    />
+                    android:layout_marginEnd="10dp" />
             </RelativeLayout>
-
         </androidx.appcompat.widget.Toolbar>
-
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- NestedScrollView chứa RecyclerViews -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nsv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/app_bar_layout">
 
+        <!-- LinearLayout để chứa RecyclerViews -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- RecyclerViews -->
+            <!-- Điều chỉnh cần thiết -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_story"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_home"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content" />
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
+
+    <!-- FrameLayout để chứa HomeFragment -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/nsv" />
 
 </RelativeLayout>
