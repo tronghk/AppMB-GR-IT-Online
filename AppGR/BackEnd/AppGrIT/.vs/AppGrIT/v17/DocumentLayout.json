@@ -1,336 +1,282 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\",
+  "WorkspaceRootPath": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\appgrit.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:appgrit.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\imployement\\imageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\imageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\iimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\appgrit.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:appgrit.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\imagesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\imagesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\postsdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\postsdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\imployement\\postservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\imployement\\postcommentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postcommentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\iposts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iposts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\postexpressionssdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\postexpressionssdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\postcommentsdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\postcommentsdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\controllers\\postcommentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\postcommentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\sharepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\sharepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\ipostcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\ipostcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\controllers\\expressioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\expressioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\controllers\\imagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\imagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\ipostexpressionss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\ipostexpressionss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\postcommentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\postcommentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\rolesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\rolesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\usersdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\usersdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\data\\connectfirebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:data\\connectfirebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\imployement\\postexpressionservicess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postexpressionservicess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\expressionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\expressionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\postexpressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\postexpressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\posts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\posts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\postmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\postmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\imployement\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\userinformodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\userinformodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\userinfors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\userinfors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\unusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\unusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\userrolemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\userrolemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\imployement\\roleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\roleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\iroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\services\\iusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\authentication\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:authentication\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\authentication\\itoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:authentication\\itoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\userrenewalmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\userrenewalmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\userfriendsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\userfriendsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\userfollowsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\userfollowsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\signupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\signupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\signinmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\signinmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\rolesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\rolesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\postsellproductmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\postsellproductmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\posticonsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\posticonsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\postcommentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\postcommentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\edituserimagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\edituserimagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\editpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\editpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\deletepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\deletepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\changepasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\changepasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\models\\addpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\addpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\helper\\synthesizeroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:helper\\synthesizeroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\helper\\statusresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:helper\\statusresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\helper\\messageresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:helper\\messageresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\helper\\genderhepper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:helper\\genderhepper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\usersells.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\usersells.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\userfriends.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\userfriends.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\userfollows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\userfollows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\unuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\unuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\replypostcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\replypostcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\postshares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\postshares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\postsellproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\postsellproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\postimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\postimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\posthidden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\posthidden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\postcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\postcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\imagesellproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\imagesellproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\commercial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\commercial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\commentexpressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\commentexpressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|d:\\appmb-gr-it-online\\appgr\\backend\\appgrit\\entity\\accountidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\accountidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TrongHK\\AppData\\Local\\Temp\\.vsdbgsrc\\437684163430f6798e00e24b7347fd1572cbde51ae0d110ec998171a8e124386\\ServiceProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TrongHK\\AppData\\Local\\SourceServer\\8039f3faf9f7b871289d298c0433c27b73c0312bf1b0c4fda1fd746e48292cd6\\AppGR\\BackEnd\\AppGrIT\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\ImagesDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\ImagesDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Imployement\\ImageServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\WeatherForecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AppGrIT.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AppGrIT.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IImages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IImages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostCommentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\PostCommentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostExpressionssDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\PostExpressionssDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\PostsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostCommentsDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\PostCommentsDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IPosts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\PostsDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Imployement\\PostServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostCommentServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Imployement\\PostCommentServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SharePostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostComments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IPostComments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ExpressionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\ExpressionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\ImagesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostExpressionss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IPostExpressionss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\PostCommentModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\UsersDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\RolesDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\ConnectFirebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostExpressionServicess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Imployement\\PostExpressionServicess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\UsersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ExpressionModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\ExpressionModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostExpressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Posts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\ImagePostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Imployement\\UserServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserInforModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\UserInforModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserInfors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UnUserModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\WeatherForecastController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRoleModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\RoleServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IRoles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IUsers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Authentication\\TokenServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Authentication\\IToken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRenewalModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFriendsModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFollowsModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SignUpModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SignInModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ResponseModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\RolesModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostSellProductModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostIconsModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentsModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\EditUserImageModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\EditPostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\DeletePostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ChangePasswordModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\AddPostModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\SynthesizeRoles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\StatusResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\MessageResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\GenderHepper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserSells.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserRoles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFriends.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFollows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UnUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\ReplyPostComment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostShares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostSellProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostImages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostHidden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostComments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\ImageSellProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Commercial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\CommentExpressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\AccountIdentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -350,22 +296,22 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAEsAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:45:13.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "ImagesDAO.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\ImagesDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\ImagesDAO.cs",
               "RelativeDocumentMoniker": "Data\\ImagesDAO.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\ImagesDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\ImagesDAO.cs",
               "RelativeToolTip": "Data\\ImagesDAO.cs",
               "ViewState": "AQIAAFkAAAAAAAAAAAAswFQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -373,11 +319,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ImageServices.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\ImageServices.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
               "RelativeToolTip": "Services\\Imployement\\ImageServices.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAQwDEAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -385,23 +331,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WeatherForecast.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\WeatherForecast.cs",
-              "RelativeToolTip": "WeatherForecast.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-30T04:48:09.064Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AppGrIT.csproj",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
               "RelativeDocumentMoniker": "AppGrIT.csproj",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
               "RelativeToolTip": "AppGrIT.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -409,11 +353,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\appsettings.json",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\appsettings.json",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -421,11 +365,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "AppGrIT.http",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.http",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.http",
               "RelativeDocumentMoniker": "AppGrIT.http",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.http",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.http",
               "RelativeToolTip": "AppGrIT.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
@@ -433,11 +377,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "IImages.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IImages.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IImages.cs",
               "RelativeDocumentMoniker": "Services\\IImages.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IImages.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IImages.cs",
               "RelativeToolTip": "Services\\IImages.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -445,23 +389,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AQIAABIAAAAAAAAAAAAAABoAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-04-01T07:03:55.133Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 11,
               "Title": "PostCommentController.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostCommentController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostCommentController.cs",
               "RelativeDocumentMoniker": "Controllers\\PostCommentController.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostCommentController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostCommentController.cs",
               "RelativeToolTip": "Controllers\\PostCommentController.cs",
               "ViewState": "AQIAAEgAAAAAAAAAAAAuwC4AAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -469,11 +411,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "PostExpressionssDAO.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\PostExpressionssDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostExpressionssDAO.cs",
               "RelativeDocumentMoniker": "Data\\PostExpressionssDAO.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\PostExpressionssDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostExpressionssDAO.cs",
               "RelativeToolTip": "Data\\PostExpressionssDAO.cs",
               "ViewState": "AQIAAKQAAAAAAAAAAAAAALYAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -481,11 +423,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "PostsController.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs",
               "RelativeDocumentMoniker": "Controllers\\PostsController.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs",
               "RelativeToolTip": "Controllers\\PostsController.cs",
               "ViewState": "AQIAAC8BAAAAAAAAAAAcwCgBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -493,11 +435,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "PostCommentsDAO.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\PostCommentsDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostCommentsDAO.cs",
               "RelativeDocumentMoniker": "Data\\PostCommentsDAO.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\PostCommentsDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostCommentsDAO.cs",
               "RelativeToolTip": "Data\\PostCommentsDAO.cs",
               "ViewState": "AQIAAE4AAAAAAAAAAAAqwFgAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -505,11 +447,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "IPosts.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs",
               "RelativeDocumentMoniker": "Services\\IPosts.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs",
               "RelativeToolTip": "Services\\IPosts.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAIAwwBoAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -517,11 +459,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "PostsDAO.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
               "RelativeDocumentMoniker": "Data\\PostsDAO.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
               "RelativeToolTip": "Data\\PostsDAO.cs",
               "ViewState": "AQIAAEMAAAAAAAAAAAD4v1wAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -529,24 +471,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "PostServices.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\PostServices.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs",
               "RelativeToolTip": "Services\\Imployement\\PostServices.cs",
               "ViewState": "AQIAAK4BAAAAAAAAAAAYwM4BAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T05:23:44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-30T05:23:44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "PostCommentServices.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostCommentServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostCommentServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\PostCommentServices.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostCommentServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostCommentServices.cs",
               "RelativeToolTip": "Services\\Imployement\\PostCommentServices.cs",
               "ViewState": "AQIAAFkAAAAAAAAAAAAswGIAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -554,23 +495,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "SharePostModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SharePostModel.cs",
-              "RelativeDocumentMoniker": "Models\\SharePostModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SharePostModel.cs",
-              "RelativeToolTip": "Models\\SharePostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:28:11.32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "IPostComments.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostComments.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostComments.cs",
               "RelativeDocumentMoniker": "Services\\IPostComments.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostComments.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostComments.cs",
               "RelativeToolTip": "Services\\IPostComments.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAwAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -578,11 +517,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "ExpressionController.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ExpressionController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ExpressionController.cs",
               "RelativeDocumentMoniker": "Controllers\\ExpressionController.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ExpressionController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ExpressionController.cs",
               "RelativeToolTip": "Controllers\\ExpressionController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -590,11 +529,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "ImagesController.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
               "RelativeDocumentMoniker": "Controllers\\ImagesController.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
               "RelativeToolTip": "Controllers\\ImagesController.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAqwCYAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -602,11 +541,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "IPostExpressionss.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostExpressionss.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostExpressionss.cs",
               "RelativeDocumentMoniker": "Services\\IPostExpressionss.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostExpressionss.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostExpressionss.cs",
               "RelativeToolTip": "Services\\IPostExpressionss.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAsAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -614,11 +553,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "PostCommentModel.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentModel.cs",
               "RelativeDocumentMoniker": "Models\\PostCommentModel.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentModel.cs",
               "RelativeToolTip": "Models\\PostCommentModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -626,23 +565,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "UsersDAO.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\UsersDAO.cs",
-              "RelativeDocumentMoniker": "Data\\UsersDAO.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\UsersDAO.cs",
-              "RelativeToolTip": "Data\\UsersDAO.cs",
               "ViewState": "AQIAAJkAAAAAAAAAAAAmwDkAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:48:41.55Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "RolesDAO.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
               "RelativeDocumentMoniker": "Data\\RolesDAO.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
               "RelativeToolTip": "Data\\RolesDAO.cs",
               "ViewState": "AQIAAKAAAAAAAAAAAADwv6cAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -650,23 +587,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "ConnectFirebase.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\ConnectFirebase.cs",
-              "RelativeDocumentMoniker": "Data\\ConnectFirebase.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Data\\ConnectFirebase.cs",
-              "RelativeToolTip": "Data\\ConnectFirebase.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T12:43:16.438Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "PostExpressionServicess.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostExpressionServicess.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostExpressionServicess.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\PostExpressionServicess.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostExpressionServicess.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostExpressionServicess.cs",
               "RelativeToolTip": "Services\\Imployement\\PostExpressionServicess.cs",
               "ViewState": "AQIAAGYAAAAAAAAAAAAcwF4AAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -674,11 +609,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AQIAADkAAAAAAAAAAADgv+cAAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -686,11 +621,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "ExpressionModel.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ExpressionModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ExpressionModel.cs",
               "RelativeDocumentMoniker": "Models\\ExpressionModel.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ExpressionModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ExpressionModel.cs",
               "RelativeToolTip": "Models\\ExpressionModel.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAAwBIAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -698,35 +633,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "PostExpressions.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostExpressions.cs",
-              "RelativeDocumentMoniker": "Entity\\PostExpressions.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostExpressions.cs",
-              "RelativeToolTip": "Entity\\PostExpressions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:37:16.409Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "Posts.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Posts.cs",
-              "RelativeDocumentMoniker": "Entity\\Posts.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Posts.cs",
-              "RelativeToolTip": "Entity\\Posts.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwBcAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:32:11.942Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "ImagePostModel.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
               "RelativeDocumentMoniker": "Models\\ImagePostModel.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
               "RelativeToolTip": "Models\\ImagePostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -734,35 +665,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "PostModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs",
-              "RelativeDocumentMoniker": "Models\\PostModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs",
-              "RelativeToolTip": "Models\\PostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:06:47.772Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "UserModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "Models\\UserModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserModel.cs",
-              "RelativeToolTip": "Models\\UserModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T20:03:47.768Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "UserServices.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\UserServices.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs",
               "RelativeToolTip": "Services\\Imployement\\UserServices.cs",
               "ViewState": "AQIAAEMBAAAAAAAAAAAuwFkBAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -770,11 +697,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "UserInforModel.cs",
-              "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserInforModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserInforModel.cs",
               "RelativeDocumentMoniker": "Models\\UserInforModel.cs",
-              "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserInforModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserInforModel.cs",
               "RelativeToolTip": "Models\\UserInforModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -782,547 +709,457 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "UserInfors.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserInfors.cs",
-              "RelativeDocumentMoniker": "Entity\\UserInfors.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserInfors.cs",
-              "RelativeToolTip": "Entity\\UserInfors.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAQAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:23:18.391Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "UnUserModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UnUserModel.cs",
-              "RelativeDocumentMoniker": "Models\\UnUserModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UnUserModel.cs",
-              "RelativeToolTip": "Models\\UnUserModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:33:54.589Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T06:39:56.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "UserRoleModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRoleModel.cs",
-              "RelativeDocumentMoniker": "Models\\UserRoleModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRoleModel.cs",
-              "RelativeToolTip": "Models\\UserRoleModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T12:08:54.65Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "RoleServices.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\RoleServices.cs",
-              "RelativeDocumentMoniker": "Services\\Imployement\\RoleServices.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\RoleServices.cs",
-              "RelativeToolTip": "Services\\Imployement\\RoleServices.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAC4AAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:41:30.988Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "IRoles.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IRoles.cs",
-              "RelativeDocumentMoniker": "Services\\IRoles.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IRoles.cs",
-              "RelativeToolTip": "Services\\IRoles.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAmwA4AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:41:12.738Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "IUsers.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IUsers.cs",
-              "RelativeDocumentMoniker": "Services\\IUsers.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Services\\IUsers.cs",
-              "RelativeToolTip": "Services\\IUsers.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAA3wBgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T12:06:28.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "TokenServices.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Authentication\\TokenServices.cs",
-              "RelativeDocumentMoniker": "Authentication\\TokenServices.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Authentication\\TokenServices.cs",
-              "RelativeToolTip": "Authentication\\TokenServices.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAALgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T00:42:31.968Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "IToken.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Authentication\\IToken.cs",
-              "RelativeDocumentMoniker": "Authentication\\IToken.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Authentication\\IToken.cs",
-              "RelativeToolTip": "Authentication\\IToken.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T00:42:34.701Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "UserRenewalModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRenewalModel.cs",
-              "RelativeDocumentMoniker": "Models\\UserRenewalModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRenewalModel.cs",
-              "RelativeToolTip": "Models\\UserRenewalModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:36:16.705Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "UserFriendsModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFriendsModel.cs",
-              "RelativeDocumentMoniker": "Models\\UserFriendsModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFriendsModel.cs",
-              "RelativeToolTip": "Models\\UserFriendsModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:31:58.609Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "UserFollowsModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFollowsModel.cs",
-              "RelativeDocumentMoniker": "Models\\UserFollowsModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFollowsModel.cs",
-              "RelativeToolTip": "Models\\UserFollowsModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:33:30.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "TokenModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs",
-              "RelativeDocumentMoniker": "Models\\TokenModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs",
-              "RelativeToolTip": "Models\\TokenModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T00:42:03.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "SignUpModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SignUpModel.cs",
-              "RelativeDocumentMoniker": "Models\\SignUpModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SignUpModel.cs",
-              "RelativeToolTip": "Models\\SignUpModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:13:33.567Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "SignInModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SignInModel.cs",
-              "RelativeDocumentMoniker": "Models\\SignInModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\SignInModel.cs",
-              "RelativeToolTip": "Models\\SignInModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:17:16.983Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "ResponseModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ResponseModel.cs",
-              "RelativeDocumentMoniker": "Models\\ResponseModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ResponseModel.cs",
-              "RelativeToolTip": "Models\\ResponseModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T03:23:37.972Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "RolesModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\RolesModel.cs",
-              "RelativeDocumentMoniker": "Models\\RolesModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\RolesModel.cs",
-              "RelativeToolTip": "Models\\RolesModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T12:00:30.344Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 55,
               "Title": "PostSellProductModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostSellProductModel.cs",
-              "RelativeDocumentMoniker": "Models\\PostSellProductModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostSellProductModel.cs",
-              "RelativeToolTip": "Models\\PostSellProductModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:35:05.549Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "PostIconsModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostIconsModel.cs",
-              "RelativeDocumentMoniker": "Models\\PostIconsModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostIconsModel.cs",
-              "RelativeToolTip": "Models\\PostIconsModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:16:46.9Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "PostCommentsModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentsModel.cs",
-              "RelativeDocumentMoniker": "Models\\PostCommentsModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentsModel.cs",
-              "RelativeToolTip": "Models\\PostCommentsModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:18:26.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "EditUserImageModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\EditUserImageModel.cs",
-              "RelativeDocumentMoniker": "Models\\EditUserImageModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\EditUserImageModel.cs",
-              "RelativeToolTip": "Models\\EditUserImageModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:04:47.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 59,
               "Title": "EditPostModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\EditPostModel.cs",
-              "RelativeDocumentMoniker": "Models\\EditPostModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\EditPostModel.cs",
-              "RelativeToolTip": "Models\\EditPostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:23:45.854Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 60,
               "Title": "DeletePostModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\DeletePostModel.cs",
-              "RelativeDocumentMoniker": "Models\\DeletePostModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\DeletePostModel.cs",
-              "RelativeToolTip": "Models\\DeletePostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:26:20.489Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 61,
               "Title": "ChangePasswordModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ChangePasswordModel.cs",
-              "RelativeDocumentMoniker": "Models\\ChangePasswordModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\ChangePasswordModel.cs",
-              "RelativeToolTip": "Models\\ChangePasswordModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T05:47:24.402Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 62,
               "Title": "AddPostModel.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\AddPostModel.cs",
-              "RelativeDocumentMoniker": "Models\\AddPostModel.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Models\\AddPostModel.cs",
-              "RelativeToolTip": "Models\\AddPostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:21:14.388Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 63,
               "Title": "SynthesizeRoles.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\SynthesizeRoles.cs",
-              "RelativeDocumentMoniker": "Helper\\SynthesizeRoles.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\SynthesizeRoles.cs",
-              "RelativeToolTip": "Helper\\SynthesizeRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:38:12.836Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 64,
               "Title": "StatusResponse.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\StatusResponse.cs",
-              "RelativeDocumentMoniker": "Helper\\StatusResponse.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\StatusResponse.cs",
-              "RelativeToolTip": "Helper\\StatusResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T00:59:42.593Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 65,
               "Title": "MessageResponse.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\MessageResponse.cs",
-              "RelativeDocumentMoniker": "Helper\\MessageResponse.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\MessageResponse.cs",
-              "RelativeToolTip": "Helper\\MessageResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T01:05:16.455Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 66,
               "Title": "GenderHepper.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\GenderHepper.cs",
-              "RelativeDocumentMoniker": "Helper\\GenderHepper.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Helper\\GenderHepper.cs",
-              "RelativeToolTip": "Helper\\GenderHepper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T05:51:02.867Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 67,
               "Title": "UserSells.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserSells.cs",
-              "RelativeDocumentMoniker": "Entity\\UserSells.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserSells.cs",
-              "RelativeToolTip": "Entity\\UserSells.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:27:24.809Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 68,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserRoles.cs",
-              "RelativeDocumentMoniker": "Entity\\UserRoles.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserRoles.cs",
-              "RelativeToolTip": "Entity\\UserRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T11:07:44.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 69,
               "Title": "UserFriends.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFriends.cs",
-              "RelativeDocumentMoniker": "Entity\\UserFriends.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFriends.cs",
-              "RelativeToolTip": "Entity\\UserFriends.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:52:11.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 70,
               "Title": "UserFollows.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFollows.cs",
-              "RelativeDocumentMoniker": "Entity\\UserFollows.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFollows.cs",
-              "RelativeToolTip": "Entity\\UserFollows.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:53:38.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 71,
               "Title": "UnUser.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UnUser.cs",
-              "RelativeDocumentMoniker": "Entity\\UnUser.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\UnUser.cs",
-              "RelativeToolTip": "Entity\\UnUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:26:36.916Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 72,
               "Title": "Roles.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Roles.cs",
-              "RelativeDocumentMoniker": "Entity\\Roles.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Roles.cs",
-              "RelativeToolTip": "Entity\\Roles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T10:35:16.061Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 73,
               "Title": "ReplyPostComment.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\ReplyPostComment.cs",
-              "RelativeDocumentMoniker": "Entity\\ReplyPostComment.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\ReplyPostComment.cs",
-              "RelativeToolTip": "Entity\\ReplyPostComment.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:41:43.597Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 74,
               "Title": "PostShares.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostShares.cs",
-              "RelativeDocumentMoniker": "Entity\\PostShares.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostShares.cs",
-              "RelativeToolTip": "Entity\\PostShares.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:45:42.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 75,
               "Title": "PostSellProduct.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostSellProduct.cs",
-              "RelativeDocumentMoniker": "Entity\\PostSellProduct.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostSellProduct.cs",
-              "RelativeToolTip": "Entity\\PostSellProduct.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:57:30.208Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 76,
               "Title": "PostImages.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostImages.cs",
-              "RelativeDocumentMoniker": "Entity\\PostImages.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostImages.cs",
-              "RelativeToolTip": "Entity\\PostImages.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:34:58.813Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 77,
               "Title": "PostHidden.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostHidden.cs",
-              "RelativeDocumentMoniker": "Entity\\PostHidden.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostHidden.cs",
-              "RelativeToolTip": "Entity\\PostHidden.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAAwAoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:51:16.955Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 78,
               "Title": "PostComments.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostComments.cs",
-              "RelativeDocumentMoniker": "Entity\\PostComments.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostComments.cs",
-              "RelativeToolTip": "Entity\\PostComments.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:39:01.318Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 79,
               "Title": "ImageSellProduct.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\ImageSellProduct.cs",
-              "RelativeDocumentMoniker": "Entity\\ImageSellProduct.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\ImageSellProduct.cs",
-              "RelativeToolTip": "Entity\\ImageSellProduct.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:00:14.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 80,
               "Title": "Commercial.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Commercial.cs",
-              "RelativeDocumentMoniker": "Entity\\Commercial.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\Commercial.cs",
-              "RelativeToolTip": "Entity\\Commercial.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:54:33.667Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 81,
               "Title": "CommentExpressions.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\CommentExpressions.cs",
-              "RelativeDocumentMoniker": "Entity\\CommentExpressions.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\CommentExpressions.cs",
-              "RelativeToolTip": "Entity\\CommentExpressions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T07:43:27.874Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 82,
               "Title": "AccountIdentity.cs",
               "DocumentMoniker": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\AccountIdentity.cs",
-              "RelativeDocumentMoniker": "Entity\\AccountIdentity.cs",
               "ToolTip": "D:\\AppMB-GR-IT-Online\\AppGR\\BackEnd\\AppGrIT\\Entity\\AccountIdentity.cs",
-              "RelativeToolTip": "Entity\\AccountIdentity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T11:31:43.907Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 1,
               "Title": "ServiceProvider.cs",
               "DocumentMoniker": "C:\\Users\\TrongHK\\AppData\\Local\\Temp\\.vsdbgsrc\\437684163430f6798e00e24b7347fd1572cbde51ae0d110ec998171a8e124386\\ServiceProvider.cs",
               "ToolTip": "C:\\Users\\TrongHK\\AppData\\Local\\Temp\\.vsdbgsrc\\437684163430f6798e00e24b7347fd1572cbde51ae0d110ec998171a8e124386\\ServiceProvider.cs [Read Only]",
@@ -1333,7 +1170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\TrongHK\\AppData\\Local\\SourceServer\\8039f3faf9f7b871289d298c0433c27b73c0312bf1b0c4fda1fd746e48292cd6\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
               "ToolTip": "C:\\Users\\TrongHK\\AppData\\Local\\SourceServer\\8039f3faf9f7b871289d298c0433c27b73c0312bf1b0c4fda1fd746e48292cd6\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
