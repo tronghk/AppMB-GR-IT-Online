@@ -57,6 +57,7 @@ builder.Services.AddScoped<PostsDAO>();
 builder.Services.AddScoped<ImagesDAO>();
 builder.Services.AddScoped<PostCommentsDAO>();
 builder.Services.AddScoped<PostExpressionssDAO>();
+builder.Services.AddScoped<FollowDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
@@ -64,6 +65,8 @@ builder.Services.AddScoped<IPosts, PostServices>();
 builder.Services.AddScoped<IImages, ImageServices>();
 builder.Services.AddScoped<IPostComments, PostCommentServices>();
 builder.Services.AddScoped<IPostExpressionss, PostExpressionServicess>();
+builder.Services.AddScoped<IFollows, FollowServices>();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -76,7 +79,6 @@ builder.Services.AddCors(options =>
             }
         );
 });
-//builder.WebHost.UseUrls("www.AppGRIT.somee.com");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

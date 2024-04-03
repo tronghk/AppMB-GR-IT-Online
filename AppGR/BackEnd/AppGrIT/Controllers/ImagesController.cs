@@ -32,7 +32,6 @@ namespace AppGrIT.Controllers
                 Status = StatusResponse.STATUS_ERROR,
                 Message = MessageResponse.MESSAGE_CREATE_FAIL
             });
-           
         }
 
         [HttpPost("/add-list-image-from-post")]
