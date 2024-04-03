@@ -47,6 +47,29 @@
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".profile"
+            android:exported="false" />
+
+<!--        <activity
+            android:name=".button_black"
+            android:exported="false" />-->
+        <activity
+            android:name=".ProfileOther"
+            android:exported="false" />
+
+        <activity
+            android:name=".HomeFragment"
+            android:exported="false" />
+        <activity
+            android:name=".CustomInformation"
+            android:exported="false" />
+        <activity
+            android:name=".changepassword"
+            android:exported="false" />
+        <activity
+            android:name=".comment"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
