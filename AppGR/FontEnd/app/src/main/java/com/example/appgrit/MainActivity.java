@@ -10,6 +10,7 @@ import com.example.appgrit.activities.CreateMarketplace;
 import com.example.appgrit.activities.CreatePostHome;
 import com.example.appgrit.activities.DetailMarketplace;
 import com.example.appgrit.activities.ListUserLike;
+import com.example.appgrit.activities.activity_home;
 import com.example.appgrit.activities.activity_signin;
 import com.example.appgrit.activities.activity_signup;
 import com.jakewharton.threetenabp.AndroidThreeTen;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonSignUp.setOnClickListener(v -> {
             // Chuyển đến màn hình Signup
-            Intent signupIntent = new Intent(MainActivity.this, activity_signup.class);
+            Intent signupIntent = new Intent(MainActivity.this, activity_home.class);
             startActivity(signupIntent);
 
 
