@@ -48,6 +48,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "AddFriendUser",
+    "RelativePath": "add-friend",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFriendsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "AddImageCoverUser",
     "RelativePath": "add-image-cover-user",
@@ -176,6 +192,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UserFollowsController",
+    "Method": "CountFollowers",
+    "RelativePath": "count-followers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UnUserController",
+    "Method": "CountUnUser",
+    "RelativePath": "count-unUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "CountFriends",
+    "RelativePath": "count-userFriend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.PostCommentController",
     "Method": "DeletePostCommentUser",
     "RelativePath": "delete-comment-post",
@@ -228,6 +292,22 @@
       {
         "Name": "model",
         "Type": "AppGrIT.Models.UserFollowsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "DeleteUserFriend",
+    "RelativePath": "delete-friend",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFriendsModel",
         "IsRequired": true
       }
     ],
@@ -442,6 +522,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UnUserController",
+    "Method": "GetListUnUser",
+    "RelativePath": "get-listUnUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "GetListUserFriend",
+    "RelativePath": "get-listUserFriend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

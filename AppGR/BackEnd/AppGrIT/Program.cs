@@ -1,6 +1,7 @@
 using AppGrIT.Authentication;
 using AppGrIT.Data;
 using AppGrIT.Services;
+using AppGrIT.Services.AppGrIT.Services;
 using AppGrIT.Services.Imployement;
 using FirebaseAdmin;
 using Microsoft.AspNetCore.Authentication;
@@ -58,6 +59,9 @@ builder.Services.AddScoped<ImagesDAO>();
 builder.Services.AddScoped<PostCommentsDAO>();
 builder.Services.AddScoped<PostExpressionssDAO>();
 builder.Services.AddScoped<FollowDAO>();
+builder.Services.AddScoped<UserFollowsDAO>();
+builder.Services.AddScoped<UserFriendsDAO>();
+builder.Services.AddScoped<UnUserDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
@@ -66,7 +70,9 @@ builder.Services.AddScoped<IImages, ImageServices>();
 builder.Services.AddScoped<IPostComments, PostCommentServices>();
 builder.Services.AddScoped<IPostExpressionss, PostExpressionServicess>();
 builder.Services.AddScoped<IFollows, FollowServices>();
-
+builder.Services.AddScoped<IUserFollows, UserFollowsServices>();
+builder.Services.AddScoped<IUserFriends, UserFriendsServices>();
+builder.Services.AddScoped<IUnUser, UnUserServices>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

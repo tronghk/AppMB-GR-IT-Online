@@ -8,9 +8,9 @@ namespace AppGrIT.Models
         public string UserId
         { get; set; } = null!;
         [Required]
-        public string UserName { get; set; } = null!;
-        [Required]
-        public string UserImage
-        { get; set; } = null!;
+        public string UserFriendId 
+        { get;  set; } = null!;
+       
+       
     }
 }
