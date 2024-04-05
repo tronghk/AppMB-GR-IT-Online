@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="toolbar_title" type="id" />
+    <item name="avatarImageView" type="id" />
+    <item name="editAvatarButton" type="id" />
+    <item name="nameLabelTextView" type="id" />
+    <item name="nameEditText" type="id" />
+    <item name="usernameLabelTextView" type="id" />
+    <item name="usernameEditText" type="id" />
+    <item name="genderLabelTextView" type="id" />
+    <item name="genderEditText" type="id" />
+    <item name="biographyLabelTextView" type="id" />
+    <item name="biographyEditText" type="id" />
+    <item name="linksLabelTextView" type="id" />
+    <item name="linksEditText" type="id" />
+</resources>
