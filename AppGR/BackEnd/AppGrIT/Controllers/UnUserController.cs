@@ -1,8 +1,11 @@
 ﻿using AppGrIT.Helper;
 using AppGrIT.Model;
+using AppGrIT.Models;
 using AppGrIT.Services;
 using AppGrIT.Services.AppGrIT.Services;
+using Firebase.Auth;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppGrIT.Controllers
@@ -12,10 +15,12 @@ namespace AppGrIT.Controllers
     public class UnUserController : ControllerBase
     {
         private IUnUser _unUserManager;
+        private IUsers _userManager;
 
-        public UnUserController(IUnUser pression)
+        public UnUserController(IUnUser pression, IUsers user)
         {
             _unUserManager = pression;
+            _userManager = user;
         }
         [HttpGet("/count-unUser")]
         public async Task<IActionResult> CountUnUser(string userId)
@@ -43,6 +48,29 @@ namespace AppGrIT.Controllers
             {
                 var result = await _unUserManager.GetListUnUser(userId);
                 return Ok(result);
+            }
+            return NotFound();
+        }
+        [HttpPost("/add-UnUser")]
+        public async Task<IActionResult> AddUnUser([FromBody] UnUserModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            var userfr = await _userManager.GetUserToUserId(model.UnUserId!);
+
+            var us = await _unUserManager.GetUnUser(model.UserId, model.UnUserId);
+
+            if (user != null && userfr != null && us == null)
+            {
+                var result = await _unUserManager.CreateUnUser(model);
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_CREATE_FAIL
+                });
             }
             return NotFound();
         }
