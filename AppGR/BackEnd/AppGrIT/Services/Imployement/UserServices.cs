@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Numerics;
 using System.Text;
 
 namespace AppGrIT.Services.Imployement
@@ -397,6 +399,30 @@ namespace AppGrIT.Services.Imployement
                 {
                     UserId = userinfo.UserId,
                     LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+
+        public async Task<List<UserInforModel>> FindUserByAddress(string Address)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserBySubstringAddressAsync(Address);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone
                 };
                 result.Add(us);
             }

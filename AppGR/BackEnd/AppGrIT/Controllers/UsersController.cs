@@ -347,6 +347,19 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+
+        [HttpGet("/FindUserByAddress")]
+        public async Task<IActionResult> FindUserByAddress(string Address)
+        {
+            var user = await _userManager.FindUserByAddress(Address!);
+
+            if (user != null)
+            {
+                var result = await _userManager.FindUserByAddress(Address);
+                return Ok(result);
+            }
+            return NotFound();
+        }
     }
 
    

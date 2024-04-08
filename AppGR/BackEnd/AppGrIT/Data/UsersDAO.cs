@@ -258,6 +258,25 @@ namespace AppGrIT.Data
             }          
             return matchingUsers;
         }
+        public async Task<List<UserInfors>> FindUserBySubstringAddressAsync(string address)
+        {           
+            List<UserInfors> matchingUsers = new List<UserInfors>();         
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");      
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();       
+            foreach (var item in jsonResponse)
+            {
+                var value = item.Value!.ToString();
+                
+                var user = JsonConvert.DeserializeObject<UserInfors>(value);
+              
+                if (user.Address != null && user.Address.ToLower().Contains(address.ToLower()))
+                {                
+                    matchingUsers.Add(user);
+                }
+            }          
+            return matchingUsers;
+        }
+
 
 
 
