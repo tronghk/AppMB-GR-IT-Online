@@ -1,6 +1,7 @@
 ﻿using AppGrIT.Entity;
 using AppGrIT.Helper;
 using AppGrIT.Model;
+using AppGrIT.Models;
 using Firebase.Auth;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -238,6 +239,26 @@ namespace AppGrIT.Data
                 };
             }
         }
+        public async Task<List<UserInfors>> FindUserBySubstringLastNameAsync(string substring)
+        {         
+            List<UserInfors> matchingUsers = new List<UserInfors>();           
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");           
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+            foreach (var item in jsonResponse)
+            {
+                var value = item.Value!.ToString();
+                
+                var user = JsonConvert.DeserializeObject<UserInfors>(value);
+
+                if (user.LastName.ToLower().Contains(substring.ToLower()))
+                {                 
+                    matchingUsers.Add(user);
+                }
+            }          
+            return matchingUsers;
+        }
+
 
 
     }

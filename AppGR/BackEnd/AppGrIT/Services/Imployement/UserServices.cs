@@ -386,5 +386,21 @@ namespace AppGrIT.Services.Imployement
             }
             return result;
         }
+
+        public async Task<List<UserInforModel>> FindUserByLastName(string LastName)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserBySubstringLastNameAsync(LastName);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                };
+                result.Add(us);
+            }
+            return result;
+        }
     }
 }

@@ -335,6 +335,18 @@ namespace AppGrIT.Controllers
             }
             return NotFound("Can not find user");
         }
+        [HttpGet("/FindUserByLastName")]
+        public async Task<IActionResult> FindUserByLastName(string LastName)
+        {
+            var user = await _userManager.FindUserByLastName(LastName!);
+
+            if (user != null)
+            {
+                var result = await _userManager.FindUserByLastName(LastName);
+                return Ok(result);
+            }
+            return NotFound();
+        }
     }
 
    
