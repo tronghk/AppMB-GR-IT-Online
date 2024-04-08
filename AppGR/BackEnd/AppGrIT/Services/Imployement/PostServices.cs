@@ -462,5 +462,41 @@ namespace AppGrIT.Services.Imployement
             }
             return listModel;
         }
+        public async Task<List<PostModel>> FindPostByContent(string Content)
+        {
+            List<PostModel> result = new List<PostModel>();
+            var list = await _postDAO.FindPostBySubstringContentAsync(Content);
+            foreach (var post in list)
+            {
+                var listImage = await _imageManager.GetImagePostToId(post.PostId);
+
+
+                // string imagePath = listImage.FirstOrDefault()?.ImagePath;
+                List<ImagePostModel> imagePosts = listImage.Select(image =>
+             new ImagePostModel
+             {
+                 ImageContent = image.ImageContent,
+                 ImagePath = image.ImagePath,
+                 ImageId = image.ImageId
+             }).ToList();
+
+                var us = new PostModel
+                {
+                    PostId = post.PostId,
+                    Content = post.Content,
+                    PostTime = post.PostTime,
+                    PostType = post.PostType,
+                    UserId = post.UserId!,
+                    imagePost =imagePosts,
+
+                  //  imagepostK = imagePath  // Gán danh sách các đường dẫn hình ảnh vào imagePost
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+
+
+
     }
 }

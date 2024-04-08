@@ -335,5 +335,24 @@ namespace AppGrIT.Data
             }
             return StatusResponse.STATUS_ERROR;
         }
+        public async Task<List<Posts>> FindPostBySubstringContentAsync(string content)
+        {
+            List<Posts> matchingUsers = new List<Posts>();
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Posts");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            foreach (var item in jsonResponse)
+            {
+                var value = item.Value!.ToString();
+
+                var user = JsonConvert.DeserializeObject<Posts>(value);
+
+                if (user.Content != null && user.Content.ToLower().Contains(content.ToLower()))
+                {
+                    matchingUsers.Add(user);
+                }
+            }
+            return matchingUsers;
+        }
+
     }
 }

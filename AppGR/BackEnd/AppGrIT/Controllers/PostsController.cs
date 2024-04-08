@@ -327,5 +327,19 @@ namespace AppGrIT.Controllers
             return NotFound();
         }
 
+        [HttpGet("/FindPostByContent")]
+        public async Task<IActionResult> FindPostByContent(string Content)
+        {
+            var user = await _postManager.FindPostByContent(Content!);
+
+            if (user != null)
+            {
+                var result = await _postManager.FindPostByContent(Content);
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
+
     }
 }
