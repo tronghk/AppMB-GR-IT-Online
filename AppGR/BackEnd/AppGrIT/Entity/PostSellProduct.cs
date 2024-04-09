@@ -20,5 +20,9 @@ namespace AppGrIT.Entity
         [Required]
         public float Price
         { get; set; }
+        [Required]
+        public string NameProduct
+        { get; set; }
+        public DateTime PostTime { get; set; }
     }
 }

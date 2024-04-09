@@ -61,6 +61,7 @@ builder.Services.AddScoped<PostExpressionssDAO>();
 builder.Services.AddScoped<UserFollowsDAO>();
 builder.Services.AddScoped<UserFriendsDAO>();
 builder.Services.AddScoped<UnUserDAO>();
+builder.Services.AddScoped<PostSellProductDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
@@ -71,6 +72,7 @@ builder.Services.AddScoped<IPostExpressionss, PostExpressionServicess>();
 builder.Services.AddScoped<IUserFollows, UserFollowsServices>();
 builder.Services.AddScoped<IUserFriends, UserFriendsServices>();
 builder.Services.AddScoped<IUnUser, UnUserServices>();
+builder.Services.AddScoped<IPostSellProduct, PostSellProductServices>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

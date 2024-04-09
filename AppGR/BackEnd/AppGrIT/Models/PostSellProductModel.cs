@@ -17,5 +17,10 @@ namespace AppGrIT.Models
         public float Price
 
         { get; set; }
+        [Required]
+        public string NameProduct
+        { get; set; } = null!;
+
+        [Required] public DateTime PostTime { get; set; }
     }
 }
