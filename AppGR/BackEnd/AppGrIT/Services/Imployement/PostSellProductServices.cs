@@ -28,13 +28,32 @@ namespace AppGrIT.Services.Imployement
                     Price = userinfo.Price,
                     PostSellProductId = userinfo.PostSellProductId,
                     Content = userinfo.Content,
-                    // Ensure PostTime is properly assigned
-                    PostTime = userinfo.PostTime // Assuming userinfo.PostTime is of type DateTime
+                   
+                    PostTime = userinfo.PostTime 
                 };
                 result.Add(us);
             }
             return result;
         }
 
+        public async Task<List<PostSellProductModel>> FindProductByPriceProduct(float price)
+        {
+            List<PostSellProductModel> result = new List<PostSellProductModel>();
+            var list = await _postSellDao.FindProductByPriceAsync(price);
+            foreach (var userinfo in list)
+            {
+                var us = new PostSellProductModel
+                {
+                    UserId = userinfo.UserId,
+                    NameProduct = userinfo.NameProduct,
+                    Price = userinfo.Price,
+                    PostSellProductId = userinfo.PostSellProductId,
+                    Content = userinfo.Content,                  
+                    PostTime = userinfo.PostTime 
+                };
+                result.Add(us);
+            }
+            return result;
+        }
     }
 }

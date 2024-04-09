@@ -27,5 +27,17 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [HttpGet("/FindProductByPriceProduct")]
+        public async Task<IActionResult> FindProductByPriceProduct(float price)
+        {
+            var user = await _postsellManager.FindProductByPriceProduct(price!);
+
+            if (user != null)
+            {
+                var result = await _postsellManager.FindProductByPriceProduct(price);
+                return Ok(result);
+            }
+            return NotFound();
+        }
     }
 }
