@@ -41,20 +41,41 @@ namespace AppGrIT.Services.Imployement
             Roles role = await _roleDao.GetRole(model.RoleName);
             if (role == null)
             {
-                return new ResponseModel
+                await AddRoleAsync(new RolesModel
                 {
-                    Status = StatusResponse.STATUS_ERROR,
-                    Message = MessageResponse.MESSAGE_CREATE_FAIL
-                };
+                    RoleName = model.RoleName,
+                    Despripsion = ""
+                });
+                role = await _roleDao.GetRole(model.RoleName);
             }
             UserRoles us = new UserRoles
             {
                 RoleId = role.RoleId,
                 UserId = user.UserId
             };
-            var result = await _roleDao.AddUserRoleAsync(us);
-            return result;
+            var listRole = await GetUserRoles(user.UserId);
+            if (!CheckDupRole(listRole,model.RoleName))
+            {
+                var result = await _roleDao.AddUserRoleAsync(us);
+                return result;
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_SUCCESS,
+                Message = "Duplicate"
+            };
+           
 
+        }
+        public bool CheckDupRole(List<string> role, string roleName)
+        {
+            foreach (var value  in role)
+            {
+                if (value == roleName)
+                    return true;
+
+            }
+            return false;
         }
 
         public Task<ResponseModel> DeleteRoleAsync(RolesModel model)

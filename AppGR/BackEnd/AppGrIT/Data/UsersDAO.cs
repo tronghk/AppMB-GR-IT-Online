@@ -34,7 +34,7 @@ namespace AppGrIT.Data
                 SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Register success"
                     
                 };
@@ -58,7 +58,7 @@ namespace AppGrIT.Data
                 PushResponse response = await _firebase._client.PushAsync("UserInfors/", account);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Register success"
 
                 };
@@ -181,7 +181,7 @@ namespace AppGrIT.Data
                 await _firebase._client.SetAsync("Users/" + user.UserId + "/RefreshTokenExpiryTime", exrityTime);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                 };
             }
             catch 

@@ -14,4 +14,6 @@ public interface UserApiService {
 
     @POST("signin")
     Call<TokenModel> signIn(@Body SignInModel signInModel);
+    @POST("sign-in-google")
+    Call<TokenModel> SignInGoogle(@Body String idToken);
 }

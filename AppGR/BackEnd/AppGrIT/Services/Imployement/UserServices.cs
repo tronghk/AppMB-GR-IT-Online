@@ -10,8 +10,10 @@ using FireSharp.Extensions;
 using Google.Api.Gax.Rest;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
 using System.Text;
 
 namespace AppGrIT.Services.Imployement
@@ -50,6 +52,7 @@ namespace AppGrIT.Services.Imployement
             {
                
                 FirebaseAuthLink link = await _firebaseAuth.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
+               
                 var user = await GetUserAsync(model.Email);
                 if(user.Locked)
                 {
@@ -69,7 +72,7 @@ namespace AppGrIT.Services.Imployement
                 }
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = link.FirebaseToken
                 };
             }
@@ -103,6 +106,7 @@ namespace AppGrIT.Services.Imployement
         {
             try
             {
+
                
                 var us = new AccountIdentity
                 {
@@ -125,6 +129,43 @@ namespace AppGrIT.Services.Imployement
                 //xét quyền mặc định
                 await SetRoleDefault(model.Email,SynthesizeRoles.CUSTOMER);
               
+                return result;
+            }
+            catch
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Email exist"
+                };
+            }
+
+        }
+        public async Task<ResponseModel> SignUpGoogleAsync(string link)
+        {
+            var user = await _firebaseAuth.GetUserAsync(link);
+            
+            try
+            {
+               
+                var us = new AccountIdentity
+                {
+                    Email = user.Email
+
+                };
+
+               
+
+                var result = await CreateAccount(us);
+                UserInforModel userInfos = new UserInforModel
+                {
+                    Firstname = user.FirstName,
+                    LastName = user.LastName,
+                };
+                await CreateUserInfors(userInfos, user.Email);
+                //xét quyền mặc định
+                await SetRoleDefault(user.Email, SynthesizeRoles.CUSTOMER);
+
                 return result;
             }
             catch
@@ -205,7 +246,7 @@ namespace AppGrIT.Services.Imployement
                     };
                   
                 }
-                return new ResponseModel { Status = StatusResponse.STATUS_OK };
+                return new ResponseModel { Status = StatusResponse.STATUS_SUCCESS };
 
             }
 
@@ -239,7 +280,7 @@ namespace AppGrIT.Services.Imployement
                 var result = _firebaseAuth.SendEmailVerificationAsync(user.FirebaseToken);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
 
                 };
             }
@@ -274,7 +315,7 @@ namespace AppGrIT.Services.Imployement
                
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
 
                 };
             }
@@ -385,6 +426,52 @@ namespace AppGrIT.Services.Imployement
                 result.Add(im);
             }
             return result;
+        }
+
+        public async Task<ResponseModel> SignInGoogleAsync(string idToken )
+        {
+            try
+            {
+                FirebaseAuthLink link = await _firebaseAuth.SignInWithGoogleIdTokenAsync(idToken);
+
+                if (link != null)
+                {
+                    return new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_SUCCESS,
+                        Message = link.FirebaseToken
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_LOGIN_FAIL
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_LOGIN_FAIL
+            };
+
+
+
+
+
+        }
+
+        public async Task<string> GetEmailModelFromLink(string link)
+        {
+            var user = await _firebaseAuth.GetUserAsync(link);
+            var email = user.Email;
+            if(user!= null)
+            {
+                return email;
+            }
+            return null;
         }
     }
 }

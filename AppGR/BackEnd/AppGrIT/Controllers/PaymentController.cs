@@ -1,4 +1,7 @@
-﻿using AppGrIT.Models;
+﻿using AppGrIT.Helper;
+using AppGrIT.Models;
+using AppGrIT.Payment;
+using AppGrIT.Services;
 using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -12,76 +15,82 @@ namespace AppGrIT.Controllers
     [ApiController]
     public class PaymentController : ControllerBase
     {
-        [HttpGet("/payment-user")]
-        public ActionResult Payment()
+        private readonly IPayment _paymentManager;
+        private readonly IRoles _roleManager;
+        private readonly IUsers _userManager;
+
+        public PaymentController(IPayment payment, IRoles role, IUsers user) {
+        
+            _paymentManager = payment;
+            _roleManager = role;
+            _userManager = user;
+        }
+
+        [HttpPost("/payment-user")]
+        public async Task<IActionResult> Payment(string month, string userId)
         {
-            //request params need to request to MoMo system
-            string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
-            string partnerCode = "MOMOOJOI20210710";
-            string accessKey = "iPXneGmrJH0G8FOP";
-            string serectkey = "sFcbSGRSJjwGxwhhcEktCHWYUuTuPNDB";
-            string orderInfo = "test";
-            string returnUrl = "https://localhost:7003/ConfirmPaymentClient";
-            string notifyurl = "  https://ea36-113-185-77-241.ngrok-free.app/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
-
-            string amount = "1000";
-            string orderid = DateTime.Now.Ticks.ToString(); //mã đơn hàng
-            string requestId = DateTime.Now.Ticks.ToString();
-            string extraData = "";
-
-            //Before sign HMAC SHA256 signature
-            string rawHash = "partnerCode=" +
-                partnerCode + "&accessKey=" +
-                accessKey + "&requestId=" +
-                requestId + "&amount=" +
-                amount + "&orderId=" +
-                orderid + "&orderInfo=" +
-                orderInfo + "&returnUrl=" +
-                returnUrl + "&notifyUrl=" +
-                notifyurl + "&extraData=" +
-                extraData;
-
-            MoMoSecurity crypto = new MoMoSecurity();
-            //sign signature SHA256
-            string signature = crypto.signSHA256(rawHash, serectkey);
-
-            //build body json request
-            JObject message = new JObject
+           var json = _paymentManager.CreatePayment(userId, month);
+           return Ok(json);
+        }
+        [HttpGet("/ConfirmPaymentClient")]
+        public async Task<IActionResult> ConfirmPaymentClient(string partnerCode, string accessKey
+            ,string requestId, string amount, string orderId, string orderInfo, string orderType, string transId
+            , string message, string localMessage, string responseTime, string errorCode, string payType, string extraData
+            , string signature)
+        {
+            // so sánh accesskey partnercode....
+            // luu db
+            if(errorCode == "0")
             {
-                { "partnerCode", partnerCode },
-                { "accessKey", accessKey },
-                { "requestId", requestId },
-                { "amount", amount },
-                { "orderId", orderid },
-                { "orderInfo", orderInfo },
-                { "returnUrl", returnUrl },
-                { "notifyUrl", notifyurl },
-                { "extraData", extraData },
-                { "requestType", "captureMoMoWallet" },
-                { "signature", signature }
+                var model = new ResultPaymentModel
+                {
+                    partnerCode = partnerCode,
+                    accessKey = accessKey,
+                    requestId = requestId,
+                    amount = amount,
+                    orderId = orderId,
+                    orderType = orderType,
+                    responseTime = responseTime,
+                    errorCode = errorCode,
+                    payType = payType,
+                    extraData = extraData,
+                    signature = signature,
+                    localMessage = localMessage,
+                    orderInfo = orderInfo,
+                    transId = transId
+                    ,message = message
+                };
+                //luu db
+                var result = await _paymentManager.SavePayment(model, extraData);
 
-            };
+                //update quyen neu có
+                var user = await _userManager.GetUserToUserId(extraData);
+                var role = await _roleManager.AddUserRolesAsync(
+                    new UserRoleModel
+                    {
+                        RoleName = SynthesizeRoles.SELL_PRODUCT,
+                        Email = user.Email
+                    });
+                // update thời hạn
+                var time = await _paymentManager.UpdatePayment(model, extraData);
 
-            string responseFromMomo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
-
-            JObject jmessage = JObject.Parse(responseFromMomo);
-            return Redirect(jmessage.GetValue("payUrl")!.ToString());
+                if(result.Status == StatusResponse.STATUS_SUCCESS &&
+                    role.Status == StatusResponse.STATUS_SUCCESS &&
+                    time.Status == StatusResponse.STATUS_SUCCESS 
+                    )   
+                        return Ok("Đã đăng ký thành viên bán hàng thành công");
+            }
+           
+            
+                return BadRequest("Đăng ký bán hàng thất bại");
+            
         }
-        [HttpPost("/ConfirmPaymentClient")]
-        public async Task<IActionResult> ConfirmPaymentClient(ResultPaymentModel result)
-        {
-            //lấy kết quả Momo trả về và hiển thị thông báo cho người dùng (có thể lấy dữ liệu ở đây cập nhật xuống db)
-            string rMessage = result.message;
-            string rOrderId = result.orderId;
-            string rErrorCode = result.errorCode; // = 0: thanh toán thành công
-            return Ok("abc");
-        }
+
 
         [HttpPost("/SavePayment")]
         public void SavePayment()
         {
-            //cập nhật dữ liệu vào db
-            String a = "";
+            string abc = "";
         }
     }
 }

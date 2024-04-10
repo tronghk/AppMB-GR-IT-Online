@@ -7,6 +7,7 @@ using AppGrIT.Models;
 using AppGrIT.Services;
 using BookManager.Model;
 using Firebase.Auth;
+using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -42,7 +43,7 @@ namespace AppGrIT.Controllers
         {
 
             var result = await _userManager.SignUpAsync(model);
-            if (!result.Status!.Equals(StatusResponse.STATUS_OK))
+            if (!result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
             {
                 return BadRequest(result);
             }
@@ -59,7 +60,7 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> Login(SignInModel signInModel)
         {
             var result = await _userManager.SignInAsync(signInModel);
-            if (result.Status!.Equals(StatusResponse.STATUS_OK))
+            if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
             {
                 var token = await _tokenManager.GenerareTokenModel(signInModel);
                 return Ok(token);
@@ -93,7 +94,7 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> ForgotPassword(string email)
         {
             var result = await _userManager.ForgotPassword(email);
-            if (result.Status!.Equals(StatusResponse.STATUS_OK))
+            if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
             {
                 return Ok(result);
             }
@@ -108,7 +109,7 @@ namespace AppGrIT.Controllers
             if (_tokenManager.CheckDupEmailToToken(accesss_token, model.Email))
             {
                 var result = await _userManager.VertificationEmail(model);
-                if (result.Status!.Equals(StatusResponse.STATUS_OK))
+                if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
                 {
                     return Ok(result);
                 }
@@ -130,7 +131,7 @@ namespace AppGrIT.Controllers
             if (_tokenManager.CheckDupEmailToToken(accesss_token, model.Email))
             {
                 var result = await _userManager.ChangePasswordModel(model);
-                if (result.Status!.Equals(StatusResponse.STATUS_OK))
+                if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
                 {
                     return Ok(result);
                 }
@@ -188,6 +189,34 @@ namespace AppGrIT.Controllers
 
             return Unauthorized();
 
+        }
+       
+        [HttpPost("/sign-in-google")]
+        public async Task<IActionResult> SignInGoogle(string idToken)
+        {
+            var result = await _userManager.SignInGoogleAsync(idToken);
+            if(result.Status == StatusResponse.STATUS_SUCCESS)
+            {
+                var link = result.Message;
+                var email = await _userManager.GetEmailModelFromLink(link!);
+                var account = await _userManager.GetUserAsync(email);
+                if(account == null)
+                {
+                    var response = await _userManager.SignUpGoogleAsync(link!);
+                }
+                var token = await _tokenManager.GenerareTokenModel(new SignInModel
+                {
+                    Email = email
+                });
+                return Ok(token);
+
+
+            }
+            return BadRequest(new ResponseModel
+            {
+                Status = StatusResponse.STATUS_SUCCESS,
+                Message = MessageResponse.MESSAGE_LOGIN_FAIL
+            });
         }
 
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]

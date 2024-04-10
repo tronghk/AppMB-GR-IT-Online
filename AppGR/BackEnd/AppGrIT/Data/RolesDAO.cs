@@ -26,7 +26,7 @@ namespace AppGrIT.Data
                 
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = MessageResponse.MESSAGE_CREATE_SUCCESS
 
                 };
@@ -50,7 +50,7 @@ namespace AppGrIT.Data
                 await _firebase._client.SetAsync("Roles/" + role.RoleId, role);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Success"
 
                 };
@@ -178,7 +178,7 @@ namespace AppGrIT.Data
                 
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Success"
                 };
 
