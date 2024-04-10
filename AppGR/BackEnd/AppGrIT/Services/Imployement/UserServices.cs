@@ -402,7 +402,8 @@ namespace AppGrIT.Services.Imployement
                     Firstname = userinfo.Firstname,
                     Gender = userinfo.Gender,
                     Address = userinfo.Address,
-                    Phone = userinfo.Phone
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
                 };
                 result.Add(us);
             }
@@ -422,7 +423,8 @@ namespace AppGrIT.Services.Imployement
                     Firstname = userinfo.Firstname,
                     Gender = userinfo.Gender,
                     Address = userinfo.Address,
-                    Phone = userinfo.Phone
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
 
                 };
                 result.Add(us);
@@ -450,6 +452,29 @@ namespace AppGrIT.Services.Imployement
             }
             return result;
         }
+        public async Task<List<UserInforModel>> FindUserByLastName_Address_Age(string input)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+
+            var list = await _userDao.FindUserByLastNameByAddressAndAgeAsync(input);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+                };
+                result.Add(us);
+            }
+
+            return result;
+        }
+
 
     }
 }

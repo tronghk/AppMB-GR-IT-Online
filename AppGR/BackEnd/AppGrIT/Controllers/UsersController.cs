@@ -5,6 +5,7 @@ using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using AppGrIT.Services;
+using AppGrIT.Services.Imployement;
 using BookManager.Model;
 using Firebase.Auth;
 using FirebaseAdmin.Messaging;
@@ -372,7 +373,20 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [HttpGet("/FindUserByLastName_Address_Age")]
+        public async Task<IActionResult> FindUserByLastName_Address_Age(string input)
+        {
+            var users = await _userManager.FindUserByLastName_Address_Age(input);
+
+            if (users != null && users.Any())
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        }
+
+
     }
 
-   
+
 }

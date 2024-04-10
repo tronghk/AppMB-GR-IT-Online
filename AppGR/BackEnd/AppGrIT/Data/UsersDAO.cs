@@ -286,26 +286,63 @@ namespace AppGrIT.Data
             }
             return age;
         }
-        public async Task<List<UserInforModel>> FindUserByAgeAsync(int age)
-        {            
-            List<UserInforModel> matchingUsers = new List<UserInforModel>();          
-            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");           
-            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();           
+        public async Task<List<UserInfors>> FindUserByAgeAsync(int age)
+        {
+            List<UserInfors> matchingUsers = new List<UserInfors>();
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
             foreach (var item in jsonResponse)
-            {                
-                var value = item.Value!.ToString();               
-                var user = JsonConvert.DeserializeObject<UserInforModel>(value);              
-                int userAge = CalculateAge(user.Birthday);               
+            {
+                var value = item.Value!.ToString();
+                var user = JsonConvert.DeserializeObject<UserInfors>(value);
+                int userAge = CalculateAge(user.Birthday);
                 if (userAge == age)
                 {
-                    
                     matchingUsers.Add(user);
                 }
             }
 
-           
             return matchingUsers;
-        }       
-        
+        }
+        public async Task<List<UserInfors>> FindUserByLastNameByAddressAndAgeAsync(string input)
+        {
+            List<UserInfors> matchingUsers = new List<UserInfors>();
+
+            // Phân tích chuỗi đầu vào thành các thành phần: họ, địa chỉ, tuổi
+            string[] parts = input.Split(',');
+
+            if (parts.Length != 3)
+            {
+                throw new ArgumentException("Định dạng đầu vào không hợp lệ. Vui lòng nhập theo định dạng 'LastName, Address, Age'.");
+            }
+
+            string lastName = parts[0].Trim();
+            string address = parts[1].Trim();
+            if (!int.TryParse(parts[2].Trim(), out int age))
+            {
+                throw new ArgumentException("Tuổi phải là một số nguyên.");
+            }
+
+            // Lấy danh sách người dùng theo các điều kiện
+            var usersByLastName = await FindUserBySubstringLastNameAsync(lastName);
+            var usersByAddress = await FindUserBySubstringAddressAsync(address);
+            var usersByAge = await FindUserByAgeAsync(age);
+
+            // Tìm kiếm người dùng thỏa mãn tất cả các điều kiện
+            foreach (var userByLastName in usersByLastName)
+            {
+                if (usersByAddress.Any(u => u.UserId == userByLastName.UserId) &&
+                    usersByAge.Any(u => u.UserId == userByLastName.UserId))
+                {
+                    matchingUsers.Add(userByLastName);
+                }
+            }
+
+            return matchingUsers;
+        }
+
+
+
+
     }
 }
