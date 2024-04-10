@@ -339,11 +339,11 @@ namespace AppGrIT.Controllers
         [HttpGet("/FindUserByLastName")]
         public async Task<IActionResult> FindUserByLastName(string LastName)
         {
-            var user = await _userManager.FindUserByLastName(LastName!);
+            var result = await _userManager.FindUserByLastName(LastName);
 
-            if (user != null)
+            if (result != null)
             {
-                var result = await _userManager.FindUserByLastName(LastName);
+               
                 return Ok(result);
             }
             return NotFound();
@@ -352,23 +352,23 @@ namespace AppGrIT.Controllers
         [HttpGet("/FindUserByAddress")]
         public async Task<IActionResult> FindUserByAddress(string Address)
         {
-            var user = await _userManager.FindUserByAddress(Address!);
+            var user = await _userManager.FindUserByAddress(Address);
 
             if (user != null)
             {
-                var result = await _userManager.FindUserByAddress(Address);
-                return Ok(result);
+               
+                return Ok(user);
             }
             return NotFound();
         }
         [HttpGet("/FindUserByAge")]
         public async Task<IActionResult> FindUserByAge(int age)
         {
-            var user = await _userManager.FindUserByAge(age!);
+            var result = await _userManager.FindUserByAge(age);
 
-            if (user != null)
+            if (result != null)
             {
-                var result = await _userManager.FindUserByAge(age);
+                
                 return Ok(result);
             }
             return NotFound();
