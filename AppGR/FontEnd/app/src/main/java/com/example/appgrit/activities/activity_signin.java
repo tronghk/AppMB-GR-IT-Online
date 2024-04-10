@@ -176,7 +176,7 @@ public class activity_signin extends AppCompatActivity {
     private void handleSignInSuccess() {
         Toast.makeText(activity_signin.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
         // Chuyển hướng sang màn hình chính
-        Intent intent = new Intent(activity_signin.this, HomeActivity.class);
+        Intent intent = new Intent(activity_signin.this, activity_home.class);
         startActivity(intent);
         finish(); // Đóng activity hiện tại để ngăn người dùng quay lại màn hình đăng nhập
     }
