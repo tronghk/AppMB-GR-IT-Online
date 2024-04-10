@@ -276,9 +276,36 @@ namespace AppGrIT.Data
             }          
             return matchingUsers;
         }
+        private int CalculateAge(DateTime birthday)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - birthday.Year;
+            if (now < birthday.AddYears(age))
+            {
+                age--;
+            }
+            return age;
+        }
+        public async Task<List<UserInforModel>> FindUserByAgeAsync(int age)
+        {            
+            List<UserInforModel> matchingUsers = new List<UserInforModel>();          
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");           
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();           
+            foreach (var item in jsonResponse)
+            {                
+                var value = item.Value!.ToString();               
+                var user = JsonConvert.DeserializeObject<UserInforModel>(value);              
+                int userAge = CalculateAge(user.Birthday);               
+                if (userAge == age)
+                {
+                    
+                    matchingUsers.Add(user);
+                }
+            }
 
-
-
-
+           
+            return matchingUsers;
+        }       
+        
     }
 }

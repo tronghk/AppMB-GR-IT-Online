@@ -423,10 +423,33 @@ namespace AppGrIT.Services.Imployement
                     Gender = userinfo.Gender,
                     Address = userinfo.Address,
                     Phone = userinfo.Phone
+
                 };
                 result.Add(us);
             }
             return result;
         }
+        public async Task<List<UserInforModel>> FindUserByAge(int age)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserByAgeAsync(age);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday =userinfo.Birthday,
+                    
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+
     }
 }

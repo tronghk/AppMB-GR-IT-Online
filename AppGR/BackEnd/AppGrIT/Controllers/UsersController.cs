@@ -360,6 +360,18 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [HttpGet("/FindUserByAge")]
+        public async Task<IActionResult> FindUserByAge(int age)
+        {
+            var user = await _userManager.FindUserByAge(age!);
+
+            if (user != null)
+            {
+                var result = await _userManager.FindUserByAge(age);
+                return Ok(result);
+            }
+            return NotFound();
+        }
     }
 
    
