@@ -4,9 +4,8 @@ namespace AppGrIT.Models
 {
     public class PostSellProductModel
     {
-        [Required]
         public string PostSellProductId
-        { get; set; } = null!;
+        { get; set; }
         [Required]
         public string UserId
         { get; set; } = null!;

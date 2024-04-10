@@ -28,6 +28,8 @@ namespace AppGrIT.Services
         public Task<ResponseModel> DeleteSharePostAsync(string postId, string userId);
         public Task<List<SharePostModel>> GetListPostShared(string userId);
 
+        public Task<List<PostModel>> FindPostByContent(string Content);
+
 
 
         public Task<ResponseModel> HiddenPost(string userId, string postId);

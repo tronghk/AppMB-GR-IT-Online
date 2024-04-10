@@ -27,5 +27,10 @@ namespace AppGrIT.Services
 
         public Task<UserModel> GetInfoUser(string userId);
 
+        public Task<List<UserInforModel>> FindUserByLastName(string LastName);
+        public Task<List<UserInforModel>> FindUserByAddress(string Address);
+        public Task<List<UserInforModel>> FindUserByAge(int age);
+        public Task<List<UserInforModel>> FindUserByLastName_Address_Age(string input);
+
     }
 }

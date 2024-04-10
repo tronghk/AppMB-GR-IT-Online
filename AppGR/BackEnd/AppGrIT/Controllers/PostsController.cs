@@ -354,8 +354,9 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = SynthesizeRoles.SELL_PRODUCT)]
+       
         [HttpPost("/add-sell-post")]
+        [Authorize(Roles = SynthesizeRoles.SELL_PRODUCT)]
         public async Task<IActionResult> AddSellPost([FromBody] PostSellProductModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId);
@@ -446,6 +447,20 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+
+        [HttpGet("/FindPostByContent")]
+        public async Task<IActionResult> FindPostByContent(string Content)
+        {
+            var user = await _postManager.FindPostByContent(Content!);
+
+            if (user != null)
+            {
+                var result = await _postManager.FindPostByContent(Content);
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
 
     }
 }

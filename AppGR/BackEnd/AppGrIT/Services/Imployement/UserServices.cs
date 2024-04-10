@@ -14,6 +14,8 @@ using Newtonsoft.Json;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
+using System.Net;
+using System.Numerics;
 using System.Text;
 
 namespace AppGrIT.Services.Imployement
@@ -472,6 +474,91 @@ namespace AppGrIT.Services.Imployement
                 return email;
             }
             return null;
+        }
+        public async Task<List<UserInforModel>> FindUserByLastName(string LastName)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserBySubstringLastNameAsync(LastName);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+
+        public async Task<List<UserInforModel>> FindUserByAddress(string Address)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserBySubstringAddressAsync(Address);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+        public async Task<List<UserInforModel>> FindUserByAge(int age)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserByAgeAsync(age);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday =userinfo.Birthday,
+                    
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+        public async Task<List<UserInforModel>> FindUserByLastName_Address_Age(string input)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+
+            var list = await _userDao.FindUserByLastNameByAddressAndAgeAsync(input);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+                };
+                result.Add(us);
+            }
+
+            return result;
         }
     }
 }

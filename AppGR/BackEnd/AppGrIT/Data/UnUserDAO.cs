@@ -2,6 +2,7 @@
 using FireSharp.Response;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using AppGrIT.Helper;
 
 namespace AppGrIT.Data
 {
@@ -57,6 +58,45 @@ namespace AppGrIT.Data
                 }
             }
             return list;
+
+        }
+        public async Task<string> CreateUnUserAsync(UnUser un)
+        {
+            try
+            {
+
+                PushResponse response = await _firebase._client.PushAsync("UnUser/", un);
+                return StatusResponse.STATUS_SUCCESS;
+
+            }
+            catch (Exception ex)
+            {
+                return StatusResponse.STATUS_ERROR;
+                return null!;
+            }
+        }
+
+        public async Task<UnUser> GetUnUser(string userId, string unUserFriend)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UnUser");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+            if (jsonResponse != null)
+            {
+
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UnUser>(value);
+                    if (userc.UserId.Equals(userId) && userc.UnUserId.Equals(unUserFriend))
+                    {
+                        return userc;
+                    }
+                }
+            }
+            return null!;
 
         }
 

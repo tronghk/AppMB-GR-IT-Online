@@ -5,6 +5,7 @@ using AppGrIT.Helper;
 using AppGrIT.Model;
 using AppGrIT.Models;
 using AppGrIT.Services;
+using AppGrIT.Services.Imployement;
 using BookManager.Model;
 using Firebase.Auth;
 using FirebaseAdmin.Auth;
@@ -364,7 +365,57 @@ namespace AppGrIT.Controllers
             }
             return NotFound("Can not find user");
         }
+        [HttpGet("/FindUserByLastName")]
+        public async Task<IActionResult> FindUserByLastName(string LastName)
+        {
+            var user = await _userManager.FindUserByLastName(LastName!);
+
+            if (user != null)
+            {
+                var result = await _userManager.FindUserByLastName(LastName);
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("/FindUserByAddress")]
+        public async Task<IActionResult> FindUserByAddress(string Address)
+        {
+            var user = await _userManager.FindUserByAddress(Address!);
+
+            if (user != null)
+            {
+                var result = await _userManager.FindUserByAddress(Address);
+                return Ok(result);
+            }
+            return NotFound();
+        }
+        [HttpGet("/FindUserByAge")]
+        public async Task<IActionResult> FindUserByAge(int age)
+        {
+            var user = await _userManager.FindUserByAge(age!);
+
+            if (user != null)
+            {
+                var result = await _userManager.FindUserByAge(age);
+                return Ok(result);
+            }
+            return NotFound();
+        }
+        [HttpGet("/FindUserByLastName_Address_Age")]
+        public async Task<IActionResult> FindUserByLastName_Address_Age(string input)
+        {
+            var users = await _userManager.FindUserByLastName_Address_Age(input);
+
+            if (users != null && users.Any())
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        }
+
+
     }
 
-   
+
 }

@@ -6,5 +6,9 @@ namespace AppGrIT.Services
     {
         public Task<int> CountUnUserInAUser(string userId);
         public Task<List<UnUserModel>> GetListUnUser(string userId);
+
+        public Task<UnUserModel> CreateUnUser(UnUserModel model);
+
+        public Task<UnUserModel> GetUnUser(string userId, string Unuser);
     }
 }

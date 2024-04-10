@@ -160,6 +160,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UnUserController",
+    "Method": "AddUnUser",
+    "RelativePath": "add-UnUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UnUserModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "ChangePassword",
     "RelativePath": "change-password",
@@ -522,6 +538,118 @@
         "Name": "model",
         "Type": "AppGrIT.Models.UserInforModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "FindPostByContent",
+    "RelativePath": "FindPostByContent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostSellProductController",
+    "Method": "FindProductByNameProduct",
+    "RelativePath": "FindProductByNameProduct",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NameProduct",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostSellProductController",
+    "Method": "FindProductByPriceProduct",
+    "RelativePath": "FindProductByPriceProduct",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "price",
+        "Type": "System.Single",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "FindUserByAddress",
+    "RelativePath": "FindUserByAddress",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "FindUserByAge",
+    "RelativePath": "FindUserByAge",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "age",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "FindUserByLastName",
+    "RelativePath": "FindUserByLastName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "FindUserByLastName_Address_Age",
+    "RelativePath": "FindUserByLastName_Address_Age",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
