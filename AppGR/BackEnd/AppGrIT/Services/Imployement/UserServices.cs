@@ -130,7 +130,11 @@ namespace AppGrIT.Services.Imployement
                 await CreateUserInfors(userInfos, model.Email);
                 //xét quyền mặc định
                 await SetRoleDefault(model.Email,SynthesizeRoles.CUSTOMER);
-              
+                
+                // tao anh dai dien mac dinh
+                
+
+
                 return result;
             }
             catch

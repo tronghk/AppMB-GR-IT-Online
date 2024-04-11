@@ -10,6 +10,7 @@ using BookManager.Model;
 using Firebase.Auth;
 using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
+using Google.Api.Gax.Rest;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -20,6 +21,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using System.Reflection;
 using System.Text.Json.Nodes;
 
 namespace AppGrIT.Controllers
@@ -32,11 +34,14 @@ namespace AppGrIT.Controllers
         private readonly IUsers _userManager;
         private readonly IToken _tokenManager;
         private readonly IPosts _postManager;
-        public UsersController(IUsers userManager, IToken tokenManager, IPosts postManager)
+        private readonly IImages _imageManager;
+
+        public UsersController(IUsers userManager, IToken tokenManager, IPosts postManager, IImages image)
         {
             _tokenManager = tokenManager;
             _userManager = userManager;
             _postManager = postManager;
+            _imageManager = image;
         }
 
         [HttpPost("/signup")]
@@ -48,11 +53,31 @@ namespace AppGrIT.Controllers
             {
                 return BadRequest(result);
             }
+            var user = await _userManager.GetUserAsync(model.Email);
+
+            //tao post mac dinh
+            var im = await _imageManager.GetLinkAvatarDefault();
+            ImagePostModel i = new ImagePostModel
+            {
+                ImagePath = im,
+                ImageContent = "Default"
+            };
+            List<ImagePostModel> list = new List<ImagePostModel>();
+            list.Add(i);
+            var post = new PostModel
+            {
+                PostType = "3",
+                UserId = user.UserId,
+                PostTime = DateTime.Now,
+                imagePost = list,
+            };
+            var postInstes = await _postManager.CreatePostAsync(post);
             var token = await _tokenManager.GenerareTokenModel(new SignInModel
             {
                 Email = model.Email,
                 Password = model.Password,
             });
+
             return Ok(token);
 
 
@@ -204,6 +229,25 @@ namespace AppGrIT.Controllers
                 if(account == null)
                 {
                     var response = await _userManager.SignUpGoogleAsync(link!);
+                    var user = await _userManager.GetUserAsync(email);
+
+                    //tao post mac dinh
+                    var im = await _imageManager.GetLinkAvatarDefault();
+                    ImagePostModel i = new ImagePostModel
+                    {
+                        ImagePath = im,
+                        ImageContent = "Default"
+                    };
+                    List<ImagePostModel> list = new List<ImagePostModel>();
+                    list.Add(i);
+                    var post = new PostModel
+                    {
+                        PostType = "3",
+                        UserId = user.UserId,
+                        PostTime = DateTime.Now,
+                        imagePost = list,
+                    };
+                    var postInstes = await _postManager.CreatePostAsync(post);
                 }
                 var token = await _tokenManager.GenerareTokenModel(new SignInModel
                 {

@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -87,6 +88,7 @@ public class activity_signin extends AppCompatActivity {
     public void GoogleSignIn(){
         Intent intent = googleSignInClient.getSignInIntent();
         startActivityForResult(intent,Rc_SignIn);
+
     }
 
     @Override
@@ -103,21 +105,33 @@ public class activity_signin extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         }
+
     }
     private  void SignInGoogle(String idToken){
 
 
         // Gọi API đăng nhập bằng Retrofit
         UserApiService apiService = ApiServiceProvider.getApiService();
+
         Call<TokenModel> call = apiService.SignInGoogle(idToken);
+
         call.enqueue(new Callback<TokenModel>() {
             @Override
             public void onResponse(Call<TokenModel> call, Response<TokenModel> response) {
                 if (response.isSuccessful()) {
+
                     // Đăng nhập thành công
                     TokenModel tokenModel = response.body();
+
                     if (tokenModel != null) {
-                        // Nhận được token từ API
+                        SharedPreferences.Editor editor = getSharedPreferences("Token", MODE_PRIVATE).edit();
+
+                        editor.putString("accessToken", tokenModel.getAccessToken());
+                        editor.putString("refreshToken", tokenModel.getRefreshToken());
+
+                        Toast.makeText(getApplicationContext(),tokenModel.getAccessToken()+"",Toast.LENGTH_SHORT).show();
+                     //   editor.putString("tokenTime", tokenModel.getExpiration().toString());
+                        editor.apply();
                         handleSignInSuccess();
                     } else {
                         // Đăng nhập không thành công vì không nhận được token
@@ -151,7 +165,18 @@ public class activity_signin extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Đăng nhập thành công
                     TokenModel tokenModel = response.body();
+
+                    // lưu token
+                    /*SharedPreferences.Editor editor = getSharedPreferences("Token", MODE_PRIVATE).edit();
+
+                    editor.putString("accessToken", tokenModel.getAccessToken());
+                    editor.putString("refreshToken", tokenModel.getRefreshToken());
+
+                    editor.putString("tokenTime", tokenModel.getExpiration().toString());*/
+                  //  editor.apply();
+
                     if (tokenModel != null) {
+                        Toast.makeText(getApplicationContext(),tokenModel.getAccessToken()+"",Toast.LENGTH_SHORT).show();
                         // Nhận được token từ API
                         handleSignInSuccess();
                     } else {

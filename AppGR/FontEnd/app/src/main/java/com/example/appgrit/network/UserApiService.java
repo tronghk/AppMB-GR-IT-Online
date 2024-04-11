@@ -6,7 +6,9 @@ import com.example.appgrit.models.TokenModel;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface UserApiService {
     @POST("signup")
@@ -15,5 +17,5 @@ public interface UserApiService {
     @POST("signin")
     Call<TokenModel> signIn(@Body SignInModel signInModel);
     @POST("sign-in-google")
-    Call<TokenModel> SignInGoogle(@Body String idToken);
+    Call<TokenModel> SignInGoogle(@Query("idToken") String idToken);
 }
