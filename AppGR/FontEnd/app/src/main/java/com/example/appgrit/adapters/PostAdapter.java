@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +27,7 @@ import com.example.appgrit.models.PostModel;
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
-    private Context context;
+    private static Context context;
     private List<PostModel> postList;
     boolean isLiked = false; // Thêm biến isLiked
 
@@ -107,7 +109,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView, likeImageView, commentImageView, sendImageView, saveImageView;
+        ImageView imageView, likeImageView, commentImageView, sendImageView, saveImageView, moreImageView;
         TextView txtContent, txtTime, likesTextView, commentsTextView, addCommentTextView;
         boolean isLiked = false; // Khai báo biến isLiked ở mức lớp
 
@@ -118,11 +120,34 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             commentImageView = itemView.findViewById(R.id.comment);
             sendImageView = itemView.findViewById(R.id.send);
             saveImageView = itemView.findViewById(R.id.save);
+            moreImageView = itemView.findViewById(R.id.more); // Thêm nút more
             txtContent = itemView.findViewById(R.id.description);
             txtTime = itemView.findViewById(R.id.date_post);
             likesTextView = itemView.findViewById(R.id.likes);
             commentsTextView = itemView.findViewById(R.id.comments);
             addCommentTextView = itemView.findViewById(R.id.add_comment);
+
+            moreImageView.setOnClickListener(v -> {
+                // Hiển thị menu edit post và delete post
+                PopupMenu popup = new PopupMenu(context, moreImageView);
+                popup.getMenuInflater().inflate(R.menu.post_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int itemId = item.getItemId();
+                        if (itemId == R.id.menu_edit_post) {
+                            // Xử lý sự kiện edit post
+                            return true;
+                        } else if (itemId == R.id.menu_delete_post) {
+                            // Xử lý sự kiện delete post
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                });
+                popup.show();
+            });
         }
 
         public void toggleLikeState() {
@@ -130,8 +155,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             isLiked = !isLiked;
             likeImageView.setImageResource(isLiked ? R.drawable.heart_home : R.drawable.love);
         }
-
     }
+
 
     public void setData(List<PostModel> newData) {
         postList.clear();
