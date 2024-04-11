@@ -2,17 +2,17 @@ package com.example.appgrit.models;
 
 public class ExpressionModel {
     private String PostId;
+    private String CommentId;
     private String UserId;
-    private String Expression;
+    private int Expression;
     private String Type;
-
-    // Constructors, getters, and setters
 
     public ExpressionModel() {
     }
 
-    public ExpressionModel(String postId, String userId, String expression, String type) {
+    public ExpressionModel(String postId, String commentId, String userId, int expression, String type) {
         PostId = postId;
+        CommentId = commentId;
         UserId = userId;
         Expression = expression;
         Type = type;
@@ -26,6 +26,14 @@ public class ExpressionModel {
         PostId = postId;
     }
 
+    public String getCommentId() {
+        return CommentId;
+    }
+
+    public void setCommentId(String commentId) {
+        CommentId = commentId;
+    }
+
     public String getUserId() {
         return UserId;
     }
@@ -34,11 +42,11 @@ public class ExpressionModel {
         UserId = userId;
     }
 
-    public String getExpression() {
+    public int getExpression() {
         return Expression;
     }
 
-    public void setExpression(String expression) {
+    public void setExpression(int expression) {
         Expression = expression;
     }
 

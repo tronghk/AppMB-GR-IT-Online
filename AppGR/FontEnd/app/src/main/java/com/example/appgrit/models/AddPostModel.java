@@ -1,16 +1,18 @@
 package com.example.appgrit.models;
 
+import java.util.Date;
+
 public class AddPostModel {
     private String UserId;
     private String Content;
-    private String PostTime;
+    private Date PostTime;
 
     // Constructors, getters, and setters
 
     public AddPostModel() {
     }
 
-    public AddPostModel(String userId, String content, String postTime) {
+    public AddPostModel(String userId, String content, Date postTime) {
         UserId = userId;
         Content = content;
         PostTime = postTime;
@@ -32,11 +34,11 @@ public class AddPostModel {
         Content = content;
     }
 
-    public String getPostTime() {
+    public Date getPostTime() {
         return PostTime;
     }
 
-    public void setPostTime(String postTime) {
+    public void setPostTime(Date postTime) {
         PostTime = postTime;
     }
 }

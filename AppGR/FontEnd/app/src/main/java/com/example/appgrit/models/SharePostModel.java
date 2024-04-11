@@ -1,17 +1,19 @@
 package com.example.appgrit.models;
 
+import java.util.Date;
+
 public class SharePostModel {
     private String UserId;
     private String PostId;
     private String Content;
-    private String TimeShare;
+    private Date TimeShare;
 
     // Constructors, getters, and setters
 
     public SharePostModel() {
     }
 
-    public SharePostModel(String userId, String postId, String content, String timeShare) {
+    public SharePostModel(String userId, String postId, String content, Date timeShare) {
         UserId = userId;
         PostId = postId;
         Content = content;
@@ -42,11 +44,11 @@ public class SharePostModel {
         Content = content;
     }
 
-    public String getTimeShare() {
+    public Date getTimeShare() {
         return TimeShare;
     }
 
-    public void setTimeShare(String timeShare) {
+    public void setTimeShare(Date timeShare) {
         TimeShare = timeShare;
     }
 }

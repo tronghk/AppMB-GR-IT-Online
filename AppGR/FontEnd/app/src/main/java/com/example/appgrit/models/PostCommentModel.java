@@ -1,21 +1,22 @@
 package com.example.appgrit.models;
 
+import java.util.Date;
+import java.util.List;
+
 public class PostCommentModel {
-    private String PostId;
     private String UserId;
+    private String PostId;
+
     private String Content;
-    private String CommentTime;
+    private String CommentId;
+    private Date CommentTime;
 
-    // Constructors, getters, and setters
-
-    public PostCommentModel() {
+    public String getUserId() {
+        return UserId;
     }
 
-    public PostCommentModel(String postId, String userId, String content, String commentTime) {
-        PostId = postId;
+    public void setUserId(String userId) {
         UserId = userId;
-        Content = content;
-        CommentTime = commentTime;
     }
 
     public String getPostId() {
@@ -26,13 +27,6 @@ public class PostCommentModel {
         PostId = postId;
     }
 
-    public String getUserId() {
-        return UserId;
-    }
-
-    public void setUserId(String userId) {
-        UserId = userId;
-    }
 
     public String getContent() {
         return Content;
@@ -42,11 +36,19 @@ public class PostCommentModel {
         Content = content;
     }
 
-    public String getCommentTime() {
+    public String getCommentId() {
+        return CommentId;
+    }
+
+    public void setCommentId(String commentId) {
+        CommentId = commentId;
+    }
+
+    public Date getCommentTime() {
         return CommentTime;
     }
 
-    public void setCommentTime(String commentTime) {
+    public void setCommentTime(Date commentTime) {
         CommentTime = commentTime;
     }
 }
