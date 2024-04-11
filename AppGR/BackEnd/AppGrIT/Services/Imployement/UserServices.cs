@@ -387,7 +387,7 @@ namespace AppGrIT.Services.Imployement
             {
                 UserId = userId,
                 ImagePath = pathImage,
-                UserName = userInfo.LastName + userInfo.Firstname
+                UserName = userInfo.LastName +" " + userInfo.Firstname
             };
             return user;
         }

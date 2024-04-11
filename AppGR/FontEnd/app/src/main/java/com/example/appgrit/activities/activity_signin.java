@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.auth0.android.jwt.Claim;
+import com.auth0.android.jwt.JWT;
 import com.example.appgrit.R;
 import com.example.appgrit.models.SignInModel;
 import com.example.appgrit.models.TokenModel;
@@ -103,7 +105,7 @@ public class activity_signin extends AppCompatActivity {
     }
     private  void SignInGoogle(String idToken){
 
-
+        Log.e("idtoken",idToken);
         // Gọi API đăng nhập bằng Retrofit
         UserApiService service = ApiServiceProvider.getUserApiService();
 
@@ -113,25 +115,27 @@ public class activity_signin extends AppCompatActivity {
             @Override
             public void onResponse(Call<TokenModel> call, Response<TokenModel> response) {
                 if (response.isSuccessful()) {
-
                     // Đăng nhập thành công
                     TokenModel tokenModel = response.body();
 
                     if (response.isSuccessful() && response.body() != null) {
                         String accessToken = response.body().getAccessToken();
+                        String refreshToken = response.body().getRefreshToken();
+                        String date = response.body().getExpiration();
                         // Save the access token in SharedPreferences
                         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                        prefs.edit().putString("token", accessToken).apply();
-
+                        prefs.edit().putString("accessToken", accessToken).apply();
+                        prefs.edit().putString("refreshToken", refreshToken).apply();
+                        prefs.edit().putString("expiration", date).apply();
                         // Now get user info
                         getUserInfo(accessToken);
                         Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
-
                     }
-                } else {
-                    // Đăng nhập thất bại
-                    Toast.makeText(activity_signin.this, "Login failed", Toast.LENGTH_SHORT).show();
                 }
+                else {
+                     Toast.makeText(activity_signin.this, "Login failed", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
@@ -155,24 +159,26 @@ public class activity_signin extends AppCompatActivity {
                     // Đăng nhập thành công
                     TokenModel tokenModel = response.body();
 
-                    if (response.isSuccessful() && response.body() != null) {
+                    if (response.body() != null) {
                         String accessToken = response.body().getAccessToken();
                         String refreshToken = response.body().getRefreshToken();
                         String date = response.body().getExpiration();
                         // Save the access token in SharedPreferences
-                        SharedPreferences prefs = getSharedPreferences("Token", MODE_PRIVATE);
+                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                         prefs.edit().putString("accessToken", accessToken).apply();
                         prefs.edit().putString("refreshToken", refreshToken).apply();
                         prefs.edit().putString("expiration", date).apply();
-                        
+
                         // Now get user info
                         getUserInfo(accessToken);
                         Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
-                    } else {
-                        Toast.makeText(activity_signin.this, "Login failed", Toast.LENGTH_SHORT).show();
                     }
+
+                }else {
+                    Toast.makeText(activity_signin.this, "Login failed", Toast.LENGTH_SHORT).show();
                 }
+
             }
 
             @Override
@@ -183,32 +189,13 @@ public class activity_signin extends AppCompatActivity {
     }
 
     private void getUserInfo(String accessToken) {
-        UserApiService service = ApiServiceProvider.getUserApiService();
-        Call<UserInforModel> call = service.getUserInfo("Bearer " + accessToken, editTextEmail.getText().toString().trim());
+        JWT parsedJWT = new JWT(accessToken);
+        Claim subscriptionMetaData = parsedJWT.getClaim("userId");
+        String userId = subscriptionMetaData.asString();
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        prefs.edit().putString("userId", userId).apply();
+        navigateToHome();
 
-        call.enqueue(new Callback<UserInforModel>() {
-            @Override
-            public void onResponse(Call<UserInforModel> call, Response<UserInforModel> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    // Here you get user information after successful login
-                    String userId = response.body().getUserId();
-
-                    // Save the user ID in SharedPreferences
-                    SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                    prefs.edit().putString("userId", userId).apply();
-
-                    Log.d("LoginSuccess", "UserID " + userId + " saved in SharedPreferences.");
-                    navigateToHome();
-                } else {
-                    Toast.makeText(activity_signin.this, "Failed to retrieve user info", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserInforModel> call, Throwable t) {
-                Toast.makeText(activity_signin.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void navigateToHome() {

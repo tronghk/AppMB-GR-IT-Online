@@ -259,7 +259,7 @@ namespace AppGrIT.Controllers
             }
             return BadRequest(new ResponseModel
             {
-                Status = StatusResponse.STATUS_SUCCESS,
+                Status = StatusResponse.STATUS_ERROR,
                 Message = MessageResponse.MESSAGE_LOGIN_FAIL
             });
         }
