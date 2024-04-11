@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.appgrit" />
+                  <option name="mobileSdkAppId" value="1:829377754079:android:dc0c0a5c5280e839cf4a6a" />
+                  <option name="projectId" value="db-app-gr-it" />
+                  <option name="projectNumber" value="829377754079" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
