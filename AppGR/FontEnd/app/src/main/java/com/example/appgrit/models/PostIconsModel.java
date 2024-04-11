@@ -2,7 +2,7 @@ package com.example.appgrit.models;
 
 public class PostIconsModel {
     private String UserId;
-    private String Expression;
+    private int Expression;
     private String UserName;
     private String UserImage;
 
@@ -11,7 +11,7 @@ public class PostIconsModel {
     public PostIconsModel() {
     }
 
-    public PostIconsModel(String userId, String expression, String userName, String userImage) {
+    public PostIconsModel(String userId, int expression, String userName, String userImage) {
         UserId = userId;
         Expression = expression;
         UserName = userName;
@@ -26,11 +26,11 @@ public class PostIconsModel {
         UserId = userId;
     }
 
-    public String getExpression() {
+    public int getExpression() {
         return Expression;
     }
 
-    public void setExpression(String expression) {
+    public void setExpression(int expression) {
         Expression = expression;
     }
 

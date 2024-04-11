@@ -1,3 +1,4 @@
+// frontend
 package com.example.appgrit.models;
 
 import java.util.List;
@@ -6,20 +7,20 @@ public class PostCommentsModel {
     private String UserId;
     private String UserName;
     private String Content;
+    private List<ExpressionModel> Expressions; // Cập nhật tên thuộc tính
     private int CountExpression;
-    private List<ExpressionModel> expressionList;
 
     // Constructors, getters, and setters
 
     public PostCommentsModel() {
     }
 
-    public PostCommentsModel(String userId, String userName, String content, int countExpression, List<ExpressionModel> expressionList) {
+    public PostCommentsModel(String userId, String userName, String content, int countExpression, List<ExpressionModel> expressions) { // Cập nhật tên tham số
         UserId = userId;
         UserName = userName;
         Content = content;
         CountExpression = countExpression;
-        this.expressionList = expressionList;
+        Expressions = expressions; // Cập nhật phần gán
     }
 
     public String getUserId() {
@@ -54,11 +55,11 @@ public class PostCommentsModel {
         CountExpression = countExpression;
     }
 
-    public List<ExpressionModel> getExpressionList() {
-        return expressionList;
+    public List<ExpressionModel> getExpressions() { // Cập nhật tên getter
+        return Expressions;
     }
 
-    public void setExpressionList(List<ExpressionModel> expressionList) {
-        this.expressionList = expressionList;
+    public void setExpressions(List<ExpressionModel> expressions) { // Cập nhật tên setter
+        Expressions = expressions;
     }
 }

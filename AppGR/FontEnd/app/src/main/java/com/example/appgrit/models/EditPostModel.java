@@ -1,25 +1,26 @@
 package com.example.appgrit.models;
 
 import java.util.List;
+import java.util.Date;
 
 public class EditPostModel {
     private String UserId;
     private String PostId;
     private String Content;
     private String EditTime;
-    private List<ImagePostModel> imagePostModelList;
+    private List<ImagePostModel> ImagePosts;
 
     // Constructors, getters, and setters
 
     public EditPostModel() {
     }
 
-    public EditPostModel(String userId, String postId, String content, String editTime, List<ImagePostModel> imagePostModelList) {
+    public EditPostModel(String userId, String postId, String content, String editTime, List<ImagePostModel> imagePosts) {
         UserId = userId;
         PostId = postId;
         Content = content;
         EditTime = editTime;
-        this.imagePostModelList = imagePostModelList;
+        ImagePosts = imagePosts;
     }
 
     public String getUserId() {
@@ -54,11 +55,11 @@ public class EditPostModel {
         EditTime = editTime;
     }
 
-    public List<ImagePostModel> getImagePostModelList() {
-        return imagePostModelList;
+    public List<ImagePostModel> getImagePosts() {
+        return ImagePosts;
     }
 
-    public void setImagePostModelList(List<ImagePostModel> imagePostModelList) {
-        this.imagePostModelList = imagePostModelList;
+    public void setImagePosts(List<ImagePostModel> imagePosts) {
+        ImagePosts = imagePosts;
     }
 }

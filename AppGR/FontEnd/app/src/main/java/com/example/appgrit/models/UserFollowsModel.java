@@ -2,18 +2,14 @@ package com.example.appgrit.models;
 
 public class UserFollowsModel {
     private String UserId;
-    private String UserName;
-    private String UserImage;
-
-    // Constructors, getters, and setters
+    private String UserFollowId;
 
     public UserFollowsModel() {
     }
 
-    public UserFollowsModel(String userId, String userName, String userImage) {
+    public UserFollowsModel(String userId, String userFollowId) {
         UserId = userId;
-        UserName = userName;
-        UserImage = userImage;
+        UserFollowId = userFollowId;
     }
 
     public String getUserId() {
@@ -24,19 +20,11 @@ public class UserFollowsModel {
         UserId = userId;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getUserFollowId() {
+        return UserFollowId;
     }
 
-    public void setUserName(String userName) {
-        UserName = userName;
-    }
-
-    public String getUserImage() {
-        return UserImage;
-    }
-
-    public void setUserImage(String userImage) {
-        UserImage = userImage;
+    public void setUserFollowId(String userFollowId) {
+        UserFollowId = userFollowId;
     }
 }

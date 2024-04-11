@@ -2,14 +2,14 @@ package com.example.appgrit.models;
 
 public class UserRenewalModel {
     private String UserId;
-    private double Price;
+    private float Price;
 
     // Constructors, getters, and setters
 
     public UserRenewalModel() {
     }
 
-    public UserRenewalModel(String userId, double price) {
+    public UserRenewalModel(String userId, float price) {
         UserId = userId;
         Price = price;
     }
@@ -26,7 +26,7 @@ public class UserRenewalModel {
         return Price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         Price = price;
     }
 }
