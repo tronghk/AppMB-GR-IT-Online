@@ -3,8 +3,57 @@
   "WorkspaceRootPath": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\appgrit.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:appgrit.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+=======
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\imageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\imageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\imagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\imagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\postmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\postmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\postservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\iposts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iposts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\roleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\roleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
     },
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\data\\postsdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,44 +80,12 @@
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postsellproductservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\postservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\roleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\roleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\iposts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iposts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\helper\\synthesizeroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:helper\\synthesizeroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\userfriendsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -179,10 +196,6 @@
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:entity\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\controllers\\imagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:controllers\\imagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\resultpaymentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\resultpaymentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -215,10 +228,6 @@
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\followservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\imageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\imageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\imployement\\postexpressionservicess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\imployement\\postexpressionservicess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -229,10 +238,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\services\\iimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:services\\iimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\postmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\postmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\data\\imagesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -333,10 +338,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\userrenewalmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\userrenewalmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|solutionrelative:models\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D648224B-52D7-485B-ACA0-C2CBBCC24B91}|AppGrIT.csproj|e:\\workspace\\android\\appmxhit\\appgr\\backend\\appgrit\\models\\signupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -444,7 +445,148 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 11,
+=======
+              "DocumentIndex": 9,
+              "Title": "PostServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs",
+              "RelativeDocumentMoniker": "Services\\Imployement\\PostServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostServices.cs",
+              "RelativeToolTip": "Services\\Imployement\\PostServices.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAMwDYAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T05:23:44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PostModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs",
+              "RelativeDocumentMoniker": "Models\\PostModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs",
+              "RelativeToolTip": "Models\\PostModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAQAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T08:06:47.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PaymentController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "Controllers\\PaymentController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAwwEMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T03:11:01.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ImagesController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ImagesController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
+              "RelativeToolTip": "Controllers\\ImagesController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAD4vyYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T08:21:53.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ImagePostModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
+              "RelativeDocumentMoniker": "Models\\ImagePostModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
+              "RelativeToolTip": "Models\\ImagePostModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T08:13:15.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PostsController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PostsController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostsController.cs",
+              "RelativeToolTip": "Controllers\\PostsController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAtwCEAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T05:22:28.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ImageServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
+              "RelativeDocumentMoniker": "Services\\Imployement\\ImageServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
+              "RelativeToolTip": "Services\\Imployement\\ImageServices.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAIwJYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T07:37:39.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TokenModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs",
+              "RelativeDocumentMoniker": "Models\\TokenModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs",
+              "RelativeToolTip": "Models\\TokenModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T00:42:03.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs",
+              "RelativeDocumentMoniker": "Services\\Imployement\\UserServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserServices.cs",
+              "RelativeToolTip": "Services\\Imployement\\UserServices.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAWwIQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T10:11:50.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AQIAAOUAAAAAAAAAAAAWwN8AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T10:17:36.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IPosts.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs",
+              "RelativeDocumentMoniker": "Services\\IPosts.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPosts.cs",
+              "RelativeToolTip": "Services\\IPosts.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T05:23:03.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "SynthesizeRoles.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Helper\\SynthesizeRoles.cs",
               "RelativeDocumentMoniker": "Helper\\SynthesizeRoles.cs",
@@ -456,6 +598,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
               "Title": "PostSellProductModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostSellProductModel.cs",
@@ -493,6 +636,21 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+=======
+              "DocumentIndex": 12,
+              "Title": "PostsDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
+              "RelativeDocumentMoniker": "Data\\PostsDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
+              "RelativeToolTip": "Data\\PostsDAO.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAkwD4AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T05:24:26.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PostSellProductController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostSellProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\PostSellProductController.cs",
@@ -504,6 +662,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "PostsDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostsDAO.cs",
@@ -591,6 +750,9 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
+=======
+              "DocumentIndex": 11,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "RoleServices.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\RoleServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\RoleServices.cs",
@@ -602,6 +764,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 13,
               "Title": "ImagePostModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ImagePostModel.cs",
@@ -651,6 +814,69 @@
             {
               "$type": "Document",
               "DocumentIndex": 17,
+=======
+              "DocumentIndex": 23,
+              "Title": "UserFriendsModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFriendsModel.cs",
+              "RelativeDocumentMoniker": "Models\\UserFriendsModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFriendsModel.cs",
+              "RelativeToolTip": "Models\\UserFriendsModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T08:31:58.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PostSellProductModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostSellProductModel.cs",
+              "RelativeDocumentMoniker": "Models\\PostSellProductModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostSellProductModel.cs",
+              "RelativeToolTip": "Models\\PostSellProductModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T08:35:05.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PostSellProductDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostSellProductDAO.cs",
+              "RelativeDocumentMoniker": "Data\\PostSellProductDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostSellProductDAO.cs",
+              "RelativeToolTip": "Data\\PostSellProductDAO.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAArwBoAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T11:19:03.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PostSellProductServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostSellProductServices.cs",
+              "RelativeDocumentMoniker": "Services\\Imployement\\PostSellProductServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostSellProductServices.cs",
+              "RelativeToolTip": "Services\\Imployement\\PostSellProductServices.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAvwC8AAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T11:17:56.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PostSellProduct.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostSellProduct.cs",
+              "RelativeDocumentMoniker": "Entity\\PostSellProduct.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostSellProduct.cs",
+              "RelativeToolTip": "Entity\\PostSellProduct.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T07:57:30.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UserFriendsServices.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\UserFriendsServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\UserFriendsServices.cs",
@@ -662,7 +888,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 19,
+=======
+              "DocumentIndex": 22,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UserFollowsController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UserFollowsController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserFollowsController.cs",
@@ -674,7 +904,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 15,
+=======
+              "DocumentIndex": 19,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "FollowController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\FollowController.cs",
               "RelativeDocumentMoniker": "Controllers\\FollowController.cs",
@@ -686,7 +920,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 18,
+=======
+              "DocumentIndex": 21,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UnUserController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UnUserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UnUserController.cs",
@@ -698,7 +936,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 21,
+=======
+              "DocumentIndex": 24,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UserFriendsController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\UserFriendsController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserFriendsController.cs",
@@ -710,7 +952,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 24,
+=======
+              "DocumentIndex": 27,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "TokenServices.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Authentication\\TokenServices.cs",
               "RelativeDocumentMoniker": "Authentication\\TokenServices.cs",
@@ -722,7 +968,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 25,
+=======
+              "DocumentIndex": 28,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UserModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserModel.cs",
               "RelativeDocumentMoniker": "Models\\UserModel.cs",
@@ -734,7 +984,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 26,
+=======
+              "DocumentIndex": 29,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "IToken.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Authentication\\IToken.cs",
               "RelativeDocumentMoniker": "Authentication\\IToken.cs",
@@ -746,7 +1000,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 23,
+=======
+              "DocumentIndex": 26,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "IUsers.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IUsers.cs",
               "RelativeDocumentMoniker": "Services\\IUsers.cs",
@@ -758,7 +1016,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 28,
+=======
+              "DocumentIndex": 31,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PaymentServices.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Payment\\PaymentServices.cs",
               "RelativeDocumentMoniker": "Payment\\PaymentServices.cs",
@@ -770,7 +1032,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 22,
+=======
+              "DocumentIndex": 25,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -782,7 +1048,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 30,
+=======
+              "DocumentIndex": 33,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "StatusResponse.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Helper\\StatusResponse.cs",
               "RelativeDocumentMoniker": "Helper\\StatusResponse.cs",
@@ -794,7 +1064,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 27,
+=======
+              "DocumentIndex": 30,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UsersDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\UsersDAO.cs",
               "RelativeDocumentMoniker": "Data\\UsersDAO.cs",
@@ -806,7 +1080,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 29,
+=======
+              "DocumentIndex": 32,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "RolesDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\RolesDAO.cs",
               "RelativeDocumentMoniker": "Data\\RolesDAO.cs",
@@ -818,7 +1096,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 31,
+=======
+              "DocumentIndex": 34,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "IPayment.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Payment\\IPayment.cs",
               "RelativeDocumentMoniker": "Payment\\IPayment.cs",
@@ -830,7 +1112,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 33,
+=======
+              "DocumentIndex": 36,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "ConnectFirebase.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\ConnectFirebase.cs",
               "RelativeDocumentMoniker": "Data\\ConnectFirebase.cs",
@@ -842,7 +1128,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 32,
+=======
+              "DocumentIndex": 35,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -854,7 +1144,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 36,
+=======
+              "DocumentIndex": 39,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PaymentDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PaymentDAO.cs",
               "RelativeDocumentMoniker": "Data\\PaymentDAO.cs",
@@ -866,7 +1160,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 34,
+=======
+              "DocumentIndex": 37,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "MoMoSecurity.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Payment\\MoMoSecurity.cs",
               "RelativeDocumentMoniker": "Payment\\MoMoSecurity.cs",
@@ -878,7 +1176,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 37,
+=======
+              "DocumentIndex": 40,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PostExpressionssDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostExpressionssDAO.cs",
               "RelativeDocumentMoniker": "Data\\PostExpressionssDAO.cs",
@@ -890,7 +1192,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 38,
+=======
+              "DocumentIndex": 41,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PostCommentsDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\PostCommentsDAO.cs",
               "RelativeDocumentMoniker": "Data\\PostCommentsDAO.cs",
@@ -902,7 +1208,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 35,
+=======
+              "DocumentIndex": 38,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PaymentRequest.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Payment\\PaymentRequest.cs",
               "RelativeDocumentMoniker": "Payment\\PaymentRequest.cs",
@@ -914,7 +1224,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 39,
+=======
+              "DocumentIndex": 42,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "FollowDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\FollowDAO.cs",
               "RelativeDocumentMoniker": "Data\\FollowDAO.cs",
@@ -926,7 +1240,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 40,
+=======
+              "DocumentIndex": 43,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UserFollowsDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\UserFollowsDAO.cs",
               "RelativeDocumentMoniker": "Data\\UserFollowsDAO.cs",
@@ -938,7 +1256,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 41,
+=======
+              "DocumentIndex": 44,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "UserRoleModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRoleModel.cs",
               "RelativeDocumentMoniker": "Models\\UserRoleModel.cs",
@@ -950,7 +1272,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 42,
+=======
+              "DocumentIndex": 45,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "IRoles.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IRoles.cs",
               "RelativeDocumentMoniker": "Services\\IRoles.cs",
@@ -962,7 +1288,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 43,
+=======
+              "DocumentIndex": 46,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "Bills.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\Bills.cs",
               "RelativeDocumentMoniker": "Entity\\Bills.cs",
@@ -974,7 +1304,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 47,
+=======
+              "DocumentIndex": 49,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -986,6 +1320,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 44,
               "Title": "ImagesController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ImagesController.cs",
@@ -999,6 +1334,9 @@
             {
               "$type": "Document",
               "DocumentIndex": 46,
+=======
+              "DocumentIndex": 48,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "HmacHepler.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Helper\\HmacHepler.cs",
               "RelativeDocumentMoniker": "Helper\\HmacHepler.cs",
@@ -1010,7 +1348,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 45,
+=======
+              "DocumentIndex": 47,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "ResultPaymentModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ResultPaymentModel.cs",
               "RelativeDocumentMoniker": "Models\\ResultPaymentModel.cs",
@@ -1022,7 +1364,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 48,
+=======
+              "DocumentIndex": 50,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "firebase-config.json",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\firebase-config.json",
               "RelativeDocumentMoniker": "firebase-config.json",
@@ -1034,7 +1380,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 49,
+=======
+              "DocumentIndex": 51,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PostCommentController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\PostCommentController.cs",
               "RelativeDocumentMoniker": "Controllers\\PostCommentController.cs",
@@ -1046,7 +1396,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 50,
+=======
+              "DocumentIndex": 52,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "ExpressionController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\ExpressionController.cs",
               "RelativeDocumentMoniker": "Controllers\\ExpressionController.cs",
@@ -1058,7 +1412,23 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 51,
+=======
+              "DocumentIndex": 53,
+              "Title": "AppGrIT.csproj",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+              "RelativeDocumentMoniker": "AppGrIT.csproj",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.csproj",
+              "RelativeToolTip": "AppGrIT.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-22T14:06:23.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+>>>>>>> 0de7edf64650820c1763eded75b16b763ebdd71d
               "Title": "PostCommentServices.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostCommentServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\PostCommentServices.cs",
@@ -1070,7 +1440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 55,
               "Title": "FollowServices.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\FollowServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\FollowServices.cs",
@@ -1082,19 +1452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "ImageServices.cs",
-              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
-              "RelativeDocumentMoniker": "Services\\Imployement\\ImageServices.cs",
-              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\ImageServices.cs",
-              "RelativeToolTip": "Services\\Imployement\\ImageServices.cs",
-              "ViewState": "AQIAAIsAAAAAAAAAAAAmwJUAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-24T07:37:39.449Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "PostExpressionServicess.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\Imployement\\PostExpressionServicess.cs",
               "RelativeDocumentMoniker": "Services\\Imployement\\PostExpressionServicess.cs",
@@ -1106,7 +1464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "ImagesDAO.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Data\\ImagesDAO.cs",
               "RelativeDocumentMoniker": "Data\\ImagesDAO.cs",
@@ -1118,7 +1476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "UserSells.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserSells.cs",
               "RelativeDocumentMoniker": "Entity\\UserSells.cs",
@@ -1130,19 +1488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "PostModel.cs",
-              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs",
-              "RelativeDocumentMoniker": "Models\\PostModel.cs",
-              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostModel.cs",
-              "RelativeToolTip": "Models\\PostModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T08:06:47.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "IImages.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IImages.cs",
               "RelativeDocumentMoniker": "Services\\IImages.cs",
@@ -1154,7 +1500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "ImageSellProduct.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\ImageSellProduct.cs",
               "RelativeDocumentMoniker": "Entity\\ImageSellProduct.cs",
@@ -1166,7 +1512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "Commercial.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\Commercial.cs",
               "RelativeDocumentMoniker": "Entity\\Commercial.cs",
@@ -1178,7 +1524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "PostShares.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostShares.cs",
               "RelativeDocumentMoniker": "Entity\\PostShares.cs",
@@ -1190,7 +1536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "UserFollowsModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserFollowsModel.cs",
               "RelativeDocumentMoniker": "Models\\UserFollowsModel.cs",
@@ -1202,7 +1548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "IFollows.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IFollows.cs",
               "RelativeDocumentMoniker": "Services\\IFollows.cs",
@@ -1214,7 +1560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "PostComments.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostComments.cs",
               "RelativeDocumentMoniker": "Entity\\PostComments.cs",
@@ -1226,7 +1572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "UserFollows.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFollows.cs",
               "RelativeDocumentMoniker": "Entity\\UserFollows.cs",
@@ -1238,7 +1584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "UserFriends.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserFriends.cs",
               "RelativeDocumentMoniker": "Entity\\UserFriends.cs",
@@ -1250,7 +1596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "z.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\StatisFileTesting\\Images\\z.cs",
               "RelativeDocumentMoniker": "StatisFileTesting\\Images\\z.cs",
@@ -1262,7 +1608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "AppGrIT.http",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\AppGrIT.http",
               "RelativeDocumentMoniker": "AppGrIT.http",
@@ -1274,7 +1620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "image.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\StatisFileTesting\\image.cs",
               "RelativeDocumentMoniker": "StatisFileTesting\\image.cs",
@@ -1286,7 +1632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "WeatherForecast.cs",
@@ -1298,7 +1644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "SharePostModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\SharePostModel.cs",
               "RelativeDocumentMoniker": "Models\\SharePostModel.cs",
@@ -1310,7 +1656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 73,
               "Title": "IPostComments.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostComments.cs",
               "RelativeDocumentMoniker": "Services\\IPostComments.cs",
@@ -1322,7 +1668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 74,
               "Title": "IPostExpressionss.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Services\\IPostExpressionss.cs",
               "RelativeDocumentMoniker": "Services\\IPostExpressionss.cs",
@@ -1334,7 +1680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 75,
               "Title": "PostCommentModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\PostCommentModel.cs",
               "RelativeDocumentMoniker": "Models\\PostCommentModel.cs",
@@ -1346,7 +1692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 76,
               "Title": "ExpressionModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\ExpressionModel.cs",
               "RelativeDocumentMoniker": "Models\\ExpressionModel.cs",
@@ -1358,7 +1704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 77,
               "Title": "PostExpressions.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\PostExpressions.cs",
               "RelativeDocumentMoniker": "Entity\\PostExpressions.cs",
@@ -1370,7 +1716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 78,
               "Title": "Posts.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\Posts.cs",
               "RelativeDocumentMoniker": "Entity\\Posts.cs",
@@ -1382,7 +1728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 79,
               "Title": "UserInforModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserInforModel.cs",
               "RelativeDocumentMoniker": "Models\\UserInforModel.cs",
@@ -1394,7 +1740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 80,
               "Title": "UserInfors.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Entity\\UserInfors.cs",
               "RelativeDocumentMoniker": "Entity\\UserInfors.cs",
@@ -1406,7 +1752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 81,
               "Title": "UnUserModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UnUserModel.cs",
               "RelativeDocumentMoniker": "Models\\UnUserModel.cs",
@@ -1418,7 +1764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 82,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
@@ -1430,7 +1776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 83,
               "Title": "UserRenewalModel.cs",
               "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\UserRenewalModel.cs",
               "RelativeDocumentMoniker": "Models\\UserRenewalModel.cs",
@@ -1439,18 +1785,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-22T08:36:16.705Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 83,
-              "Title": "TokenModel.cs",
-              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs",
-              "RelativeDocumentMoniker": "Models\\TokenModel.cs",
-              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppGR\\BackEnd\\AppGrIT\\Models\\TokenModel.cs",
-              "RelativeToolTip": "Models\\TokenModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T00:42:03.672Z"
             },
             {
               "$type": "Document",
