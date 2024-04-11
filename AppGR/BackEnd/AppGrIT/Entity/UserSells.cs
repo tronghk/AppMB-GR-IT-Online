@@ -7,6 +7,8 @@ namespace AppGrIT.Entity
         [Required]
         public string UserId
         { get; set; } = null!;
+        public float MoneyUp
+        { get; set; }
         [Required]
         public DateTime TimeStart
         { get; set; }

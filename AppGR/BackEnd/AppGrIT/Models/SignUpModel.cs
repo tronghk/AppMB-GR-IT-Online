@@ -17,7 +17,6 @@ namespace AppGrIT.Model
 
         [Required] public DateTime Birthday { get; set; }
 
-        [Required] public string Gender { get; set; } = null!;
         [Required]
         [MinLength(6)]
         [MaxLength(15)]

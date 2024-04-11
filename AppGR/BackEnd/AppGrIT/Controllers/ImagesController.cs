@@ -32,7 +32,6 @@ namespace AppGrIT.Controllers
                 Status = StatusResponse.STATUS_ERROR,
                 Message = MessageResponse.MESSAGE_CREATE_FAIL
             });
-           
         }
 
         [HttpPost("/add-list-image-from-post")]
@@ -50,6 +49,20 @@ namespace AppGrIT.Controllers
                 Status = StatusResponse.STATUS_ERROR,
                 Message = MessageResponse.MESSAGE_CREATE_FAIL
             });
+
+        }
+        [HttpGet("/get-img-avatar-default")]
+        public async Task<IActionResult> GetAvatarDefault()
+        {
+            var result = await _imageManager.GetLinkAvatarDefault();
+            return Ok(result);
+
+        }
+        [HttpGet("/get-img-cover-default")]
+        public async Task<IActionResult> GetCoverDefault()
+        {
+            var result = await _imageManager.GetLinkCoverDefault();
+            return Ok(result);
 
         }
     }

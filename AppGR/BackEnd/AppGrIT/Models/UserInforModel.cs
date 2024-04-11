@@ -13,13 +13,9 @@ namespace AppGrIT.Models
         { get; set; }
         public DateTime Birthday
         { get; set; }
-<<<<<<< HEAD
-        public string Address
-        { get; set; } = null!;
-=======
         public string? Address
         { get; set; }
->>>>>>> 95afc96f360d93dc98d2ae9040ca728de2d4e3ea
+        [Required]
         public string UserId
         { get; set; } = null!;
         public string? Phone

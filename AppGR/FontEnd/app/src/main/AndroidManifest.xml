@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Đảm bảo ứng dụng có quyền truy cập vào bộ nhớ -->
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppGrIT"
         tools:targetApi="31">
+        <activity
+            android:name=".FragmentProfile"
+            android:exported="false" />
         <activity
             android:name=".activities.ListUserLike"
             android:exported="false" />
@@ -32,10 +38,15 @@
         <activity
             android:name=".activities.activity_signin"
             android:exported="false" />
+        <activity android:name=".activities.activity_signup" />
         <activity
-            android:name=".activities.activity_signup"/>
-        <activity android:name=".DashboardActivity"
+            android:name=".DashboardActivity"
             android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".MarketplaceActivity"
             android:exported="false" />
@@ -45,6 +56,29 @@
             android:theme="@style/Theme.AppGrIT" />
         <activity
             android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <!--
+        <activity
+            android:name=".button_black"
+            android:exported="false" />
+        -->
+        <activity
+            android:name=".ProfileOther"
+            android:exported="false" />
+        <activity
+            android:name=".HomeFragment"
+            android:exported="false" />
+        <activity
+            android:name=".CustomInformation"
+            android:exported="false" />
+        <activity
+            android:name=".changepassword"
+            android:exported="false" />
+        <activity
+            android:name=".comment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

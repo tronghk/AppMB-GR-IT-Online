@@ -26,11 +26,15 @@ namespace AppGrIT.Authentication
         }
         public async Task<TokenModel> GenerareTokenModel(SignInModel model)
         {
+            
+            
             var user = await _userManager.GetUserAsync(model.Email);
+           
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email,model.Email),
                 new Claim(ClaimTypes.Name,model.Email),
+                new Claim("userId",user.UserId),
                 new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
             };
 

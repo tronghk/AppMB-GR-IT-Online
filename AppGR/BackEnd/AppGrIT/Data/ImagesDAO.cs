@@ -2,9 +2,11 @@
 using AppGrIT.Helper;
 using AppGrIT.Model;
 using Firebase.Auth;
+using Firebase.Storage;
 using FireSharp.Response;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Security.Principal;
 
 namespace AppGrIT.Data
@@ -76,6 +78,19 @@ namespace AppGrIT.Data
                 return 0;
             }
             return jsonResponse.Count;
+        }
+        public async Task<string> DeleteImagePost(string imageId)
+        {
+            try
+            {
+                await _firebase._client.DeleteAsync("PostImages/" + imageId);
+                return MessageResponse.MESSAGE_DELETE_SUCCESS;
+            }
+            catch {
+                return MessageResponse.MESSAGE_DELETE_FAIL;
+            }
+
+
         }
     }
 }

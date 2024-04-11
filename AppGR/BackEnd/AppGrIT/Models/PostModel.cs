@@ -20,5 +20,8 @@ namespace AppGrIT.Models
         { get; set; }
         [Required]
         public string? PostType { get; set; }
+
+       // public string? imagepostK
+      // { get; set; }
     }
 }

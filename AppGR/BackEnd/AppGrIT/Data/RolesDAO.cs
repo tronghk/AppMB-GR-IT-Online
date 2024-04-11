@@ -26,7 +26,7 @@ namespace AppGrIT.Data
                 
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = MessageResponse.MESSAGE_CREATE_SUCCESS
 
                 };
@@ -50,7 +50,7 @@ namespace AppGrIT.Data
                 await _firebase._client.SetAsync("Roles/" + role.RoleId, role);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Success"
 
                 };
@@ -163,26 +163,22 @@ namespace AppGrIT.Data
                 FirebaseResponse response = await _firebase._client.GetAsync("UserRoles");
                 //path All Id
                 JObject jsonResponse = response.ResultAs<JObject>();
-                var value = "";
                 foreach (var item in jsonResponse)
                 {
-                    value = item.Value!.ToString();
+                    var value = item.Value!.ToString();
                     //path Object
                     var us = JsonConvert.DeserializeObject<UserRoles>(value);
                     if (us.UserId == UserId && us.RoleId == RoleId)
-                        break;
-                }
-                if (value.Equals(""))
-                    return new ResponseModel
                     {
-                        Status = StatusResponse.STATUS_ERROR,
-                        Message = "Can not find"
-                    };
-
-                 await _firebase._client.DeleteAsync("UserRoles/" +value);
+                        var key = item.Key;
+                        await _firebase._client.DeleteAsync("UserRoles/" + value);
+                        break;
+                    }
+                }
+                
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Success"
                 };
 

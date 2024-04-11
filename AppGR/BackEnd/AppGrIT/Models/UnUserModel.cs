@@ -10,11 +10,6 @@ namespace AppGrIT.Models
         [Required]
         public string UnUserId
         { get; set; } = null!;
-        [Required]
-        public string UnUserName
-        { get; set; } = null!;
-        [Required]
-        public string UnUserImage
-        { get; set; } = null!;
+        
     }
 }

@@ -12,8 +12,10 @@ namespace AppGrIT.Entity
         [Required]
         public string UserId
         { get; set; } = null!;
+        public string ProductName { get; set; }
 
-    
+        [Required]
+        public DateTime PostTime {  get; set; }
         public string Content
         { get; set; } = null!;
 

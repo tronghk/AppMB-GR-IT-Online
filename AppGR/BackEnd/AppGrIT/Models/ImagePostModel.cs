@@ -7,8 +7,9 @@ namespace AppGrIT.Models
         public string? ImageContent
         { get; set; }
 
+        [Required]
         public string? ImagePath
-        { get; set; }
+        { get; set; } = null!;
 
         public string? ImageId
         { get; set; }

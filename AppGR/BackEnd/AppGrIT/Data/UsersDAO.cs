@@ -51,17 +51,6 @@ namespace AppGrIT.Data
            
         }
 
-<<<<<<< HEAD
-        public async Task<ResponseModel> AddUserInforAsync(UserInfors userInfors)
-        {
-            try
-            {
-                PushResponse response = await _firebase._client.PushAsync("UserInfors/", userInfors);
-                return new ResponseModel
-                {
-                    Status = StatusResponse.STATUS_SUCCESS,
-                    Message = MessageResponse.MESSAGE_CREATE_SUCCESS
-=======
         public async Task<ResponseModel> AddUserInforsAsync(UserInfors account)
         {
             try
@@ -70,10 +59,9 @@ namespace AppGrIT.Data
                 PushResponse response = await _firebase._client.PushAsync("UserInfors/", account);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = "Register success"
 
->>>>>>> trong
                 };
             }
             catch (Exception ex)
@@ -87,8 +75,6 @@ namespace AppGrIT.Data
 
 
         }
-<<<<<<< HEAD
-=======
         public async void LockUser(AccountIdentity account, DateTime timeLock)
         {
 
@@ -110,7 +96,6 @@ namespace AppGrIT.Data
             account.countLocked = count + 1;
             SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
         }
->>>>>>> trong
         public async Task<List<AccountIdentity>> GetUsersAsync()
         {
            
@@ -197,7 +182,7 @@ namespace AppGrIT.Data
                 await _firebase._client.SetAsync("Users/" + user.UserId + "/RefreshTokenExpiryTime", exrityTime);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                 };
             }
             catch 
@@ -254,6 +239,109 @@ namespace AppGrIT.Data
                 };
             }
         }
+        public async Task<List<UserInfors>> FindUserBySubstringLastNameAsync(string substring)
+        {         
+            List<UserInfors> matchingUsers = new List<UserInfors>();           
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");           
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+            foreach (var item in jsonResponse)
+            {
+                var value = item.Value!.ToString();
+                
+                var user = JsonConvert.DeserializeObject<UserInfors>(value);
+
+                if (user.LastName.ToLower().Contains(substring.ToLower()))
+                {                 
+                    matchingUsers.Add(user);
+                }
+            }          
+            return matchingUsers;
+        }
+        public async Task<List<UserInfors>> FindUserBySubstringAddressAsync(string address)
+        {           
+            List<UserInfors> matchingUsers = new List<UserInfors>();         
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");      
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();       
+            foreach (var item in jsonResponse)
+            {
+                var value = item.Value!.ToString();
+                
+                var user = JsonConvert.DeserializeObject<UserInfors>(value);
+              
+                if (user.Address != null && user.Address.ToLower().Contains(address.ToLower()))
+                {                
+                    matchingUsers.Add(user);
+                }
+            }          
+            return matchingUsers;
+        }
+        private int CalculateAge(DateTime birthday)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - birthday.Year;
+            if (now < birthday.AddYears(age))
+            {
+                age--;
+            }
+            return age;
+        }
+        public async Task<List<UserInfors>> FindUserByAgeAsync(int age)
+        {
+            List<UserInfors> matchingUsers = new List<UserInfors>();
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserInfors");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            foreach (var item in jsonResponse)
+            {
+                var value = item.Value!.ToString();
+                var user = JsonConvert.DeserializeObject<UserInfors>(value);
+                int userAge = CalculateAge(user.Birthday);
+                if (userAge == age)
+                {
+                    matchingUsers.Add(user);
+                }
+            }
+
+            return matchingUsers;
+        }
+        public async Task<List<UserInfors>> FindUserByLastNameByAddressAndAgeAsync(string input)
+        {
+            List<UserInfors> matchingUsers = new List<UserInfors>();
+
+            // Phân tích chuỗi đầu vào thành các thành phần: họ, địa chỉ, tuổi
+            string[] parts = input.Split(',');
+
+            if (parts.Length != 3)
+            {
+                throw new ArgumentException("Định dạng đầu vào không hợp lệ. Vui lòng nhập theo định dạng 'LastName, Address, Age'.");
+            }
+
+            string lastName = parts[0].Trim();
+            string address = parts[1].Trim();
+            if (!int.TryParse(parts[2].Trim(), out int age))
+            {
+                throw new ArgumentException("Tuổi phải là một số nguyên.");
+            }
+
+            // Lấy danh sách người dùng theo các điều kiện
+            var usersByLastName = await FindUserBySubstringLastNameAsync(lastName);
+            var usersByAddress = await FindUserBySubstringAddressAsync(address);
+            var usersByAge = await FindUserByAgeAsync(age);
+
+            // Tìm kiếm người dùng thỏa mãn tất cả các điều kiện
+            foreach (var userByLastName in usersByLastName)
+            {
+                if (usersByAddress.Any(u => u.UserId == userByLastName.UserId) &&
+                    usersByAge.Any(u => u.UserId == userByLastName.UserId))
+                {
+                    matchingUsers.Add(userByLastName);
+                }
+            }
+
+            return matchingUsers;
+        }
+
+
 
 
     }

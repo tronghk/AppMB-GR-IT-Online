@@ -14,15 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppGrIT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e74863e765cdc04cb72140dbe5871418bc43de4e")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a57c5499360810300bb3c1d90a387cc9abbc9f6b")]
->>>>>>> trong
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca1030bcea97a56497f497fe1804454aeaa43f23")]
->>>>>>> 95afc96f360d93dc98d2ae9040ca728de2d4e3ea
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8fb212543bd83e91919c3e2e492783fe4e938b47")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppGrIT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppGrIT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

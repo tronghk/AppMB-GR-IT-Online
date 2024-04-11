@@ -1,10 +1,13 @@
 using AppGrIT.Authentication;
 using AppGrIT.Data;
+using AppGrIT.Payment;
 using AppGrIT.Services;
+using AppGrIT.Services.AppGrIT.Services;
 using AppGrIT.Services.Imployement;
 using FirebaseAdmin;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -47,6 +50,7 @@ builder.Services.AddAuthentication(options =>
             .GetBytes(builder.Configuration["JWT:Secret"]!))
         };
     });
+
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddScoped<ConnectFirebase>();
 builder.Services.AddScoped<UsersDAO>();
@@ -55,6 +59,13 @@ builder.Services.AddScoped<PostsDAO>();
 builder.Services.AddScoped<ImagesDAO>();
 builder.Services.AddScoped<PostCommentsDAO>();
 builder.Services.AddScoped<PostExpressionssDAO>();
+builder.Services.AddScoped<FollowDAO>();
+builder.Services.AddScoped<UserFollowsDAO>();
+builder.Services.AddScoped<UserFriendsDAO>();
+builder.Services.AddScoped<UnUserDAO>();
+builder.Services.AddScoped<PaymentDAO>();
+builder.Services.AddScoped<IPayment,PaymentServices>();
+builder.Services.AddScoped<PostSellProductDAO>();
 builder.Services.AddScoped<IToken, TokenServices>();
 builder.Services.AddScoped<IUsers, UserServices>();
 builder.Services.AddScoped<IRoles, RoleServices>();
@@ -62,7 +73,14 @@ builder.Services.AddScoped<IPosts, PostServices>();
 builder.Services.AddScoped<IImages, ImageServices>();
 builder.Services.AddScoped<IPostComments, PostCommentServices>();
 builder.Services.AddScoped<IPostExpressionss, PostExpressionServicess>();
+builder.Services.AddScoped<IFollows, FollowServices>();
+builder.Services.AddScoped<IUserFollows, UserFollowsServices>();
+builder.Services.AddScoped<IUserFriends, UserFriendsServices>();
+builder.Services.AddScoped<IUnUser, UnUserServices>();
+builder.Services.AddScoped<IPostSellProduct, PostSellProductServices>();
 builder.Services.AddCors(options =>
+
+
 {
     options.AddDefaultPolicy(
             policy =>
@@ -91,6 +109,4 @@ app.MapControllers();
 //thêm dòng này để truyền json thành công
 app.UseCors();
 // sử dụng wwwroot
-app.UseStaticFiles();
-
 app.Run();

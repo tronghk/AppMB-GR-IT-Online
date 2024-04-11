@@ -22,12 +22,12 @@ namespace AppGrIT.Controllers
         private readonly IPosts _postManager;
         private readonly IToken _tokenManager;
 
-        public PostCommentController(IPostComments comment, IUsers userManager, IToken tokenManager, IPosts post)
+        public PostCommentController(IPostComments comment, IUsers userManager, IToken tokenManager, IPosts postManager)
         {
             _postCommentManager = comment;
             _tokenManager = tokenManager;
             _userManager = userManager;
-            _postManager = post;
+            _postManager = postManager;
         }
         [HttpGet("/get-post-comment")]
         public async Task<IActionResult> GetListCoverUser(string postId)
@@ -44,7 +44,8 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> AddPostCommentUser([FromBody] PostCommentModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
-            if (user != null)
+            var post = await _postManager.FindPostToIdAsync(model.PostId);
+            if (user != null && post != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
@@ -67,7 +68,35 @@ namespace AppGrIT.Controllers
                     }
                 }
                 return Unauthorized();
+            }
+            return NotFound();
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpDelete("/delete-comment-post")]
+        public async Task<IActionResult> DeletePostCommentUser(string commentId, string userId, string postId)
+        {
+            var user = await _userManager.GetUserToUserId(userId);
+            var cmt = await _postCommentManager.CheckCommentDupUser(postId,commentId,userId);
+            if (user != null && cmt)
+            {
+                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
+                string accesss_token = token.Result!;
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                {
+                    
+                    var result = await _postCommentManager.DeleteCommentAsync(commentId);
 
+                    if (result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+                    {
+
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        BadRequest(result);
+                    }
+                }
+                return Unauthorized();
             }
             return NotFound();
         }

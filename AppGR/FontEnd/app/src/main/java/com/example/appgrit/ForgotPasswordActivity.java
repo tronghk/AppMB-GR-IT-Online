@@ -74,7 +74,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void sendForgotPasswordRequestToAPI(final String email) {
-        UserApiService apiService = ApiServiceProvider.getApiService();
+        UserApiService apiService = ApiServiceProvider.getUserApiService();
         Call<ResponseBody> call = apiService.resetPassword(email);
 
         call.enqueue(new Callback<ResponseBody>() {

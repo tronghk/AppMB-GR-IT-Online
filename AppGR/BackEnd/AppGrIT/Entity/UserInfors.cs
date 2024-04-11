@@ -5,7 +5,7 @@ namespace AppGrIT.Entity
     public class UserInfors
     {
         [Required]
-        public string FirstName
+        public string Firstname
         { get; set; } = null!;
         [Required]
         public string LastName { get; set; } = null!;
