@@ -15,6 +15,7 @@ public class ApiServiceProvider {
 
     private static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
+
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 

@@ -8,6 +8,9 @@ namespace AppGrIT.Services
     {
         public Task<ResponseModel> SignUpAsync(SignUpModel model);
         public Task<ResponseModel> SignInAsync(SignInModel model);
+        public Task<ResponseModel> SignInGoogleAsync(string idToken);
+        public Task<ResponseModel> SignUpGoogleAsync(string link);
+        public Task<string> GetEmailModelFromLink(string link); 
         public Task<ResponseModel> CreateAccount(AccountIdentity account);
         public Task<ResponseModel> UpdateRefeshTokenAccountAsync(string email, string refreshToken, DateTime expiryTime);
 
@@ -23,6 +26,11 @@ namespace AppGrIT.Services
         public Task<AccountIdentity> GetUserToUserId(string userId);
 
         public Task<UserModel> GetInfoUser(string userId);
+
+        public Task<List<UserInforModel>> FindUserByLastName(string LastName);
+        public Task<List<UserInforModel>> FindUserByAddress(string Address);
+        public Task<List<UserInforModel>> FindUserByAge(int age);
+        public Task<List<UserInforModel>> FindUserByLastName_Address_Age(string input);
 
     }
 }

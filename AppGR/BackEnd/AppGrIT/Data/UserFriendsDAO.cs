@@ -97,28 +97,37 @@ namespace AppGrIT.Data
 
         public async Task<string> DeleteUserFriend(UserFriends user)
         {
-
-            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
-            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
-
-            if (jsonResponse != null)
+            try
             {
+                
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
 
-                foreach (var item in jsonResponse)
+                if (jsonResponse != null)
                 {
-                    var value = item.Value!.ToString();
-                    //path Object
-                    var userc = JsonConvert.DeserializeObject<UserFriends>(value);
-                    if (userc.UserId.Equals(user.UserId) && userc.UserFriendId.Equals(user.UserFriendId))
+                    foreach (var item in jsonResponse)
                     {
-                        var key = item.Key!.ToString();
-                        await _firebase._client.DeleteAsync(key);
-                        return StatusResponse.STATUS_SUCCESS;
+                        var value = item.Value!.ToString();
+                        
+                        var userc = JsonConvert.DeserializeObject<UserFriends>(value);
+                        if (userc.UserId.Equals(user.UserId) && userc.UserFriendId.Equals(user.UserFriendId))
+                        {
+                            var key = item.Key!.ToString();
+                            
+                            await _firebase._client.DeleteAsync($"UserFriends/{key}");
+                            return StatusResponse.STATUS_SUCCESS;
+                        }
                     }
                 }
+                
+                return StatusResponse.STATUS_ERROR;
             }
-            return StatusResponse.STATUS_ERROR;
-
+            catch (Exception ex)
+            {
+               
+                return StatusResponse.STATUS_ERROR;
+            }
         }
+
     }
 }

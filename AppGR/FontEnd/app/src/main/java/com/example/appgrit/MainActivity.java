@@ -31,10 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         buttonSignUp.setOnClickListener(v -> {
             // Chuyển đến màn hình Signup
-            Intent signupIntent = new Intent(MainActivity.this, activity_signup.class);
+            Intent signupIntent = new Intent(MainActivity.this, FragmentProfile.class);
             startActivity(signupIntent);
-
-
         });
         buttonSignin.setOnClickListener(v -> {
             // Chuyển đến màn hình Signin

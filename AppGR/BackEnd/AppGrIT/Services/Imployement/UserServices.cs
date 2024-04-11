@@ -10,8 +10,12 @@ using FireSharp.Extensions;
 using Google.Api.Gax.Rest;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
+using System.Net;
+using System.Numerics;
 using System.Text;
 
 namespace AppGrIT.Services.Imployement
@@ -50,6 +54,7 @@ namespace AppGrIT.Services.Imployement
             {
                
                 FirebaseAuthLink link = await _firebaseAuth.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
+               
                 var user = await GetUserAsync(model.Email);
                 if(user.Locked)
                 {
@@ -69,7 +74,7 @@ namespace AppGrIT.Services.Imployement
                 }
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
                     Message = link.FirebaseToken
                 };
             }
@@ -103,6 +108,7 @@ namespace AppGrIT.Services.Imployement
         {
             try
             {
+
                
                 var us = new AccountIdentity
                 {
@@ -124,7 +130,48 @@ namespace AppGrIT.Services.Imployement
                 await CreateUserInfors(userInfos, model.Email);
                 //xét quyền mặc định
                 await SetRoleDefault(model.Email,SynthesizeRoles.CUSTOMER);
-              
+                
+                // tao anh dai dien mac dinh
+                
+
+
+                return result;
+            }
+            catch
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Email exist"
+                };
+            }
+
+        }
+        public async Task<ResponseModel> SignUpGoogleAsync(string link)
+        {
+            var user = await _firebaseAuth.GetUserAsync(link);
+            
+            try
+            {
+               
+                var us = new AccountIdentity
+                {
+                    Email = user.Email
+
+                };
+
+               
+
+                var result = await CreateAccount(us);
+                UserInforModel userInfos = new UserInforModel
+                {
+                    Firstname = user.FirstName,
+                    LastName = user.LastName,
+                };
+                await CreateUserInfors(userInfos, user.Email);
+                //xét quyền mặc định
+                await SetRoleDefault(user.Email, SynthesizeRoles.CUSTOMER);
+
                 return result;
             }
             catch
@@ -205,7 +252,7 @@ namespace AppGrIT.Services.Imployement
                     };
                   
                 }
-                return new ResponseModel { Status = StatusResponse.STATUS_OK };
+                return new ResponseModel { Status = StatusResponse.STATUS_SUCCESS };
 
             }
 
@@ -239,7 +286,7 @@ namespace AppGrIT.Services.Imployement
                 var result = _firebaseAuth.SendEmailVerificationAsync(user.FirebaseToken);
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
 
                 };
             }
@@ -274,7 +321,7 @@ namespace AppGrIT.Services.Imployement
                
                 return new ResponseModel
                 {
-                    Status = StatusResponse.STATUS_OK,
+                    Status = StatusResponse.STATUS_SUCCESS,
 
                 };
             }
@@ -340,7 +387,7 @@ namespace AppGrIT.Services.Imployement
             {
                 UserId = userId,
                 ImagePath = pathImage,
-                UserName = userInfo.LastName + userInfo.Firstname
+                UserName = userInfo.LastName +" " + userInfo.Firstname
             };
             return user;
         }
@@ -384,6 +431,137 @@ namespace AppGrIT.Services.Imployement
                 };
                 result.Add(im);
             }
+            return result;
+        }
+
+        public async Task<ResponseModel> SignInGoogleAsync(string idToken )
+        {
+            try
+            {
+                FirebaseAuthLink link = await _firebaseAuth.SignInWithGoogleIdTokenAsync(idToken);
+
+                if (link != null)
+                {
+                    return new ResponseModel
+                    {
+                        Status = StatusResponse.STATUS_SUCCESS,
+                        Message = link.FirebaseToken
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_LOGIN_FAIL
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_LOGIN_FAIL
+            };
+
+
+
+
+
+        }
+
+        public async Task<string> GetEmailModelFromLink(string link)
+        {
+            var user = await _firebaseAuth.GetUserAsync(link);
+            var email = user.Email;
+            if(user!= null)
+            {
+                return email;
+            }
+            return null;
+        }
+        public async Task<List<UserInforModel>> FindUserByLastName(string LastName)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserBySubstringLastNameAsync(LastName);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+
+        public async Task<List<UserInforModel>> FindUserByAddress(string Address)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserBySubstringAddressAsync(Address);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+        public async Task<List<UserInforModel>> FindUserByAge(int age)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+            var list = await _userDao.FindUserByAgeAsync(age);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday =userinfo.Birthday,
+                    
+                };
+                result.Add(us);
+            }
+            return result;
+        }
+        public async Task<List<UserInforModel>> FindUserByLastName_Address_Age(string input)
+        {
+            List<UserInforModel> result = new List<UserInforModel>();
+
+            var list = await _userDao.FindUserByLastNameByAddressAndAgeAsync(input);
+            foreach (var userinfo in list)
+            {
+                var us = new UserInforModel
+                {
+                    UserId = userinfo.UserId,
+                    LastName = userinfo.LastName,
+                    Firstname = userinfo.Firstname,
+                    Gender = userinfo.Gender,
+                    Address = userinfo.Address,
+                    Phone = userinfo.Phone,
+                    Birthday = userinfo.Birthday,
+                };
+                result.Add(us);
+            }
+
             return result;
         }
     }

@@ -26,21 +26,13 @@ namespace AppGrIT.Controllers
             _userManager = user;
         }
         [HttpGet("/count-userFriend")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         public async Task<IActionResult> CountFriends(string userId)
         {
             var count = await _friendsManager.CountFriendsInAUser(userId);
-            // Kết quả ra 0 thì trả về BadRequest
-            if (count == 0)
-            {
-
-                return BadRequest(new ResponseModel
-                {
-                    Status = StatusResponse.STATUS_ERROR,
-                    Message = MessageResponse.MESSAGE_NOTFOUND
-                }
-                );
-            }
-            return Ok(count);
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("count", count.ToString());
+            return Ok(dic);
         }
         [HttpGet("/get-listUserFriend")]
         public async Task<IActionResult> GetListUserFriend(string userId)
@@ -85,7 +77,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
-
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpDelete("/delete-friend")]
         public async Task<IActionResult> DeleteUserFriend([FromBody] UserFriendsModel model)
         {

@@ -101,7 +101,7 @@ public class activity_home extends AppCompatActivity {
 
     private void loadPosts() {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        String token = prefs.getString("token", "");
+        String token = prefs.getString("accessToken", "");
         String userId = prefs.getString("userId", ""); // Lấy userId từ SharedPreferences
 
         PostApiService service = ApiServiceProvider.getPostApiService();

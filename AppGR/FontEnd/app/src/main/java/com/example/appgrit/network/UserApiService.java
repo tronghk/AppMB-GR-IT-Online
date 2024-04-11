@@ -11,6 +11,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -22,6 +23,8 @@ public interface UserApiService {
 
     @POST("signin")
     Call<TokenModel> signIn(@Body SignInModel signInModel);
+    @POST("sign-in-google")
+    Call<TokenModel> SignInGoogle(@Query("idToken") String idToken);
 
     @GET("user")
     Call<UserInforModel> getUserInfo(@Header("Authorization") String token, @Query("email") String email);
