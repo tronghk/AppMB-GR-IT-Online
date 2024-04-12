@@ -1,30 +1,30 @@
 package com.example.appgrit.models;
 
 public class UserFriendsModel {
-    private String UserId;
-    private String UserFriendId;
+    private String userId;
+    private String userFriendId;
 
     public UserFriendsModel() {
     }
 
     public UserFriendsModel(String userId, String userFriendId) {
-        UserId = userId;
-        UserFriendId = userFriendId;
+        userId = userId;
+        userFriendId = userFriendId;
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(String userId) {
-        UserId = userId;
+        userId = userId;
     }
 
     public String getUserFriendId() {
-        return UserFriendId;
+        return userFriendId;
     }
 
     public void setUserFriendId(String userFriendId) {
-        UserFriendId = userFriendId;
+        userFriendId = userFriendId;
     }
 }

@@ -1,9 +1,9 @@
 package com.example.appgrit.models;
 
 public class UserModel {
-    private String UserId;
-    private String UserName;
-    private String ImagePath;
+    private String userId;
+    private String userName;
+    private String imagePath;
 
     // Constructors, getters, and setters
 
@@ -11,32 +11,32 @@ public class UserModel {
     }
 
     public UserModel(String userId, String userName, String imagePath) {
-        UserId = userId;
-        UserName = userName;
-        ImagePath = imagePath;
+        userId = userId;
+        userName = userName;
+        imagePath = imagePath;
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(String userId) {
-        UserId = userId;
+        userId = userId;
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        userName = userName;
     }
 
     public String getImagePath() {
-        return ImagePath;
+        return imagePath;
     }
 
     public void setImagePath(String imagePath) {
-        ImagePath = imagePath;
+        imagePath = imagePath;
     }
 }

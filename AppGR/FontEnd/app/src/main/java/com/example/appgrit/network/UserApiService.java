@@ -4,15 +4,15 @@ import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.SignInModel;
 import com.example.appgrit.models.SignUpModel;
 import com.example.appgrit.models.TokenModel;
+import com.example.appgrit.models.UserFriendsModel;
 import com.example.appgrit.models.UserInforModel;
-import com.example.appgrit.models.ResponseModel;
+import com.example.appgrit.models.UserModel;
 
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -35,4 +35,10 @@ public interface UserApiService {
 
     @GET("reset-password")
     Call<ResponseBody> resetPassword(@Query("email") String email);
+
+    @GET("get-listUserFriend")
+    Call<List<UserFriendsModel>> getListUserFriend(@Query("userId") String userId);
+
+    @GET("get-user-id")
+    Call<UserModel> getUserInfo(@Query("userId") String userId);
 }
