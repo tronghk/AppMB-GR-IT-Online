@@ -9,7 +9,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.concurrent.TimeUnit;
 
-public class ApiServiceProvider {
+public class    ApiServiceProvider {
     private static final String BASE_URL = "http://appgrit.somee.com/";
     private static Retrofit retrofit = null;
 

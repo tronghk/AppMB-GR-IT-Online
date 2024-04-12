@@ -78,4 +78,16 @@
         android:clickable="true"
         android:onClick="goToSignUp"
         android:padding="18dp" />
+    <TextView
+        android:id="@+id/text_view_forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_sign_up"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-20dp"
+        android:text="Forgot password?"
+        android:textColor="@android:color/black"
+        android:clickable="true"
+        android:onClick="goToForgot"
+        android:padding="18dp" />
 </RelativeLayout>

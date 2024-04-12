@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.auth0.android.jwt.Claim;
 import com.auth0.android.jwt.JWT;
+import com.example.appgrit.ForgotPasswordActivity;
 import com.example.appgrit.R;
 import com.example.appgrit.models.SignInModel;
 import com.example.appgrit.models.TokenModel;
@@ -208,6 +209,11 @@ public class activity_signin extends AppCompatActivity {
     // Phương thức chuyển sang màn hình đăng ký
     public void goToSignUp(View view) {
         Intent intent = new Intent(this, activity_signup.class);
+        startActivity(intent);
+    }
+
+    public void goToForgot(View view) {
+        Intent intent = new Intent(this, ForgotPasswordActivity.class);
         startActivity(intent);
     }
 }
