@@ -37,6 +37,10 @@ public interface UserApiService {
     Call<ResponseBody> CountFollowers
             (@Query("userId") String userId);
 
+    @GET("count-user-followers")
+    Call<ResponseBody> CountUserFollowers
+            (@Query("userId") String userId);
+
     @GET("reset-password")
     Call<ResponseBody> resetPassword(@Query("email") String email);
 

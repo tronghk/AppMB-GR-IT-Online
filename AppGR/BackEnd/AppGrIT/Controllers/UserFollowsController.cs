@@ -29,5 +29,15 @@ namespace AppGrIT.Controllers
 
             
         }
+        [HttpGet("/count-user-followers")]
+        public async Task<IActionResult> CountUserFollowers(string userId)
+        {
+            var count = await _followerManager.CountFollowersInAUser(userId);
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("count", count.ToString());
+            return Ok(dic);
+
+
+        }
     }
 }

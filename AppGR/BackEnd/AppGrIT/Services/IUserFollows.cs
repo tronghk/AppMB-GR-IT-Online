@@ -5,6 +5,8 @@
         public interface IUserFollows
         {
             public Task<int> CountFollowersInAUser(string userId);
+
+            public Task<int> CountUserFollowersInAUser(string userId);
         }
     }
 

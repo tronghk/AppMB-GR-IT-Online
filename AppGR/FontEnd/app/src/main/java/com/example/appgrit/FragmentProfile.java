@@ -114,7 +114,42 @@ public class FragmentProfile extends AppCompatActivity {
         loadPosts();
         CountFl();
         GetImage();
+        CountFlWing();
     }
+
+    private void CountFlWing() {
+        String userId = JWTServices.GetUserId(tokenModel.getAccessToken());
+        UserApiService service = ApiServiceProvider.getUserApiService();
+        Call<ResponseBody> call = service.CountUserFollowers(userId);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+
+                    try {
+                        String s = response.body().string();
+                        JSONObject json = new JSONObject(s);
+                        String count =  json.get("count").toString();
+
+
+
+                        following.setText(count+"");
+                    }catch (Exception e){
+
+                    }
+                    // Log dữ liệu từ API
+
+                }            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error fetching count fl: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("API_Error", "Error fetching posts: ", t);
+            }
+
+        });
+    }
+
     private void CountFl(){
         String userId = JWTServices.GetUserId(tokenModel.getAccessToken());
         UserApiService service = ApiServiceProvider.getUserApiService();

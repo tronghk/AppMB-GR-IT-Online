@@ -18,5 +18,10 @@ namespace AppGrIT.Services.Imployement
             var countFollower = await _followersDAO.CountFollowers(userId);
             return countFollower;
         }
+        public async Task<int> CountUserFollowersInAUser(string userId)
+        {
+            var countFollower = await _followersDAO.CountUserFollowers(userId);
+            return countFollower;
+        }
     }
 }
