@@ -1,9 +1,18 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserModel {
-    private String userId;
-    private String userName;
-    private String imagePath;
+    @SerializedName("userId")
+    private String UserId;
+
+    @SerializedName("userName")
+    private String UserName;
+
+    @SerializedName("imagePath")
+    private String ImagePath;
+
+
 
     // Constructors, getters, and setters
 
@@ -11,32 +20,32 @@ public class UserModel {
     }
 
     public UserModel(String userId, String userName, String imagePath) {
-        userId = userId;
-        userName = userName;
-        imagePath = imagePath;
+        UserId = userId;
+        UserName = userName;
+        ImagePath = imagePath;
     }
 
     public String getUserId() {
-        return userId;
+        return UserId;
     }
 
     public void setUserId(String userId) {
-        userId = userId;
+        UserId = userId;
     }
 
     public String getUserName() {
-        return userName;
+        return UserName;
     }
 
     public void setUserName(String userName) {
-        userName = userName;
+        UserName = userName;
     }
 
     public String getImagePath() {
-        return imagePath;
+        return ImagePath;
     }
 
     public void setImagePath(String imagePath) {
-        imagePath = imagePath;
+        ImagePath = imagePath;
     }
 }

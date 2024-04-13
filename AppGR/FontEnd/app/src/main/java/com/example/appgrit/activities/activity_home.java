@@ -28,6 +28,7 @@ import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostApiService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -59,7 +60,6 @@ public class activity_home extends AppCompatActivity {
         recyclerViewPosts.setAdapter(postAdapter);
         loadPosts();
     }
-
     private void setupBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -103,22 +103,18 @@ public class activity_home extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("accessToken", "");
         String userId = prefs.getString("userId", ""); // Lấy userId từ SharedPreferences
-
         PostApiService service = ApiServiceProvider.getPostApiService();
-        Call<List<PostModel>> call = service.getPostUser("Bearer " + token, userId); // Truyền userId vào phương thức getPostUser
+        Call<List<PostModel>> call = service.getPostUser("Bearer " + token, userId);
         call.enqueue(new Callback<List<PostModel>>() {
             @Override
             public void onResponse(Call<List<PostModel>> call, Response<List<PostModel>> response) {
                 if (response.isSuccessful()) {
                     List<PostModel> posts = response.body();
-                    postAdapter.setData(posts); // Cập nhật dữ liệu vào adapter
 
-                    // Log dữ liệu từ API
-                    Log.d("API_Response", "Total posts received: " + posts.size());
-                    for (PostModel post : posts) {
-                        Log.d("API_Response", "Post ID: " + post.getPostId());
-                        // Log thêm các thông tin khác của bài đăng nếu cần
-                    }
+                    // Sắp xếp `posts` để đảm bảo các bài đăng mới nhất ở đầu
+                    Collections.sort(posts, (post1, post2) -> post2.getPostTime().compareTo(post1.getPostTime()));
+
+                    postAdapter.setData(posts); // Cập nhật dữ liệu vào adapter
                 } else {
                     Toast.makeText(activity_home.this, "Failed to fetch posts: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
@@ -129,9 +125,9 @@ public class activity_home extends AppCompatActivity {
                 Toast.makeText(activity_home.this, "Error fetching posts: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("API_Error", "Error fetching posts: ", t);
             }
-
         });
     }
+
 
 
 

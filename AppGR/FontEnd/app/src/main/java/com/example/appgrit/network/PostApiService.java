@@ -52,5 +52,4 @@ public interface PostApiService {
     Call<List<PostModel>> getPostSelfUser(@Query("userId") String userId);
 
 
-
 }
