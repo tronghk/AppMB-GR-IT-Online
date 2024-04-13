@@ -48,6 +48,8 @@ public interface PostApiService {
             @Header("Authorization") String token,
             @Query("userId") String userId
     );
+    @GET("get-post-self")
+    Call<List<PostModel>> getPostSelfUser(@Query("userId") String userId);
 
 
 

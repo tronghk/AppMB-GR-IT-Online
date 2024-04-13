@@ -19,7 +19,7 @@ namespace AppGrIT.Controllers
             _followerManager = pression;
         }
         [HttpGet("/count-followers")]
-        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        
         public async Task<IActionResult> CountFollowers(string userId)
         {
             var count = await _followerManager.CountFollowersInAUser(userId);

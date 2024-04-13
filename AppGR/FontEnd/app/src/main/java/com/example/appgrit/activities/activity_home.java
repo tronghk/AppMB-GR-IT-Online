@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgrit.ForgotPasswordActivity;
+import com.example.appgrit.FragmentProfile;
 import com.example.appgrit.MarketplaceActivity;
 import com.example.appgrit.ProfileOther;
 import com.example.appgrit.R;
@@ -67,7 +68,7 @@ public class activity_home extends AppCompatActivity {
                 // Giữ nguyên màn hình hiện tại
                 return true;
             } else if (itemId == R.id.nav_profile) {
-                Intent intent = new Intent(activity_home.this, ProfileOther.class);
+                Intent intent = new Intent(activity_home.this, FragmentProfile.class);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.nav_users) {

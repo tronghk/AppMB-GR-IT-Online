@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using AppGrIT.Authentication;
+using FirebaseAdmin.Messaging;
 
 namespace AppGrIT.Controllers
 {
@@ -37,7 +38,11 @@ namespace AppGrIT.Controllers
             {
                 return Ok(result);
             }
-            return NotFound();
+            return NotFound(new ResponseModel
+            {
+                Status = StatusResponse.STATUS_NOTFOUND,
+                Message = MessageResponse.MESSAGE_NOTFOUND
+            });
         }
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpPost("/add-comment-post")]

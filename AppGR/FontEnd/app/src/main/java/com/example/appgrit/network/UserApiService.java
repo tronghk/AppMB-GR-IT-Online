@@ -33,6 +33,10 @@ public interface UserApiService {
     @GET("get-post")
     Call<List<PostModel>> getPostUser(@Query("userId") String userId);
 
+    @GET("count-followers")
+    Call<ResponseBody> CountFollowers
+            (@Query("userId") String userId);
+
     @GET("reset-password")
     Call<ResponseBody> resetPassword(@Query("email") String email);
 
