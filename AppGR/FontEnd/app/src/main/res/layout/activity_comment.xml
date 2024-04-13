@@ -18,14 +18,26 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvbinhluan"
+        android:padding="5dp"
+        android:background="#eeeeee"/>
+
+
+    <!-- Phần người dùng bình luận -->
     <RelativeLayout
+        android:id="@+id/commentUserLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvbinhluan">
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp">
 
         <!-- Avatar -->
         <ImageView
-            android:id="@+id/imageAvatar"
+            android:id="@+id/imageUserAvatar"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/avatar"
@@ -33,114 +45,32 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Tên -->
-        <TextView
-            android:id="@+id/textName"
-            android:layout_width="wrap_content"
+        <!-- Khung nội dung -->
+        <EditText
+            android:id="@+id/editComment"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="manojinbamani"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_toEndOf="@id/imageAvatar"
-            android:layout_alignTop="@id/imageAvatar"
-            android:layout_marginStart="16dp"/>
+            android:layout_alignTop="@id/imageUserAvatar"
+            android:layout_alignBottom="@id/imageUserAvatar"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@id/buttonSend"
+            android:layout_toEndOf="@id/imageUserAvatar"
+            android:hint="Nhập bình luận của bạn..." />
 
-        <!-- Icon thả tim -->
-        <ImageView
-            android:id="@+id/imageHeart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/heart"
-            android:layout_alignTop="@id/textName"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"/>
-
-        <!-- Nội dung bình luận -->
-        <TextView
-            android:id="@+id/textComment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You probably never get tired of hearing this Jordi but you are so extremely talented love your ideas ❤️ love your camera lens😍"
-            android:layout_toEndOf="@id/imageAvatar"
-            android:layout_below="@id/textName"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"/>
-
-        <!-- Nút trả lời -->
-
-        <!-- Số lượng lượt thích -->
-
-
-
-        <TextView
-            android:id="@+id/textLikes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textComment"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="231dp"
-            android:text="1.556 lượt thích" />
-
+        <!-- Nút gửi -->
         <Button
-            android:id="@+id/buttonReply"
+            android:id="@+id/buttonSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textComment"
-            android:layout_alignStart="@id/textLikes"
-            android:layout_marginStart="113dp"
-            android:layout_marginTop="-3dp"
-            android:text="Trả lời"
+            android:layout_alignTop="@id/editComment"
+            android:layout_alignBottom="@id/editComment"
+            android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
-            android:textColor="@android:color/black" />
-
-        <!-- Phần người dùng bình luận -->
-        <RelativeLayout
-            android:id="@+id/commentUserLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="16dp">
-
-            <!-- Avatar -->
-            <ImageView
-                android:id="@+id/imageUserAvatar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/avatar"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"/>
-
-            <!-- Khung nội dung -->
-            <EditText
-                android:id="@+id/editComment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/imageUserAvatar"
-                android:layout_alignBottom="@id/imageUserAvatar"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="5dp"
-                android:layout_toStartOf="@id/buttonSend"
-                android:layout_toEndOf="@id/imageUserAvatar"
-                android:hint="Nhập bình luận của bạn..." />
-
-            <!-- Nút gửi -->
-            <Button
-                android:id="@+id/buttonSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/editComment"
-                android:layout_alignBottom="@id/editComment"
-                android:layout_alignParentEnd="true"
-                android:background="@android:color/transparent"
-                android:textColor="@android:color/black"
-                android:layout_marginStart="15dp"
-                android:text="Gửi" />
-
-        </RelativeLayout>
-
+            android:textColor="@android:color/black"
+            android:layout_marginStart="15dp"
+            android:text="Gửi" />
 
     </RelativeLayout>
+
 </RelativeLayout>

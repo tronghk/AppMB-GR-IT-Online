@@ -6,6 +6,7 @@ import com.example.appgrit.models.SignUpModel;
 import com.example.appgrit.models.TokenModel;
 import com.example.appgrit.models.UserInforModel;
 import com.example.appgrit.models.ResponseModel;
+import com.example.appgrit.models.UserModel;
 
 import java.util.List;
 
@@ -31,6 +32,10 @@ public interface UserApiService {
 
     @GET("get-post")
     Call<List<PostModel>> getPostUser(@Query("userId") String userId);
+
+    @GET("/get-user-id")
+    Call<UserModel> getUserBasic(@Header("Authorization") String token, @Query("userId") String userId);
+
 
 
 }

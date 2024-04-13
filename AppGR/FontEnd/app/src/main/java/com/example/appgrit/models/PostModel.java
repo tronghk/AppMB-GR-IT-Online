@@ -12,6 +12,9 @@ import java.util.Locale;
 public class PostModel {
     @SerializedName("postId")
     private String PostId;
+// Các trường hiện tại
+
+    private UserModel user;
 
     @SerializedName("userId")
     private String UserId;
@@ -46,7 +49,14 @@ public class PostModel {
         Content = content;
         PostType = postType;
     }
+    // Getter và setter cho UserModel
+    public UserModel getUser() {
+        return user;
+    }
 
+    public void setUser(UserModel user) {
+        this.user = user;
+    }
     // Các getter và setter
     public String getPostId() {
         return PostId;

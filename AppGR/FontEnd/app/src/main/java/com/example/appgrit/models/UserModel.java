@@ -1,9 +1,18 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserModel {
+    @SerializedName("userId")
     private String UserId;
+
+    @SerializedName("userName")
     private String UserName;
+
+    @SerializedName("imagePath")
     private String ImagePath;
+
+
 
     // Constructors, getters, and setters
 
