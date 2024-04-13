@@ -400,7 +400,7 @@ namespace AppGrIT.Services.Imployement
             {
                 if (post.PostTime > idNew.PostTime)
                 {
-                    idNew = post; break;
+                    idNew = post;
                 }
             }
             var listImage = await GetImagePostToId(idNew.PostId);
