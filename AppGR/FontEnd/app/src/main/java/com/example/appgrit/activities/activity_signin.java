@@ -128,6 +128,7 @@ public class activity_signin extends AppCompatActivity {
                         prefs.edit().putString("accessToken", accessToken).apply();
                         prefs.edit().putString("refreshToken", refreshToken).apply();
                         prefs.edit().putString("expiration", date).apply();
+
                         // Now get user info
                         getUserInfo(accessToken);
                         Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
@@ -166,9 +167,13 @@ public class activity_signin extends AppCompatActivity {
                         String date = response.body().getExpiration();
                         // Save the access token in SharedPreferences
                         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
                         prefs.edit().putString("accessToken", accessToken).apply();
                         prefs.edit().putString("refreshToken", refreshToken).apply();
                         prefs.edit().putString("expiration", date).apply();
+
+
+
 
                         // Now get user info
                         getUserInfo(accessToken);

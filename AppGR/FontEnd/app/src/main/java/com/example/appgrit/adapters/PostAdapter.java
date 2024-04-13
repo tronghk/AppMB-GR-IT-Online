@@ -27,12 +27,16 @@ import java.util.List;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private Context context;
     private List<PostModel> postList;
+
     boolean isLiked = false; // Thêm biến isLiked
 
 
     public PostAdapter(Context context, List<PostModel> postList) {
         this.context = context;
         this.postList = postList;
+    }
+    public int GetSize(){
+        return postList.size();
     }
 
     @NonNull

@@ -38,7 +38,7 @@ namespace AppGrIT.Controllers
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
-                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, userfl.Email))
                 {
 
                     var result = await _followManager.CreateUserFollow(model);
@@ -69,7 +69,7 @@ namespace AppGrIT.Controllers
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
-                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
+                if (_tokenManager.CheckDupEmailToToken(accesss_token, userfl.Email))
                 {
 
                     var result = await _followManager.DeleteUserFollow(model);
@@ -93,16 +93,12 @@ namespace AppGrIT.Controllers
            
             if (user != null)
             {
-                var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
-                string accesss_token = token.Result!;
-                if (_tokenManager.CheckDupEmailToToken(accesss_token, user.Email))
-                {
-
+               
                     var result = await _followManager.GetListUserFollow(userId);
                    return Ok(result);
 
-                }
-                return Unauthorized();
+                
+                
             }
             return NotFound();
         }

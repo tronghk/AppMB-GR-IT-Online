@@ -30,6 +30,7 @@ namespace AppGrIT.Services.Imployement
         private readonly IConfiguration _configuration;
         private readonly FirebaseAuthProvider _firebaseAuth;
         private readonly ImagesDAO _imagesDao;
+        
 
 
         public UserServices(IConfiguration configuration, UsersDAO user, IRoles role, PostsDAO postsDao, ImagesDAO imagesDao)
@@ -150,6 +151,7 @@ namespace AppGrIT.Services.Imployement
         public async Task<ResponseModel> SignUpGoogleAsync(string link)
         {
             var user = await _firebaseAuth.GetUserAsync(link);
+           
             
             try
             {

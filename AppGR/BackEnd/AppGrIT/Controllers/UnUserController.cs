@@ -4,6 +4,7 @@ using AppGrIT.Models;
 using AppGrIT.Services;
 using AppGrIT.Services.AppGrIT.Services;
 using Firebase.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,7 @@ namespace AppGrIT.Controllers
             _unUserManager = pression;
             _userManager = user;
         }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpGet("/count-unUser")]
         public async Task<IActionResult> CountUnUser(string userId)
         {
@@ -31,6 +33,7 @@ namespace AppGrIT.Controllers
             dic.Add("count", count.ToString());
             return Ok(dic);
         }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpGet("/get-listUnUser")]
         public async Task<IActionResult> GetListUnUser(string userId)
         {
@@ -43,6 +46,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpPost("/add-UnUser")]
         public async Task<IActionResult> AddUnUser([FromBody] UnUserModel model)
         {
