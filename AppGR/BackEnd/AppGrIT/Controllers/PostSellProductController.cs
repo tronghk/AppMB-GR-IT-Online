@@ -18,11 +18,11 @@ namespace AppGrIT.Controllers
         [HttpGet("/FindProductByNameProduct")]
         public async Task<IActionResult> FindProductByNameProduct(string NameProduct)
         {
-            var user = await _postsellManager.FindProductByNameProduct(NameProduct!);
+            var result = await _postsellManager.FindProductByNameProduct(NameProduct);
 
-            if (user != null)
+            if (result != null)
             {
-                var result = await _postsellManager.FindProductByNameProduct(NameProduct);
+                
                 return Ok(result);
             }
             return NotFound();
@@ -30,11 +30,11 @@ namespace AppGrIT.Controllers
         [HttpGet("/FindProductByPriceProduct")]
         public async Task<IActionResult> FindProductByPriceProduct(float price)
         {
-            var user = await _postsellManager.FindProductByPriceProduct(price!);
+            var result = await _postsellManager.FindProductByPriceProduct(price);
 
-            if (user != null)
+            if (result != null)
             {
-                var result = await _postsellManager.FindProductByPriceProduct(price);
+               
                 return Ok(result);
             }
             return NotFound();
