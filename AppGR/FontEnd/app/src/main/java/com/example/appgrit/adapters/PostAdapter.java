@@ -103,7 +103,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         // Thiết lập sự kiện lắng nghe cho các phần tử
         holder.likesTextView.setOnClickListener(v -> {
             // Chuyển sang trang ListUserLike.java
-            context.startActivity(new Intent(context, ListUserLike.class));
+//            context.startActivity(new Intent(context, ListUserLike.class));
+            String postId = post.getPostId();
+            Intent intent = new Intent(context, ListUserLike.class);
+            intent.putExtra("postId", postId);
+            context.startActivity(intent);
         });
 
         holder.commentsTextView.setOnClickListener(v -> {
