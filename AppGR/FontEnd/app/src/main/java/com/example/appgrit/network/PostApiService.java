@@ -50,15 +50,16 @@ public interface PostApiService {
             @Query("userId") String userId
     );
 
-    @GET("get-post-expression")
-            Call<List<PostIconsModel>> getPostExpressions(
-                    @Header("Authorization") String token,
-                    @Query("postId") String postId
-    );
 
     @GET("get-post-self")
     Call<List<PostModel>> getPostSelfUser(@Query("userId") String userId);
 
 
+
+    @GET("get-post-expression")
+    Call<List<PostIconsModel>> getPostExpressions(
+            @Header("Authorization") String token,
+            @Query("postId") String postId
+    );
 
 }
