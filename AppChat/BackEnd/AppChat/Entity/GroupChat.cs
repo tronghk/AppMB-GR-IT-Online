@@ -7,8 +7,6 @@
         { get; set; }
         public string GroupName
         { get; set; }
-        public string QuantityMember
-        { get; set; }
         public string ImagePath
         { get; set; }
 
