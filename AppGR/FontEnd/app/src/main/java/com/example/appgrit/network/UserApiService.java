@@ -7,9 +7,7 @@ import com.example.appgrit.models.TokenModel;
 import com.example.appgrit.models.UserFriendsModel;
 import com.example.appgrit.models.UserInforModel;
 import com.example.appgrit.models.UserModel;
-
 import java.util.List;
-
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -32,6 +30,18 @@ public interface UserApiService {
 
     @GET("get-post")
     Call<List<PostModel>> getPostUser(@Query("userId") String userId);
+
+    @GET("count-followers")
+    Call<ResponseBody> CountFollowers
+            (@Query("userId") String userId);
+    @GET("/get-user-id")
+    Call<UserModel> getUserBasic(@Header("Authorization") String token, @Query("userId") String userId);
+
+
+
+    @GET("count-user-followers")
+    Call<ResponseBody> CountUserFollowers
+            (@Query("userId") String userId);
 
     @GET("reset-password")
     Call<ResponseBody> resetPassword(@Query("email") String email);

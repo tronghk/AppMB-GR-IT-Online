@@ -75,7 +75,7 @@
 
                             <TextView
                                 android:id="@+id/posts"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="0"
@@ -178,7 +178,7 @@
                     android:text="Chỉnh sửa"
                     android:textAllCaps="false"
                     android:textColor="#6d6d6d"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <Button
@@ -190,7 +190,7 @@
                     android:text="Chia sẻ trang cá nhân"
                     android:textAllCaps="false"
                     android:textColor="#6d6d6d"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="20dp"/>
 

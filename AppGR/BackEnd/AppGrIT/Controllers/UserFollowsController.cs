@@ -19,7 +19,7 @@ namespace AppGrIT.Controllers
             _followerManager = pression;
         }
         [HttpGet("/count-followers")]
-        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        
         public async Task<IActionResult> CountFollowers(string userId)
         {
             var count = await _followerManager.CountFollowersInAUser(userId);
@@ -28,6 +28,16 @@ namespace AppGrIT.Controllers
             return Ok(dic);
 
             
+        }
+        [HttpGet("/count-user-followers")]
+        public async Task<IActionResult> CountUserFollowers(string userId)
+        {
+            var count = await _followerManager.CountFollowersInAUser(userId);
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("count", count.ToString());
+            return Ok(dic);
+
+
         }
     }
 }

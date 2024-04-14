@@ -58,6 +58,9 @@
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".edit_profile"
+            android:exported="false" />
+        <activity
             android:name=".profile"
             android:exported="false" />
         <!--
@@ -71,9 +74,7 @@
         <activity
             android:name=".HomeFragment"
             android:exported="false" />
-        <activity
-            android:name=".CustomInformation"
-            android:exported="false" />
+
         <activity
             android:name=".changepassword"
             android:exported="false" />

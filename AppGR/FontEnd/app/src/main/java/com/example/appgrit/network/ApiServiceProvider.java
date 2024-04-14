@@ -44,4 +44,13 @@ public class    ApiServiceProvider {
     public static PostApiService getPostApiService() {
         return getRetrofitInstance().create(PostApiService.class);
     }
+    public static ExpressionApiService getExpressionApiService() {
+        return getRetrofitInstance().create(ExpressionApiService.class);
+    }
+
+    public static PostCommentApiService getPostCommentApiService() {
+        return getRetrofitInstance().create(PostCommentApiService.class);
+    }
+
+
 }

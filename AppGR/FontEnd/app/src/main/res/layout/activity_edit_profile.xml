@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:ignore="ExtraText">
+
+
+    <!-- Tiêu đề "Bình Luận" -->
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text=" Chỉnh sửa trang cá nhân "
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_title">
+
+        <!-- User avatar -->
+        <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/avatar"
+            android:layout_marginTop="24dp" />
+
+        <!-- Edit avatar text -->
+        <Button
+            android:id="@+id/editAvatarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/avatarImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Chỉnh sửa avatar"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:onClick="onEditAvatarButtonClick" />
+
+
+        <!-- Name Label -->
+        <TextView
+            android:id="@+id/nameLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editAvatarButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="16dp"
+            android:text="Tên"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!-- Name EditText -->
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/nameLabelTextView"
+            android:hint="Nhập tên"
+            android:inputType="textPersonName" />
+
+        <!-- Username Label -->
+        <TextView
+            android:id="@+id/usernameLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameEditText"
+            android:layout_alignParentStart="true"
+            android:text="Tên người dùng"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!-- Username EditText -->
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/usernameLabelTextView"
+            android:hint="Nhập tên người dùng"
+            android:inputType="text" />
+
+        <!-- Gender Label -->
+        <TextView
+            android:id="@+id/genderLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usernameEditText"
+            android:layout_alignParentStart="true"
+            android:text="Danh xưng"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!-- Gender EditText -->
+        <EditText
+            android:id="@+id/genderEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/genderLabelTextView"
+            android:hint="Nhập danh xưng"
+            android:inputType="text" />
+
+        <!-- Biography Label -->
+        <TextView
+            android:id="@+id/biographyLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/genderEditText"
+            android:layout_alignParentStart="true"
+            android:text="Tiểu sử"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!-- Biography EditText -->
+        <EditText
+            android:id="@+id/biographyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/biographyLabelTextView"
+            android:hint="Nhập tiểu sử"
+            android:inputType="textMultiLine" />
+
+        <!-- Placeholder for "Liên kết", "Cài đặt thông tin cá nhân", etc. -->
+
+        <!-- Continue adding other sections as needed -->
+        <TextView
+            android:id="@+id/linksLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/biographyEditText"
+            android:layout_alignParentStart="true"
+            android:text="Liên kết"
+            android:layout_marginTop="16dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!-- Links EditText -->
+        <EditText
+            android:id="@+id/linksEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/linksLabelTextView"
+            android:hint="Nhập liên kết"
+            android:inputType="textUri" />
+    </RelativeLayout>
+
+</RelativeLayout>

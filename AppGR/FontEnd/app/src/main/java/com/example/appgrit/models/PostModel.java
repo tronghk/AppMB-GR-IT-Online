@@ -12,7 +12,6 @@ import java.util.Locale;
 public class PostModel {
     @SerializedName("postId")
     private String PostId;
-
     @SerializedName("userId")
     private String UserId;
 

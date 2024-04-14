@@ -135,7 +135,7 @@ public class CreatePostHome extends AppCompatActivity {
 
     private void uploadImagesAndCreatePost(String content, List<Uri> imageUris) {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        String token = prefs.getString("token", "");
+        String token = prefs.getString("accessToken", "");
 
         List<MultipartBody.Part> imageParts = new ArrayList<>();
         for (Uri imageUri : imageUris) {
