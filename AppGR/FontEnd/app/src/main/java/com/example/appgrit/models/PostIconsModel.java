@@ -1,9 +1,15 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PostIconsModel {
+    @SerializedName("userId")
     private String UserId;
+    @SerializedName("expression")
     private int Expression;
+    @SerializedName("userName")
     private String UserName;
+    @SerializedName("userImage")
     private String UserImage;
 
     // Constructors, getters, and setters
