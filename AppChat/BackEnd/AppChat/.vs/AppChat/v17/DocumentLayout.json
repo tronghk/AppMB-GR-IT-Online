@@ -1,0 +1,329 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\data\\messagedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\messagedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\data\\connectfirebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\connectfirebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\services\\imployment\\messageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:services\\imployment\\messageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\models\\chatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\chatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\services\\imessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:services\\imessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\helper\\synthesizeroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:helper\\synthesizeroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\entity\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:entity\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\entity\\groupchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:entity\\groupchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\entity\\detailschat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:entity\\detailschat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\entity\\chatsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:entity\\chatsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\models\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\models\\groupchatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\groupchatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\models\\detailschatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\detailschatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\models\\signinmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\signinmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|e:\\workspace\\android\\appmxhit\\appchat\\backend\\appchat\\appchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:appchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 219,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2146146375:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MessageDAO.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Data\\MessageDAO.cs",
+              "RelativeDocumentMoniker": "Data\\MessageDAO.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Data\\MessageDAO.cs",
+              "RelativeToolTip": "Data\\MessageDAO.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:57:16.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IMessages.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Services\\IMessages.cs",
+              "RelativeDocumentMoniker": "Services\\IMessages.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Services\\IMessages.cs",
+              "RelativeToolTip": "Services\\IMessages.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:56:45.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConnectFirebase.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Data\\ConnectFirebase.cs",
+              "RelativeDocumentMoniker": "Data\\ConnectFirebase.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Data\\ConnectFirebase.cs",
+              "RelativeToolTip": "Data\\ConnectFirebase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:54:48.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MessageController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Controllers\\MessageController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MessageController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Controllers\\MessageController.cs",
+              "RelativeToolTip": "Controllers\\MessageController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T04:24:16.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAowC4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T04:31:24.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChatModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\ChatModel.cs",
+              "RelativeDocumentMoniker": "Models\\ChatModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\ChatModel.cs",
+              "RelativeToolTip": "Models\\ChatModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:42:17.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-14T04:30:15.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MessageServices.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\MessageServices.cs",
+              "RelativeDocumentMoniker": "Services\\Imployment\\MessageServices.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\MessageServices.cs",
+              "RelativeToolTip": "Services\\Imployment\\MessageServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:56:57.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SynthesizeRoles.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Helper\\SynthesizeRoles.cs",
+              "RelativeDocumentMoniker": "Helper\\SynthesizeRoles.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Helper\\SynthesizeRoles.cs",
+              "RelativeToolTip": "Helper\\SynthesizeRoles.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:58:38.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:12:58.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GroupMember.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\GroupMember.cs",
+              "RelativeDocumentMoniker": "Entity\\GroupMember.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\GroupMember.cs",
+              "RelativeToolTip": "Entity\\GroupMember.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:51:20.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GroupChat.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\GroupChat.cs",
+              "RelativeDocumentMoniker": "Entity\\GroupChat.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\GroupChat.cs",
+              "RelativeToolTip": "Entity\\GroupChat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:50:00.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DetailsChat.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\DetailsChat.cs",
+              "RelativeDocumentMoniker": "Entity\\DetailsChat.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\DetailsChat.cs",
+              "RelativeToolTip": "Entity\\DetailsChat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:49:05.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ChatSegMent.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\ChatSegMent.cs",
+              "RelativeDocumentMoniker": "Entity\\ChatSegMent.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Entity\\ChatSegMent.cs",
+              "RelativeToolTip": "Entity\\ChatSegMent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:48:08.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GroupMember.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\GroupMember.cs",
+              "RelativeDocumentMoniker": "Models\\GroupMember.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\GroupMember.cs",
+              "RelativeToolTip": "Models\\GroupMember.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:46:44.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GroupChatModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\GroupChatModel.cs",
+              "RelativeDocumentMoniker": "Models\\GroupChatModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\GroupChatModel.cs",
+              "RelativeToolTip": "Models\\GroupChatModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:45:04.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DetailsChatModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\DetailsChatModel.cs",
+              "RelativeDocumentMoniker": "Models\\DetailsChatModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\DetailsChatModel.cs",
+              "RelativeToolTip": "Models\\DetailsChatModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:43:33.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SignInModel.cs",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\SignInModel.cs",
+              "RelativeDocumentMoniker": "Models\\SignInModel.cs",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\Models\\SignInModel.cs",
+              "RelativeToolTip": "Models\\SignInModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:40:11.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AppChat.csproj",
+              "DocumentMoniker": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\AppChat.csproj",
+              "RelativeDocumentMoniker": "AppChat.csproj",
+              "ToolTip": "E:\\Workspace\\Android\\AppMxhIT\\AppChat\\BackEnd\\AppChat\\AppChat.csproj",
+              "RelativeToolTip": "AppChat.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-14T04:27:40.317Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

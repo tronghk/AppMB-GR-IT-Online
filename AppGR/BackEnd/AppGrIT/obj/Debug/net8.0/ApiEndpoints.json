@@ -310,6 +310,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UserFollowsController",
+    "Method": "CountUserFollowers",
+    "RelativePath": "count-user-followers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UserFriendsController",
     "Method": "CountFriends",
     "RelativePath": "count-userFriend",
