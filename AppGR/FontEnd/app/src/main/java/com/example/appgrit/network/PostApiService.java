@@ -51,9 +51,14 @@ public interface PostApiService {
     );
 
     @GET("get-post-expression")
-    Call<List<PostIconsModel>> getPostExpressions(
-            @Header("Authorization") String token,
-            @Query("postId") String postId
+            Call<List<PostIconsModel>> getPostExpressions(
+                    @Header("Authorization") String token,
+                    @Query("postId") String postId
     );
+
+    @GET("get-post-self")
+    Call<List<PostModel>> getPostSelfUser(@Query("userId") String userId);
+
+
 
 }
