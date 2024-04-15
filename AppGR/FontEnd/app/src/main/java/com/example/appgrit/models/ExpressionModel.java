@@ -1,10 +1,21 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ExpressionModel {
+    @SerializedName("postId")
     private String PostId;
+
+    @SerializedName("commentId")
     private String CommentId;
+
+    @SerializedName("userId")
     private String UserId;
+
+    @SerializedName("expression")
     private int Expression;
+
+    @SerializedName("type")
     private String Type;
 
     public ExpressionModel() {
@@ -17,6 +28,8 @@ public class ExpressionModel {
         Expression = expression;
         Type = type;
     }
+
+
 
     public String getPostId() {
         return PostId;

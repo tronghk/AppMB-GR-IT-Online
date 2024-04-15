@@ -15,12 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
+import com.example.appgrit.models.ExpressionModel;
 import com.example.appgrit.models.PostCommentModel;
+import com.example.appgrit.models.ResponseModel;
 import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
+import com.example.appgrit.network.ExpressionApiService;
 import com.example.appgrit.network.UserApiService;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,10 +35,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     private List<PostCommentModel> commentList;
     private Context context;
+    private SharedPreferences sharedPreferences;
 
     public CommentAdapter(Context context, List<PostCommentModel> commentList) {
         this.context = context;
         this.commentList = commentList;
+        this.sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -57,10 +64,59 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         } else {
             loadUserData(comment.getUserId(), holder);
         }
+
+        String currentUserId = getUserIdFromSharedPreferences();
+        boolean isLiked = isCommentLiked(comment.getCommentId(), currentUserId);
+        updateLikeButton(holder.imageHeart, isLiked);
+
+        holder.imageHeart.setOnClickListener(v -> {
+            if (isLiked) {
+                // Unlike the comment and update SharedPreferences
+                unlikeComment(comment.getCommentId(), currentUserId, holder.textLikes, holder);
+            } else {
+                // Like the comment and update SharedPreferences
+                likeComment(comment.getCommentId(), currentUserId, holder.textLikes, holder);
+            }
+        });
     }
-    private String getAccessTokenFromSharedPreferences() {
-        SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        return "Bearer " + prefs.getString("accessToken", "");
+
+    private String getUserIdFromSharedPreferences() {
+        return sharedPreferences.getString("userId", "");
+    }
+
+    private boolean isCommentLiked(String commentId, String userId) {
+        Set<String> likedComments = sharedPreferences.getStringSet(commentId, new HashSet<>());
+        return likedComments.contains(userId);
+    }
+
+    private void likeComment(String commentId, String userId, TextView likesTextView, CommentViewHolder holder) {
+        Set<String> likedComments = sharedPreferences.getStringSet(commentId, new HashSet<>());
+        likedComments.add(userId);
+
+        // Save the updated set back to SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet(commentId, likedComments);
+        editor.apply();
+
+        // Update the UI to reflect the new like count
+        holder.likeCount = likedComments.size();
+        likesTextView.setText(String.valueOf(holder.likeCount));
+        updateLikeButton(holder.imageHeart, true);
+    }
+
+    private void unlikeComment(String commentId, String userId, TextView likesTextView, CommentViewHolder holder) {
+        Set<String> likedComments = sharedPreferences.getStringSet(commentId, new HashSet<>());
+        likedComments.remove(userId);
+
+        // Save the updated set back to SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet(commentId, likedComments);
+        editor.apply();
+
+        // Update the UI to reflect the new like count
+        holder.likeCount = likedComments.size();
+        likesTextView.setText(String.valueOf(holder.likeCount));
+        updateLikeButton(holder.imageHeart, false);
     }
 
     private void loadUserData(String userId, CommentViewHolder holder) {
@@ -86,6 +142,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             }
         });
     }
+
+    private String getAccessTokenFromSharedPreferences() {
+        SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return "Bearer " + prefs.getString("accessToken", "");
+    }
+
+    private void updateLikeButton(ImageView likeImageView, boolean isLiked) {
+        if (isLiked) {
+            likeImageView.setImageResource(R.drawable.love);
+        } else {
+            likeImageView.setImageResource(R.drawable.heart);
+        }
+    }
+
     @Override
     public int getItemCount() {
         return commentList.size();
@@ -95,6 +165,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         ImageView imageAvatar, imageHeart;
         TextView textName, textComment, textLikes;
         Button buttonReply;
+        int likeCount = 0;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -103,8 +174,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             textName = itemView.findViewById(R.id.textName);
             textComment = itemView.findViewById(R.id.textComment);
             textLikes = itemView.findViewById(R.id.textLikes);
-            buttonReply = itemView.findViewById(R.id.buttonReply);
+//            buttonReply = itemView.findViewById(R.id.buttonReply);
         }
     }
 }
-
