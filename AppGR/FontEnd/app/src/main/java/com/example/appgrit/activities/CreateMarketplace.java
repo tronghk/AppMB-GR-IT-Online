@@ -38,7 +38,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CreateMarketplace extends AppCompatActivity {
-    private static final int PICK_IMAGE_REQUEST = 101;
+    static final int PICK_IMAGE_REQUEST = 101;
     private static final int STORAGE_PERMISSION_CODE = 102;
 
     EditText editTextTitle, editTextPrice, editTextDescription;

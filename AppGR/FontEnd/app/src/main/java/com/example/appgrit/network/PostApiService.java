@@ -4,6 +4,7 @@ package com.example.appgrit.network;
 import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.PostSellProductModel;
 import com.example.appgrit.models.ResponseModel;
+import com.example.appgrit.models.SharePostModel;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.DELETE;
+
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
@@ -52,4 +56,26 @@ public interface PostApiService {
     Call<List<PostModel>> getPostSelfUser(@Query("userId") String userId);
 
 
+    @POST("/share-post")
+    Call<ResponseModel> sharePost(@Header("Authorization") String token, @Body SharePostModel sharePostModel);
+
+    @DELETE("/delete-share-post")
+    Call<ResponseModel> deleteSharePost(@Query("postId") String postId, @Query("userId") String userId);
+
+    @GET("/get-share-post")
+    Call<List<PostModel>> getSharedPosts(@Query("userId") String userId);
+
+
+    @PUT("edit-post")
+    Call<PostModel> editPost(
+            @Header("Authorization") String token,
+            @Body PostModel postModel
+    );
+
+    @DELETE("delete-post")
+    Call<ResponseModel> deletePost(
+            @Header("Authorization") String token,
+            @Query("postId") String postId,
+            @Query("userId") String userId
+    );
 }
