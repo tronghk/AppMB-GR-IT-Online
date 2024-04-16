@@ -1,6 +1,7 @@
 
 package com.example.appgrit.network;
 
+import com.example.appgrit.models.PostIconsModel;
 import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.PostSellProductModel;
 import com.example.appgrit.models.ResponseModel;
@@ -78,4 +79,10 @@ public interface PostApiService {
             @Query("postId") String postId,
             @Query("userId") String userId
     );
+    @GET("get-post-expression")
+    Call<List<PostIconsModel>> getPostExpressions(
+            @Header("Authorization") String token,
+            @Query("postId") String postId
+    );
+
 }
