@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp"
+    android:theme="@style/Theme.MaterialComponents.Light">
+
+    <!-- Each item in the list of likes -->
+    <RelativeLayout
+        android:id="@+id/item_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/avartar_user"
+            android:scaleType="centerCrop"
+            android:padding="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+
+        <!-- User Name -->
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/profile_image"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:text="Dianela Hidalgo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_alignTop="@id/profile_image"
+            android:layout_centerVertical="true" />
+
+
+        <!-- Follow Button -->
+        <Button
+            android:id="@+id/button_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Theo dõi"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
