@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppChat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb867c3bdfe13a54779ef506ac18ba2f39fd246d")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ac26fc5b056178f0f9960ce0f47870af6304499")]
+>>>>>>> a1bbf329a0dc73c8ee82bdcc36ea23a0cdf73c54
 [assembly: System.Reflection.AssemblyProductAttribute("AppChat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppChat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

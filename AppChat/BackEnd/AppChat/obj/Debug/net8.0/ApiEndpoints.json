@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "AddMemberGroupChat",
+    "RelativePath": "add-member-group-chat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.GroupMemberModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
     "Method": "CreateChat",
     "RelativePath": "create-chat-message",
     "HttpMethod": "POST",
@@ -10,6 +26,118 @@
       {
         "Name": "model",
         "Type": "AppChat.Models.ChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "CreateGrChat",
+    "RelativePath": "create-group-chat-message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.GroupChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "CreateMessage",
+    "RelativePath": "create-message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.DetailsChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "DeleteChat",
+    "RelativePath": "delete-chat-message",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.ChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "DeleteGroupChat",
+    "RelativePath": "delete-group-chat-message",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.GroupChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "DeleteMemberGroupChat",
+    "RelativePath": "delete-member-group-chat",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.GroupMemberModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "DeleteMessageChat",
+    "RelativePath": "delete-message",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.DetailsChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "UpdateInforGroupChat",
+    "RelativePath": "update-group-chat-message",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppChat.Models.GroupChatModel",
         "IsRequired": true
       }
     ],

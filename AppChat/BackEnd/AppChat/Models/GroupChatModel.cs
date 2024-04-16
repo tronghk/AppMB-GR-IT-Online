@@ -12,8 +12,8 @@ namespace AppChat.Models
         [Required]
         public string GroupName
         { get; set; }
-        [Required]
-        public int QuantityMember
+        public string ImagePath
         { get; set; }
+        public  List<GroupMemberModel>? groupMembers  { get; set; }
     }
 }

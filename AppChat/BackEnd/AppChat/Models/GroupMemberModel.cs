@@ -2,7 +2,7 @@
 
 namespace AppChat.Models
 {
-    public class GroupMember
+    public class GroupMemberModel
     {
         [Required]
         public string GroupId { get; set; }
