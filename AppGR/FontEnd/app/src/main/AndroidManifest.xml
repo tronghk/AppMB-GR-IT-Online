@@ -39,6 +39,9 @@
             android:name=".activities.EditPostActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.ImageDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.activity_signin"
             android:exported="false" />
         <activity android:name=".activities.activity_signup" />

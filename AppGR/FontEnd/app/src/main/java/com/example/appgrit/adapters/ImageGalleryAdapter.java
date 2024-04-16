@@ -1,6 +1,7 @@
 package com.example.appgrit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
+import com.example.appgrit.activities.ImageDetailActivity;
 
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
         this.inflater = LayoutInflater.from(context);
         this.imageUrls = imageUrls;
     }
+
     public void setOnImageClickListener(OnImageClickListener listener) {
         this.onImageClickListener = listener;
     }
@@ -30,9 +33,10 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.gallery_item, parent, false); // Tạo layout cho mục gallery của bạn
+        View view = inflater.inflate(R.layout.gallery_item, parent, false);
         return new ImageViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
@@ -40,16 +44,16 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
         Glide.with(holder.imageView.getContext())
                 .load(imageUrl)
                 .placeholder(R.drawable.add)
+                .centerCrop() // Hiển thị hình ảnh đúng kích thước của ảnh gốc
+
                 .into(holder.imageView);
 
-        // Gọi sự kiện khi người dùng bấm vào ảnh
         holder.imageView.setOnClickListener(v -> {
             if (onImageClickListener != null) {
                 onImageClickListener.onImageClick(position);
             }
         });
     }
-
 
     @Override
     public int getItemCount() {
@@ -61,7 +65,12 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.image_gallery_item); // ID này nên khớp với ID ImageView trong layout mục gallery của bạn
+            imageView = itemView.findViewById(R.id.image_gallery_item);
         }
+    }
+
+    // Interface để bắt sự kiện khi người dùng bấm vào hình ảnh
+    public interface OnImageClickListener {
+        void onImageClick(int position);
     }
 }
