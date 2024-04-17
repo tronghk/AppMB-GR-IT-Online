@@ -23,6 +23,8 @@ import com.example.appgrit.ProfileOther;
 import com.example.appgrit.R;
 import com.example.appgrit.UserActivity;
 import com.example.appgrit.adapters.PostAdapter;
+import com.example.appgrit.changepassword;
+import com.example.appgrit.edit_profile;
 import com.example.appgrit.models.PostModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostApiService;
@@ -130,9 +132,6 @@ public class activity_home extends AppCompatActivity {
 
 
 
-
-
-
     private void showMoreMenu(View anchor) {
         PopupMenu popup = new PopupMenu(this, anchor);
         popup.getMenuInflater().inflate(R.menu.more_menu, popup.getMenu());
@@ -143,6 +142,9 @@ public class activity_home extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_change_password) {
                 startActivity(new Intent(activity_home.this, ForgotPasswordActivity.class));
+                return true;
+            } else if (itemId == R.id.nav_edit_info) {
+                startActivity(new Intent(activity_home.this, edit_profile.class));
                 return true;
             } else {
                 return false;

@@ -52,5 +52,9 @@ public class    ApiServiceProvider {
         return getRetrofitInstance().create(PostCommentApiService.class);
     }
 
+    public static ChangePassWordApiService getChangePasswordApiService() {
+        return getRetrofitInstance().create(ChangePassWordApiService.class);
+    }
+
 
 }
