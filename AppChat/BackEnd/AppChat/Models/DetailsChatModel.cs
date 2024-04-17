@@ -9,16 +9,16 @@ namespace AppChat.Models
         [Required]
         public string UserId
         { get; set; }
-        public string DetailId
+        public string? DetailId
         { get; set; }
         [Required]
         public DateTime Time
         { get; set; }
-        public string Content
+        public string? Content
         { get; set; }
-        public string Status
+        public string? Status
         { get; set; }
-        public string ImagePath
+        public string? ImagePath
         { get; set; }
     }
 }

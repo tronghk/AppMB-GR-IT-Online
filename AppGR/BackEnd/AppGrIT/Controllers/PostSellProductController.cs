@@ -1,4 +1,6 @@
-﻿using AppGrIT.Services;
+﻿using AppGrIT.Helper;
+using AppGrIT.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +22,7 @@ namespace AppGrIT.Controllers
         {
             var result = await _postsellManager.FindProductByNameProduct(NameProduct);
 
-            if (result != null)
+            if (result.Count > 0)
             {
                 
                 return Ok(result);
@@ -32,9 +34,22 @@ namespace AppGrIT.Controllers
         {
             var result = await _postsellManager.FindProductByPriceProduct(price);
 
-            if (result != null)
+            if (result.Count > 0)
             {
                
+                return Ok(result);
+            }
+            return NotFound();
+        }
+   
+        [HttpGet("/post-sell-product")]
+        public async Task<IActionResult> GetPostSellProduct()
+        {
+            var result = await _postsellManager.GetPostSellProductModel();
+
+            if (result.Count > 0)
+            {
+
                 return Ok(result);
             }
             return NotFound();

@@ -78,7 +78,7 @@ namespace AppGrIT.Controllers
                     role.Status == StatusResponse.STATUS_SUCCESS &&
                     time.Status == StatusResponse.STATUS_SUCCESS 
                     )   
-                        return Ok("Đã đăng ký thành viên bán hàng thành công");
+                        return Ok("Đã đăng ký thành viên bán hàng thành công vui lòng đăng nhập lại");
             }
            
             
