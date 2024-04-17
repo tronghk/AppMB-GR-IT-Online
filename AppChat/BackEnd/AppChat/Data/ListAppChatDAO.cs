@@ -100,7 +100,28 @@ namespace AppChat.Data
             return result;
         }
 
+        public async Task<List<DetailsChat>> GetListDetailschat(string chatId)
+        {
 
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("DetailsChat");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            List<DetailsChat> list = new List<DetailsChat>();
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+
+                    var userc = JsonConvert.DeserializeObject<DetailsChat>(value);
+                    if (userc.ChatId.Equals(chatId))
+                    {
+                        list.Add(userc);
+                    }
+                }
+            }
+            return list;
+
+        }
 
     }
 }

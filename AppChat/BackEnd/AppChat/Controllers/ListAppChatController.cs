@@ -27,5 +27,16 @@ namespace AppChat.Controllers
             }
             return NotFound();
         }
+        [HttpGet("/get-listDetailsChat")]
+        public async Task<IActionResult> GetListDetailsChat(string chatId)
+        {
+            var result = await _ListManager.GetListDetailsChat(chatId);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
     }
 }

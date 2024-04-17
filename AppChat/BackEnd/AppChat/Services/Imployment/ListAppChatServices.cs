@@ -78,7 +78,28 @@ namespace AppChat.Services.Imployment
             return result;
         }
 
-
-
+        public async Task<List<DetailsChatModel>> GetListDetailsChat(string chatId)
+        {
+           
+                List<DetailsChatModel> result = new List<DetailsChatModel>();
+                var list = await _ListAppChatDao.GetListDetailschat(chatId);
+                foreach (var userFriends in list)
+                {
+                var us = new DetailsChatModel
+                {
+                    ChatId = userFriends.ChatId,
+                    Content = userFriends.Content,
+                    DetailId = userFriends.DetailId,
+                    ImagePath = userFriends.ImagePath,
+                    Status = userFriends.Status,    
+                    Time = userFriends.Time,
+                    UserId = userFriends.UserId,
+                
+                    };
+                    result.Add(us);
+                }
+                return result;
+            }
+        
     }
 }

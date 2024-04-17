@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\data\\listappchatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\listappchatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\controllers\\listappchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:controllers\\listappchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\data\\listappchatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\listappchatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\services\\imployment\\listappchatservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:services\\imployment\\listappchatservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\services\\ilistappchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:services\\ilistappchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\services\\imployment\\listappchatservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:services\\imployment\\listappchatservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\models\\detailschatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\detailschatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\entity\\detailschat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:entity\\detailschat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\data\\messagedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\messagedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\models\\imagepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,24 +59,12 @@
       "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\connectfirebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\models\\detailschatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:models\\detailschatmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\services\\imployment\\messageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:services\\imployment\\messageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\entity\\detailschat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:entity\\detailschat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\data\\messagedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|solutionrelative:data\\messagedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1001275F-10E8-4A9F-B851-032315D58EFA}|AppChat.csproj|c:\\users\\hoang\\onedrive\\desktop\\android n\u00E2ng cao\\appmb-gr-it-online\\appchat\\backend\\appchat\\entity\\chatsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -121,7 +121,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 219,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -129,171 +129,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ImagePostModel.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\ImagePostModel.cs",
-              "RelativeDocumentMoniker": "Models\\ImagePostModel.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\ImagePostModel.cs",
-              "RelativeToolTip": "Models\\ImagePostModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:18:13.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PostModel.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\PostModel.cs",
-              "RelativeDocumentMoniker": "Models\\PostModel.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\PostModel.cs",
-              "RelativeToolTip": "Models\\PostModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:17:11.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PostImage.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\PostImage.cs",
-              "RelativeDocumentMoniker": "Entity\\PostImage.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\PostImage.cs",
-              "RelativeToolTip": "Entity\\PostImage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:07:54.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ListAppChatDAO.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\ListAppChatDAO.cs",
               "RelativeDocumentMoniker": "Data\\ListAppChatDAO.cs",
               "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\ListAppChatDAO.cs",
               "RelativeToolTip": "Data\\ListAppChatDAO.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAiwFwAAABEAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAkwHMAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T10:50:30.901Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ListAppChatServices.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\ListAppChatServices.cs",
               "RelativeDocumentMoniker": "Services\\Imployment\\ListAppChatServices.cs",
               "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\ListAppChatServices.cs",
               "RelativeToolTip": "Services\\Imployment\\ListAppChatServices.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwCAAAAASAAAA",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAgwF4AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T11:02:24.401Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IListAppChat.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\IListAppChat.cs",
               "RelativeDocumentMoniker": "Services\\IListAppChat.cs",
               "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\IListAppChat.cs",
               "RelativeToolTip": "Services\\IListAppChat.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T10:58:41.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T10:58:41.428Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ListAppChatController.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Controllers\\ListAppChatController.cs",
               "RelativeDocumentMoniker": "Controllers\\ListAppChatController.cs",
               "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Controllers\\ListAppChatController.cs",
               "RelativeToolTip": "Controllers\\ListAppChatController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAA+AAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCYAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T11:10:11.156Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GroupMember.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\GroupMember.cs",
-              "RelativeDocumentMoniker": "Entity\\GroupMember.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\GroupMember.cs",
-              "RelativeToolTip": "Entity\\GroupMember.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
+              "DocumentIndex": 6,
+              "Title": "MessageDAO.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\MessageDAO.cs",
+              "RelativeDocumentMoniker": "Data\\MessageDAO.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\MessageDAO.cs",
+              "RelativeToolTip": "Data\\MessageDAO.cs",
+              "ViewState": "AQIAALgAAAAAAAAAAADwv3YAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T10:28:39.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T10:28:39.473Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Posts.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\Posts.cs",
-              "RelativeDocumentMoniker": "Entity\\Posts.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\Posts.cs",
-              "RelativeToolTip": "Entity\\Posts.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:07:23.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DetailsChatModel.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\DetailsChatModel.cs",
-              "RelativeDocumentMoniker": "Models\\DetailsChatModel.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\DetailsChatModel.cs",
-              "RelativeToolTip": "Models\\DetailsChatModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T10:28:39.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ConnectFirebase.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\ConnectFirebase.cs",
-              "RelativeDocumentMoniker": "Data\\ConnectFirebase.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\ConnectFirebase.cs",
-              "RelativeToolTip": "Data\\ConnectFirebase.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBEAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T10:28:39.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserInfos.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\UserInfos.cs",
-              "RelativeDocumentMoniker": "Entity\\UserInfos.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\UserInfos.cs",
-              "RelativeToolTip": "Entity\\UserInfos.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T12:12:44.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MessageServices.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\MessageServices.cs",
-              "RelativeDocumentMoniker": "Services\\Imployment\\MessageServices.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\MessageServices.cs",
-              "RelativeToolTip": "Services\\Imployment\\MessageServices.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACgAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T10:28:39.506Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 5,
               "Title": "DetailsChat.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\DetailsChat.cs",
               "RelativeDocumentMoniker": "Entity\\DetailsChat.cs",
@@ -305,7 +204,115 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DetailsChatModel.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\DetailsChatModel.cs",
+              "RelativeDocumentMoniker": "Models\\DetailsChatModel.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\DetailsChatModel.cs",
+              "RelativeToolTip": "Models\\DetailsChatModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T10:28:39.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PostImage.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\PostImage.cs",
+              "RelativeDocumentMoniker": "Entity\\PostImage.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\PostImage.cs",
+              "RelativeToolTip": "Entity\\PostImage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T13:07:54.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PostModel.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\PostModel.cs",
+              "RelativeDocumentMoniker": "Models\\PostModel.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\PostModel.cs",
+              "RelativeToolTip": "Models\\PostModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T13:17:11.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ImagePostModel.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\ImagePostModel.cs",
+              "RelativeDocumentMoniker": "Models\\ImagePostModel.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Models\\ImagePostModel.cs",
+              "RelativeToolTip": "Models\\ImagePostModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T13:18:13.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GroupMember.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\GroupMember.cs",
+              "RelativeDocumentMoniker": "Entity\\GroupMember.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\GroupMember.cs",
+              "RelativeToolTip": "Entity\\GroupMember.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T10:28:39.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Posts.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\Posts.cs",
+              "RelativeDocumentMoniker": "Entity\\Posts.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\Posts.cs",
+              "RelativeToolTip": "Entity\\Posts.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T13:07:23.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ConnectFirebase.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\ConnectFirebase.cs",
+              "RelativeDocumentMoniker": "Data\\ConnectFirebase.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\ConnectFirebase.cs",
+              "RelativeToolTip": "Data\\ConnectFirebase.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBEAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T10:28:39.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserInfos.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\UserInfos.cs",
+              "RelativeDocumentMoniker": "Entity\\UserInfos.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Entity\\UserInfos.cs",
+              "RelativeToolTip": "Entity\\UserInfos.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T12:12:44.509Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "MessageServices.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\MessageServices.cs",
+              "RelativeDocumentMoniker": "Services\\Imployment\\MessageServices.cs",
+              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Services\\Imployment\\MessageServices.cs",
+              "RelativeToolTip": "Services\\Imployment\\MessageServices.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACgAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T10:28:39.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "MessageController.cs",
               "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Controllers\\MessageController.cs",
               "RelativeDocumentMoniker": "Controllers\\MessageController.cs",
@@ -314,18 +321,6 @@
               "ViewState": "AQIAAJAAAAAAAAAAAAAowBQAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T10:28:39.488Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MessageDAO.cs",
-              "DocumentMoniker": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\MessageDAO.cs",
-              "RelativeDocumentMoniker": "Data\\MessageDAO.cs",
-              "ToolTip": "C:\\Users\\hoang\\OneDrive\\Desktop\\Android n\u00E2ng cao\\AppMB-GR-IT-Online\\AppChat\\BackEnd\\AppChat\\Data\\MessageDAO.cs",
-              "RelativeToolTip": "Data\\MessageDAO.cs",
-              "ViewState": "AQIAALgAAAAAAAAAAADwv3YAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T10:28:39.473Z"
             },
             {
               "$type": "Document",
