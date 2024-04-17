@@ -18,15 +18,18 @@ namespace AppGrIT.Data
             List<PostSellProduct> matchingUsers = new List<PostSellProduct>();
             FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostSellProduct");
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
-            foreach (var item in jsonResponse)
+           if(jsonResponse != null )
             {
-                var value = item.Value!.ToString();
-
-                var user = JsonConvert.DeserializeObject<PostSellProduct>(value);
-
-                if (user.ProductName != null && user.ProductName.ToLower().Contains(nameProduct.ToLower()))
+                foreach (var item in jsonResponse)
                 {
-                    matchingUsers.Add(user);
+                    var value = item.Value!.ToString();
+
+                    var user = JsonConvert.DeserializeObject<PostSellProduct>(value);
+
+                    if (user.ProductName != null && user.ProductName.ToLower().Contains(nameProduct.ToLower()))
+                    {
+                        matchingUsers.Add(user);
+                    }
                 }
             }
             return matchingUsers;
@@ -36,17 +39,37 @@ namespace AppGrIT.Data
             List<PostSellProduct> matchingProducts = new List<PostSellProduct>();
             FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostSellProduct");
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
-            foreach (var item in jsonResponse)
+           if(jsonResponse != null)
             {
-                var value = item.Value!.ToString();
-                var product = JsonConvert.DeserializeObject<PostSellProduct>(value);               
-                if (product.Price != null && product.Price.Equals(price))
+                foreach (var item in jsonResponse)
                 {
-                    
-                   
+                    var value = item.Value!.ToString();
+                    var product = JsonConvert.DeserializeObject<PostSellProduct>(value);
+                    if (product.Price != null && product.Price.Equals(price))
+                    {
+
+
                         matchingProducts.Add(product);
-                    
+
+                    }
                 }
+            }
+            return matchingProducts;
+        }
+        public async Task<List<PostSellProduct>> GetPostSellProduct()
+        {
+            List<PostSellProduct> matchingProducts = new List<PostSellProduct>();
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostSellProduct");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+           if(jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    var product = JsonConvert.DeserializeObject<PostSellProduct>(value);
+                    matchingProducts.Add(product);
+                }
+               
             }
             return matchingProducts;
         }

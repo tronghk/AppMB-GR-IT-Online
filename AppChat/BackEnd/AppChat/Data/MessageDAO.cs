@@ -191,6 +191,28 @@ namespace AppChat.Data
             return false;
 
         }
+        public async Task<bool> CheckChatExist(string userId, string userIdOrther)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("ChatSegMent");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var mess = JsonConvert.DeserializeObject<ChatSegMent>(value);
+                    if (mess.UserId == userId && mess.UserOrtherId == userIdOrther)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+
+        }
         public async Task<bool> CheckChatGrExist(string chatId)
         {
 
@@ -295,9 +317,9 @@ namespace AppChat.Data
                         }
 
                     }
-                    return true;
+                  
                 }
-                return false;
+                return true;
             }
             catch (Exception ex)
             {
@@ -305,6 +327,174 @@ namespace AppChat.Data
             }
 
 
+        }
+
+        public async Task<GroupMember> GetUserMemberToId(string groupId, string userId)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("GroupMember");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+
+                if (jsonResponse != null)
+                {
+                    // lọc bài viết mới
+                    foreach (var item in jsonResponse)
+                    {
+                        var value = item.Value!.ToString();
+                        //path Object
+                        var mess = JsonConvert.DeserializeObject<GroupMember>(value);
+                        if (mess.GroupId == groupId && mess.UserId == userId)
+                        {
+                            return mess;
+                        }
+
+                    }
+                   
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
+        }
+        public async Task<DetailsChat> GetDetailsMessageToId(string details)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("DetailsChat");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+
+                if (jsonResponse != null)
+                {
+                    // lọc bài viết mới
+                    foreach (var item in jsonResponse)
+                    {
+                        var value = item.Value!.ToString();
+                        //path Object
+                        var mess = JsonConvert.DeserializeObject<DetailsChat>(value);
+                        if (mess.DetailId == details)
+                        {
+                            return mess;
+                        }
+
+                    }
+
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
+        }
+        public async Task<ChatSegMent> GetChatToId(string chatId)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("ChatSegMent");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+
+                if (jsonResponse != null)
+                {
+                    // lọc bài viết mới
+                    foreach (var item in jsonResponse)
+                    {
+                        var value = item.Value!.ToString();
+                        //path Object
+                        var mess = JsonConvert.DeserializeObject<ChatSegMent>(value);
+                        if (mess.MessId == chatId)
+                        {
+                            return mess;
+                        }
+
+                    }
+
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
+        }
+        public async Task<GroupChat> GetChatGrToId(string chatId)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("GroupChat");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+
+                if (jsonResponse != null)
+                {
+                    // lọc bài viết mới
+                    foreach (var item in jsonResponse)
+                    {
+                        var value = item.Value!.ToString();
+                        //path Object
+                        var mess = JsonConvert.DeserializeObject<GroupChat>(value);
+                        if (mess.GroupId == chatId)
+                        {
+                            return mess;
+                        }
+
+                    }
+
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
+        }
+
+
+        public async Task<GroupMember> UpdateGroupMemberRole(GroupMember member)
+        {
+            try
+            {
+                FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("GroupMember");
+                JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+
+
+                if (jsonResponse != null)
+                {
+                    // lọc bài viết mới
+                    foreach (var item in jsonResponse)
+                    {
+                        var value = item.Value!.ToString();
+                        //path Object
+                        var mess = JsonConvert.DeserializeObject<GroupMember>(value);
+                        if (mess.GroupId == member.GroupId && mess.UserId == member.UserId)
+                        {
+                            string key = item.Key.ToString();
+                            SetResponse setResponse = await _firebase._client.SetAsync("GroupMember/" + key, member);
+                            return member;
+                        }
+
+                    }
+                    
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         public async Task<bool> DeleteOneMemberGroupAsync(GroupMember member)
         {

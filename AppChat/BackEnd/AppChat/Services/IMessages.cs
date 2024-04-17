@@ -7,6 +7,9 @@ namespace AppChat.Services
     public interface IMessages
     {
         public Task<ChatModel>  CreateChatModelAsync(ChatModel model);
+        public Task<GroupMemberModel> GetUserMemberToId(string groupId, string userId);
+        public Task<GroupMemberModel> UpdateGroupMember(GroupMemberModel model, string roleName);
+        public Task<ResponseModel> UpdateAdminGroupMember(GroupMemberModel admin, GroupMemberModel member);
         public Task<ResponseModel> DeleteChatModelAsync(ChatModel model);
 
         public Task<ResponseModel> DeleteMessageModelAsync(DetailsChatModel model);
@@ -24,6 +27,11 @@ namespace AppChat.Services
 
         public Task<bool> CheckUserEx(string userId);
         public Task<bool> CheckChatEx(string chatId);
+        public Task<bool> CheckChatEx(string userId,string userIdOrther);
         public bool CheckRoleMember(string memberId, List<GroupMemberModel> list, string role);
+        public Task<GroupChatModel> GetGroupChatModel(string chatId);
+        public Task<ChatModel> GetChatModel(string chatId);
+        public Task<DetailsChatModel> GetDetailsMessageToId(string details);
+        public Task<bool> CheckRoleUser(string userId, List<GroupMemberModel> list);
     }
 }

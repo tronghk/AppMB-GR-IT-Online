@@ -941,6 +941,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.PostSellProductController",
+    "Method": "GetPostSellProduct",
+    "RelativePath": "post-sell-product",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "RefreshToken",
     "RelativePath": "refresh-token",

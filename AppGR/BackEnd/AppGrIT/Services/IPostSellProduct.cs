@@ -6,5 +6,9 @@ namespace AppGrIT.Services
     {
         public Task<List<PostSellProductModel>> FindProductByNameProduct(string nameProduct);
         public Task<List<PostSellProductModel>> FindProductByPriceProduct(float price);
+
+        public Task<List<PostSellProductModel>> GetPostSellProductModel();
+
+
     }
 }
