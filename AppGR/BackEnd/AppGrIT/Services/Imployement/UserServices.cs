@@ -481,89 +481,85 @@ namespace AppGrIT.Services.Imployement
             }
             return null;
         }
-        public async Task<List<UserInforModel>> FindUserByLastName(string LastName)
+        public async Task<List<UserModel>> FindUserByLastName(string LastName)
         {
-            List<UserInforModel> result = new List<UserInforModel>();
+            List<UserModel> result = new List<UserModel>();
             var list = await _userDao.FindUserBySubstringLastNameAsync(LastName);
             foreach (var userinfo in list)
             {
-                var us = new UserInforModel
+                var info = await _userDao.GetUserInforAsync(userinfo.UserId);
+                var post = await GetPostNewInfoUser(userinfo.UserId);
+                var image = post.imagePost;
+                var pathImage = image[0].ImagePath;             
+                var us = new UserModel
                 {
-                    UserId = userinfo.UserId,
-                    LastName = userinfo.LastName,
-                    Firstname = userinfo.Firstname,
-                    Gender = userinfo.Gender,
-                    Address = userinfo.Address,
-                    Phone = userinfo.Phone,
-                    Birthday = userinfo.Birthday,
+                    UserId = userinfo.UserId,                    
+                    UserName = userinfo.LastName + " " + userinfo.Firstname,
+                    ImagePath = pathImage,
                 };
                 result.Add(us);
             }
             return result;
         }
 
-        public async Task<List<UserInforModel>> FindUserByAddress(string Address)
+        public async Task<List<UserModel>> FindUserByAddress(string Address)
         {
-            List<UserInforModel> result = new List<UserInforModel>();
+            List<UserModel> result = new List<UserModel>();
             var list = await _userDao.FindUserBySubstringAddressAsync(Address);
             foreach (var userinfo in list)
             {
-                var us = new UserInforModel
+                var info = await _userDao.GetUserInforAsync(userinfo.UserId);
+                var post = await GetPostNewInfoUser(userinfo.UserId);
+                var image = post.imagePost;
+                var pathImage = image[0].ImagePath;
+                var us = new UserModel
                 {
                     UserId = userinfo.UserId,
-                    LastName = userinfo.LastName,
-                    Firstname = userinfo.Firstname,
-                    Gender = userinfo.Gender,
-                    Address = userinfo.Address,
-                    Phone = userinfo.Phone,
-                    Birthday = userinfo.Birthday,
-
+                    UserName = userinfo.LastName + " " + userinfo.Firstname,
+                    ImagePath = pathImage,
                 };
                 result.Add(us);
             }
             return result;
         }
-        public async Task<List<UserInforModel>> FindUserByAge(int age)
+        public async Task<List<UserModel>> FindUserByAge(int age)
         {
-            List<UserInforModel> result = new List<UserInforModel>();
+            List<UserModel> result = new List<UserModel>();
             var list = await _userDao.FindUserByAgeAsync(age);
             foreach (var userinfo in list)
             {
-                var us = new UserInforModel
+                var info = await _userDao.GetUserInforAsync(userinfo.UserId);
+                var post = await GetPostNewInfoUser(userinfo.UserId);
+                var image = post.imagePost;
+                var pathImage = image[0].ImagePath;
+                var us = new UserModel
                 {
                     UserId = userinfo.UserId,
-                    LastName = userinfo.LastName,
-                    Firstname = userinfo.Firstname,
-                    Gender = userinfo.Gender,
-                    Address = userinfo.Address,
-                    Phone = userinfo.Phone,
-                    Birthday =userinfo.Birthday,
-                    
+                    UserName = userinfo.LastName + " " + userinfo.Firstname,
+                    ImagePath = pathImage,
                 };
                 result.Add(us);
             }
             return result;
         }
-        public async Task<List<UserInforModel>> FindUserByLastName_Address_Age(string input)
+        public async Task<List<UserModel>> FindUserByLastName_Address_Age(string input)
         {
-            List<UserInforModel> result = new List<UserInforModel>();
-
+            List<UserModel> result = new List<UserModel>();
             var list = await _userDao.FindUserByLastNameByAddressAndAgeAsync(input);
             foreach (var userinfo in list)
             {
-                var us = new UserInforModel
+                var info = await _userDao.GetUserInforAsync(userinfo.UserId);
+                var post = await GetPostNewInfoUser(userinfo.UserId);
+                var image = post.imagePost;
+                var pathImage = image[0].ImagePath;
+                var us = new UserModel
                 {
                     UserId = userinfo.UserId,
-                    LastName = userinfo.LastName,
-                    Firstname = userinfo.Firstname,
-                    Gender = userinfo.Gender,
-                    Address = userinfo.Address,
-                    Phone = userinfo.Phone,
-                    Birthday = userinfo.Birthday,
+                    UserName = userinfo.LastName + " " + userinfo.Firstname,
+                    ImagePath = pathImage,
                 };
                 result.Add(us);
             }
-
             return result;
         }
     }

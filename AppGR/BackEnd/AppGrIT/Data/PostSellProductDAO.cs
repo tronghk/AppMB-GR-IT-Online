@@ -41,11 +41,8 @@ namespace AppGrIT.Data
                 var value = item.Value!.ToString();
                 var product = JsonConvert.DeserializeObject<PostSellProduct>(value);               
                 if (product.Price != null && product.Price.Equals(price))
-                {
-                    
-                   
-                        matchingProducts.Add(product);
-                    
+                {                                    
+                        matchingProducts.Add(product);                   
                 }
             }
             return matchingProducts;
