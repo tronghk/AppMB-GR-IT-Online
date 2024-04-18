@@ -30,7 +30,7 @@
             android:name=".activities.CreateMarketplaceActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.DetailMarketplace"
+            android:name=".activities.DetailMarketplaceActivity"
             android:exported="false" />
         <activity
             android:name=".activities.activity_home"

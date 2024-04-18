@@ -2,7 +2,9 @@ package com.example.appgrit.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ImagePostModel {
+import java.io.Serializable;
+
+public class ImagePostModel implements Serializable {
     @SerializedName("imageContent")
     private String ImageContent;
 

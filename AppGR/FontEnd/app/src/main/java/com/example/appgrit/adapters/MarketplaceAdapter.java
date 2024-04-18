@@ -1,6 +1,9 @@
 package com.example.appgrit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
+import com.example.appgrit.activities.DetailMarketplaceActivity;
 import com.example.appgrit.models.ImagePostModel;
 import com.example.appgrit.models.PostSellProductModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.services.MarketplaceApiService;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MarketplaceAdapter extends RecyclerView.Adapter<MarketplaceAdapter.ViewHolder> {
@@ -70,9 +75,10 @@ public class MarketplaceAdapter extends RecyclerView.Adapter<MarketplaceAdapter.
         return postList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView txt1;
         public TextView txt2, txt3, txt4;
+        private Context mContext;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +86,29 @@ public class MarketplaceAdapter extends RecyclerView.Adapter<MarketplaceAdapter.
             txt2 = itemView.findViewById(R.id.tvPrice);
             txt3 = itemView.findViewById(R.id.tvDes);
             txt4 = itemView.findViewById(R.id.tvLocate);
+
+            mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                PostSellProductModel post = postList.get(position);
+                Intent intent = new Intent(mContext, DetailMarketplaceActivity.class);
+//                intent.putExtra("post", post);
+                Bundle bundle = new Bundle();
+                bundle.putString("postSellProductId", post.getPostSellProductId());
+                bundle.putString("userId", post.getUserId());
+                bundle.putString("content", post.getContent());
+                bundle.putString("productName", post.getProductName());
+                bundle.putSerializable("imagePosts", (Serializable) post.getImagePosts());
+                bundle.putString("postTime", post.getPostTime());
+                bundle.putFloat("price", post.getPrice());
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
         }
     }
 
