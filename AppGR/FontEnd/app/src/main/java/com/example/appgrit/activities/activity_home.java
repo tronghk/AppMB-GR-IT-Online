@@ -5,12 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgrit.ForgotPasswordActivity;
 import com.example.appgrit.FragmentProfile;
-import com.example.appgrit.MarketplaceActivity;
-import com.example.appgrit.ProfileOther;
 import com.example.appgrit.R;
 import com.example.appgrit.UserActivity;
 import com.example.appgrit.adapters.PostAdapter;

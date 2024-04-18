@@ -1,4 +1,4 @@
-package com.example.appgrit;
+package com.example.appgrit.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.appgrit.activities.CreateMarketplace;
+import com.example.appgrit.R;
 
 public class MarketplaceActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class MarketplaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Chuyển sang trang CreateMarketplace
-                Intent intent = new Intent(MarketplaceActivity.this, CreateMarketplace.class);
+                Intent intent = new Intent(MarketplaceActivity.this, CreateMarketplaceActivity.class);
                 startActivity(intent);
             }
         });

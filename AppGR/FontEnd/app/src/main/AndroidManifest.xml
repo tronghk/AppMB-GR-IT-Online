@@ -27,7 +27,7 @@
             android:name=".activities.CreatePostHome"
             android:exported="false" />
         <activity
-            android:name=".activities.CreateMarketplace"
+            android:name=".activities.CreateMarketplaceActivity"
             android:exported="false" />
         <activity
             android:name=".activities.DetailMarketplace"
@@ -51,7 +51,7 @@
         </activity>
 
         <activity
-            android:name=".MarketplaceActivity"
+            android:name=".activities.MarketplaceActivity"
             android:exported="false" />
         <activity
             android:name=".UserActivity"

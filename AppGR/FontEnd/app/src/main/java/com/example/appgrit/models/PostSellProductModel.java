@@ -1,54 +1,60 @@
 package com.example.appgrit.models;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class PostSellProductModel {
-    private String PostSellProductId;
-    private String UserId;
+    private String postSellProductId;
+    private String userId;
+    private String content;
+    private String productName;
     private List<ImagePostModel> imagePosts;
-    private String ProductName;
-    private String Content;
-    private Date PostTime;
-    private float Price;
-
-    // Constructors, getters, and setters
+    private String postTime;
+    private float price;
 
     public PostSellProductModel() {
     }
 
-    public PostSellProductModel(String postSellProductId, String userId, List<ImagePostModel> imagePosts, String productName, String content, String postTime, float price) {
-        PostSellProductId = postSellProductId;
-        UserId = userId;
+    public PostSellProductModel(String postSellProductId, String userId, String content, String productName, List<ImagePostModel> imagePosts, String postTime, float price) {
+        this.postSellProductId = postSellProductId;
+        this.userId = userId;
+        this.content = content;
+        this.productName = productName;
         this.imagePosts = imagePosts;
-        ProductName = productName;
-        Content = content;
-        try {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
-            PostTime = format.parse(postTime);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        Price = price;
+        this.postTime = postTime;
+        this.price = price;
     }
 
     public String getPostSellProductId() {
-        return PostSellProductId;
+        return postSellProductId;
     }
 
     public void setPostSellProductId(String postSellProductId) {
-        PostSellProductId = postSellProductId;
+        this.postSellProductId = postSellProductId;
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(String userId) {
-        UserId = userId;
+        this.userId = userId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public List<ImagePostModel> getImagePosts() {
@@ -59,35 +65,19 @@ public class PostSellProductModel {
         this.imagePosts = imagePosts;
     }
 
-    public String getProductName() {
-        return ProductName;
+    public String getPostTime() {
+        return postTime;
     }
 
-    public void setProductName(String productName) {
-        ProductName = productName;
-    }
-
-    public String getContent() {
-        return Content;
-    }
-
-    public void setContent(String content) {
-        Content = content;
-    }
-
-    public Date getPostTime() {
-        return PostTime;
-    }
-
-    public void setPostTime(Date postTime) {
-        PostTime = postTime;
+    public void setPostTime(String postTime) {
+        this.postTime = postTime;
     }
 
     public float getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(float price) {
-        Price = price;
+        this.price = price;
     }
 }

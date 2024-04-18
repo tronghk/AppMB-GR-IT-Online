@@ -1,23 +1,20 @@
 package com.example.appgrit.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.appgrit.R;
 import com.example.appgrit.models.ImagePostModel;
@@ -26,9 +23,12 @@ import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostApiService;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -37,14 +37,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CreateMarketplace extends AppCompatActivity {
+public class CreateMarketplaceActivity extends AppCompatActivity {
     static final int PICK_IMAGE_REQUEST = 101;
     private static final int STORAGE_PERMISSION_CODE = 102;
-
     EditText editTextTitle, editTextPrice, editTextDescription;
     ImageView imageViewProduct;
     Button buttonAddImage, buttonSubmit;
-
     private List<Uri> selectedImageUris = new ArrayList<>();
     private String userId;
 
@@ -72,9 +70,99 @@ public class CreateMarketplace extends AppCompatActivity {
             if (!title.isEmpty() && !description.isEmpty() && price > 0 && !selectedImageUris.isEmpty()) {
                 uploadImagesAndCreatePostSell(title, description, price, selectedImageUris);
             } else {
-                Toast.makeText(CreateMarketplace.this, "Please fill in all the details and select at least one image.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateMarketplaceActivity.this, "Please fill in all the details and select at least one image.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void uploadImagesAndCreatePostSell(String title, String description, float price, List<Uri> imageUris) {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+
+        PostApiService service = ApiServiceProvider.getPostApiService();
+        List<MultipartBody.Part> parts = new ArrayList<>();
+
+        for (Uri imageUri : imageUris) {
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(imageUri);
+                byte[] buffer = new byte[inputStream.available()];
+                inputStream.read(buffer);
+
+                RequestBody requestBody = RequestBody.create(MediaType.parse(getContentResolver().getType(imageUri)), buffer);
+                MultipartBody.Part part = MultipartBody.Part.createFormData("image", "file.jpg", requestBody);
+                parts.add(part);
+            } catch (Exception e) {
+                Toast.makeText(CreateMarketplaceActivity.this, "Failed to read image data", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
+        service.uploadImages("Bearer " + token, parts).enqueue(new Callback<List<String>>() {
+            @Override
+            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<String> imageUrls = response.body();
+                    createPostSell(token, title, description, price, imageUrls);
+                } else {
+                    Toast.makeText(CreateMarketplaceActivity.this, "Failed to upload images", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<String>> call, Throwable t) {
+                Toast.makeText(CreateMarketplaceActivity.this, "Image upload error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void createPostSell(String token, String title, String description, float price, List<String> imageUrls) {
+        PostSellProductModel postSell = new PostSellProductModel();
+        postSell.setUserId(userId);
+        postSell.setProductName(title);
+        postSell.setContent(description);
+        postSell.setPrice(price);
+//        postSell.setPostTime(new Date());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String postTimeString = sdf.format(new Date());
+        postSell.setPostTime(postTimeString);
+
+        List<ImagePostModel> imagePosts = new ArrayList<>();
+        for (String imageUrl : imageUrls) {
+            ImagePostModel image = new ImagePostModel();
+            image.setImagePath(imageUrl);
+            imagePosts.add(image);
+        }
+        postSell.setImagePosts(imagePosts);
+
+        PostApiService service = ApiServiceProvider.getPostApiService();
+        Call<PostSellProductModel> postCall = service.addSellPost("Bearer " + token, postSell);
+        postCall.enqueue(new Callback<PostSellProductModel>() {
+            @Override
+            public void onResponse(Call<PostSellProductModel> call, Response<PostSellProductModel> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(CreateMarketplaceActivity.this, "Marketplace post created successfully!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CreateMarketplaceActivity.this, "Failed to create marketplace post: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostSellProductModel> call, Throwable t) {
+                Toast.makeText(CreateMarketplaceActivity.this, "Error creating marketplace post: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == STORAGE_PERMISSION_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            openFileChooser();
+        } else {
+            Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void openFileChooser() {
@@ -85,16 +173,6 @@ public class CreateMarketplace extends AppCompatActivity {
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             startActivityForResult(intent, PICK_IMAGE_REQUEST);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == STORAGE_PERMISSION_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            openFileChooser();
-        } else {
-            Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -114,85 +192,6 @@ public class CreateMarketplace extends AppCompatActivity {
                 selectedImageUris.add(imageUri);
             }
             imageViewProduct.setImageURI(selectedImageUris.get(0));
-            // You might want to update the UI here to reflect multiple images selected
         }
-    }
-
-    private void uploadImagesAndCreatePostSell(String title, String description, float price, List<Uri> imageUris) {
-        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        String token = prefs.getString("token", "");
-
-        PostApiService service = ApiServiceProvider.getPostApiService();
-        List<MultipartBody.Part> parts = new ArrayList<>();
-
-        for (Uri imageUri : imageUris) {
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(imageUri);
-                byte[] buffer = new byte[inputStream.available()];
-                inputStream.read(buffer);
-
-                RequestBody requestBody = RequestBody.create(MediaType.parse(getContentResolver().getType(imageUri)), buffer);
-                MultipartBody.Part part = MultipartBody.Part.createFormData("image", "file.jpg", requestBody);
-                parts.add(part);
-            } catch (Exception e) {
-                Toast.makeText(CreateMarketplace.this, "Failed to read image data", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
-
-        // First, upload images
-        service.uploadImages("Bearer " + token, parts).enqueue(new Callback<List<String>>() {
-            @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<String> imageUrls = response.body();
-                    // Once images are uploaded, create the post sell
-                    createPostSell(token, title, description, price, imageUrls);
-                } else {
-                    Toast.makeText(CreateMarketplace.this, "Failed to upload images", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
-                Toast.makeText(CreateMarketplace.this, "Image upload error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void createPostSell(String token, String title, String description, float price, List<String> imageUrls) {
-        PostSellProductModel postSell = new PostSellProductModel();
-        // Assume you have setters in your PostSellProductModel class for these fields
-        postSell.setUserId(userId);
-        postSell.setProductName(title);
-        postSell.setContent(description);
-        postSell.setPrice(price);
-        postSell.setPostTime(new Date()); // Or any specific time you want
-
-        List<ImagePostModel> imagePosts = new ArrayList<>();
-        for (String imageUrl : imageUrls) {
-            ImagePostModel image = new ImagePostModel();
-            image.setImagePath(imageUrl);
-            imagePosts.add(image);
-        }
-        postSell.setImagePosts(imagePosts);
-
-        PostApiService service = ApiServiceProvider.getPostApiService();
-        service.addSellPost("Bearer " + token, postSell).enqueue(new Callback<PostSellProductModel>() {
-            @Override
-            public void onResponse(Call<PostSellProductModel> call, Response<PostSellProductModel> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(CreateMarketplace.this, "Marketplace post created successfully!", Toast.LENGTH_SHORT).show();
-                    // Optionally navigate back to the marketplace listing screen or clear the form
-                } else {
-                    Toast.makeText(CreateMarketplace.this, "Failed to create marketplace post: " + response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PostSellProductModel> call, Throwable t) {
-                Toast.makeText(CreateMarketplace.this, "Error creating marketplace post: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
