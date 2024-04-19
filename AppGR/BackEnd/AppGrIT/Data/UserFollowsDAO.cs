@@ -38,7 +38,32 @@ namespace AppGrIT.Data
 
             return count;
         }
+        public async Task<List<UserFollows>> GetListUserFollow(string userId)
+        {
+            var list  = new List<UserFollows>();
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFollows");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
 
+            if (jsonResponse != null)
+            {
+
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UserFollows>(value);
+                    if (userc.UserFollowId == userId)
+                    {
+                        list.Add(userc);
+                    }
+                }
+
+
+
+            }
+            return list;
+
+        }
         public async Task<int> CountUserFollowers(string userId)
         {
             FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFollows");

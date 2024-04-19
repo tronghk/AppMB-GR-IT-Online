@@ -867,6 +867,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UserFollowsController",
+    "Method": "GetListUserFollow",
+    "RelativePath": "get-user-follow",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UsersController",
     "Method": "GetUserBasic",
     "RelativePath": "get-user-id",

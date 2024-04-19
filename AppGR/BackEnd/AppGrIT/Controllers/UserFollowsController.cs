@@ -4,7 +4,9 @@ using AppGrIT.Services;
 using AppGrIT.Services.AppGrIT.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AppGrIT.Controllers
 {
@@ -13,10 +15,12 @@ namespace AppGrIT.Controllers
     public class UserFollowsController : ControllerBase
     {
         private IUserFollows _followerManager;
+        private readonly IUsers _userManager;
 
-        public UserFollowsController(IUserFollows pression)
+        public UserFollowsController(IUserFollows pression, IUsers userManager)
         {
             _followerManager = pression;
+            _userManager = userManager;
         }
         [HttpGet("/count-followers")]
         
@@ -38,6 +42,27 @@ namespace AppGrIT.Controllers
             return Ok(dic);
 
 
+        }
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        [HttpGet("/get-user-follow")]
+        public async Task<IActionResult> GetListUserFollow()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userId = identity.FindFirst("userId")!.Value;
+
+
+            var user = await _userManager.GetUserToUserId(userId!);
+
+            if (user != null)
+            {
+
+                var result = await _followerManager.GetListUserIsFollow(userId);
+                return Ok(result);
+
+
+
+            }
+            return NotFound();
         }
     }
 }
