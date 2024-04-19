@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appgrit.activities.EditPostActivity;
+import com.example.appgrit.activities.ImageDetailActivity;
 import com.example.appgrit.models.ImagePostModel;
 import com.example.appgrit.models.SharePostModel;
 import com.example.appgrit.models.UserModel;
@@ -127,15 +128,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         });
 
 
-        // Kiểm tra nếu danh sách chỉ chứa một ảnh
+        // Kiểm tra xem danh sách ảnh có nhiều hơn một ảnh hay không
         if (post.getImagePost() != null && post.getImagePost().size() == 1) {
             // Đặt ảnh vào ImageView post_image
             ImagePostModel imagePost = post.getImagePost().get(0);
             Glide.with(holder.imageView.getContext())
                     .load(imagePost.getImagePath())
+                    .centerCrop() // Hiển thị hình ảnh đúng kích thước của ảnh gốc
                     .into(holder.imageView);
             // Ẩn RecyclerView imageGallery
             holder.imageGallery.setVisibility(View.GONE);
+
+            // Thêm sự kiện lắng nghe cho hình ảnh
+            holder.imageView.setOnClickListener(v -> {
+                // Xem chi tiết hình ảnh khi bấm vào
+                Intent intent = new Intent(context, ImageDetailActivity.class);
+                intent.putExtra("imagePath", imagePost.getImagePath());
+                context.startActivity(intent);
+            });
         } else {
             // Nếu có nhiều hơn một ảnh, hiển thị chúng trong RecyclerView imageGallery
             holder.imageGallery.setVisibility(View.VISIBLE);
@@ -145,11 +155,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
             ImageGalleryAdapter galleryAdapter = new ImageGalleryAdapter(context, imageUrls);
             holder.imageGallery.setAdapter(galleryAdapter);
+
+            // Bắt sự kiện khi người dùng bấm vào một hình ảnh trong ImageGalleryAdapter
+            galleryAdapter.setOnImageClickListener(clickedPosition -> {
+                // Xem chi tiết hình ảnh khi bấm vào
+                Intent intent = new Intent(context, ImageDetailActivity.class);
+                intent.putExtra("imagePath", imageUrls.get(clickedPosition));
+                context.startActivity(intent);
+            });
+
+
         }
-
-        // Load thông tin người dùng
-        loadUserData(post.getUserId(), holder);
-
         // Thiết lập sự kiện lắng nghe cho các phần tử
         holder.likesTextView.setOnClickListener(v -> {
             // Chuyển sang trang ListUserLike.java
@@ -203,26 +219,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         });
 
         holder.likeImageView.setOnClickListener(v -> {
-
             if (!userId.isEmpty()) {
                 ExpressionModel expressionModel = new ExpressionModel();
                 expressionModel.setUserId(userId);
                 expressionModel.setPostId(post.getPostId());
-                expressionModel.setType("1"); // Assuming '1' is the type for like
+                expressionModel.setType("1");
 
+                holder.isLiked = !holder.isLiked; // Toggle the state
                 if (holder.isLiked) {
-                    // Call API to delete the like
-                    deleteExpression(expressionModel, holder.likesTextView, holder);
-                    holder.toggleLikeState();  // Update UI to reflect the unlike
-                } else {
-                    // Call API to add the like
                     addExpression(expressionModel, holder.likesTextView, holder);
-                    holder.toggleLikeState();  // Update UI to reflect the like
+                } else {
+                    deleteExpression(expressionModel, holder.likesTextView, holder);
                 }
+                holder.updateLikeButton(); // Reflect the new state in the UI
             } else {
                 Toast.makeText(context, "User not logged in", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private void deletePost(String postId, int position) {
@@ -237,6 +251,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     // Xóa bài đăng thành công, cập nhật giao diện hoặc thông báo cho người dùng
                     // Ví dụ: gọi phương thức removeItemAt(position) để xóa bài đăng khỏi danh sách
                     postList.remove(position);
+                    Toast.makeText(context, "Delete Post successfully", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged(); // Cập nhật RecyclerView
                 } else {
                     // Xóa bài đăng không thành công, hiển thị thông báo lỗi cho người dùng
@@ -263,7 +278,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 if (response.isSuccessful()) {
                     // Xử lý khi chia sẻ bài đăng thành công
                     Toast.makeText(context, "Post shared successfully", Toast.LENGTH_SHORT).show();
-                    shareToOtherPlatforms(post);
 
                 } else {
                     // Xử lý khi chia sẻ bài đăng không thành công
@@ -277,29 +291,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void shareToOtherPlatforms(PostModel post) {
-        // Lấy thông tin cần thiết từ bài đăng
-        String content = post.getContent();
-        String imageUrl = "";
-        if (post.getImagePost() != null && !post.getImagePost().isEmpty()) {
-            imageUrl = post.getImagePost().get(0).getImagePath();
-        }
-        String postUrl = "http://appgrit.somee.com/get-one-post/" + post.getPostId(); // Liên kết đến bài đăng trên ứng dụng của bạn
-
-        // Chia sẻ bài đăng qua Intent
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, content + "\n\n" + postUrl);
-        if (!imageUrl.isEmpty()) {
-            // Nếu bài đăng có hình ảnh, thêm hình ảnh vào Intent
-            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(imageUrl));
-            shareIntent.setType("image/*");
-        }
-
-        // Mở dialog chia sẻ cho người dùng chọn nơi để chia sẻ bài đăng
-        context.startActivity(Intent.createChooser(shareIntent, "Share post via"));
     }
 
     private void loadUserData(String userId, ViewHolder holder) {
@@ -334,7 +325,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     }
 
 
-    private  void addExpression(ExpressionModel expressionModel, TextView likeCountView, ViewHolder holder) {
+    private void addExpression(ExpressionModel expressionModel, TextView likeCountView, ViewHolder holder) {
         ExpressionApiService service = ApiServiceProvider.getExpressionApiService();
         String token = "Bearer " + getAccessTokenFromSharedPreferences();
         Call<ResponseModel> call = service.addExpression(token, expressionModel);
@@ -353,9 +344,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     // Update like count on UI
                     countLikes(expressionModel.getPostId(), likeCountView, holder);
 
-                    Toast.makeText(context, "Liked successfully", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(context, "Liked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to like post", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(context, "Failed to like post", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -365,6 +356,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
         });
     }
+
 
     private void deleteExpression(ExpressionModel expressionModel, TextView likeCountView, ViewHolder holder) {
         ExpressionApiService service = ApiServiceProvider.getExpressionApiService();
@@ -377,15 +369,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     // Update SharedPreferences
                     SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean(expressionModel.getUserId() + "_" + expressionModel.getPostId() + "_liked", false);
                     int currentLikes = prefs.getInt(expressionModel.getPostId() + "_likes", 0);
-                    editor.putInt(expressionModel.getPostId() + "_likes", Math.max(0, currentLikes - 1)); // Prevent negative values
+                    int updatedLikesCount = Math.max(0, currentLikes - 1); // Prevent negative values
+                    editor.putBoolean(expressionModel.getUserId() + "_" + expressionModel.getPostId() + "_liked", false);
+                    editor.putInt(expressionModel.getPostId() + "_likes", updatedLikesCount);
                     editor.apply();
 
                     // Update like count on UI
-                    countLikes(expressionModel.getPostId(), likeCountView, holder);
-
-                    Toast.makeText(context, "Unlike successful", Toast.LENGTH_SHORT).show();
+                    likeCountView.setText(updatedLikesCount + " likes");
                 } else {
                     Toast.makeText(context, "Failed to remove like", Toast.LENGTH_SHORT).show();
                 }
@@ -397,6 +388,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
         });
     }
+
 
 
     private void countLikes(String postId, TextView likeCountView, ViewHolder holder) {
@@ -425,7 +417,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     editor.putInt(postId + "_likes", likeCount);
                     editor.apply();
                 } else {
-                    Toast.makeText(context, "Failed to count likes", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Failed to count likes", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -513,15 +505,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             editor.putBoolean("isLiked_" + postId, isLiked);
             editor.putInt("likeCount_" + postId, likeCount);
             editor.apply();
-        }
-
-
-        // Phương thức để lấy trạng thái và số lượng like từ SharedPreferences
-        private void loadLikeStatusAndCount(String postId) {
-            SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            isLiked = prefs.getBoolean("isLiked_" + postId, false);
-            likeCount = prefs.getInt("likeCount_" + postId, 0);
-            updateLikeButton(); // Cập nhật giao diện người dùng dựa trên trạng thái và số lượng like đã lưu
         }
 
         private void updateLikeButton() {
