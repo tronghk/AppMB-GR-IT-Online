@@ -31,8 +31,7 @@ namespace AppGrIT.Services.Imployement
                     ProductName = userinfo.ProductName,
                     Price = userinfo.Price,
                     PostSellProductId = userinfo.PostSellProductId,
-                    Content = userinfo.Content,
-                   
+                    Content = userinfo.Content,                    
                     PostTime = userinfo.PostTime 
                 };
                 var listImage = await _imageManager.GetImagePostToId(us.PostSellProductId);

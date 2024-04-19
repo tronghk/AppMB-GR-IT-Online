@@ -39,7 +39,7 @@ namespace AppGrIT.Data
             List<PostSellProduct> matchingProducts = new List<PostSellProduct>();
             FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("PostSellProduct");
             JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
-           if(jsonResponse != null)
+            if (jsonResponse != null)
             {
                 foreach (var item in jsonResponse)
                 {
@@ -52,7 +52,9 @@ namespace AppGrIT.Data
                         matchingProducts.Add(product);
 
                     }
+                  
                 }
+               
             }
             return matchingProducts;
         }

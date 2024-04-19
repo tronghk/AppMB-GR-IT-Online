@@ -135,8 +135,7 @@
               "RelativeToolTip": "Models\\GroupMemberModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T08:01:01.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T08:01:01.129Z"
             },
             {
               "$type": "Document",
@@ -172,8 +171,7 @@
               "RelativeToolTip": "Helper\\SynthesizeRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:58:38.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:58:38.801Z"
             },
             {
               "$type": "Document",
@@ -185,8 +183,7 @@
               "RelativeToolTip": "Services\\Imployment\\MessageServices.cs",
               "ViewState": "AQIAAKMAAAAAAAAAAAAUwKwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:56:57.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:56:57.682Z"
             },
             {
               "$type": "Document",
@@ -210,8 +207,7 @@
               "RelativeToolTip": "Data\\MessageDAO.cs",
               "ViewState": "AQIAAAUCAAAAAAAAAADgvxgCAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:57:16.65Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:57:16.65Z"
             },
             {
               "$type": "Document",
@@ -247,8 +243,7 @@
               "RelativeToolTip": "Models\\ChatModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:42:17.339Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:42:17.339Z"
             },
             {
               "$type": "Document",
@@ -260,8 +255,7 @@
               "RelativeToolTip": "Models\\DetailsChatModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:43:33.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:43:33.425Z"
             },
             {
               "$type": "Document",
@@ -297,8 +291,7 @@
               "RelativeToolTip": "Entity\\GroupMember.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:51:20.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:51:20.864Z"
             },
             {
               "$type": "Document",
@@ -310,8 +303,7 @@
               "RelativeToolTip": "Entity\\GroupChat.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:50:00.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:50:00.541Z"
             },
             {
               "$type": "Document",
@@ -323,8 +315,7 @@
               "RelativeToolTip": "Entity\\DetailsChat.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:49:05.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:49:05.381Z"
             },
             {
               "$type": "Document",
@@ -336,8 +327,7 @@
               "RelativeToolTip": "Entity\\ChatSegMent.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:48:08.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T05:48:08.103Z"
             },
             {
               "$type": "Document",
