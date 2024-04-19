@@ -58,4 +58,9 @@ public class ApiServiceProvider {
     public static MarketplaceApiService getMarketplaceApiService() {
         return getRetrofitInstance().create(MarketplaceApiService.class);
     }
+    public static ChangePassWordApiService getChangePasswordApiService() {
+        return getRetrofitInstance().create(ChangePassWordApiService.class);
+    }
+
+
 }

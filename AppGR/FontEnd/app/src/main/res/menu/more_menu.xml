@@ -9,4 +9,7 @@
     <item
         android:id="@+id/nav_change_password"
         android:title="Đổi mật khẩu" />
+    <item
+        android:id="@+id/nav_edit_info"
+        android:title="Chỉnh sửa thông tin" />
 </menu>

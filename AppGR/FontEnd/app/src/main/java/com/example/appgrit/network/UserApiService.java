@@ -14,6 +14,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface UserApiService {
@@ -51,4 +52,9 @@ public interface UserApiService {
 
     @GET("get-user-id")
     Call<UserModel> getUserInfo(@Query("userId") String userId);
+
+    @PUT("edit-user")
+    Call<UserInforModel> editUserInfo(@Header("Authorization") String accessToken, @Body UserInforModel userInfo);
+
+
 }
