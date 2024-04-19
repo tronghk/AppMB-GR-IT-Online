@@ -316,6 +316,8 @@ namespace AppChat.Controllers
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         public async Task<IActionResult> AddMemberGroupChat([FromBody] GroupMemberModel model)
         {
+            List<GroupMemberModel> members = new List<GroupMemberModel>();
+            members.Add(model);
             // check gr co ton tai
             if (model.GroupId == null)
                 return NotFound(new ResponseModel
@@ -333,7 +335,7 @@ namespace AppChat.Controllers
                 var user = await _messageManager.GetUserMemberToId(model.GroupId, model.UserId);
                 if ((admin.Role == SynthesizeRoles.GR_MANAGER || admin.Role == SynthesizeRoles.GR_SUB_MANAGER) && user == null)
                 {
-
+                    
                     var result = await _messageManager.CreateMemberGroupModelAsync(members,model.GroupId);
 
                     if (result != null)
