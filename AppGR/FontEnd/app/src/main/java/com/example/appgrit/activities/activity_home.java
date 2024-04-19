@@ -128,11 +128,6 @@ public class activity_home extends AppCompatActivity {
         });
     }
 
-
-
-
-
-
     private void showMoreMenu(View anchor) {
         PopupMenu popup = new PopupMenu(this, anchor);
         popup.getMenuInflater().inflate(R.menu.more_menu, popup.getMenu());

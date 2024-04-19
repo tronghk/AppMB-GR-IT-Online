@@ -27,6 +27,9 @@ public class PostModel {
     @SerializedName("postType")
     private String PostType;
 
+    @SerializedName("expressions")
+    private List<ExpressionModel> expressions;
+
     public PostModel() {
     }
 
@@ -107,4 +110,12 @@ public class PostModel {
     public void setPostType(String postType) {
         PostType = postType;
     }
+    public List<ExpressionModel> getExpressions() {
+        return expressions;
+    }
+
+    public void setExpressions(List<ExpressionModel> expressions) {
+        this.expressions = expressions;
+    }
 }
+

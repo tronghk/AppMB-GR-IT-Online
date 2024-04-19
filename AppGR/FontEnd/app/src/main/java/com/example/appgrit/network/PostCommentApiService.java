@@ -22,6 +22,12 @@ public interface PostCommentApiService {
     Call<PostCommentModel> addComment(@Header("Authorization") String token, @Body PostCommentModel comment);
 
     @DELETE("delete-comment-post")
-    Call<ResponseModel> deleteComment(@Header("Authorization") String token, @Query("commentId") String commentId, @Query("userId") String userId);
+    Call<ResponseModel> deleteComment(
+            @Header("Authorization") String token,
+            @Query("commentId") String commentId,
+            @Query("userId") String userId,
+            @Query("postId") String postId
+    );
+
 }
 

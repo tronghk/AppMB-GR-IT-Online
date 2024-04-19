@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,7 @@ import com.example.appgrit.models.ResponseModel;
 import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.ExpressionApiService;
+import com.example.appgrit.network.PostCommentApiService;
 import com.example.appgrit.network.UserApiService;
 
 import java.util.HashSet;
@@ -36,11 +39,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     private List<PostCommentModel> commentList;
     private Context context;
     private SharedPreferences sharedPreferences;
+    private String postId; // Biến lưu trữ postId
 
-    public CommentAdapter(Context context, List<PostCommentModel> commentList) {
+    public CommentAdapter(Context context, List<PostCommentModel> commentList, String postId) {
         this.context = context;
         this.commentList = commentList;
         this.sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        this.postId = postId; // Lưu trữ postId được truyền vào constructor
     }
 
     @NonNull
@@ -69,6 +74,18 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         boolean isLiked = isCommentLiked(comment.getCommentId(), currentUserId);
         updateLikeButton(holder.imageHeart, isLiked);
 
+        // Kiểm tra xem userId của bài đăng có trùng khớp với userId hiện tại hay không
+        // Nếu có thì hiển thị nút more, ngược lại ẩn đi
+
+        if (comment.getUserId() != null && currentUserId != null && comment.getUserId().equals(currentUserId)) {
+            holder.buttonMore.setVisibility(View.VISIBLE);
+        } else {
+            holder.buttonMore.setVisibility(View.GONE);
+            // Hiển thị thông báo khi không có quyền truy cập vào chức năng "more"
+            Toast.makeText(context, "You don't have permission to access this feature", Toast.LENGTH_SHORT).show();
+        }
+
+
         holder.imageHeart.setOnClickListener(v -> {
             if (isLiked) {
                 // Unlike the comment and update SharedPreferences
@@ -78,7 +95,71 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                 likeComment(comment.getCommentId(), currentUserId, holder.textLikes, holder);
             }
         });
+
+        // Thêm xử lý sự kiện khi người dùng chọn nút "more"
+        holder.buttonMore.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(context, holder.buttonMore);
+            popupMenu.getMenuInflater().inflate(R.menu.comment_menu, popupMenu.getMenu());
+            popupMenu.setOnMenuItemClickListener(item -> {
+                if (item.getItemId() == R.id.action_delete_comment) {
+                    // Gọi phương thức để xử lý xóa bình luận
+                    deleteComment(comment.getCommentId(), position); // Gọi phương thức deleteComment khi nhấn Delete
+                    return true;
+                }
+                return false;
+            });
+            popupMenu.show();
+        });
     }
+
+    private void deleteComment(String commentId, int position) {
+        String userId = getUserIdFromSharedPreferences(); // Lấy userId từ SharedPreferences
+        String accessToken = getAccessTokenFromSharedPreferences(); // Lấy accessToken từ SharedPreferences
+
+        // Lấy postId từ activity hoặc fragment chứa RecyclerView
+        String postId = getPostIdFromActivity();
+
+        // Gọi service từ Retrofit để thực hiện yêu cầu xóa comment
+        PostCommentApiService service = ApiServiceProvider.getPostCommentApiService();
+        Call<ResponseModel> call = service.deleteComment(accessToken, commentId, userId, postId);
+
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    ResponseModel result = response.body();
+                    if (result.getStatus().equals("SUCCESS")) {
+                        // Nếu xóa thành công, loại bỏ comment khỏi danh sách và thông báo cho adapter cập nhật
+                        commentList.remove(position);
+                        notifyItemRemoved(position);
+                    } else {
+                        // Xử lý khi xóa không thành công
+                        Log.e("API Error", "Failed to delete comment: " + result.getMessage());
+                        // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
+                    }
+                } else {
+                    // Xử lý khi gặp lỗi không mong muốn từ phía backend
+                    Log.e("API Error", "Failed to delete comment");
+                    // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                // Xử lý khi gặp lỗi kết nối hoặc lỗi từ phía backend
+                Log.e("API Failure", "Error deleting comment", t);
+                // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
+            }
+        });
+    }
+
+    // Phương thức này cần được thay thế bằng cách lấy postId từ activity hoặc fragment chứa RecyclerView
+    private String getPostIdFromActivity() {
+        // Lấy postId từ activity hoặc fragment chứa RecyclerView
+        // Ví dụ: return ((commentActivity) context).getPostId();
+        return postId;
+    }
+
 
     private String getUserIdFromSharedPreferences() {
         return sharedPreferences.getString("userId", "");
@@ -162,9 +243,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     }
 
     public static class CommentViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageAvatar, imageHeart;
+        ImageView imageAvatar, imageHeart, buttonMore; // Sửa khai báo của buttonMore từ Button sang ImageView
         TextView textName, textComment, textLikes;
-        Button buttonReply;
         int likeCount = 0;
 
         public CommentViewHolder(@NonNull View itemView) {
@@ -174,7 +254,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             textName = itemView.findViewById(R.id.textName);
             textComment = itemView.findViewById(R.id.textComment);
             textLikes = itemView.findViewById(R.id.textLikes);
-//            buttonReply = itemView.findViewById(R.id.buttonReply);
+            buttonMore = itemView.findViewById(R.id.buttonMore); // Ánh xạ buttonMore
         }
     }
 }
