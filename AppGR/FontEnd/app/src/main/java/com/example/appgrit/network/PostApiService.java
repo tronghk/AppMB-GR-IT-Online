@@ -42,7 +42,7 @@ public interface PostApiService {
             @Header("Authorization") String token,
             @Body PostModel postModel
     );
-    @POST("/add-sell-post")
+    @POST("add-sell-post")
     Call<PostSellProductModel> addSellPost(
             @Header("Authorization") String token,
             @Body PostSellProductModel postSellProductModel

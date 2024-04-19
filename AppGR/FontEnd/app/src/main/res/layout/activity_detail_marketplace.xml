@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DetailMarketplace">
+    tools:context=".activities.DetailMarketplaceActivity">
 
     <!-- Toolbar with back button and title -->
     <androidx.appcompat.widget.Toolbar
@@ -35,7 +35,7 @@
     <ImageView
         android:id="@+id/image_product"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_below="@id/toolbar_marketplace"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/productimage1" />
