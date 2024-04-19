@@ -4,6 +4,7 @@ import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.SignInModel;
 import com.example.appgrit.models.SignUpModel;
 import com.example.appgrit.models.TokenModel;
+import com.example.appgrit.models.UserFollowsModel;
 import com.example.appgrit.models.UserFriendsModel;
 import com.example.appgrit.models.UserInforModel;
 import com.example.appgrit.models.UserModel;
@@ -11,7 +12,9 @@ import java.util.List;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -56,5 +59,12 @@ public interface UserApiService {
     @PUT("edit-user")
     Call<UserInforModel> editUserInfo(@Header("Authorization") String accessToken, @Body UserInforModel userInfo);
 
+    @GET("get-user-follow")
+    Call<List<UserFollowsModel>> getUserFollow(@Header("Authorization") String token, @Query("userId") String userId);
 
+    @POST("add-follow")
+    Call<Void> addFollow(@Header("Authorization") String token, @Body UserFollowsModel followModel);
+
+    @HTTP(method = "DELETE", path = "delete-follow", hasBody = true)
+    Call<Void> deleteFollow(@Header("Authorization") String token, @Body UserFollowsModel followModel);
 }
