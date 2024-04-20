@@ -19,12 +19,12 @@ import com.example.appgrit.FragmentProfile;
 import com.example.appgrit.R;
 import com.example.appgrit.UserActivity;
 import com.example.appgrit.adapters.PostAdapter;
-import com.example.appgrit.changepassword;
 import com.example.appgrit.edit_profile;
 import com.example.appgrit.models.PostModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostApiService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -141,6 +141,9 @@ public class activity_home extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_edit_info) {
                 startActivity(new Intent(activity_home.this, edit_profile.class));
+                return true;
+            } else if (itemId == R.id.nav_upgrade_account) {
+                startActivity(new Intent(activity_home.this, UpgradeAccountActivity.class));
                 return true;
             } else {
                 return false;
