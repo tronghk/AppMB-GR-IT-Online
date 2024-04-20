@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.appgrit.activities.EditPostActivity;
 import com.example.appgrit.activities.ImageDetailActivity;
 import com.example.appgrit.models.ImagePostModel;
+import com.example.appgrit.models.PostIconsModel;
 import com.example.appgrit.models.SharePostModel;
 import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
@@ -72,7 +73,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,postList);
     }
 
     @Override
@@ -83,9 +84,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         boolean isLiked = prefs.getBoolean(userId + "_" + post.getPostId() + "_liked", false);
         int likesCount = prefs.getInt(post.getPostId() + "_likes", 0);
-        countLikes(post.getPostId(), holder.likesTextView, holder);
 
-        holder.likeImageView.setImageResource(isLiked ? R.drawable.love : R.drawable.heart_home);
+        holder.isLiked = isLiked; // Cập nhật trạng thái like vào ViewHolder
+        holder.likeCount = likesCount; // Cập nhật số lượng like vào ViewHolder
+
+        holder.updateLikeButton(); // Cập nhật giao diện nút like
         holder.likesTextView.setText(likesCount + " likes");
 
         holder.txtContent.setText(post.getContent());
@@ -105,15 +108,21 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             popup.setOnMenuItemClickListener(item -> {
                 int itemId = item.getItemId();
                 if (itemId == R.id.menu_edit_post) {
-                    // Xử lý sự kiện chỉnh sửa bài đăng
                     // Lấy postId từ PostModel tại vị trí position
-                            String postId = post.getPostId();
+                    String postId = post.getPostId();
+                    String content = post.getContent();
+                    ArrayList<String> imageUrls = new ArrayList<>();
+                    for (ImagePostModel image : post.getImagePost()) {
+                        imageUrls.add(image.getImagePath());
+                    }
 
-                            // Tạo Intent và truyền postId sang EditPostActivity.java
-                            Intent intent = new Intent(context, EditPostActivity.class);
-                            intent.putExtra("postId", postId);
-                            context.startActivity(intent);
-                            return true;
+                    // Tạo Intent và truyền postId, content, và imageUrls sang EditPostActivity
+                    Intent intent = new Intent(context, EditPostActivity.class);
+                    intent.putExtra("postId", postId);
+                    intent.putExtra("content", content);
+                    intent.putStringArrayListExtra("imageUrls", imageUrls);
+                    context.startActivity(intent);
+                    return true;
                 } else if (itemId == R.id.menu_delete_post) {
                     // Lấy postId từ PostModel tại vị trí position
                     String postId = post.getPostId();
@@ -126,6 +135,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             });
             popup.show();
         });
+
 
 
         // Kiểm tra xem danh sách ảnh có nhiều hơn một ảnh hay không
@@ -225,17 +235,29 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 expressionModel.setPostId(post.getPostId());
                 expressionModel.setType("1");
 
-                holder.isLiked = !holder.isLiked; // Toggle the state
+                // Toggle the state
+                holder.isLiked = !holder.isLiked;
+
+                // Update UI immediately
+                if (holder.isLiked) {
+                    holder.likeCount++;
+                } else {
+                    holder.likeCount = Math.max(0, holder.likeCount - 1);
+                }
+                holder.updateLikeButton(); // Reflect the new state in the UI
+                holder.likesTextView.setText(holder.likeCount + " likes");
+
+                // Call API to update the like status
                 if (holder.isLiked) {
                     addExpression(expressionModel, holder.likesTextView, holder);
                 } else {
                     deleteExpression(expressionModel, holder.likesTextView, holder);
                 }
-                holder.updateLikeButton(); // Reflect the new state in the UI
             } else {
                 Toast.makeText(context, "User not logged in", Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 
@@ -392,37 +414,40 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
 
     private void countLikes(String postId, TextView likeCountView, ViewHolder holder) {
-        ExpressionApiService service = ApiServiceProvider.getExpressionApiService();
-        Call<List<ExpressionModel>> call = service.getPostExpressions(postId);
+        // Retrieve the access token from SharedPreferences
+        String token = getAccessTokenFromSharedPreferences();
 
-        call.enqueue(new Callback<List<ExpressionModel>>() {
+        // Call the API to get the expressions for the post
+        Call<List<PostIconsModel>> call = ApiServiceProvider.getPostApiService().getPostExpressions(token, postId);
+        call.enqueue(new Callback<List<PostIconsModel>>() {
             @Override
-            public void onResponse(Call<List<ExpressionModel>> call, Response<List<ExpressionModel>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<ExpressionModel> expressions = response.body();
+            public void onResponse(Call<List<PostIconsModel>> call, Response<List<PostIconsModel>> response) {
+                if (response.isSuccessful()) {
+                    // Filter the expressions to count only 'likes'
+                    List<PostIconsModel> expressions = response.body();
                     int likeCount = 0;
-                    for (ExpressionModel expression : expressions) {
-                        if (expression.getExpression() == 0) { // Kiểm tra nếu expression = 0
-                            likeCount++; // Tăng biến likeCount lên 1
+                    for (PostIconsModel expression : expressions) {
+                        if (expression.getExpression() == 0) { // Assuming '1' stands for 'like'
+                            likeCount++;
                         }
                     }
-                    likeCountView.setText(String.format(Locale.getDefault(), "%d likes", likeCount));
 
-                    // Log số lượng like
-                    Log.d("LikeCount", "Number of likes for post " + postId + ": " + likeCount);
-
-                    // Lưu số lượng like vào SharedPreferences
+                    // Update SharedPreferences with the latest count
                     SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putInt(postId + "_likes", likeCount);
                     editor.apply();
+
+                    // Update the UI with the new like count
+                    likeCountView.setText(likeCount + " likes");
+                    holder.likeCount = likeCount; // Update the like count in the holder if needed
                 } else {
-//                    Toast.makeText(context, "Failed to count likes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to fetch like data", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<List<ExpressionModel>> call, Throwable t) {
+            public void onFailure(Call<List<PostIconsModel>> call, Throwable t) {
                 Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -449,9 +474,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         TextView usernameTextView;
         RecyclerView imageGallery;
         int likeCount = 0; // Thêm biến likeCount ở mức lớp
-        public ViewHolder(@NonNull View itemView) {
+        private List<PostModel> postList; // Thêm trường postList vào ViewHolder
+        public ViewHolder(@NonNull View itemView,List<PostModel> postList) {
             super(itemView);
             PostModel post = new PostModel();
+            this.postList = postList;
             imageView = itemView.findViewById(R.id.post_image);
             likeImageView = itemView.findViewById(R.id.like);
             commentImageView = itemView.findViewById(R.id.comment);
@@ -466,6 +493,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             profileImageView = itemView.findViewById(R.id.image_profile);
             usernameTextView = itemView.findViewById(R.id.username);
             imageGallery = itemView.findViewById(R.id.imageGallery);
+
             moreImageView.setOnClickListener(v -> {
                 // Hiển thị menu edit post và delete post
                 PopupMenu popup = new PopupMenu(context, moreImageView);
@@ -490,22 +518,22 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         }
 
-        private void toggleLikeState() {
-            PostModel post = new PostModel();
-            isLiked = !isLiked;
-            updateLikeButton();
-
-            // Lưu trạng thái mới và số lượng like vào SharedPreferences
-            saveLikeStatusAndCount(post.getPostId(), isLiked, likeCount);
-        }
+//        private void toggleLikeState() {
+//            PostModel post = new PostModel();
+//            isLiked = !isLiked;
+//            updateLikeButton();
+//
+//            // Lưu trạng thái mới và số lượng like vào SharedPreferences
+//            saveLikeStatusAndCount(post.getPostId(), isLiked, likeCount);
+//        }
         // Phương thức lưu trạng thái và số lượng like vào SharedPreferences
-        private void saveLikeStatusAndCount(String postId, boolean isLiked, int likeCount) {
-            SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("isLiked_" + postId, isLiked);
-            editor.putInt("likeCount_" + postId, likeCount);
-            editor.apply();
-        }
+//        private void saveLikeStatusAndCount(String postId, boolean isLiked, int likeCount) {
+//            SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//            SharedPreferences.Editor editor = prefs.edit();
+//            editor.putBoolean("isLiked_" + postId, isLiked);
+//            editor.putInt("likeCount_" + postId, likeCount);
+//            editor.apply();
+//        }
 
         private void updateLikeButton() {
             if (isLiked) {

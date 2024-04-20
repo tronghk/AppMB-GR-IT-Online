@@ -5,15 +5,13 @@
     android:padding="16dp"
     tools:ignore="ExtraText">
 
-
-    <!-- Tiêu đề "Bình Luận" -->
     <TextView
         android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text=" Chỉnh sửa trang cá nhân "
+        android:layout_marginTop="16dp"
+        android:text="Chỉnh sửa thông tin cá nhân"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -22,126 +20,120 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar_title">
 
-        <!-- User avatar -->
-        <ImageView
-            android:id="@+id/avatarImageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/avatar"
-            android:layout_marginTop="24dp" />
-
-        <!-- Edit avatar text -->
-        <Button
-            android:id="@+id/editAvatarButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/avatarImageView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Chỉnh sửa avatar"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:onClick="onEditAvatarButtonClick" />
-
-
-        <!-- Name Label -->
         <TextView
-            android:id="@+id/nameLabelTextView"
+            android:id="@+id/firstnameLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editAvatarButton"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="16dp"
-            android:text="Tên"
+            android:layout_marginTop="12dp"
+            android:text="First name"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <!-- Name EditText -->
         <EditText
-            android:id="@+id/nameEditText"
+            android:id="@+id/firstnameEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/nameLabelTextView"
+            android:layout_below="@id/firstnameLabelTextView"
             android:hint="Nhập tên"
             android:inputType="textPersonName" />
 
-        <!-- Username Label -->
         <TextView
-            android:id="@+id/usernameLabelTextView"
+            android:id="@+id/lastnameLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nameEditText"
             android:layout_alignParentStart="true"
-            android:text="Tên người dùng"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/firstnameEditText"
+            android:text="Last name"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <!-- Username EditText -->
         <EditText
-            android:id="@+id/usernameEditText"
+            android:id="@+id/lastnameEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/usernameLabelTextView"
-            android:hint="Nhập tên người dùng"
-            android:inputType="text" />
+            android:layout_below="@id/lastnameLabelTextView"
+            android:hint="Nhập họ"
+            android:inputType="textPersonName" />
 
-        <!-- Gender Label -->
         <TextView
             android:id="@+id/genderLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/usernameEditText"
             android:layout_alignParentStart="true"
-            android:text="Danh xưng"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/lastnameEditText"
+            android:text="Gender"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <!-- Gender EditText -->
         <EditText
             android:id="@+id/genderEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_below="@id/genderLabelTextView"
-            android:hint="Nhập danh xưng"
+            android:hint="Nhập giới tính"
             android:inputType="text" />
 
-        <!-- Biography Label -->
         <TextView
-            android:id="@+id/biographyLabelTextView"
+            android:id="@+id/birthdayLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="12dp"
             android:layout_below="@id/genderEditText"
-            android:layout_alignParentStart="true"
-            android:text="Tiểu sử"
+            android:text="Birthday"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <!-- Biography EditText -->
         <EditText
-            android:id="@+id/biographyEditText"
+            android:id="@+id/birthdayEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/biographyLabelTextView"
-            android:hint="Nhập tiểu sử"
-            android:inputType="textMultiLine" />
+            android:layout_below="@id/birthdayLabelTextView"
+            android:hint="YYYY-MM-DD"
+            android:inputType="date" />
 
-        <!-- Placeholder for "Liên kết", "Cài đặt thông tin cá nhân", etc. -->
-
-        <!-- Continue adding other sections as needed -->
         <TextView
-            android:id="@+id/linksLabelTextView"
+            android:id="@+id/addressLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/biographyEditText"
             android:layout_alignParentStart="true"
-            android:text="Liên kết"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/birthdayEditText"
+            android:text="Address"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <!-- Links EditText -->
         <EditText
-            android:id="@+id/linksEditText"
+            android:id="@+id/addressEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/linksLabelTextView"
-            android:hint="Nhập liên kết"
-            android:inputType="textUri" />
-    </RelativeLayout>
+            android:layout_below="@id/addressLabelTextView"
+            android:hint="Nhập địa chỉ"
+            android:inputType="textPostalAddress" />
 
+        <TextView
+            android:id="@+id/phoneLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/addressEditText"
+            android:text="Phone"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/phoneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/phoneLabelTextView"
+            android:hint="Nhập số điện thoại"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/savebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phoneEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Lưu" />
+    </RelativeLayout>
 </RelativeLayout>

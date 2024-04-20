@@ -11,7 +11,7 @@ namespace AppChat.Models
         public string UserOrtherId
         { get; set; }
 
-        public string MessId
+        public string? MessId
         { get; set; }
     }
 }

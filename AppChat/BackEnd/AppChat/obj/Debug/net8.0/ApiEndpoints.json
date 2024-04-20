@@ -129,6 +129,22 @@
   },
   {
     "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "OutGroup",
+    "RelativePath": "out-group",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
     "Method": "UpdateInforGroupChat",
     "RelativePath": "update-group-chat-message",
     "HttpMethod": "PUT",
@@ -139,6 +155,53 @@
         "Name": "model",
         "Type": "AppChat.Models.GroupChatModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "UpdateRoleAdminGroupMember",
+    "RelativePath": "update-role-admin-group-member",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userMemberId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "UpdateRoleGroupMember",
+    "RelativePath": "update-role-group-member",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userMemberId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

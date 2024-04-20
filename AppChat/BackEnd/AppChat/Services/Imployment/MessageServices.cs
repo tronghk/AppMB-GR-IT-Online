@@ -4,6 +4,7 @@ using AppChat.Models;
 using AppGrIT.Helper;
 using AppGrIT.Model;
 using System;
+using System.Reflection;
 
 namespace AppChat.Services.Imployment
 {
@@ -41,7 +42,7 @@ namespace AppChat.Services.Imployment
             var chat = new ChatSegMent
             {
                 UserId = model.UserId,
-                UserOrtherId = model.UserId,
+                UserOrtherId = model.UserOrtherId,
 
             };
             
@@ -141,13 +142,12 @@ namespace AppChat.Services.Imployment
         public async Task<ResponseModel> DeleteMessageModelAsync(DetailsChatModel model)
         {
 
-            var isChat = await CheckChatEx(model.ChatId);
-            if(isChat)
-            {
+           
                 var mess = new DetailsChat
                 {
                     ChatId = model.ChatId,
                     UserId = model.UserId,
+                    DetailId = model.DetailId!,
                     Time = model.Time,
                     Content = model.Content,
                     ImagePath = model.ImagePath,
@@ -166,13 +166,6 @@ namespace AppChat.Services.Imployment
                 {
                     Status = StatusResponse.STATUS_ERROR,
                     Message = MessageResponse.MESSAGE_DELETE_FAIL
-                };
-
-            }
-                return new ResponseModel
-                {
-                    Status = StatusResponse.STATUS_NOTFOUND,
-                    Message = MessageResponse.MESSAGE_NOTFOUND
                 };
 
         }
@@ -244,6 +237,133 @@ namespace AppChat.Services.Imployment
             }
             return new ResponseModel { Status = StatusResponse.STATUS_ERROR, Message = MessageResponse.MESSAGE_DELETE_FAIL };
 
+        }
+
+        public async Task<GroupMemberModel> GetUserMemberToId(string groupId, string userId)
+        {
+            var result = await _messageDao.GetUserMemberToId(groupId, userId);
+
+           if(result != null)
+            {
+                var model = new GroupMemberModel
+                {
+                    GroupId = groupId,
+                    UserId = userId,
+                    Role = result.Role
+                };
+
+                return model;
+            }
+            return null!;
+        }
+
+        public async Task<GroupMemberModel> UpdateGroupMember(GroupMemberModel model, string roleName)
+        {
+            var member = new GroupMember
+            {
+                GroupId = model.GroupId,
+                UserId = model.UserId,
+                Role = roleName
+            };
+            var result = await _messageDao.UpdateGroupMemberRole(member);
+            if(result != null)
+            {
+                model.Role = roleName;
+                return model;
+            }
+            return null!;
+        }
+
+        public async Task<ResponseModel> UpdateAdminGroupMember(GroupMemberModel userAdmin, GroupMemberModel userMember)
+        {
+            var member = new GroupMember
+            {
+                GroupId = userAdmin.GroupId,
+                UserId = userAdmin.UserId,
+                Role = SynthesizeRoles.GR_MEMBER
+            };
+            var member1 = new GroupMember
+            {
+                GroupId = userMember.GroupId,
+                UserId = userMember.UserId,
+                Role = userAdmin.Role
+            };
+
+            var result = await _messageDao.UpdateGroupMemberRole(member);
+            var result1 = await _messageDao.UpdateGroupMemberRole(member1);
+            if(result1 != null && result != null) {
+
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_SUCCESS,
+                    Message = MessageResponse.MESSAGE_UPDATE_SUCCESS
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_UPDATE_FAIL
+            };
+        }
+
+        public async Task<bool> CheckChatEx(string userId, string userIdOrther)
+        {
+            return await _messageDao.CheckChatExist(userId, userIdOrther);
+        }
+
+        public async Task<GroupChatModel> GetGroupChatModel(string chatId)
+        {
+            return null;
+        }
+
+        public async Task<ChatModel> GetChatModel(string chatId)
+        {
+            var result = await _messageDao.GetChatToId(chatId);
+           if(result != null)
+            {
+                var chat = new ChatModel
+                {
+                    MessId = result.MessId
+               ,
+                    UserId = result.UserId
+               ,
+                    UserOrtherId = result.UserOrtherId
+                };
+                return chat;
+            }
+            return null;
+
+        }
+
+        public async Task<DetailsChatModel> GetDetailsMessageToId(string details)
+        {
+            var reuslt = await _messageDao.GetDetailsMessageToId(details);
+            if(reuslt != null)
+            {
+                var de = new DetailsChatModel
+                {
+                    ChatId = reuslt.ChatId
+                    , UserId = reuslt.UserId
+                    ,DetailId = reuslt.DetailId,
+                    Time = reuslt.Time,
+                    Content = reuslt.Content,
+                    ImagePath = reuslt.ImagePath,
+                    Status = reuslt.Status
+
+                };
+                return de;
+            }
+            return null;
+        }
+
+        public async Task<bool> CheckRoleUser(string userId, List<GroupMemberModel> list)
+        {
+            foreach (var member in list)
+            {
+                if (member.UserId == userId && member.Role == SynthesizeRoles.GR_MANAGER)
+                    return true;
+            }
+            return false;
         }
     }
 }

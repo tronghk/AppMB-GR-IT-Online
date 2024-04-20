@@ -1,15 +1,17 @@
 package com.example.appgrit.network;
 
+import com.example.appgrit.services.MarketplaceApiService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import java.util.concurrent.TimeUnit;
 
-public class    ApiServiceProvider {
+public class ApiServiceProvider {
     private static final String BASE_URL = "http://appgrit.somee.com/";
     private static Retrofit retrofit = null;
 
@@ -44,12 +46,20 @@ public class    ApiServiceProvider {
     public static PostApiService getPostApiService() {
         return getRetrofitInstance().create(PostApiService.class);
     }
+
     public static ExpressionApiService getExpressionApiService() {
         return getRetrofitInstance().create(ExpressionApiService.class);
     }
 
     public static PostCommentApiService getPostCommentApiService() {
         return getRetrofitInstance().create(PostCommentApiService.class);
+    }
+
+    public static MarketplaceApiService getMarketplaceApiService() {
+        return getRetrofitInstance().create(MarketplaceApiService.class);
+    }
+    public static ChangePassWordApiService getChangePasswordApiService() {
+        return getRetrofitInstance().create(ChangePassWordApiService.class);
     }
 
 

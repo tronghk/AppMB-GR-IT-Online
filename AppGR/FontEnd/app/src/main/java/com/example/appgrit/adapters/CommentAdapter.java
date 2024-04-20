@@ -82,7 +82,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         } else {
             holder.buttonMore.setVisibility(View.GONE);
             // Hiển thị thông báo khi không có quyền truy cập vào chức năng "more"
-            Toast.makeText(context, "You don't have permission to access this feature", Toast.LENGTH_SHORT).show();
         }
 
 

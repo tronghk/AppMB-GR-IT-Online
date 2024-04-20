@@ -1,8 +1,15 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ChangePasswordModel {
+    @SerializedName("email")
     private String Email;
+
+    @SerializedName("oldPassword")
     private String OldPassword;
+
+    @SerializedName("newPassword")
     private String NewPassword;
 
     // Constructors, getters, and setters

@@ -83,7 +83,7 @@ public class comment extends AppCompatActivity {
                     commentList.addAll(response.body());
                     commentAdapter.notifyDataSetChanged();
                 } else {
-                    Toast.makeText(comment.this, "Lỗi khi lấy danh sách comment", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(comment.this, "Lỗi khi lấy danh sách comment", Toast.LENGTH_SHORT).show();
                 }
             }
 

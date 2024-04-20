@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".UserActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -25,7 +26,7 @@
                     android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/back"/>
+                    android:src="@drawable/back" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -49,17 +50,17 @@
             android:id="@+id/setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#eeeeee">
+            android:background="#eeeeee"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_choice"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="10dp"
                 android:background="#eeeeee"
-                style="?android:attr/borderlessButtonStyle"
                 android:maxLines="1"
                 android:text="Lựa chọn hôm nay"
                 android:textAllCaps="false"
@@ -69,12 +70,12 @@
 
             <Button
                 android:id="@+id/btn_upload"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="150dp"
                 android:background="#eeeeee"
-                style="?android:attr/borderlessButtonStyle"
                 android:maxLines="1"
                 android:text="Đăng bài"
                 android:textAllCaps="false"
@@ -88,15 +89,13 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/bar"
-        android:padding="5dp"
         android:background="#eeeeee"
+        android:padding="5dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2" />
 
-</RelativeLayout>
+</LinearLayout>

@@ -46,7 +46,9 @@ builder.Services.AddAuthentication(options =>
     });
 builder.Services.AddScoped<ConnectFirebase>();
 builder.Services.AddScoped<MessageDAO>();
+builder.Services.AddScoped<ListAppChatDAO>();
 builder.Services.AddScoped<IMessages, MessageServices>();
+builder.Services.AddScoped<IListAppChat, ListAppChatServices>();
 
 builder.Services.AddCors(options =>
 

@@ -665,18 +665,8 @@ namespace AppGrIT.Services.Imployement
             var list = await _postDAO.FindPostBySubstringContentAsync(Content);
             foreach (var post in list)
             {
-                var listImage = await _imageManager.GetImagePostToId(post.PostId);
 
-
-                // string imagePath = listImage.FirstOrDefault()?.ImagePath;
-                List<ImagePostModel> imagePosts = listImage.Select(image =>
-             new ImagePostModel
-             {
-                 ImageContent = image.ImageContent,
-                 ImagePath = image.ImagePath,
-                 ImageId = image.ImageId
-             }).ToList();
-
+                var listImage = await _imageManager.GetImagePostToId(post.PostId);                           
                 var us = new PostModel
                 {
                     PostId = post.PostId,
@@ -684,9 +674,7 @@ namespace AppGrIT.Services.Imployement
                     PostTime = post.PostTime,
                     PostType = post.PostType,
                     UserId = post.UserId!,
-                    imagePost =imagePosts,
-
-                  //  imagepostK = imagePath  // Gán danh sách các đường dẫn hình ảnh vào imagePost
+                    imagePost =listImage,                 
                 };
                 result.Add(us);
             }
