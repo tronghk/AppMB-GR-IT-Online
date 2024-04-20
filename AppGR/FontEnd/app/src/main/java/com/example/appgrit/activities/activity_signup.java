@@ -11,6 +11,8 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.appgrit.R;
@@ -32,9 +34,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class activity_signup extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword, editTextBirthday, editTextGender;
+    private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword, editTextBirthday;
     private Button buttonSignUp;
+    private RadioButton radioButtonMale, radioButtonFemale;
+    private RadioGroup radioGroupGender;
     private final Calendar calendar = Calendar.getInstance();
+    // Khởi tạo giá trị mặc định cho giới tính
+    private String gender = "Male";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +48,21 @@ public class activity_signup extends AppCompatActivity implements DatePickerDial
         setContentView(R.layout.activity_signup);
 
         bindViews();
+        setupGenderRadioGroup();
         editTextBirthday.setOnClickListener(v -> showDatePickerDialog());
         buttonSignUp.setOnClickListener(v -> attemptSignUp());
     }
 
+    private void setupGenderRadioGroup() {
+        // Xử lý sự kiện khi lựa chọn giới tính
+        radioGroupGender.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.radio_button_male) {
+                gender = "Male";
+            } else if (checkedId == R.id.radio_button_female) {
+                gender = "Female";
+            }
+        });
+    }
     private void bindViews() {
         editTextFirstName = findViewById(R.id.edit_text_first_name);
         editTextLastName = findViewById(R.id.edit_text_last_name);
@@ -53,7 +70,10 @@ public class activity_signup extends AppCompatActivity implements DatePickerDial
         editTextPassword = findViewById(R.id.edit_text_password);
         editTextConfirmPassword = findViewById(R.id.edit_text_confirm_password);
         editTextBirthday = findViewById(R.id.edit_text_birthday);
-        editTextGender = findViewById(R.id.edit_text_gender);
+//        editTextGender = findViewById(R.id.edit_text_gender);
+        radioButtonMale = findViewById(R.id.radio_button_male);
+        radioButtonFemale = findViewById(R.id.radio_button_female);
+        radioGroupGender = findViewById(R.id.radio_group_gender);
         buttonSignUp = findViewById(R.id.button_sign_up);
     }
 
@@ -85,7 +105,9 @@ public class activity_signup extends AppCompatActivity implements DatePickerDial
         signUpModel.setEmail(editTextEmail.getText().toString().trim());
         signUpModel.setPassword(editTextPassword.getText().toString());
         signUpModel.setPasswordConfirmation(editTextConfirmPassword.getText().toString());
-        signUpModel.setGender(editTextGender.getText().toString()); // Lấy giá trị giới tính từ EditText
+//        signUpModel.setGender(editTextGender.getText().toString()); // Lấy giá trị giới tính từ EditText
+        signUpModel.setGender(gender); // Sử dụng giá trị giới tính từ RadioGroup
+
 
         // Chuyển đổi ngày sinh từ String thành Date
         String birthdayText = editTextBirthday.getText().toString();

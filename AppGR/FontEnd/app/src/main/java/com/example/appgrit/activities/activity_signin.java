@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -42,6 +43,9 @@ public class activity_signin extends AppCompatActivity {
     private  Button btn_gg;
     GoogleSignInClient googleSignInClient;
     int Rc_SignIn = 20;
+
+    private CheckBox checkBoxRememberPassword; // Thêm CheckBox
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,17 @@ public class activity_signin extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edit_text_password);
         buttonSignIn = findViewById(R.id.button_sign_in);
         btn_gg = findViewById(R.id.btn_gg);
+        checkBoxRememberPassword = findViewById(R.id.check_box_remember_password); // Ánh xạ CheckBox
+
+        // Kiểm tra và hiển thị mật khẩu đã ghi nhớ nếu có
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String savedEmail = prefs.getString("email", "");
+        String savedPassword = prefs.getString("password", "");
+        if (!savedEmail.isEmpty() && !savedPassword.isEmpty()) {
+            editTextEmail.setText(savedEmail);
+            editTextPassword.setText(savedPassword);
+            checkBoxRememberPassword.setChecked(true);
+        }
 
         buttonSignIn.setOnClickListener(v -> {
             String email = editTextEmail.getText().toString().trim();
@@ -167,13 +182,21 @@ public class activity_signin extends AppCompatActivity {
                         String date = response.body().getExpiration();
                         // Save the access token in SharedPreferences
                         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-
                         prefs.edit().putString("accessToken", accessToken).apply();
                         prefs.edit().putString("refreshToken", refreshToken).apply();
                         prefs.edit().putString("expiration", date).apply();
 
-
-
+                        // Lưu thông tin mật khẩu vào SharedPreferences nếu người dùng chọn tùy chọn ghi nhớ mật khẩu
+                        SharedPreferences.Editor editor = prefs.edit();
+                        if (checkBoxRememberPassword.isChecked()) {
+                            editor.putString("email", email);
+                            editor.putString("password", password);
+                        } else {
+                            // Nếu người dùng không chọn tùy chọn ghi nhớ mật khẩu, xóa thông tin mật khẩu trong SharedPreferences
+                            editor.remove("email");
+                            editor.remove("password");
+                        }
+                        editor.apply();
 
                         // Now get user info
                         getUserInfo(accessToken);
@@ -181,7 +204,7 @@ public class activity_signin extends AppCompatActivity {
 
                     }
 
-                }else {
+                } else {
                     Toast.makeText(activity_signin.this, "Login failed", Toast.LENGTH_SHORT).show();
                 }
 
@@ -193,7 +216,6 @@ public class activity_signin extends AppCompatActivity {
             }
         });
     }
-
     private void getUserInfo(String accessToken) {
         JWT parsedJWT = new JWT(accessToken);
         Claim subscriptionMetaData = parsedJWT.getClaim("userId");

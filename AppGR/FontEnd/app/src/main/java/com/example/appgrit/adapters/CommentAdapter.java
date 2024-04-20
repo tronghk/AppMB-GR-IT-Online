@@ -77,12 +77,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         // Kiểm tra xem userId của bài đăng có trùng khớp với userId hiện tại hay không
         // Nếu có thì hiển thị nút more, ngược lại ẩn đi
 
-        if (comment.getUserId() != null && currentUserId != null && comment.getUserId().equals(currentUserId)) {
+        if (comment != null && comment.getUserId() != null && currentUserId != null && comment.getUserId().equals(currentUserId)) {
             holder.buttonMore.setVisibility(View.VISIBLE);
         } else {
             holder.buttonMore.setVisibility(View.GONE);
             // Hiển thị thông báo khi không có quyền truy cập vào chức năng "more"
         }
+
 
 
         holder.imageHeart.setOnClickListener(v -> {
@@ -127,13 +128,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     ResponseModel result = response.body();
-                    if (result.getStatus().equals("SUCCESS")) {
+                    if (result != null && result.getStatus() != null && result.getStatus().equals("SUCCESS")) {
                         // Nếu xóa thành công, loại bỏ comment khỏi danh sách và thông báo cho adapter cập nhật
                         commentList.remove(position);
                         notifyItemRemoved(position);
                     } else {
                         // Xử lý khi xóa không thành công
-                        Log.e("API Error", "Failed to delete comment: " + result.getMessage());
+                        Log.e("API Error", "Failed to delete comment: " + (result != null ? result.getMessage() : "Result or message is null"));
                         // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
                     }
                 } else {
@@ -143,6 +144,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                 }
             }
 
+
+
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
                 // Xử lý khi gặp lỗi kết nối hoặc lỗi từ phía backend
@@ -150,6 +153,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                 // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
             }
         });
+    }
+    public void updateCommentList(List<PostCommentModel> newCommentList) {
+        this.commentList = newCommentList;
+        notifyDataSetChanged();
     }
 
     // Phương thức này cần được thay thế bằng cách lấy postId từ activity hoặc fragment chứa RecyclerView

@@ -90,22 +90,42 @@
         android:inputType="date"
         android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
-    <!-- Gender EditText -->
-    <EditText
-        android:id="@+id/edit_text_gender"
+    <!-- Gender RadioGroup -->
+    <RadioGroup
+        android:id="@+id/radio_group_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_text_birthday"
         android:layout_marginTop="8dp"
-        android:hint="Gender"
-        android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
+        android:orientation="horizontal">
+
+        <!-- Male RadioButton -->
+        <!-- Male RadioButton -->
+        <RadioButton
+            android:id="@+id/radio_button_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:checked="true"
+            android:padding="16dp" /> <!-- Tăng kích thước vùng chạm -->
+
+        <!-- Female RadioButton -->
+        <RadioButton
+            android:id="@+id/radio_button_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:padding="16dp" /> <!-- Tăng kích thước vùng chạm -->
+
+    </RadioGroup>
+
 
     <!-- Sign Up Button -->
     <Button
         android:id="@+id/button_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_text_gender"
+        android:layout_below="@id/radio_group_gender"
         android:layout_marginTop="16dp"
         android:text="Sign Up" />
 </RelativeLayout>
