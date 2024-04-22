@@ -4,11 +4,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
 import com.example.appchatit.models.UserModel;
 import com.example.appchatit.network.ApiServiceProvider;
@@ -40,25 +44,22 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
         String otherUser = userModel.getUserName();
         if (otherUser != null && !otherUser.isEmpty()) {
-            holder.txt1.setText(otherUser);
+            holder.nameUser.setText(otherUser);
         } else {
-            holder.txt1.setText("Unknown");
+            holder.nameUser.setText("Unknown");
         }
 
-//        List<ImagePostModel> imageList = postSellProductModel.getImagePosts();
-//        String imagePath = imageList.get(0).toString();
-//        if (imagePath != null && !imagePath.isEmpty()) {
-////            Glide.with(holder.itemView.getContext())
-////                    .load(imagePath)
-////                    .placeholder(R.drawable.profile)
-////                    .into(holder.txt1);
-//            ImagePostModel imagePost = postSellProductModel.getImagePosts().get(0);
-//            Glide.with(holder.txt1.getContext())
-//                    .load(imagePost.getImagePath())
-//                    .into(holder.txt1);
-//        } else {
-//            holder.txt1.setImageResource(R.drawable.profile);
-//        }
+        String imagePath = userModel.getImagePath();
+        if (imagePath != null && !imagePath.isEmpty()) {
+          RequestOptions requestOptions = new RequestOptions();
+            requestOptions = requestOptions.transforms(new CircleCrop());
+            Glide.with(holder.imgUser.getContext())
+                    .load(imagePath)
+                    .apply(requestOptions)
+        .into(holder.imgUser);
+        } else {
+            holder.imgUser.setImageResource(R.drawable.baseline_api_24);
+        }
     }
 
     @Override
@@ -67,12 +68,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView txt1;
+        public ImageView imgUser;
+        public TextView nameUser;
         private Context mContext;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txt1 = itemView.findViewById(R.id.name_item);
+
+            imgUser = itemView.findViewById(R.id.avt_item);
+            nameUser = itemView.findViewById(R.id.name_item);
 
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
