@@ -2,5 +2,6 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">appgrit.somee.com</domain>
+        <domain includeSubdomains="true">appchat.somee.com</domain>
     </domain-config>
 </network-security-config>
