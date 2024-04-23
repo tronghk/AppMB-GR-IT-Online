@@ -68,6 +68,21 @@
         android:inputType="textPassword"
         android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
 
+    <!-- Eye icon for toggling password visibility -->
+    <ImageButton
+        android:id="@+id/image_button_toggle_password_visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/edit_text_password"
+        android:layout_alignBottom="@id/edit_text_password"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Toggle password visibility"
+        android:padding="8dp"
+        android:src="@drawable/hide" />
+
+
     <!-- Confirm Password EditText -->
     <EditText
         android:id="@+id/edit_text_confirm_password"
@@ -78,6 +93,21 @@
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:minHeight="48dp" /> <!-- Thêm android:minHeight -->
+
+    <!-- Eye icon for toggling password visibility -->
+    <ImageButton
+        android:id="@+id/image_button_toggle_confirm_password_visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/edit_text_confirm_password"
+        android:layout_alignBottom="@id/edit_text_confirm_password"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Toggle confirm password visibility"
+        android:padding="8dp"
+        android:src="@drawable/hide" />
+
 
     <!-- Birthday EditText -->
     <EditText

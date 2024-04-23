@@ -132,18 +132,24 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                         // Nếu xóa thành công, loại bỏ comment khỏi danh sách và thông báo cho adapter cập nhật
                         commentList.remove(position);
                         notifyItemRemoved(position);
+                        updateCommentList(commentList); // Cập nhật lại danh sách comment
+                        // Hiển thị thông báo thành công
+                        Toast.makeText(context, "Comment deleted successfully", Toast.LENGTH_SHORT).show();
                     } else {
                         // Xử lý khi xóa không thành công
-                        Log.e("API Error", "Failed to delete comment: " + (result != null ? result.getMessage() : "Result or message is null"));
+                        String errorMessage = (result != null && result.getMessage() != null) ? result.getMessage() : "Unknown error";
+                        Log.e("API Error", "Failed to delete comment: " + errorMessage);
                         // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
+                        Toast.makeText(context, "Failed to delete comment: " + errorMessage, Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     // Xử lý khi gặp lỗi không mong muốn từ phía backend
-                    Log.e("API Error", "Failed to delete comment");
+                    String errorMessage = response.message();
+                    Log.e("API Error", "Failed to delete comment: " + errorMessage);
                     // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
+                    Toast.makeText(context, "Failed to delete comment: " + errorMessage, Toast.LENGTH_SHORT).show();
                 }
             }
-
 
 
             @Override
@@ -154,6 +160,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             }
         });
     }
+
     public void updateCommentList(List<PostCommentModel> newCommentList) {
         this.commentList = newCommentList;
         notifyDataSetChanged();

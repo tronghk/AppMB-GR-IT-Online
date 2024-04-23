@@ -235,24 +235,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 expressionModel.setPostId(post.getPostId());
                 expressionModel.setType("1");
 
-                // Toggle the state
-                holder.isLiked = !holder.isLiked;
-
-                // Update UI immediately
-                if (holder.isLiked) {
-                    holder.likeCount++;
-                } else {
-                    holder.likeCount = Math.max(0, holder.likeCount - 1);
-                }
-                holder.updateLikeButton(); // Reflect the new state in the UI
-                holder.likesTextView.setText(holder.likeCount + " likes");
-
-                // Call API to update the like status
+                holder.isLiked = !holder.isLiked; // Toggle the state
                 if (holder.isLiked) {
                     addExpression(expressionModel, holder.likesTextView, holder);
                 } else {
                     deleteExpression(expressionModel, holder.likesTextView, holder);
                 }
+                holder.updateLikeButton(); // Reflect the new state in the UI
             } else {
                 Toast.makeText(context, "User not logged in", Toast.LENGTH_SHORT).show();
             }
@@ -348,68 +337,80 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
 
     private void addExpression(ExpressionModel expressionModel, TextView likeCountView, ViewHolder holder) {
+        // Update local data immediately
+        SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(expressionModel.getUserId() + "_" + expressionModel.getPostId() + "_liked", true);
+        int currentLikes = prefs.getInt(expressionModel.getPostId() + "_likes", 0);
+        editor.putInt(expressionModel.getPostId() + "_likes", currentLikes + 1);
+        editor.apply();
+
+        // Update UI immediately
+        holder.likeCount = currentLikes + 1;
+        holder.isLiked = true;
+        holder.updateLikeButton();
+        likeCountView.setText((currentLikes + 1) + " likes");
+
+        // Send API request
         ExpressionApiService service = ApiServiceProvider.getExpressionApiService();
         String token = "Bearer " + getAccessTokenFromSharedPreferences();
         Call<ResponseModel> call = service.addExpression(token, expressionModel);
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                if (response.isSuccessful()) {
-                    // Update SharedPreferences
-                    SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean(expressionModel.getUserId() + "_" + expressionModel.getPostId() + "_liked", true);
-                    int currentLikes = prefs.getInt(expressionModel.getPostId() + "_likes", 0);
-                    editor.putInt(expressionModel.getPostId() + "_likes", currentLikes + 1);
-                    editor.apply();
-
-                    // Update like count on UI
-                    countLikes(expressionModel.getPostId(), likeCountView, holder);
-
-                    // Toast.makeText(context, "Liked successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Toast.makeText(context, "Failed to like post", Toast.LENGTH_SHORT).show();
+                if (!response.isSuccessful()) {
+                    // Handle API request failure
+                    // You may need to revert local data changes here
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
-                Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                // Handle network failure
+                // You may need to revert local data changes here
             }
         });
     }
 
 
+
     private void deleteExpression(ExpressionModel expressionModel, TextView likeCountView, ViewHolder holder) {
+        // Update local data immediately
+        SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        int currentLikes = prefs.getInt(expressionModel.getPostId() + "_likes", 0);
+        int updatedLikesCount = Math.max(0, currentLikes - 1); // Prevent negative values
+        editor.putBoolean(expressionModel.getUserId() + "_" + expressionModel.getPostId() + "_liked", false);
+        editor.putInt(expressionModel.getPostId() + "_likes", updatedLikesCount);
+        editor.apply();
+
+        // Update UI immediately
+        holder.likeCount = updatedLikesCount;
+        holder.isLiked = false;
+        holder.updateLikeButton();
+        likeCountView.setText(updatedLikesCount + " likes");
+
+        // Send API request
         ExpressionApiService service = ApiServiceProvider.getExpressionApiService();
         String token = "Bearer " + getAccessTokenFromSharedPreferences();
         Call<ResponseModel> call = service.deleteExpression(token, expressionModel);
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                if (response.isSuccessful()) {
-                    // Update SharedPreferences
-                    SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    int currentLikes = prefs.getInt(expressionModel.getPostId() + "_likes", 0);
-                    int updatedLikesCount = Math.max(0, currentLikes - 1); // Prevent negative values
-                    editor.putBoolean(expressionModel.getUserId() + "_" + expressionModel.getPostId() + "_liked", false);
-                    editor.putInt(expressionModel.getPostId() + "_likes", updatedLikesCount);
-                    editor.apply();
-
-                    // Update like count on UI
-                    likeCountView.setText(updatedLikesCount + " likes");
-                } else {
-                    Toast.makeText(context, "Failed to remove like", Toast.LENGTH_SHORT).show();
+                if (!response.isSuccessful()) {
+                    // Handle API request failure
+                    // You may need to revert local data changes here
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
-                Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                // Handle network failure
+                // You may need to revert local data changes here
             }
         });
     }
+
 
 
 
@@ -483,7 +484,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             likeImageView = itemView.findViewById(R.id.like);
             commentImageView = itemView.findViewById(R.id.comment);
             sendImageView = itemView.findViewById(R.id.send);
-            saveImageView = itemView.findViewById(R.id.save);
+//            saveImageView = itemView.findViewById(R.id.save);
             moreImageView = itemView.findViewById(R.id.more);
             txtContent = itemView.findViewById(R.id.description);
             txtTime = itemView.findViewById(R.id.date_post);
