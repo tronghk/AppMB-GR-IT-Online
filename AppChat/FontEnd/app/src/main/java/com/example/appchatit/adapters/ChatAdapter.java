@@ -1,6 +1,8 @@
 package com.example.appchatit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +16,20 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
+import com.example.appchatit.activities.DetailsChatActivity;
 import com.example.appchatit.models.UserModel;
-import com.example.appchatit.network.ApiServiceProvider;
-import com.example.appchatit.services.ChatApiService;
 
 import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private Context context;
     public static List<UserModel> userModelList;
-    private ChatApiService service;
+    private static String userId;
 
-    public ChatAdapter(Context context, List<UserModel> userModelList) {
+    public ChatAdapter(Context context, List<UserModel> userModelList, String userId) {
         this.context = context;
         this.userModelList = userModelList;
-        this.service = ApiServiceProvider.getChatApiService();
+        this.userId = userId;
     }
 
     @NonNull
@@ -84,7 +85,20 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
         @Override
         public void onClick(View v) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                UserModel post = userModelList.get(position);
+                Intent intent = new Intent(mContext, DetailsChatActivity.class);
 
+                Bundle bundle = new Bundle();
+                bundle.putString("userId", userId);
+                bundle.putString("chatId", post.getUserId());
+                bundle.putString("userName", post.getUserName());
+                bundle.putString("imagePath", post.getImagePath());
+
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
         }
     }
 

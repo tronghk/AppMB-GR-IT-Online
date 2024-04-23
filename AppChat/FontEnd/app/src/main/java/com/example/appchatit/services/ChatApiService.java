@@ -15,4 +15,10 @@ public interface ChatApiService {
             @Header("Authorization") String token,
             @Query("userId") String userId
     );
+
+    @GET("get-chat")
+    Call<List<UserModel>> getChat(
+            @Header("Authorization") String token,
+            @Query("userId") String userId
+    );
 }
