@@ -24,12 +24,10 @@ import java.util.List;
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private Context context;
     public static List<UserModel> userModelList;
-    private static String userId;
 
-    public ChatAdapter(Context context, List<UserModel> userModelList, String userId) {
+    public ChatAdapter(Context context, List<UserModel> userModelList) {
         this.context = context;
         this.userModelList = userModelList;
-        this.userId = userId;
     }
 
     @NonNull
@@ -91,7 +89,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                 Intent intent = new Intent(mContext, DetailsChatActivity.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("userId", userId);
                 bundle.putString("chatId", post.getUserId());
                 bundle.putString("userName", post.getUserName());
                 bundle.putString("imagePath", post.getImagePath());

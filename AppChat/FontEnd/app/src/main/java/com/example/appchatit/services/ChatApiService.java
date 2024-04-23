@@ -1,5 +1,6 @@
 package com.example.appchatit.services;
 
+import com.example.appchatit.models.DetailsChatModel;
 import com.example.appchatit.models.UserModel;
 
 import java.util.List;
@@ -20,5 +21,11 @@ public interface ChatApiService {
     Call<List<UserModel>> getChat(
             @Header("Authorization") String token,
             @Query("userId") String userId
+    );
+
+    @GET("get-listDetailsChat")
+    Call<List<DetailsChatModel>> getListDetailsChat(
+            @Header("Authorization") String token,
+            @Query("chatId") String chatId
     );
 }

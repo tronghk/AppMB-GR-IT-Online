@@ -18,7 +18,7 @@
             app:srcCompat="@drawable/ic_avatar_listchat" />
 
         <TextView
-            android:id="@+id/msg_item_boxchat"
+            android:id="@+id/msg_left_boxchat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

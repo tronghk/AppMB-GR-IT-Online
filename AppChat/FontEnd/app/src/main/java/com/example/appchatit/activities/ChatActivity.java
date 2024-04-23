@@ -31,19 +31,14 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listchat);
-
         setupRecyclerView();
     }
 
     private void setupRecyclerView() {
-        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        String userId = prefs.getString("userId", "");
-
         recyclerView = findViewById(R.id.list_chat);
-        chatAdapter = new ChatAdapter(this, userModelList, userId);
+        chatAdapter = new ChatAdapter(this, userModelList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(chatAdapter);
-
         loadListChat();
     }
 
