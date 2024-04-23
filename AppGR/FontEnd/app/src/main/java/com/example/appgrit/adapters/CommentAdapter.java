@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
+import com.example.appgrit.comment;
 import com.example.appgrit.models.ExpressionModel;
 import com.example.appgrit.models.PostCommentModel;
 import com.example.appgrit.models.ResponseModel;
@@ -127,39 +128,27 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    ResponseModel result = response.body();
-                    if (result != null && result.getStatus() != null && result.getStatus().equals("SUCCESS")) {
-                        // Nếu xóa thành công, loại bỏ comment khỏi danh sách và thông báo cho adapter cập nhật
-                        commentList.remove(position);
-                        notifyItemRemoved(position);
-                        updateCommentList(commentList); // Cập nhật lại danh sách comment
-                        // Hiển thị thông báo thành công
-                        Toast.makeText(context, "Comment deleted successfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // Xử lý khi xóa không thành công
-                        String errorMessage = (result != null && result.getMessage() != null) ? result.getMessage() : "Unknown error";
-                        Log.e("API Error", "Failed to delete comment: " + errorMessage);
-                        // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
-                        Toast.makeText(context, "Failed to delete comment: " + errorMessage, Toast.LENGTH_SHORT).show();
-                    }
+                    // Xóa comment khỏi danh sách
+                    commentList.remove(position);
+                    // Thông báo cho RecyclerView biết là có dữ liệu thay đổi
+                    notifyItemRemoved(position);
+                    // Hiển thị thông báo thành công
+                    Toast.makeText(context, "Comment deleted successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Xử lý khi gặp lỗi không mong muốn từ phía backend
-                    String errorMessage = response.message();
-                    Log.e("API Error", "Failed to delete comment: " + errorMessage);
-                    // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
-                    Toast.makeText(context, "Failed to delete comment: " + errorMessage, Toast.LENGTH_SHORT).show();
+                    // Xử lý khi xóa không thành công
+                    // Hiển thị thông báo lỗi
                 }
             }
 
-
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
-                // Xử lý khi gặp lỗi kết nối hoặc lỗi từ phía backend
-                Log.e("API Failure", "Error deleting comment", t);
-                // Hiển thị thông báo hoặc xử lý lỗi khác nếu cần
+                // Xử lý khi gặp lỗi
+                // Hiển thị thông báo lỗi
             }
         });
     }
+
+
 
     public void updateCommentList(List<PostCommentModel> newCommentList) {
         this.commentList = newCommentList;
