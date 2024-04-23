@@ -12,4 +12,7 @@
     <item
         android:id="@+id/nav_edit_info"
         android:title="Chỉnh sửa thông tin" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Đăng xuất" />
 </menu>

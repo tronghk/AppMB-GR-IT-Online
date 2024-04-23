@@ -125,6 +125,18 @@ public class activity_home extends AppCompatActivity {
             }
         });
     }
+    private void logout() {
+        // Xóa dữ liệu đăng nhập từ SharedPreferences
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+        editor.remove("accessToken");
+        editor.remove("userId");
+        editor.apply();
+
+        // Chuyển hướng đến màn hình đăng nhập
+        Intent intent = new Intent(activity_home.this, activity_signin.class);
+        startActivity(intent);
+        finish(); // Kết thúc activity hiện tại để ngăn người dùng quay lại khi nhấn nút Back
+    }
 
 
     private void showMoreMenu(View anchor) {
@@ -141,7 +153,12 @@ public class activity_home extends AppCompatActivity {
             } else if (itemId == R.id.nav_edit_info) {
                 startActivity(new Intent(activity_home.this, edit_profile.class));
                 return true;
-            } else {
+            } else if (itemId == R.id.nav_logout) {
+                // Xử lý đăng xuất ở đây
+                logout();
+                return true;
+            }
+            else {
                 return false;
             }
         });
