@@ -20,9 +20,9 @@ public class DetailsChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public static List<DetailsChatModel> detailsChatModelList;
 
     public DetailsChatAdapter(Context context, List<DetailsChatModel> list, String userId) {
-        this.userId = userId;
         this.context = context;
         this.detailsChatModelList = list;
+        this.userId = userId;
     }
 
     @NonNull

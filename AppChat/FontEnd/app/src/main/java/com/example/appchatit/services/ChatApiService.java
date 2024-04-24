@@ -6,8 +6,10 @@ import com.example.appchatit.models.UserModel;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ChatApiService {
@@ -27,5 +29,11 @@ public interface ChatApiService {
     Call<List<DetailsChatModel>> getListDetailsChat(
             @Header("Authorization") String token,
             @Query("chatId") String chatId
+    );
+
+    @POST("create-message")
+    Call<DetailsChatModel> createMessage(
+            @Header("Authorization") String token,
+            @Body DetailsChatModel detailsChatModel
     );
 }
