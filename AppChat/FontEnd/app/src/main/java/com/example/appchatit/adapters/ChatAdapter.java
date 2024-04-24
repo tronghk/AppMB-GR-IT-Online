@@ -23,7 +23,7 @@ import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private Context context;
-    public static List<UserModel> userModelList;
+    private List<UserModel> userModelList;
 
     public ChatAdapter(Context context, List<UserModel> userModelList) {
         this.context = context;
@@ -66,7 +66,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         return userModelList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView imgUser;
         public TextView nameUser;
         private Context mContext;
@@ -85,13 +85,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                UserModel post = userModelList.get(position);
+                UserModel user = userModelList.get(position);
                 Intent intent = new Intent(mContext, DetailsChatActivity.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("chatId", post.getUserId());
-                bundle.putString("userName", post.getUserName());
-                bundle.putString("imagePath", post.getImagePath());
+                bundle.putString("chatId", user.getUserId());
+                bundle.putString("userName", user.getUserName());
+                bundle.putString("imagePath", user.getImagePath());
 
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);

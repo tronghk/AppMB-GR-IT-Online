@@ -1,5 +1,6 @@
 package com.example.appchatit.services;
 
+import com.example.appchatit.models.ChatModel;
 import com.example.appchatit.models.DetailsChatModel;
 import com.example.appchatit.models.UserModel;
 
@@ -35,5 +36,11 @@ public interface ChatApiService {
     Call<DetailsChatModel> createMessage(
             @Header("Authorization") String token,
             @Body DetailsChatModel detailsChatModel
+    );
+
+    @POST("create-chat-message")
+    Call<ChatModel> createChat(
+            @Header("Authorization") String token,
+            @Body ChatModel chatModel
     );
 }
