@@ -2,6 +2,8 @@ package com.example.appchatit.services;
 
 import com.example.appchatit.models.SignInModel;
 import com.example.appchatit.models.TokenModel;
+import com.example.appchatit.models.UserFriendModel;
+import com.example.appchatit.models.UserModel;
 
 import java.util.List;
 import okhttp3.ResponseBody;
@@ -17,4 +19,10 @@ public interface UserApiService {
 
     @POST("signin")
     Call<TokenModel> signIn(@Body SignInModel signInModel);
+
+    @GET("get-user-id")
+    Call<UserModel> getUserBasic(@Query("userId") String userId);
+
+    @GET("get-listUserFriend")
+    Call<List<UserFriendModel>> getListUserFriend(@Query("userId") String userId);
 }

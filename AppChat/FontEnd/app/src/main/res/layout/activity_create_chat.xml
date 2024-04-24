@@ -12,7 +12,7 @@
         android:layout_marginTop="10dp">
 
         <ImageView
-            android:id="@+id/btn_back_add_member"
+            android:id="@+id/btn_back_create_chat"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="12dp"
@@ -22,32 +22,21 @@
             app:srcCompat="@drawable/ic_back_listchat" />
 
         <TextView
-            android:id="@+id/txt_add_member"
+            android:id="@+id/txt_create_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
-            android:text="Add member"
+            android:text="Create chat"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/btn_back_add_member"
+            app:layout_constraintStart_toEndOf="@+id/btn_back_create_chat"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/btn_add_member"
-            android:layout_width="25sp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_add" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_add_member"
+        android:id="@+id/recycle_create_chat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp" />

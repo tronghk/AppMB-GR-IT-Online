@@ -33,14 +33,14 @@
             app:srcCompat="@drawable/ic_back_listchat" />
 
         <ImageView
-            android:id="@+id/btn_edit"
+            android:id="@+id/btn_create_chat"
             android:layout_width="25sp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_edit_listchat" />
+            app:srcCompat="@drawable/ic_add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
