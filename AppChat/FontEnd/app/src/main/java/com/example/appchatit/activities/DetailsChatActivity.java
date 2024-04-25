@@ -92,11 +92,17 @@ public class DetailsChatActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            imagePath = bundle.getString("imagePath", "");
+        }
+
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         userId = prefs.getString("userId", "");
 
         recyclerView = findViewById(R.id.box_chat);
-        detailsChatAdapter = new DetailsChatAdapter(this, detailsChatModelList, userId);
+        detailsChatAdapter = new DetailsChatAdapter(this, detailsChatModelList, userId, imagePath);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(detailsChatAdapter);
         loadListMessage();
@@ -153,6 +159,7 @@ public class DetailsChatActivity extends AppCompatActivity {
 
         TextView txtUserName = findViewById(R.id.txt_name);
         txtUserName.setText(userName);
+
         ImageView imgUser = findViewById(R.id.avatar_item);
         RequestOptions requestOptions = new RequestOptions();
         requestOptions = requestOptions.transforms(new CircleCrop());
@@ -175,9 +182,6 @@ public class DetailsChatActivity extends AppCompatActivity {
                             return detailChat1.getTime().compareTo(detailChat2.getTime());
                         }
                     });
-                    for (DetailsChatModel mess : detailsChatModelList) {
-                        Log.d("time", mess.getTime());
-                    }
                     detailsChatAdapter.setData(detailsChatModelList);
                     recyclerView.smoothScrollToPosition(detailsChatModelList.size());
                 } else {
