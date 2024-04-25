@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,17 +37,15 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listchat);
         setupRecyclerView();
-        setupBottomNavigationView();
+//        setupBottomNavigationView();
 
         ImageView btnCreateChat = findViewById(R.id.btn_create_chat);
         btnCreateChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChatActivity.this, CreateChatActivity.class);
-                startActivity(intent);
+                showPopupMenu(v);
             }
         });
-
     }
 
     private void setupRecyclerView() {
@@ -57,20 +56,39 @@ public class ChatActivity extends AppCompatActivity {
         loadListChat();
     }
 
-    private void setupBottomNavigationView() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+//    private void setupBottomNavigationView() {
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+//            int itemId = item.getItemId();
+//            if (itemId == R.id.nav_item_chat) {
+//                return true;
+//            } else if (itemId == R.id.nav_item_group) {
+//                Intent intent = new Intent(ChatActivity.this, CreateChatActivity.class);
+//                startActivity(intent);
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        });
+//    }
+
+    private void showPopupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.menu_create, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.nav_item_chat) {
+            if (itemId == R.id.nav_item_create_chat) {
+                startActivity(new Intent(ChatActivity.this, CreateChatActivity.class));
                 return true;
-            } else if (itemId == R.id.nav_item_group) {
-                Intent intent = new Intent(ChatActivity.this, CreateChatActivity.class);
-                startActivity(intent);
+            } else if (itemId == R.id.nav_item_create_group) {
+                startActivity(new Intent(ChatActivity.this, CreateGroupActivity.class));
                 return true;
             } else {
                 return false;
             }
         });
+        popupMenu.show();
     }
 
     private void loadListChat() {

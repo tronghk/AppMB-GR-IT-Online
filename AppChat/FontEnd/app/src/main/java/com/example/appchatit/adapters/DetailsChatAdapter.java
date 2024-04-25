@@ -36,10 +36,10 @@ public class DetailsChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         if (viewType == 0) {
-            view = LayoutInflater.from(context).inflate(R.layout.message_left_boxchat, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.message_left_item, parent, false);
             return new ViewHolder1(view);
         } else {
-            view = LayoutInflater.from(context).inflate(R.layout.message_right_boxchat, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.message_right_item, parent, false);
             return new ViewHolder2(view);
         }
     }
