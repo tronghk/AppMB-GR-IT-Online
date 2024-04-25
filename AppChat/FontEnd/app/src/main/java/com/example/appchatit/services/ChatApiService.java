@@ -2,6 +2,8 @@ package com.example.appchatit.services;
 
 import com.example.appchatit.models.ChatModel;
 import com.example.appchatit.models.DetailsChatModel;
+import com.example.appchatit.models.GroupChatModel;
+import com.example.appchatit.models.GroupMemberModel;
 import com.example.appchatit.models.UserModel;
 
 import java.util.List;
@@ -42,5 +44,17 @@ public interface ChatApiService {
     Call<ChatModel> createChat(
             @Header("Authorization") String token,
             @Body ChatModel chatModel
+    );
+
+    @POST("create-group-chat-message")
+    Call<GroupChatModel> createGroupChat(
+            @Header("Authorization") String token,
+            @Body GroupChatModel groupChatModel
+    );
+
+    @POST("add-member-group-chat")
+    Call<GroupMemberModel> addMemberGroupChat(
+            @Header("Authorization") String token,
+            @Body GroupMemberModel groupMemberModel
     );
 }

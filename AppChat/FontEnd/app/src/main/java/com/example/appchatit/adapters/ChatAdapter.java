@@ -49,13 +49,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         }
 
         String imagePath = userModel.getImagePath();
-        if (imagePath != null && !imagePath.isEmpty()) {
-          RequestOptions requestOptions = new RequestOptions();
+        if (imagePath != null && !imagePath.isEmpty() && imagePath.startsWith("https://firebasestorage.googleapis.com/")) {
+            RequestOptions requestOptions = new RequestOptions();
             requestOptions = requestOptions.transforms(new CircleCrop());
             Glide.with(holder.imgUser.getContext())
                     .load(imagePath)
                     .apply(requestOptions)
-        .into(holder.imgUser);
+                    .into(holder.imgUser);
         } else {
             holder.imgUser.setImageResource(R.drawable.baseline_api_24);
         }

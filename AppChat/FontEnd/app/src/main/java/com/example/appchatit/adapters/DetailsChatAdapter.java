@@ -53,7 +53,7 @@ public class DetailsChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ViewHolder1 viewHolder1 = (ViewHolder1) holder;
             if (message != null && !message.isEmpty()) {
                 viewHolder1.messageLeft.setText(message);
-                if (imagePath != null && !imagePath.isEmpty()) {
+                if (imagePath != null && !imagePath.isEmpty() && imagePath.startsWith("https://firebasestorage.googleapis.com/")) {
                     RequestOptions requestOptions = new RequestOptions();
                     requestOptions = requestOptions.transforms(new CircleCrop());
                     Glide.with(((ViewHolder1) holder).imgUser.getContext())
