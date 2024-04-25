@@ -17,6 +17,7 @@ import com.example.appchatit.adapters.ChatAdapter;
 import com.example.appchatit.models.UserModel;
 import com.example.appchatit.network.ApiServiceProvider;
 import com.example.appchatit.services.ChatApiService;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listchat);
         setupRecyclerView();
+        setupBottomNavigationView();
 
         ImageView btnCreateChat = findViewById(R.id.btn_create_chat);
         btnCreateChat.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +55,22 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(chatAdapter);
         loadListChat();
+    }
+
+    private void setupBottomNavigationView() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_item_chat) {
+                return true;
+            } else if (itemId == R.id.nav_item_group) {
+                Intent intent = new Intent(ChatActivity.this, CreateChatActivity.class);
+                startActivity(intent);
+                return true;
+            } else {
+                return false;
+            }
+        });
     }
 
     private void loadListChat() {
