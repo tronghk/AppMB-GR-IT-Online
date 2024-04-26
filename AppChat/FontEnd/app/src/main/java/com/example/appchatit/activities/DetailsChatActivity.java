@@ -51,14 +51,25 @@ public class DetailsChatActivity extends AppCompatActivity {
     private ImageView btnSend;
     private EditText edtContent;
     private RecyclerView boxChat;
+    private ImageView btnInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boxchat);
+        initializeViews();
+        setupEventListeners();
         setupRecyclerView();
+    }
 
+    private void initializeViews(){
+        btnInfo = findViewById(R.id.btn_info_chat);
         btnSend = findViewById(R.id.btn_send);
+        edtContent = findViewById(R.id.edt_message);
+        boxChat = findViewById(R.id.box_chat);
+    }
+
+    private void setupEventListeners(){
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +77,6 @@ public class DetailsChatActivity extends AppCompatActivity {
             }
         });
 
-        edtContent = findViewById(R.id.edt_message);
         edtContent.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -76,7 +86,6 @@ public class DetailsChatActivity extends AppCompatActivity {
             }
         });
 
-        boxChat = findViewById(R.id.box_chat);
         ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -92,6 +101,21 @@ public class DetailsChatActivity extends AppCompatActivity {
             }
         };
         boxChat.getViewTreeObserver().addOnGlobalLayoutListener(globalLayoutListener);
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsChatActivity.this, InfoGroupActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("chatId", chatId);
+                bundle.putString("userName", userName);
+                bundle.putString("imagePath", imagePath);
+
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupRecyclerView() {
@@ -161,7 +185,6 @@ public class DetailsChatActivity extends AppCompatActivity {
             imagePath = bundle.getString("imagePath", "");
         }
 
-        ImageView btnInfo = findViewById(R.id.btn_info_chat);
         if (isUser) {
             btnInfo.setVisibility(View.GONE);
         }

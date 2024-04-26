@@ -29,6 +29,9 @@
             android:name=".activities.CreateGroupActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.InfoGroupActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
