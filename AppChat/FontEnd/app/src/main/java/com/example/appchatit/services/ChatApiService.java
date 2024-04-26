@@ -4,13 +4,17 @@ import com.example.appchatit.models.ChatModel;
 import com.example.appchatit.models.DetailsChatModel;
 import com.example.appchatit.models.GroupChatModel;
 import com.example.appchatit.models.GroupMemberModel;
+import com.example.appchatit.models.ResponseModel;
 import com.example.appchatit.models.UserModel;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -61,6 +65,12 @@ public interface ChatApiService {
 
     @POST("add-member-group-chat")
     Call<GroupMemberModel> addMemberGroupChat(
+            @Header("Authorization") String token,
+            @Body GroupMemberModel groupMemberModel
+    );
+
+    @HTTP(method = "DELETE", path = "delete-member-group-chat", hasBody = true)
+    Call<ResponseModel> deleteMemberGroupChat(
             @Header("Authorization") String token,
             @Body GroupMemberModel groupMemberModel
     );

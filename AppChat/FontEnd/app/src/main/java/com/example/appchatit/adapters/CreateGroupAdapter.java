@@ -4,7 +4,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +20,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
-import com.example.appchatit.activities.ChatActivity;
-import com.example.appchatit.activities.CreateGroupActivity;
 import com.example.appchatit.models.GroupMemberModel;
+import com.example.appchatit.models.ResponseModel;
 import com.example.appchatit.models.UserModel;
 import com.example.appchatit.network.ApiServiceProvider;
 import com.example.appchatit.services.ChatApiService;
@@ -41,10 +39,12 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
     private Context context;
     private List<UserModel> userList;
     private List<GroupMemberModel> memberList;
+    public String currentChatId;
 
-    public CreateGroupAdapter(Context context, List<UserModel> userList) {
+    public CreateGroupAdapter(Context context, List<UserModel> userList, String chatId) {
         this.context = context;
         this.userList = userList;
+        this.currentChatId = chatId;
     }
 
     @NonNull
@@ -115,7 +115,7 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                 if (!checkBox.isChecked()) {
                     checkBox.setChecked(true);
                     memberList.add(member);
-                    addMemberGroup();
+                    addMemberGroup(member);
                 } else {
                     checkBox.setChecked(false);
                     Iterator<GroupMemberModel> iterator = memberList.iterator();
@@ -123,10 +123,10 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                         GroupMemberModel existingMember = iterator.next();
                         if (existingMember.getUserId().equals(member.getUserId())) {
                             iterator.remove();
+                            deleteMemberGroup(member);
                             break;
                         }
                     }
-                    deleteMemberGroup();
                 }
             }
             if (listener != null) {
@@ -147,14 +147,55 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
             animator.start();
         }
 
-        private void addMemberGroup() {
-            //
-            Toast.makeText(mContext, "Add member", Toast.LENGTH_SHORT).show();
+        private void addMemberGroup(GroupMemberModel member) {
+            member.setGroupId(currentChatId);
+            SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String token = prefs.getString("accessToken", "");
+            String userId = prefs.getString("userId", "");
+            ChatApiService service = ApiServiceProvider.getChatApiService();
+
+            Call<GroupMemberModel> call = service.addMemberGroupChat("Bearer " + token, member);
+            call.enqueue(new Callback<GroupMemberModel>() {
+                @Override
+                public void onResponse(Call<GroupMemberModel> call, Response<GroupMemberModel> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(mContext, "Add member", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<GroupMemberModel> call, Throwable t) {
+                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
-        private void deleteMemberGroup() {
-            //
-            Toast.makeText(mContext, "Delete member", Toast.LENGTH_SHORT).show();
+        private void deleteMemberGroup(GroupMemberModel member) {
+            member.setGroupId(currentChatId);
+            SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String token = prefs.getString("accessToken", "");
+            String userId = prefs.getString("userId", "");
+            ChatApiService service = ApiServiceProvider.getChatApiService();
+            Toast.makeText(mContext, userId+" Add member "+member.getUserId()+member.getRole(), Toast.LENGTH_SHORT).show();
+
+            Call<ResponseModel> call = service.deleteMemberGroupChat("Bearer " + token, member);
+            call.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(mContext, "Delete member", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 }
