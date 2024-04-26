@@ -39,12 +39,15 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
     private Context context;
     private List<UserModel> userList;
     private List<GroupMemberModel> memberList;
-    public String currentChatId;
+    public String currentGroupId;
+    private boolean isEdit;
 
-    public CreateGroupAdapter(Context context, List<UserModel> userList, String chatId) {
+    public CreateGroupAdapter(Context context, List<UserModel> userList, String chatId, List<GroupMemberModel> memberList) {
         this.context = context;
         this.userList = userList;
-        this.currentChatId = chatId;
+        this.currentGroupId = chatId;
+        this.isEdit = chatId != null;
+        this.memberList = memberList;
     }
 
     @NonNull
@@ -76,6 +79,16 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
         } else {
             holder.imgUser.setImageResource(R.drawable.baseline_api_24);
         }
+
+        boolean isChecked = false;
+        UserModel user = userList.get(position);
+        for (GroupMemberModel member : memberList) {
+            if (user.getUserId().equals(member.getUserId())) {
+                isChecked = true;
+                break;
+            }
+        }
+        holder.checkBox.setChecked(isChecked);
     }
 
     @Override
@@ -97,14 +110,14 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
             imgUser = itemView.findViewById(R.id.avt_member_item);
             nameUser = itemView.findViewById(R.id.name_member_item);
             checkBox = itemView.findViewById(R.id.checkbox_member_item);
-            memberList = new ArrayList<>();
-
+            if (!isEdit) {
+                memberList = new ArrayList<>();
+            }
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
             this.listener = listener;
             member_item_layout = itemView.findViewById(R.id.member_layout);
         }
-
 
         @Override
         public void onClick(View v) {
@@ -112,10 +125,13 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
             if (position != RecyclerView.NO_POSITION) {
                 UserModel user = userList.get(position);
                 GroupMemberModel member = new GroupMemberModel(null, user.getUserId(), "GR_MEMBER");
+
                 if (!checkBox.isChecked()) {
                     checkBox.setChecked(true);
                     memberList.add(member);
-                    addMemberGroup(member);
+                    if (isEdit) {
+                        addMemberGroup(member);
+                    }
                 } else {
                     checkBox.setChecked(false);
                     Iterator<GroupMemberModel> iterator = memberList.iterator();
@@ -123,11 +139,14 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                         GroupMemberModel existingMember = iterator.next();
                         if (existingMember.getUserId().equals(member.getUserId())) {
                             iterator.remove();
-                            deleteMemberGroup(member);
+                            if (isEdit) {
+                                deleteMemberGroup(member);
+                            }
                             break;
                         }
                     }
                 }
+                Toast.makeText(mContext, "Member list " + memberList.size(), Toast.LENGTH_SHORT).show();
             }
             if (listener != null) {
                 listener.onMemberListChange(memberList);
@@ -148,7 +167,7 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
         }
 
         private void addMemberGroup(GroupMemberModel member) {
-            member.setGroupId(currentChatId);
+            member.setGroupId(currentGroupId);
             SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             String token = prefs.getString("accessToken", "");
             String userId = prefs.getString("userId", "");
@@ -173,12 +192,11 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
         }
 
         private void deleteMemberGroup(GroupMemberModel member) {
-            member.setGroupId(currentChatId);
+            member.setGroupId(currentGroupId);
             SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             String token = prefs.getString("accessToken", "");
             String userId = prefs.getString("userId", "");
             ChatApiService service = ApiServiceProvider.getChatApiService();
-            Toast.makeText(mContext, userId+" Add member "+member.getUserId()+member.getRole(), Toast.LENGTH_SHORT).show();
 
             Call<ResponseModel> call = service.deleteMemberGroupChat("Bearer " + token, member);
             call.enqueue(new Callback<ResponseModel>() {

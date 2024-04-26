@@ -1,12 +1,15 @@
 package com.example.appchatit.activities;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -15,6 +18,17 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
+import com.example.appchatit.adapters.CreateGroupAdapter;
+import com.example.appchatit.models.GroupMemberModel;
+import com.example.appchatit.network.ApiServiceProvider;
+import com.example.appchatit.services.ChatApiService;
+
+import java.io.Serializable;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class InfoGroupActivity extends AppCompatActivity {
     private String chatId;
@@ -23,6 +37,7 @@ public class InfoGroupActivity extends AppCompatActivity {
     private ImageView imgGroup;
     private TextView nameGroup;
     private ConstraintLayout function1;
+    private List<GroupMemberModel> memberList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +46,7 @@ public class InfoGroupActivity extends AppCompatActivity {
         initializeViews();
         setupEventListeners();
         loadInfoGroup();
+        getMemberList();
     }
 
     private void initializeViews() {
@@ -49,8 +65,10 @@ public class InfoGroupActivity extends AppCompatActivity {
                 bundle.putString("chatId", chatId);
                 bundle.putString("userName", userName);
                 bundle.putString("imagePath", imagePath);
+                bundle.putSerializable("memberList", (Serializable) memberList);
                 intent.putExtras(bundle);
                 startActivity(intent);
+
                 ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
                 animator.setDuration(1000);
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -81,5 +99,32 @@ public class InfoGroupActivity extends AppCompatActivity {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions = requestOptions.transforms(new CircleCrop());
         Glide.with(this).load(imagePath).apply(requestOptions).into(imgGroup);
+    }
+
+    private void getMemberList() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        String userId = prefs.getString("userId", "");
+        ChatApiService service = ApiServiceProvider.getChatApiService();
+
+        if (chatId != null) {
+            Call<List<GroupMemberModel>> call = service.getListMemberGroup("Bearer " + token, chatId);
+            call.enqueue(new Callback<List<GroupMemberModel>>() {
+                @Override
+                public void onResponse(Call<List<GroupMemberModel>> call, Response<List<GroupMemberModel>> response) {
+                    if (response.isSuccessful()) {
+                        memberList = response.body();
+                        Toast.makeText(InfoGroupActivity.this, "Get member list successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(InfoGroupActivity.this, "Failed to fetch member list: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<GroupMemberModel>> call, Throwable t) {
+                    Toast.makeText(InfoGroupActivity.this, "Error fetching member list: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

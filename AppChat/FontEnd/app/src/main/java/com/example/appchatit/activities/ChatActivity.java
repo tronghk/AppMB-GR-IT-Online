@@ -3,7 +3,6 @@ package com.example.appchatit.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -18,7 +17,6 @@ import com.example.appchatit.adapters.ChatAdapter;
 import com.example.appchatit.models.UserModel;
 import com.example.appchatit.network.ApiServiceProvider;
 import com.example.appchatit.services.ChatApiService;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;

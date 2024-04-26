@@ -74,4 +74,10 @@ public interface ChatApiService {
             @Header("Authorization") String token,
             @Body GroupMemberModel groupMemberModel
     );
+
+    @GET("get-group-member")
+    Call<List<GroupMemberModel>> getListMemberGroup(
+            @Header("Authorization") String token,
+            @Query("groupId") String groupId
+    );
 }

@@ -62,6 +62,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
     private String imgGroupUrl;
     private List<GroupMemberModel> listMember = new ArrayList<>();
     private LinearLayout parentLayout;
+    private List<GroupMemberModel> memberList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +100,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    nameGroup.setText("");
+                    nameGroup.setText(!nameGroup.getText().toString().trim().equals("Name group") ? nameGroup.getText().toString().trim() : "");
                 }
             }
         });
@@ -110,7 +111,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if (nameGroup.hasFocus()) {
                         nameGroup.clearFocus();
-                        nameGroup.setText("Name group");
+                        nameGroup.setText(!nameGroup.getText().toString().trim().equals("Name group") ? nameGroup.getText().toString().trim() : "");
                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(nameGroup.getWindowToken(), 0);
                     }
@@ -126,10 +127,11 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
             chatId = bundle.getString("chatId", "");
+            memberList = (List<GroupMemberModel>) bundle.getSerializable("memberList");
         }
 
         recyclerView = findViewById(R.id.recycle_add_member);
-        createGroupAdapter = new CreateGroupAdapter(this, userList, chatId);
+        createGroupAdapter = new CreateGroupAdapter(this, userList, chatId, memberList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(createGroupAdapter);
         loadListFriend();
