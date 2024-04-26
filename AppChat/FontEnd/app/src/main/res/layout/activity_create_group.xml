@@ -73,6 +73,13 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txt_list_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Friends" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_add_member"
         android:layout_width="match_parent"

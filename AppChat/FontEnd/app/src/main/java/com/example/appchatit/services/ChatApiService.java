@@ -13,6 +13,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ChatApiService {
@@ -48,6 +49,12 @@ public interface ChatApiService {
 
     @POST("create-group-chat-message")
     Call<GroupChatModel> createGroupChat(
+            @Header("Authorization") String token,
+            @Body GroupChatModel groupChatModel
+    );
+
+    @PUT("update-group-chat-message")
+    Call<GroupChatModel> updateGroupChat(
             @Header("Authorization") String token,
             @Body GroupChatModel groupChatModel
     );

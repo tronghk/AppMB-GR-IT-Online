@@ -1,27 +1,41 @@
 package com.example.appchatit.adapters;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
+import com.example.appchatit.activities.ChatActivity;
+import com.example.appchatit.activities.CreateGroupActivity;
 import com.example.appchatit.models.GroupMemberModel;
 import com.example.appchatit.models.UserModel;
+import com.example.appchatit.network.ApiServiceProvider;
+import com.example.appchatit.services.ChatApiService;
 import com.example.appchatit.services.OnMemberListChangeListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.ViewHolder> {
     private Context context;
@@ -75,6 +89,7 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
         public CheckBox checkBox;
         private Context mContext;
         private OnMemberListChangeListener listener;
+        private ConstraintLayout member_item_layout;
 
         public ViewHolder(@NonNull View itemView, OnMemberListChangeListener listener) {
             super(itemView);
@@ -87,6 +102,7 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
             this.listener = listener;
+            member_item_layout = itemView.findViewById(R.id.member_layout);
         }
 
 
@@ -99,6 +115,7 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                 if (!checkBox.isChecked()) {
                     checkBox.setChecked(true);
                     memberList.add(member);
+                    addMemberGroup();
                 } else {
                     checkBox.setChecked(false);
                     Iterator<GroupMemberModel> iterator = memberList.iterator();
@@ -109,11 +126,35 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                             break;
                         }
                     }
+                    deleteMemberGroup();
                 }
             }
             if (listener != null) {
                 listener.onMemberListChange(memberList);
             }
+
+            ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+            animator.setDuration(1000);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float progress = animation.getAnimatedFraction();
+                    int alpha = (int) (255 * (1 - progress));
+                    int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
+                    member_item_layout.setBackgroundColor(color);
+                }
+            });
+            animator.start();
+        }
+
+        private void addMemberGroup() {
+            //
+            Toast.makeText(mContext, "Add member", Toast.LENGTH_SHORT).show();
+        }
+
+        private void deleteMemberGroup() {
+            //
+            Toast.makeText(mContext, "Delete member", Toast.LENGTH_SHORT).show();
         }
     }
 }
