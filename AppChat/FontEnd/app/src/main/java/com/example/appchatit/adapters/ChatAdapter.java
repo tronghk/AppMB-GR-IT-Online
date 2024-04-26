@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,11 +20,13 @@ import com.example.appchatit.R;
 import com.example.appchatit.activities.DetailsChatActivity;
 import com.example.appchatit.models.UserModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private Context context;
     private List<UserModel> userModelList;
+    private List<UserModel> listMessOrtherUser = new ArrayList<>();
 
     public ChatAdapter(Context context, List<UserModel> userModelList) {
         this.context = context;
@@ -85,10 +88,19 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
+                boolean isUser = false;
                 UserModel user = userModelList.get(position);
+                for (UserModel model : listMessOrtherUser){
+                    if (model.getUserName().equals(user.getUserName())){
+                        isUser = true;
+                        break;
+                    }
+                }
+
                 Intent intent = new Intent(mContext, DetailsChatActivity.class);
 
                 Bundle bundle = new Bundle();
+                bundle.putBoolean("isUser", isUser);
                 bundle.putString("chatId", user.getUserId());
                 bundle.putString("userName", user.getUserName());
                 bundle.putString("imagePath", user.getImagePath());
@@ -102,6 +114,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     public void setData(List<UserModel> newData) {
         userModelList.clear();
         userModelList.addAll(newData);
+        notifyDataSetChanged();
+    }
+
+    public void updateMessOrtherUser(List<UserModel> newData) {
+        listMessOrtherUser.clear();
+        listMessOrtherUser.addAll(newData);
         notifyDataSetChanged();
     }
 }

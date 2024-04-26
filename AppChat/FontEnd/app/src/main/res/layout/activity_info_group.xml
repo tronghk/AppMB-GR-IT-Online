@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
 
     <ImageView
         android:id="@+id/img_info_gr"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_margin="20dp"
         app:srcCompat="@drawable/ic_group" />
@@ -66,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
-            android:text="Function 1"
+            android:text="Edit group"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/icon_func1"
             app:layout_constraintTop_toTopOf="parent" />

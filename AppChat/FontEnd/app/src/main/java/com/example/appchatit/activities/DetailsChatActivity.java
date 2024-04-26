@@ -36,9 +36,12 @@ import java.util.TimeZone;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 import android.view.ViewTreeObserver;
+
 public class DetailsChatActivity extends AppCompatActivity {
     private String userId;
+    private boolean isUser;
     private String chatId;
     private String userName;
     private String imagePath;
@@ -152,9 +155,15 @@ public class DetailsChatActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
 
         if (bundle != null) {
+            isUser = bundle.getBoolean("isUser");
             chatId = bundle.getString("chatId", "");
             userName = bundle.getString("userName", "");
             imagePath = bundle.getString("imagePath", "");
+        }
+
+        ImageView btnInfo = findViewById(R.id.btn_info_chat);
+        if (isUser) {
+            btnInfo.setVisibility(View.GONE);
         }
 
         TextView txtUserName = findViewById(R.id.txt_name);

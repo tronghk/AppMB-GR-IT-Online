@@ -54,6 +54,7 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(chatAdapter);
         loadListChat();
+        loadListMessOrtherUser();
     }
 
 //    private void setupBottomNavigationView() {
@@ -111,7 +112,29 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<UserModel>> call, Throwable t) {
                 Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("API_Error", "Error fetching users: ", t);
+            }
+        });
+    }
+
+    private void loadListMessOrtherUser() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        String userId = prefs.getString("userId", "");
+        ChatApiService service = ApiServiceProvider.getChatApiService();
+        Call<List<UserModel>> call = service.getListMessOtherUser("Bearer " + token, userId);
+        call.enqueue(new Callback<List<UserModel>>() {
+            @Override
+            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
+                if (response.isSuccessful()) {
+                    chatAdapter.updateMessOrtherUser(response.body());
+                } else {
+                    Toast.makeText(ChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<UserModel>> call, Throwable t) {
+                Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
