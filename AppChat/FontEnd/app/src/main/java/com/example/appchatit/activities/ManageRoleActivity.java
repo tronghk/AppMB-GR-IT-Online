@@ -46,7 +46,7 @@ public class ManageRoleActivity extends AppCompatActivity {
     private ManageRoleAdapter manageRoleAdapter;
     private RecyclerView recyclerView;
     private List<UserModel> userList = new ArrayList<>();
-    private List<GroupMemberModel> memberList;
+    private List<GroupMemberModel> memberList = new ArrayList<>();
     private ImageView btnUpdateRole;
 
     @Override

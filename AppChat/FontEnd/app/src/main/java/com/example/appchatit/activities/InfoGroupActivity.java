@@ -38,6 +38,7 @@ public class InfoGroupActivity extends AppCompatActivity {
     private TextView nameGroup;
     private ConstraintLayout edit_group_item;
     private ConstraintLayout manage_role_item;
+    private ConstraintLayout admin_role_item;
     private List<GroupMemberModel> memberList;
 
     @Override
@@ -55,6 +56,7 @@ public class InfoGroupActivity extends AppCompatActivity {
         nameGroup = findViewById(R.id.txt_name_gr);
         edit_group_item = findViewById(R.id.btn_edit_group);
         manage_role_item = findViewById(R.id.btn_edit_role);
+        admin_role_item = findViewById(R.id.btn_change_admin);
     }
 
     private void setupEventListeners() {
@@ -107,6 +109,33 @@ public class InfoGroupActivity extends AppCompatActivity {
                         int alpha = (int) (255 * (1 - progress));
                         int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
                         manage_role_item.setBackgroundColor(color);
+                    }
+                });
+                animator.start();
+            }
+        });
+
+        admin_role_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoGroupActivity.this, AdminRoleActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("chatId", chatId);
+                bundle.putString("userName", userName);
+                bundle.putString("imagePath", imagePath);
+                bundle.putSerializable("memberList", (Serializable) memberList);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+                ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+                animator.setDuration(1000);
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        float progress = animation.getAnimatedFraction();
+                        int alpha = (int) (255 * (1 - progress));
+                        int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
+                        admin_role_item.setBackgroundColor(color);
                     }
                 });
                 animator.start();

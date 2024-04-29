@@ -35,6 +35,9 @@
             android:name=".activities.ManageRoleActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.AdminRoleActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

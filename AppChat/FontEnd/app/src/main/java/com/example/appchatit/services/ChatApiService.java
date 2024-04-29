@@ -89,4 +89,10 @@ public interface ChatApiService {
             @Query("roleName") String roleName
     );
 
+    @PUT("update-role-admin-group-member")
+    Call<ResponseModel> updateRoleAdminGroupMember(
+            @Header("Authorization") String token,
+            @Query("groupId") String groupId,
+            @Query("userMemberId") String userMemberId
+    );
 }
