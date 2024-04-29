@@ -134,7 +134,6 @@ public class AdminRoleAdapter extends RecyclerView.Adapter<AdminRoleAdapter.View
             });
         }
 
-
         private void startInfoGroupActivity() {
             Intent intent = new Intent(mContext, InfoGroupActivity.class);
 
@@ -146,4 +145,5 @@ public class AdminRoleAdapter extends RecyclerView.Adapter<AdminRoleAdapter.View
             intent.putExtras(bundle);
             mContext.startActivity(intent);
         }
-    }}
+    }
+}

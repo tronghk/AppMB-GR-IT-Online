@@ -95,4 +95,10 @@ public interface ChatApiService {
             @Query("groupId") String groupId,
             @Query("userMemberId") String userMemberId
     );
+
+    @HTTP(method = "DELETE", path = "delete-message", hasBody = true)
+    Call<ResponseModel> deleteMessage(
+            @Header("Authorization") String token,
+            @Body DetailsChatModel detailsChatModel
+    );
 }
