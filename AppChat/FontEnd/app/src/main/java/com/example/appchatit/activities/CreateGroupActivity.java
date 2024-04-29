@@ -15,6 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -149,6 +150,9 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
 
     @SuppressLint("ClickableViewAccessibility")
     private void setupEditGroup() {
+        TextView txtMain = findViewById(R.id.txt_add_member);
+        txtMain.setText("Edit group");
+
         String userName = null;
         String imagePath = null;
         Intent intent = getIntent();

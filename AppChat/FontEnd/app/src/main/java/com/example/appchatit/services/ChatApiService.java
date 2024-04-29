@@ -80,4 +80,13 @@ public interface ChatApiService {
             @Header("Authorization") String token,
             @Query("groupId") String groupId
     );
+
+    @PUT("update-role-group-member")
+    Call<GroupMemberModel> updateRoleGroupMember(
+            @Header("Authorization") String token,
+            @Query("groupId") String groupId,
+            @Query("userMemberId") String userMemberId,
+            @Query("roleName") String roleName
+    );
+
 }

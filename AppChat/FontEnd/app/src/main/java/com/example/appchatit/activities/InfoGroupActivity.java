@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +19,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
-import com.example.appchatit.adapters.CreateGroupAdapter;
 import com.example.appchatit.models.GroupMemberModel;
 import com.example.appchatit.network.ApiServiceProvider;
 import com.example.appchatit.services.ChatApiService;
@@ -36,13 +36,14 @@ public class InfoGroupActivity extends AppCompatActivity {
     private String imagePath;
     private ImageView imgGroup;
     private TextView nameGroup;
-    private ConstraintLayout function1;
+    private ConstraintLayout edit_group_item;
+    private ConstraintLayout manage_role_item;
     private List<GroupMemberModel> memberList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_group);
+        setContentView(R.layout.activity_detail_group);
         initializeViews();
         setupEventListeners();
         loadInfoGroup();
@@ -52,11 +53,12 @@ public class InfoGroupActivity extends AppCompatActivity {
     private void initializeViews() {
         imgGroup = findViewById(R.id.img_info_gr);
         nameGroup = findViewById(R.id.txt_name_gr);
-        function1  = findViewById(R.id.function_1);
+        edit_group_item = findViewById(R.id.btn_edit_group);
+        manage_role_item = findViewById(R.id.btn_edit_role);
     }
 
     private void setupEventListeners() {
-        function1.setOnClickListener(new View.OnClickListener() {
+        edit_group_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InfoGroupActivity.this, CreateGroupActivity.class);
@@ -77,7 +79,34 @@ public class InfoGroupActivity extends AppCompatActivity {
                         float progress = animation.getAnimatedFraction();
                         int alpha = (int) (255 * (1 - progress));
                         int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
-                        function1.setBackgroundColor(color);
+                        edit_group_item.setBackgroundColor(color);
+                    }
+                });
+                animator.start();
+            }
+        });
+
+        manage_role_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoGroupActivity.this, ManageRoleActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("chatId", chatId);
+                bundle.putString("userName", userName);
+                bundle.putString("imagePath", imagePath);
+                bundle.putSerializable("memberList", (Serializable) memberList);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+                ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+                animator.setDuration(1000);
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        float progress = animation.getAnimatedFraction();
+                        int alpha = (int) (255 * (1 - progress));
+                        int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
+                        manage_role_item.setBackgroundColor(color);
                     }
                 });
                 animator.start();
