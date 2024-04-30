@@ -101,4 +101,10 @@ public interface ChatApiService {
             @Header("Authorization") String token,
             @Body DetailsChatModel detailsChatModel
     );
+
+    @HTTP(method = "DELETE", path = "delete-chat-message", hasBody = true)
+    Call<ResponseModel> deleteChat(
+            @Header("Authorization") String token,
+            @Body ChatModel chatModel
+    );
 }

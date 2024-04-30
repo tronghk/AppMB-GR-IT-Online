@@ -3,10 +3,14 @@ package com.example.appchatit.adapters;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -23,10 +27,19 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
 import com.example.appchatit.activities.DetailsChatActivity;
+import com.example.appchatit.models.ChatModel;
+import com.example.appchatit.models.DetailsChatModel;
+import com.example.appchatit.models.ResponseModel;
 import com.example.appchatit.models.UserModel;
+import com.example.appchatit.network.ApiServiceProvider;
+import com.example.appchatit.services.ChatApiService;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private Context context;
@@ -74,7 +87,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         return userModelList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public ImageView imgUser;
         public TextView nameUser;
         private Context mContext;
@@ -87,6 +100,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
             chat_item_layout = itemView.findViewById(R.id.listchat_layout);
+            chat_item_layout.setOnCreateContextMenuListener(this);
         }
 
         @Override
@@ -95,8 +109,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             if (position != RecyclerView.NO_POSITION) {
                 boolean isUser = false;
                 UserModel user = userModelList.get(position);
-                for (UserModel model : listMessOrtherUser){
-                    if (model.getUserName().equals(user.getUserName())){
+                for (UserModel model : listMessOrtherUser) {
+                    if (model.getUserName().equals(user.getUserName())) {
                         isUser = true;
                         break;
                     }
@@ -124,6 +138,65 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                 });
                 animator.start();
             }
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            final int DELETE_CHAT_ID = 1;
+            menu.add(Menu.NONE, DELETE_CHAT_ID, Menu.NONE, "Delete chat").setOnMenuItemClickListener(this);
+        }
+
+        @Override
+        public boolean onMenuItemClick(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case 1:
+                    String userId = null;
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        UserModel user = userModelList.get(position);
+                        for (UserModel model : listMessOrtherUser) {
+                            if (model.getUserName().equals(user.getUserName())) {
+                                userId = model.getUserId();
+                                break;
+                            }
+                        }
+                        deleteChat(user.getUserId(), userId, position);
+                    }
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        private void deleteChat(String chatId, String otherUserId, int position) {
+            SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String token = prefs.getString("accessToken", "");
+            String userId = prefs.getString("userId", "");
+            ChatApiService service = ApiServiceProvider.getChatApiService();
+
+            ChatModel chatModel = new ChatModel();
+            chatModel.setMessId(chatId);
+            chatModel.setUserId(userId);
+            chatModel.setUserOrtherId(otherUserId);
+
+            Call<ResponseModel> call = service.deleteChat("Bearer " + token, chatModel);
+            call.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                    if (response.isSuccessful()) {
+                        userModelList.remove(position);
+                        notifyItemRemoved(position);
+                        Toast.makeText(mContext, "Delete chat successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
