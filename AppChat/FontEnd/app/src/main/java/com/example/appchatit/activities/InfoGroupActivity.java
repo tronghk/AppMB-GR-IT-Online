@@ -19,10 +19,16 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
+import com.example.appchatit.models.GroupChatModel;
 import com.example.appchatit.models.GroupMemberModel;
+import com.example.appchatit.models.ResponseModel;
 import com.example.appchatit.network.ApiServiceProvider;
 import com.example.appchatit.services.ChatApiService;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -39,6 +45,7 @@ public class InfoGroupActivity extends AppCompatActivity {
     private ConstraintLayout edit_group_item;
     private ConstraintLayout manage_role_item;
     private ConstraintLayout admin_role_item;
+    private ConstraintLayout out_group_item;
     private List<GroupMemberModel> memberList;
 
     @Override
@@ -57,6 +64,7 @@ public class InfoGroupActivity extends AppCompatActivity {
         edit_group_item = findViewById(R.id.btn_edit_group);
         manage_role_item = findViewById(R.id.btn_edit_role);
         admin_role_item = findViewById(R.id.btn_change_admin);
+        out_group_item = findViewById(R.id.btn_leave_group);
     }
 
     private void setupEventListeners() {
@@ -139,6 +147,66 @@ public class InfoGroupActivity extends AppCompatActivity {
                     }
                 });
                 animator.start();
+            }
+        });
+
+        out_group_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leaveGroup();
+
+                ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+                animator.setDuration(1000);
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        float progress = animation.getAnimatedFraction();
+                        int alpha = (int) (255 * (1 - progress));
+                        int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
+                        out_group_item.setBackgroundColor(color);
+                    }
+                });
+                animator.start();
+            }
+        });
+    }
+
+    private void leaveGroup() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        ChatApiService service = ApiServiceProvider.getChatApiService();
+
+        Call<ResponseModel> call = service.outGroup("Bearer " + token, chatId);
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                if (response.isSuccessful()) {
+                    Intent intent = new Intent(InfoGroupActivity.this, ChatActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(InfoGroupActivity.this, "Leave group successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (response.errorBody() != null) {
+                        try {
+                            JSONObject errorObj = new JSONObject(response.errorBody().string());
+                            String errorMessage = errorObj.optString("message", "Unknown error occurred");
+                            if ("Please change role before out group".equals(errorMessage)) {
+                                Toast.makeText(InfoGroupActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(InfoGroupActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException | IOException e) {
+                            e.printStackTrace();
+                            Toast.makeText(InfoGroupActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(InfoGroupActivity.this, "Unknown error occurred", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                Toast.makeText(InfoGroupActivity.this, "Error fetching group: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

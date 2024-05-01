@@ -113,4 +113,10 @@ public interface ChatApiService {
             @Header("Authorization") String token,
             @Body GroupChatModel groupChatModel
     );
+
+    @HTTP(method = "DELETE", path = "out-group", hasBody = true)
+    Call<ResponseModel> outGroup(
+            @Header("Authorization") String token,
+            @Query("groupId") String groupId
+    );
 }
