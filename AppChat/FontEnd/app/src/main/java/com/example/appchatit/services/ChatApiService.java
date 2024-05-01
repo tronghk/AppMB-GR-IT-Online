@@ -107,4 +107,10 @@ public interface ChatApiService {
             @Header("Authorization") String token,
             @Body ChatModel chatModel
     );
+
+    @HTTP(method = "DELETE", path = "delete-group-chat-message", hasBody = true)
+    Call<ResponseModel> deleteGroupChat(
+            @Header("Authorization") String token,
+            @Body GroupChatModel groupChatModel
+    );
 }

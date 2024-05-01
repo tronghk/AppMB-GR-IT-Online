@@ -27,8 +27,11 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
 import com.example.appchatit.activities.DetailsChatActivity;
+import com.example.appchatit.activities.InfoGroupActivity;
 import com.example.appchatit.models.ChatModel;
 import com.example.appchatit.models.DetailsChatModel;
+import com.example.appchatit.models.GroupChatModel;
+import com.example.appchatit.models.GroupMemberModel;
 import com.example.appchatit.models.ResponseModel;
 import com.example.appchatit.models.UserModel;
 import com.example.appchatit.network.ApiServiceProvider;
@@ -45,6 +48,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     private Context context;
     private List<UserModel> userModelList;
     private List<UserModel> listMessOrtherUser = new ArrayList<>();
+    private List<GroupMemberModel> memberList = new ArrayList<>();
 
     public ChatAdapter(Context context, List<UserModel> userModelList) {
         this.context = context;
@@ -107,65 +111,90 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                boolean isUser = false;
                 UserModel user = userModelList.get(position);
-                for (UserModel model : listMessOrtherUser) {
-                    if (model.getUserName().equals(user.getUserName())) {
-                        isUser = true;
-                        break;
-                    }
-                }
-
-                Intent intent = new Intent(mContext, DetailsChatActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("isUser", isUser);
-                bundle.putString("chatId", user.getUserId());
-                bundle.putString("userName", user.getUserName());
-                bundle.putString("imagePath", user.getImagePath());
-                intent.putExtras(bundle);
-                mContext.startActivity(intent);
-
-                ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
-                animator.setDuration(1000);
-                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        float progress = animation.getAnimatedFraction();
-                        int alpha = (int) (255 * (1 - progress));
-                        int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
-                        chat_item_layout.setBackgroundColor(color);
-                    }
-                });
-                animator.start();
+                boolean isUser = checkIsUser(user);
+                startDetailsChatActivity(isUser, user);
+                animateBackgroundColorChange();
             }
         }
+
+        private boolean checkIsUser(UserModel user) {
+            for (UserModel model : listMessOrtherUser) {
+                if (model.getUserName().equals(user.getUserName())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void startDetailsChatActivity(boolean isUser, UserModel user) {
+            Intent intent = new Intent(mContext, DetailsChatActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("isUser", isUser);
+            bundle.putString("chatId", user.getUserId());
+            bundle.putString("userName", user.getUserName());
+            bundle.putString("imagePath", user.getImagePath());
+            intent.putExtras(bundle);
+            mContext.startActivity(intent);
+        }
+
+        private void animateBackgroundColorChange() {
+            ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+            animator.setDuration(1000);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float progress = animation.getAnimatedFraction();
+                    int alpha = (int) (255 * (1 - progress));
+                    int color = Color.argb(alpha, Color.red(Color.LTGRAY), Color.green(Color.LTGRAY), Color.blue(Color.LTGRAY));
+                    chat_item_layout.setBackgroundColor(color);
+                }
+            });
+            animator.start();
+        }
+
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             final int DELETE_CHAT_ID = 1;
-            menu.add(Menu.NONE, DELETE_CHAT_ID, Menu.NONE, "Delete chat").setOnMenuItemClickListener(this);
+            final int DELETE_GROUP_ID = 2;
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                UserModel user = userModelList.get(position);
+                boolean isUser = checkIsUser(user);
+                if (isUser) {
+                    menu.add(Menu.NONE, DELETE_CHAT_ID, Menu.NONE, "Delete chat").setOnMenuItemClickListener(this);
+                } else {
+                    menu.add(Menu.NONE, DELETE_GROUP_ID, Menu.NONE, "Delete group").setOnMenuItemClickListener(this);
+                }
+                getMemberList(user.getUserId());
+            }
         }
 
         @Override
         public boolean onMenuItemClick(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case 1:
-                    String userId = null;
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        UserModel user = userModelList.get(position);
-                        for (UserModel model : listMessOrtherUser) {
-                            if (model.getUserName().equals(user.getUserName())) {
-                                userId = model.getUserId();
-                                break;
-                            }
-                        }
-                        deleteChat(user.getUserId(), userId, position);
+            String otherUserId = null;
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                UserModel user = userModelList.get(position);
+                for (UserModel model : listMessOrtherUser) {
+                    if (model.getUserName().equals(user.getUserName())) {
+                        otherUserId = model.getUserId();
+                        break;
                     }
-                    return true;
-                default:
-                    return false;
+                }
+                switch (item.getItemId()) {
+                    case 1:
+                        deleteChat(user.getUserId(), otherUserId, position);
+                        return true;
+                    case 2:
+                        deleteGroup(user.getUserId(), user.getUserName(), position);
+                        return true;
+                    default:
+                        return false;
+                }
             }
+            return false;
         }
 
         private void deleteChat(String chatId, String otherUserId, int position) {
@@ -197,6 +226,69 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
                     Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+
+        private void deleteGroup(String chatId, String userName, int position) {
+            SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String token = prefs.getString("accessToken", "");
+            String userId = prefs.getString("userId", "");
+            ChatApiService service = ApiServiceProvider.getChatApiService();
+
+            GroupChatModel groupChatModel = new GroupChatModel();
+            groupChatModel.setGroupId(chatId);
+            groupChatModel.setGroupName(userName);
+
+            for (GroupMemberModel model : memberList) {
+                if (model.getUserId().equals(userId) && model.getRole().equals("GR_MANAGER")) {
+                    Call<ResponseModel> call = service.deleteGroupChat("Bearer " + token, groupChatModel);
+                    call.enqueue(new Callback<ResponseModel>() {
+                        @Override
+                        public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                            if (response.isSuccessful()) {
+                                userModelList.remove(position);
+                                notifyItemRemoved(position);
+                                Toast.makeText(mContext, "Delete group successfully", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseModel> call, Throwable t) {
+                            Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(mContext, "You aren't admin group", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            }
+        }
+
+        private void getMemberList(String chatId) {
+            SharedPreferences prefs = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String token = prefs.getString("accessToken", "");
+            String userId = prefs.getString("userId", "");
+            ChatApiService service = ApiServiceProvider.getChatApiService();
+
+            if (chatId != null) {
+                Call<List<GroupMemberModel>> call = service.getListMemberGroup("Bearer " + token, chatId);
+                call.enqueue(new Callback<List<GroupMemberModel>>() {
+                    @Override
+                    public void onResponse(Call<List<GroupMemberModel>> call, Response<List<GroupMemberModel>> response) {
+                        if (response.isSuccessful()) {
+                            memberList = response.body();
+                        } else {
+                            Toast.makeText(mContext, "Failed to fetch member list: " + response.message(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<GroupMemberModel>> call, Throwable t) {
+                        Toast.makeText(mContext, "Error fetching member list: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         }
     }
 
