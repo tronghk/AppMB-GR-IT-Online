@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.activity_edit_marketplace"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Test"
             android:exported="false" />
         <activity
@@ -52,7 +55,7 @@
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".activities.MarketplaceActivity"
             android:exported="false" />

@@ -1,83 +1,107 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PostSellProductModel {
-    private String postSellProductId;
-    private String userId;
-    private String content;
-    private String productName;
-    private List<ImagePostModel> imagePosts;
-    private String postTime;
-    private float price;
+    @SerializedName("postSellProductId")
+    private String PostSellProductId;
+    @SerializedName("userId")
+    private String UserId;
+    @SerializedName("content")
+    private String Content;
+    @SerializedName("productName")
+    private String ProductName;
+    @SerializedName("imagePosts")
+    private List<ImagePostModel> ImagePosts;
+    @SerializedName("postTime")
+    private String PostTime;
+    @SerializedName("price")
+    private float Price;
 
     public PostSellProductModel() {
     }
 
     public PostSellProductModel(String postSellProductId, String userId, String content, String productName, List<ImagePostModel> imagePosts, String postTime, float price) {
-        this.postSellProductId = postSellProductId;
-        this.userId = userId;
-        this.content = content;
-        this.productName = productName;
-        this.imagePosts = imagePosts;
-        this.postTime = postTime;
-        this.price = price;
+        this.PostSellProductId = postSellProductId;
+        this.UserId = userId;
+        this.Content = content;
+        this.ProductName = productName;
+        this.ImagePosts = imagePosts;
+        this.PostTime = postTime;
+        this.Price = price;
     }
 
     public String getPostSellProductId() {
-        return postSellProductId;
+        return PostSellProductId;
     }
 
     public void setPostSellProductId(String postSellProductId) {
-        this.postSellProductId = postSellProductId;
+        this.PostSellProductId = postSellProductId;
     }
 
     public String getUserId() {
-        return userId;
+        return UserId;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.UserId = userId;
     }
 
     public String getContent() {
-        return content;
+        return Content;
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.Content = content;
     }
 
     public String getProductName() {
-        return productName;
+        return ProductName;
     }
 
     public void setProductName(String productName) {
-        this.productName = productName;
+        this.ProductName = productName;
     }
 
     public List<ImagePostModel> getImagePosts() {
-        return imagePosts;
+        return ImagePosts;
     }
 
     public void setImagePosts(List<ImagePostModel> imagePosts) {
-        this.imagePosts = imagePosts;
+        this.ImagePosts = imagePosts;
     }
 
-    public String getPostTime() {
-        return postTime;
+    // Phương thức để lấy thời gian bài đăng dưới dạng đối tượng Date
+    public Date getPostTime() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
+        try {
+            return format.parse(PostTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // Getter cho chuỗi thời gian
+    public String getPostTimeAsString() {
+        return PostTime;
     }
 
     public void setPostTime(String postTime) {
-        this.postTime = postTime;
+        this.PostTime = postTime;
     }
 
     public float getPrice() {
-        return price;
+        return Price;
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        this.Price = price;
     }
 }

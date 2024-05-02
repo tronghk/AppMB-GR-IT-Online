@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,11 +18,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
 import com.example.appgrit.models.ImagePostModel;
 import com.example.appgrit.models.PostSellProductModel;
+import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostApiService;
+import com.example.appgrit.network.UserApiService;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -60,7 +65,7 @@ public class CreateMarketplaceActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         userId = prefs.getString("userId", "");
-
+        loadUserData(userId);
         buttonAddImage.setOnClickListener(v -> openFileChooser());
         buttonSubmit.setOnClickListener(v -> {
             String title = editTextTitle.getText().toString().trim();
@@ -71,6 +76,47 @@ public class CreateMarketplaceActivity extends AppCompatActivity {
                 uploadImagesAndCreatePostSell(title, description, price, selectedImageUris);
             } else {
                 Toast.makeText(CreateMarketplaceActivity.this, "Please fill in all the details and select at least one image.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private String getAccessTokenFromSharedPreferences() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        return prefs.getString("accessToken", "");
+    }
+
+    private void loadUserData(String userId) {
+        UserApiService service = ApiServiceProvider.getUserApiService();
+        String token = getAccessTokenFromSharedPreferences();
+        Call<UserModel> call = service.getUserBasic(token, userId);
+
+        call.enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    UserModel user = response.body();
+                    String userName = user.getUserName();
+                    String imagePath = user.getImagePath();
+
+                    // Cập nhật username
+                    TextView userNameTextView = findViewById(R.id.user_name);
+                    userNameTextView.setText(userName);
+
+                    // Load hình ảnh người dùng bằng Glide
+                    ImageView userProfileImageView = findViewById(R.id.user_profile_image);
+                    Glide.with(CreateMarketplaceActivity.this)
+                            .load(imagePath)
+                            .placeholder(R.drawable.avatar) // Ảnh mặc định nếu không load được
+                            .error(R.drawable.avatar) // Ảnh mặc định khi có lỗi
+                            .into(userProfileImageView);
+                } else {
+                    Log.e("API Error", "Failed to load user data: " + response.message());
+                    Toast.makeText(CreateMarketplaceActivity.this, "Failed to load user data: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                Log.e("Network Error", "Error loading user data: " + t.getMessage());
             }
         });
     }
@@ -143,6 +189,9 @@ public class CreateMarketplaceActivity extends AppCompatActivity {
             public void onResponse(Call<PostSellProductModel> call, Response<PostSellProductModel> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(CreateMarketplaceActivity.this, "Marketplace post created successfully!", Toast.LENGTH_SHORT).show();
+                    // Chuyển sang màn hình activity_home
+                    Intent intent = new Intent(CreateMarketplaceActivity.this, MarketplaceActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(CreateMarketplaceActivity.this, "Failed to create marketplace post: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
@@ -152,6 +201,7 @@ public class CreateMarketplaceActivity extends AppCompatActivity {
             public void onFailure(Call<PostSellProductModel> call, Throwable t) {
                 Toast.makeText(CreateMarketplaceActivity.this, "Error creating marketplace post: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
+
         });
     }
 

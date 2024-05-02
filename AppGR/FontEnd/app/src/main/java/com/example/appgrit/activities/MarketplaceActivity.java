@@ -75,12 +75,6 @@ public class MarketplaceActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     List<PostSellProductModel> postList = response.body();
                     marketplaceAdapter.setData(postList);
-//                    recyclerView = findViewById(R.id.recycler_view);
-//                    recyclerView.setHasFixedSize(true);
-//                    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//                    marketplaceAdapter = new MarketplaceAdapter(this, postList);
-//                    recyclerView.setAdapter(marketplaceAdapter);
                 } else {
                     Toast.makeText(MarketplaceActivity.this, "Failed to fetch posts: " + response.message(), Toast.LENGTH_SHORT).show();
                 }

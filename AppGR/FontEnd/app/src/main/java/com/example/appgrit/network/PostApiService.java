@@ -48,6 +48,12 @@ public interface PostApiService {
             @Header("Authorization") String token,
             @Body PostSellProductModel postSellProductModel
     );
+    @PUT("edit-sell-post")
+    Call<PostSellProductModel> updateSellPost(
+            @Header("Authorization") String token,
+            @Body PostSellProductModel postSellProductModel
+    );
+
 
     @GET("get-post")
     Call<List<PostModel>> getPostUser(
