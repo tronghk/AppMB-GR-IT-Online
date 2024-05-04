@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
+import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.UserModel;
 
 import java.util.List;
@@ -43,6 +44,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         String userName = user.getUserName();
         if (userName != null && !userName.isEmpty()) {
             holder.fullname.setText(userName);
+
         } else {
             holder.fullname.setText("Unknown");
         }
@@ -72,5 +74,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             fullname = itemView.findViewById(R.id.fullname);
             imageProfile = itemView.findViewById(R.id.image_profile);
         }
+    }
+    public void setData(List<UserModel> newData) {
+        userList.clear();
+        userList.addAll(newData);
+        notifyDataSetChanged();
     }
 }

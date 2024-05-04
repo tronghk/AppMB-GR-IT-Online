@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.appgrit.FragmentProfile;
 import com.example.appgrit.R;
 import com.example.appgrit.models.ImagePostModel;
 import com.example.appgrit.models.PostModel;
@@ -51,6 +52,7 @@ public class CreatePostHome extends AppCompatActivity {
 
     private String userId;
     private List<Uri> selectedImageUris = new ArrayList<>();
+    private String avt = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,13 @@ public class CreatePostHome extends AppCompatActivity {
         imageViewSelectImage = findViewById(R.id.image_placeholder);
         buttonPost = findViewById(R.id.button_upload);
 
+        Intent iin= getIntent();
+        Bundle b = iin.getExtras();
+
+        if(b!=null)
+        {
+            avt =(String) b.get("avt");
+        }
         imageViewSelectImage.setOnClickListener(v -> openFileChooser());
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -83,7 +92,9 @@ public class CreatePostHome extends AppCompatActivity {
         } else {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true); // Cho phép chọn nhiều hình ảnh
+           if(avt == null){
+               intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true); // Cho phép chọn nhiều hình ảnh
+           }
             startActivityForResult(intent, PICK_IMAGE_REQUEST);
         }
     }
@@ -199,25 +210,52 @@ public class CreatePostHome extends AppCompatActivity {
         postModel.setImagePost(imagePosts);
 
         PostApiService service = ApiServiceProvider.getPostApiService();
-        Call<PostModel> postCall = service.addPost("Bearer " + token, postModel);
-        postCall.enqueue(new Callback<PostModel>() {
-            @Override
-            public void onResponse(Call<PostModel> call, Response<PostModel> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(CreatePostHome.this, "Post created successfully", Toast.LENGTH_SHORT).show();
+        if(avt == null){
+            Call<PostModel> postCall = service.addPost("Bearer " + token, postModel);
+            postCall.enqueue(new Callback<PostModel>() {
+                @Override
+                public void onResponse(Call<PostModel> call, Response<PostModel> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(CreatePostHome.this, "Post created successfully", Toast.LENGTH_SHORT).show();
 
-                    // Chuyển sang màn hình activity_home
-                    Intent intent = new Intent(CreatePostHome.this, activity_home.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(CreatePostHome.this, "Failed to create post: " + response.message(), Toast.LENGTH_SHORT).show();
+                        // Chuyển sang màn hình activity_home
+                        Intent intent = new Intent(CreatePostHome.this, activity_home.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(CreatePostHome.this, "Failed to create post: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<PostModel> call, Throwable t) {
-                Toast.makeText(CreatePostHome.this, "Error creating post: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<PostModel> call, Throwable t) {
+                    Toast.makeText(CreatePostHome.this, "Error creating post: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }else {
+            postModel.setPostType(avt);
+            Call<PostModel> postCall = service. addPostAvt("Bearer " + token, postModel);
+            postCall.enqueue(new Callback<PostModel>() {
+                @Override
+                public void onResponse(Call<PostModel> call, Response<PostModel> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(CreatePostHome.this, "Post created successfully", Toast.LENGTH_SHORT).show();
+
+                        // Chuyển sang màn hình activity_home
+                        Intent intent = new Intent(getApplicationContext(), FragmentProfile.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(CreatePostHome.this, "Failed to create post: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<PostModel> call, Throwable t) {
+                    Toast.makeText(CreatePostHome.this, "Error creating post: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
     }
 }

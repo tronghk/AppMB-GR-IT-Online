@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".Admin_Home"
+    android:orientation="horizontal">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        app:itemIconTint="@color/selector"
+        app:itemTextColor="@color/selector"
+        app:labelVisibilityMode="labeled"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="?android:attr/windowBackground"
+        app:itemHorizontalTranslationEnabled="true"
+        app:menu="@menu/menu_admin">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <RelativeLayout
+        android:id="@+id/sub_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/navigation"
+        >
+      <LinearLayout
+          android:id="@+id/l_1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <Button
+              android:id="@+id/sum_post_day"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:text="Tổng bài viết trong ngày">
+
+          </Button>
+          <Button
+              android:layout_marginLeft="2dp"
+              android:id="@+id/sum_post_week"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_toRightOf="@id/sum_post_day"
+
+              android:text="Tổng bài viết trong tuần">
+
+          </Button>
+      </LinearLayout>
+        <LinearLayout
+            android:id="@+id/l_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/l_1">
+            <Button
+                android:id="@+id/sum_user"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Tổng số người dùng">
+
+            </Button>
+            <Button
+                android:id="@+id/sum_revenue"
+                android:layout_marginLeft="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/sum_post_day"
+
+                android:text="Tổng doanh thu">
+
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/l_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/l_2">
+<!--            <Button
+                android:id="@+id/sum_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Top khách hàng">
+
+            </Button>-->
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/line1"
+android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sub_menu">
+
+    </LinearLayout>
+</RelativeLayout>

@@ -3,6 +3,7 @@ using AppChat.Entity;
 using AppChat.Models;
 using AppGrIT.Helper;
 using AppGrIT.Model;
+using AppGrIT.Models;
 using System;
 using System.Reflection;
 
@@ -51,6 +52,44 @@ namespace AppChat.Services.Imployment
             {
                 model.MessId = result.Message!;
                 return model;
+            }
+            return null!;
+
+
+        }
+        public async Task<ChatModel> GetChatToId(string chatId)
+        {
+
+            var result = await _messageDao.GetChatToId(chatId);
+
+           if(result != null)
+            {
+                var chat = new ChatModel
+                {
+                    MessId = result.MessId,
+                    UserId = result.UserId,
+                    UserOrtherId = result.UserOrtherId,
+                };
+                return chat;
+            }
+           return null!;
+
+
+        }
+        public async Task<ChatModel> GetChatToUserId(string chatId)
+        {
+
+            var result = await _messageDao.GetChatToUserId(chatId);
+
+            if (result != null)
+            {
+                var chat = new ChatModel
+                {
+                    MessId = result.MessId,
+                    UserId = result.UserId,
+                    UserOrtherId = result.UserOrtherId,
+                };
+                return chat;
             }
             return null!;
 
@@ -364,6 +403,38 @@ namespace AppChat.Services.Imployment
                     return true;
             }
             return false;
+        }
+
+        public async Task<List<UserModel>> GetListChat(string userId)
+        {
+         
+           List<UserModel> listChat = await _messageDao.GetListChatId(userId);
+            List<UserModel> listGr = await _messageDao.GetListGroupId(userId);
+            foreach (var member in listChat)
+            {
+                listGr.Add(member);
+
+            }
+            return listGr;
+
+
+        }
+
+        public async Task<List<GroupMemberModel>> GetGroupMember(string groupId)
+        {
+            var result = await _messageDao.GetMemberGroupToId(groupId);
+            List<GroupMemberModel> list = new List<GroupMemberModel>();
+            foreach(var member in result)
+            {
+                var value = new GroupMemberModel
+                {
+                    UserId = member.UserId,
+                    Role = member.Role,
+                    GroupId = member.GroupId,
+                };
+                list.Add(value);
+            }
+            return list;
         }
     }
 }

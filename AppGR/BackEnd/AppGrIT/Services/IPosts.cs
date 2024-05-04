@@ -36,5 +36,8 @@ namespace AppGrIT.Services
 
         public Task<PostSellProductModel> CreatePostSellAsync(PostSellProductModel model);
         public Task<PostSellProductModel> EditPostSellAsync(PostSellProductModel model);
+        public Task<int> GetSumPostDay();
+        public Task<int> GetSumPostWeek();
+        public Task<int> CompareGainPostLastWeek();
     }
 }

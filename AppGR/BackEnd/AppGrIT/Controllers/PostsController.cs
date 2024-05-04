@@ -51,6 +51,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [AllowAnonymous]
         [HttpGet("/get-post-self")]
        
         public async Task<IActionResult> GetPostSelfUser(string userId)
@@ -59,6 +60,7 @@ namespace AppGrIT.Controllers
               var result = await _postManager.GetListPostSelfUser(userId);
                return Ok(result);
         }
+        [AllowAnonymous]
         [HttpGet("/get-one-post")]
         public async Task<IActionResult> GetPostFromPostId(string postId)
         {
@@ -447,7 +449,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
-
+        [AllowAnonymous]
         [HttpGet("/FindPostByContent")]
         public async Task<IActionResult> FindPostByContent(string Content)
         {
@@ -460,6 +462,28 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        [HttpGet("/get-sum-post-day")]
+        public async Task<IActionResult> GetSumPostOfDay()
+        {
+            var count = await _postManager.GetSumPostDay();
+            return Ok(count);
+        }
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        [HttpGet("/get-sum-post-week")]
+        public async Task<IActionResult> GetSumPostOfWeek()
+        {
+            var count = await _postManager.GetSumPostWeek();
+            return Ok(count);
+        }
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        [HttpGet("/compare-gain-week")]
+        public async Task<IActionResult> CompareGainWeek()
+        {
+            var count = await _postManager.CompareGainPostLastWeek();
+            return Ok(count);
+        }
+
 
 
     }

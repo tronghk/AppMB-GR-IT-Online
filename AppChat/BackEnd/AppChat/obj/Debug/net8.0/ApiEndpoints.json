@@ -129,6 +129,64 @@
   },
   {
     "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "GetChat",
+    "RelativePath": "get-chat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
+    "Method": "GetGroupMember",
+    "RelativePath": "get-group-member",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.ListAppChatController",
+    "Method": "GetListDetailsChat",
+    "RelativePath": "get-listDetailsChat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chatId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.ListAppChatController",
+    "Method": "GetListMessOrtherUser",
+    "RelativePath": "get-listMessOrtherUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppChat.Controllers.MessageController",
     "Method": "OutGroup",
     "RelativePath": "out-group",
     "HttpMethod": "DELETE",

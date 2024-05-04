@@ -32,5 +32,9 @@ namespace AppGrIT.Services
         public Task<List<UserModel>> FindUserByAge(int age);
         public Task<List<UserModel>> FindUserByLastName_Address_Age(string input);
 
+        public Task<ResponseModel> SignUpAdminAsync(SignUpModel model);
+        public Task<int> GetSumUser();
+        public Task<List<UserModel>> GetUserLocked();
+        public Task<ResponseModel> Unlock(string userId);
     }
 }

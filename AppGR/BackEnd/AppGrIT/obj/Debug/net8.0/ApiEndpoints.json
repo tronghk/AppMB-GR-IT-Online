@@ -192,6 +192,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "CompareGainWeek",
+    "RelativePath": "compare-gain-week",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.PaymentController",
     "Method": "ConfirmPaymentClient",
     "RelativePath": "ConfirmPaymentClient",
@@ -337,6 +347,22 @@
         "Name": "userId",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "CreateAdmin",
+    "RelativePath": "create_account_admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Model.SignUpModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -867,6 +893,36 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "GetSumPostOfDay",
+    "RelativePath": "get-sum-post-day",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostsController",
+    "Method": "GetSumPostOfWeek",
+    "RelativePath": "get-sum-post-week",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "GetSumUser",
+    "RelativePath": "get-sum-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UserFollowsController",
     "Method": "GetListUserFollow",
     "RelativePath": "get-user-follow",
@@ -890,6 +946,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "GetUserLocked",
+    "RelativePath": "get-user-locked",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -1070,6 +1136,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.PostSellProductController",
+    "Method": "SumPaymentOfMonth",
+    "RelativePath": "sum-payment-of-month",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
