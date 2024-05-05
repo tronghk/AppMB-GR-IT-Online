@@ -1,12 +1,10 @@
 package com.example.appchatit.models;
 
-import java.time.LocalDateTime;
-
 public class DetailsChatModel {
     private String chatId;
     private String userId;
     private String detailId;
-    private LocalDateTime time;
+    private String time;
     private String content;
     private String status;
     private String imagePath;
@@ -14,7 +12,7 @@ public class DetailsChatModel {
     public DetailsChatModel() {
     }
 
-    public DetailsChatModel(String chatId, String userId, String detailId, LocalDateTime time, String content, String status, String imagePath) {
+    public DetailsChatModel(String chatId, String userId, String detailId, String time, String content, String status, String imagePath) {
         this.chatId = chatId;
         this.userId = userId;
         this.detailId = detailId;
@@ -48,11 +46,11 @@ public class DetailsChatModel {
         this.detailId = detailId;
     }
 
-    public LocalDateTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

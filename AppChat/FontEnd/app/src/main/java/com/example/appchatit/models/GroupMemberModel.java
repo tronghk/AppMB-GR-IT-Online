@@ -1,6 +1,8 @@
 package com.example.appchatit.models;
 
-public class GroupMemberModel {
+import java.io.Serializable;
+
+public class GroupMemberModel implements Serializable {
     private String groupId;
     private String userId;
     private String role;

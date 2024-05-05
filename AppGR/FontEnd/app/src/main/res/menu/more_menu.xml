@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_marketplace"
-        android:title="Market place" />
+        android:title="Marketplace" />
     <item
         android:id="@+id/nav_group_chat"
         android:title="Group chat" />
@@ -12,4 +12,7 @@
     <item
         android:id="@+id/nav_edit_info"
         android:title="Chỉnh sửa thông tin" />
+    <item
+        android:id="@+id/nav_upgrade_account"
+        android:title="Nâng cấp tài khoản" />
 </menu>

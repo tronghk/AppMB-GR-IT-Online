@@ -18,6 +18,9 @@
         android:theme="@style/Theme.AppGrIT"
         tools:targetApi="31">
         <activity
+            android:name=".activities.UpgradeAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".FragmentProfile"
             android:exported="false" />
         <activity
