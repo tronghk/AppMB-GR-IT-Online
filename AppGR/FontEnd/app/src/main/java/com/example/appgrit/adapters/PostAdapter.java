@@ -15,6 +15,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appgrit.ProfileOther;
 import com.example.appgrit.activities.EditPostActivity;
 import com.example.appgrit.activities.ImageDetailActivity;
 import com.example.appgrit.models.ImagePostModel;
@@ -236,7 +237,34 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 Toast.makeText(context, "User not logged in", Toast.LENGTH_SHORT).show();
             }
         });
+        
+        // Thêm sự kiện lắng nghe cho hình ảnh người dùng
+        holder.profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lấy userId của người dùng từ danh sách bài đăng
+                String userId = postList.get(holder.getAdapterPosition()).getUserId();
 
+                // Tạo Intent để chuyển sang ProfileOther và truyền userId
+                Intent intent = new Intent(context, ProfileOther.class);
+                intent.putExtra("selectedUserId", userId);
+                context.startActivity(intent);
+            }
+        });
+
+        // Thêm sự kiện lắng nghe cho tên người dùng
+        holder.usernameTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lấy userId của người dùng từ danh sách bài đăng
+                String userId = postList.get(holder.getAdapterPosition()).getUserId();
+
+                // Tạo Intent để chuyển sang ProfileOther và truyền userId
+                Intent intent = new Intent(context, ProfileOther.class);
+                intent.putExtra("selectedUserId", userId);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void deletePost(String postId, int position) {
