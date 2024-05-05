@@ -44,8 +44,7 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
         Glide.with(holder.imageView.getContext())
                 .load(imageUrl)
                 .placeholder(R.drawable.add)
-                .centerCrop() // Hiển thị hình ảnh đúng kích thước của ảnh gốc
-
+                .fitCenter() // Hiển thị ảnh đúng tỉ lệ và toàn bộ kích thước của ảnh
                 .into(holder.imageView);
 
         holder.imageView.setOnClickListener(v -> {
@@ -54,6 +53,7 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

@@ -35,4 +35,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(signinIntent);
         });
     }
+
+//    new Handler().postDelayed(new Runnable() {
+//        @Override
+//        public void run() {
+//            Intent intent = new Intent(Activity_Test.this, MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
+//    }, 2000);
 }

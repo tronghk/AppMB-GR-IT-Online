@@ -50,12 +50,56 @@
         android:inputType="textPassword"
         android:padding="12dp" />
 
+    <!-- Eye icon for toggling password visibility -->
+
+
+    <!-- Remember Password CheckBox -->
+
+    <ImageButton
+        android:id="@+id/image_button_toggle_password_visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/edit_text_password"
+        android:layout_alignBottom="@id/edit_text_password"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Toggle password visibility"
+        android:padding="8dp"
+        android:src="@drawable/hide" />
+
+    <TextView
+        android:id="@+id/text_view_forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_password"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:onClick="goToForgot"
+        android:padding="18dp"
+        android:text="Forgot password?"
+        android:textColor="@android:color/black"
+        android:textStyle="italic" />
+
+
     <!-- Sign In Button -->
+
+    <CheckBox
+        android:id="@+id/check_box_remember_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_password"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="8dp"
+        android:padding="15dp"
+        android:text="Remember Password"
+        android:textStyle="italic" />
+
     <Button
         android:id="@+id/button_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_text_password"
+        android:layout_below="@id/check_box_remember_password"
         android:layout_marginTop="16dp"
         android:text="Sign In" />
     <Button
@@ -77,17 +121,5 @@
         android:textColor="@android:color/black"
         android:clickable="true"
         android:onClick="goToSignUp"
-        android:padding="18dp" />
-    <TextView
-        android:id="@+id/text_view_forgot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_sign_up"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-20dp"
-        android:text="Forgot password?"
-        android:textColor="@android:color/black"
-        android:clickable="true"
-        android:onClick="goToForgot"
         android:padding="18dp" />
 </RelativeLayout>

@@ -101,12 +101,12 @@
                 android:layout_toEndOf="@id/comment"
                 android:src="@drawable/send_home" />
 
-            <ImageView
-                android:id="@+id/save"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/save_home" />
+<!--            <ImageView-->
+<!--                android:id="@+id/save"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:src="@drawable/save_home" />-->
 
         </RelativeLayout>
 

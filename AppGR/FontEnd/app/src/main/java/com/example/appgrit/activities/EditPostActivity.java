@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
 import com.example.appgrit.models.ImagePostModel;
 import com.example.appgrit.models.PostModel;
@@ -64,18 +65,29 @@ public class EditPostActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         userId = prefs.getString("userId", "");
 
-        // Lấy postId từ Intent
+        // Lấy postId và thông tin từ Intent
         postId = getIntent().getStringExtra("postId");
+        String postContent = getIntent().getStringExtra("content");
+        ArrayList<String> imageUrls = getIntent().getStringArrayListExtra("imageUrls");
+
+        // Set the content
+        editTextContent.setText(postContent);
+
+        // Load the first image to display if available
+        if (imageUrls != null && !imageUrls.isEmpty()) {
+            Glide.with(this).load(imageUrls.get(0)).into(imageViewSelectImage);
+        }
 
         buttonUpdate.setOnClickListener(v -> {
-            String content = editTextContent.getText().toString().trim();
-            if (!content.isEmpty()) {
-                updatePost(content, selectedImageUris);
+            String updatedContent = editTextContent.getText().toString().trim();
+            if (!updatedContent.isEmpty()) {
+                updatePost(updatedContent, selectedImageUris);
             } else {
                 Toast.makeText(EditPostActivity.this, "Please enter some content", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private void openFileChooser() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

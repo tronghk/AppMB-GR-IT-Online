@@ -25,6 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// comment.java
 public class comment extends AppCompatActivity {
 
     private RecyclerView recyclerViewComments;
@@ -46,7 +47,7 @@ public class comment extends AppCompatActivity {
         btnPostComment = findViewById(R.id.buttonSend);
 
         commentList = new ArrayList<>();
-        commentAdapter = new CommentAdapter(this, commentList);
+        commentAdapter = new CommentAdapter(this, commentList, postId); // Truyền postId vào constructor của CommentAdapter
         recyclerViewComments.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewComments.setAdapter(commentAdapter);
 
@@ -82,7 +83,7 @@ public class comment extends AppCompatActivity {
                     commentList.addAll(response.body());
                     commentAdapter.notifyDataSetChanged();
                 } else {
-                    Toast.makeText(comment.this, "Lỗi khi lấy danh sách comment", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(comment.this, "Lỗi khi lấy danh sách comment", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -92,8 +93,6 @@ public class comment extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void postComment() {
         String content = editComment.getText().toString().trim();
@@ -138,7 +137,6 @@ public class comment extends AppCompatActivity {
                     public void onFailure(Call<PostCommentModel> call, Throwable t) {
                         // Show a toast message indicating failure with the error message
                         Toast.makeText(comment.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-
                         // Log the error message
                         Log.e("PostCommentError", "Error posting comment: " + t.getMessage(), t);
                     }
@@ -152,7 +150,5 @@ public class comment extends AppCompatActivity {
             Toast.makeText(this, "Comment cannot be empty", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
 }
+

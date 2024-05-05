@@ -7,6 +7,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
@@ -18,6 +19,12 @@ public interface MarketplaceApiService {
     @GET("post-sell-product")
     Call<List<PostSellProductModel>> getPostSell(
             @Header("Authorization") String token,
+            @Query("userId") String userId
+    );
+    @DELETE("delete-sell-post")
+    Call<Void> deleteSellPost(
+            @Header("Authorization") String token,
+            @Query("postSellId") String postSellId,
             @Query("userId") String userId
     );
 

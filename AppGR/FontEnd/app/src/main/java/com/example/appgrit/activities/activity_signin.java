@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.auth0.android.jwt.Claim;
@@ -42,6 +45,10 @@ public class activity_signin extends AppCompatActivity {
     private  Button btn_gg;
     GoogleSignInClient googleSignInClient;
     int Rc_SignIn = 20;
+
+    private CheckBox checkBoxRememberPassword; // Thêm CheckBox
+    private boolean isPasswordVisible = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +58,41 @@ public class activity_signin extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edit_text_password);
         buttonSignIn = findViewById(R.id.button_sign_in);
         btn_gg = findViewById(R.id.btn_gg);
+        checkBoxRememberPassword = findViewById(R.id.check_box_remember_password); // Ánh xạ CheckBox
+        ImageButton togglePasswordVisibilityButton = findViewById(R.id.image_button_toggle_password_visibility);
+        // Thiết lập bộ lắng nghe sự kiện cho ImageButton
+        togglePasswordVisibilityButton.setOnClickListener(v -> {
+            // Đảo ngược trạng thái của biến boolean
+            isPasswordVisible = !isPasswordVisible;
+
+            // Lấy tham chiếu đến EditText chứa mật khẩu
+            EditText passwordEditText = findViewById(R.id.edit_text_password);
+
+            // Thay đổi loại của EditText dựa trên trạng thái của biến boolean
+            if (isPasswordVisible) {
+                // Hiện mật khẩu
+                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                togglePasswordVisibilityButton.setImageResource(R.drawable.view);
+            } else {
+                // Ẩn mật khẩu
+                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                togglePasswordVisibilityButton.setImageResource(R.drawable.hide);
+            }
+
+
+            // Di chuyển con trỏ về cuối của EditText sau khi thay đổi loại
+            passwordEditText.setSelection(passwordEditText.getText().length());
+        });
+
+        // Kiểm tra và hiển thị mật khẩu đã ghi nhớ nếu có
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String savedEmail = prefs.getString("email", "");
+        String savedPassword = prefs.getString("password", "");
+        if (!savedEmail.isEmpty() && !savedPassword.isEmpty()) {
+            editTextEmail.setText(savedEmail);
+            editTextPassword.setText(savedPassword);
+            checkBoxRememberPassword.setChecked(true);
+        }
 
         buttonSignIn.setOnClickListener(v -> {
             String email = editTextEmail.getText().toString().trim();
@@ -62,6 +104,7 @@ public class activity_signin extends AppCompatActivity {
                 Toast.makeText(activity_signin.this, "Please fill in both fields", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
@@ -167,13 +210,21 @@ public class activity_signin extends AppCompatActivity {
                         String date = response.body().getExpiration();
                         // Save the access token in SharedPreferences
                         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-
                         prefs.edit().putString("accessToken", accessToken).apply();
                         prefs.edit().putString("refreshToken", refreshToken).apply();
                         prefs.edit().putString("expiration", date).apply();
 
-
-
+                        // Lưu thông tin mật khẩu vào SharedPreferences nếu người dùng chọn tùy chọn ghi nhớ mật khẩu
+                        SharedPreferences.Editor editor = prefs.edit();
+                        if (checkBoxRememberPassword.isChecked()) {
+                            editor.putString("email", email);
+                            editor.putString("password", password);
+                        } else {
+                            // Nếu người dùng không chọn tùy chọn ghi nhớ mật khẩu, xóa thông tin mật khẩu trong SharedPreferences
+                            editor.remove("email");
+                            editor.remove("password");
+                        }
+                        editor.apply();
 
                         // Now get user info
                         getUserInfo(accessToken);
@@ -181,7 +232,7 @@ public class activity_signin extends AppCompatActivity {
 
                     }
 
-                }else {
+                } else {
                     Toast.makeText(activity_signin.this, "Login failed", Toast.LENGTH_SHORT).show();
                 }
 
@@ -193,7 +244,6 @@ public class activity_signin extends AppCompatActivity {
             }
         });
     }
-
     private void getUserInfo(String accessToken) {
         JWT parsedJWT = new JWT(accessToken);
         Claim subscriptionMetaData = parsedJWT.getClaim("userId");
