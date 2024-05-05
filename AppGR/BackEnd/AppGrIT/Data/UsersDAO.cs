@@ -50,6 +50,46 @@ namespace AppGrIT.Data
 
            
         }
+        public async Task<ResponseModel> UnLockUser(string userId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Users");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            try
+            {
+                AccountIdentity account;
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    account = JsonConvert.DeserializeObject<AccountIdentity>(value);
+                    if (account.UserId.Equals(userId))
+                    {
+                        account.Locked = false;
+                        SetResponse setResponse = await _firebase._client.SetAsync("Users/" + account.UserId, account);
+                        return new ResponseModel
+                        {
+                            Status = StatusResponse.STATUS_SUCCESS,
+                            Message = MessageResponse.MESSAGE_UPDATE_SUCCESS
+                        };
+                    }
+                }
+            }
+            catch (Exception e) {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_UPDATE_FAIL
+                };
+            }
+            return new ResponseModel
+            {
+                Status = StatusResponse.STATUS_ERROR,
+                Message = MessageResponse.MESSAGE_UPDATE_FAIL
+            };
+
+
+        }
 
         public async Task<ResponseModel> AddUserInforsAsync(UserInfors account)
         {
@@ -172,6 +212,48 @@ namespace AppGrIT.Data
             return null!;
 
         }
+        public async Task<int> GetSumUser()
+        {
+            int count = 0;
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Users");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            if(jsonResponse != null)
+            {
+                AccountIdentity userInfors = null!;
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    userInfors = JsonConvert.DeserializeObject<AccountIdentity>(value);
+                    count = count + 1;
+                }
+            }
+            return count;
+
+        }
+        public async Task<List<string>> GetUserLocked()
+        {
+            List<string> list = new List<string>(); 
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Users");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            if (jsonResponse != null)
+            {
+                AccountIdentity userInfors = null!;
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    userInfors = JsonConvert.DeserializeObject<AccountIdentity>(value);
+                    if (userInfors.Locked)
+                    {
+                        list.Add(userInfors.UserId);
+                    }
+                }
+            }
+            return list;
+
+        }
+
         public async Task<ResponseModel> UpdateRefreshToken(string email, string RefreshToken, DateTime exrityTime)
         {
 

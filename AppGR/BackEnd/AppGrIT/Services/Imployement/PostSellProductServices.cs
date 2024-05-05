@@ -90,5 +90,13 @@ namespace AppGrIT.Services.Imployement
             }
             return result;
         }
+
+        public async Task<string> SumPayMentOfMonth()
+        {
+            DateTime date = DateTime.Now;
+            var money = await _postSellDao.SumPayment(date.Month);
+
+            return money;
+        }
     }
 }

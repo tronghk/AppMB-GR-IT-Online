@@ -409,6 +409,35 @@ namespace AppGrIT.Controllers
             }
             return NotFound("Can not find user");
         }
+        [HttpGet("/get-user-locked")]
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        public async Task<IActionResult> GetUserLocked()
+        {
+            var result = await _userManager.GetUserLocked();
+
+            return Ok(result);
+        }
+        [HttpPost("/unlock-user")]
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        public async Task<IActionResult> Unlock(string userId)
+        {
+            var result = await _userManager.Unlock(userId);
+            if(result.Status == StatusResponse.STATUS_SUCCESS)
+
+            return Ok(result);
+            else
+            {
+                return BadRequest(result);
+            }
+        }
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        [HttpGet("/get-sum-user")]
+        public async Task<IActionResult> GetSumUser()
+        {
+            var count = await _userManager.GetSumUser();
+           
+            return Ok(count);
+        }
         [HttpGet("/FindUserByLastName")]
         public async Task<IActionResult> FindUserByLastName(string LastName)
         {
@@ -456,6 +485,41 @@ namespace AppGrIT.Controllers
                 return Ok(users);
             }
             return NotFound();
+        }
+        [HttpPost("/create_account_admin")]
+        public async Task<IActionResult> CreateAdmin(SignUpModel model)
+        {
+            var result = await _userManager.SignUpAdminAsync(model);
+            if (!result.Status!.Equals(StatusResponse.STATUS_SUCCESS))
+            {
+                return BadRequest(result);
+            }
+            var user = await _userManager.GetUserAsync(model.Email);
+
+            //tao post mac dinh
+            var im = await _imageManager.GetLinkAvatarDefault();
+            ImagePostModel i = new ImagePostModel
+            {
+                ImagePath = im,
+                ImageContent = "Default"
+            };
+            List<ImagePostModel> list = new List<ImagePostModel>();
+            list.Add(i);
+            var post = new PostModel
+            {
+                PostType = "3",
+                UserId = user.UserId,
+                PostTime = DateTime.Now,
+                imagePost = list,
+            };
+            var postInstes = await _postManager.CreatePostAsync(post);
+            var token = await _tokenManager.GenerareTokenModel(new SignInModel
+            {
+                Email = model.Email,
+                Password = model.Password,
+            });
+
+            return Ok(token);
         }
 
 

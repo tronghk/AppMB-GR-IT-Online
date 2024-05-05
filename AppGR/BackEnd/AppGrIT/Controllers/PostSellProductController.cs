@@ -17,6 +17,7 @@ namespace AppGrIT.Controllers
             _postsellManager = product;
             
         }
+        [AllowAnonymous]
         [HttpGet("/FindProductByNameProduct")]
         public async Task<IActionResult> FindProductByNameProduct(string NameProduct)
         {
@@ -29,6 +30,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+        [AllowAnonymous]
         [HttpGet("/FindProductByPriceProduct")]
         public async Task<IActionResult> FindProductByPriceProduct(float price)
         {
@@ -41,7 +43,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
-   
+        [AllowAnonymous]
         [HttpGet("/post-sell-product")]
         public async Task<IActionResult> GetPostSellProduct()
         {
@@ -53,6 +55,14 @@ namespace AppGrIT.Controllers
                 return Ok(result);
             }
             return NotFound();
+        }
+        [HttpGet("/sum-payment-of-month")]
+        [Authorize(Roles = SynthesizeRoles.ADMIN)]
+        public async Task<IActionResult> SumPaymentOfMonth()
+        {
+            var result = await _postsellManager.SumPayMentOfMonth();
+
+            return Ok(result);
         }
     }
 }

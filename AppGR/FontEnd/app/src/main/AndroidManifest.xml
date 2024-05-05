@@ -27,6 +27,15 @@
             android:name=".Activity_Test"
             android:exported="false" />
         <activity
+            android:name=".Admin_Post"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Unlock"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Home"
+            android:exported="false" />
+        <activity
             android:name=".FragmentProfile"
             android:exported="false" />
         <activity

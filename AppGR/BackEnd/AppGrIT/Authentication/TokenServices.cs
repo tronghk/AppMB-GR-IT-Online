@@ -42,6 +42,7 @@ namespace AppGrIT.Authentication
             if (user != null)
             {
                 var userRoles = await _roleManager.GetUserRoles(user.UserId);
+                claims.Add(new Claim(ClaimTypes.Role, "Default"));
                 foreach (var role in userRoles)
                 {
                     claims.Add(new Claim(ClaimTypes.Role, role.ToString()));

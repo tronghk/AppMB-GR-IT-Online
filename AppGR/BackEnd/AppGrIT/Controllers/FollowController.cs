@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using AppGrIT.Authentication;
+using Firebase.Auth;
+using System.Security.Claims;
 
 namespace AppGrIT.Controllers
 {
@@ -102,5 +104,7 @@ namespace AppGrIT.Controllers
             }
             return NotFound();
         }
+       
+     
     }
 }

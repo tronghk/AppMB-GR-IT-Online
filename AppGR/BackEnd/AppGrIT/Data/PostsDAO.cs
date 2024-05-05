@@ -109,6 +109,85 @@ namespace AppGrIT.Data
             }
             return list;
         }
+        public async Task<int> GetSumPostOfDay(DateTime date)
+        {
+            int count = 0;
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Posts");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+           
+
+            if (jsonResponse != null)
+            {
+                // lọc bài viết mới
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var post = JsonConvert.DeserializeObject<Posts>(value);
+                    DateTime d = post.PostTime;
+                    int year = d.Year;
+                    int month = d.Month;
+                    int day = d.Day;
+                   if(year == date.Year && month == date.Month && day == date.Day)
+                    {
+                        count++;
+                    }
+
+                }
+            }
+            return count;
+        }
+        public async Task<int> GetSumPostOWeek(DateTime date)
+        {
+            int count = 0;
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("Posts");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            int dayD = date.Day;
+            int monthD = date.Month;
+            int yearD = date.Year;
+
+            if (jsonResponse != null)
+            {
+                while (true)
+                {
+                    foreach (var item in jsonResponse)
+                    {
+                        var value = item.Value!.ToString();
+                        //path Object
+                        var post = JsonConvert.DeserializeObject<Posts>(value);
+                        DateTime dateP = post.PostTime;
+
+                        if (dateP.Day == dayD && dateP.Month == monthD && dateP.Year == yearD)
+                        {
+                            count++;
+                        }
+                    }
+                    dayD = dayD - 1;
+                    if(dayD == 0)
+                    {
+                        monthD = monthD - 1;
+                        if (monthD % 2 != 0)
+                            dayD = 31;
+                        else
+                            dayD = 30;
+                    }
+                    if(monthD == 0)
+                    {
+                        yearD = yearD - 1;
+                        monthD = 12;
+                        dayD = 30;
+                    }
+                    string dateTime = monthD + "/" + dayD + "/" + yearD;
+                    DateTime dt = Convert.ToDateTime(dateTime);
+                    if (dt.DayOfWeek == DayOfWeek.Sunday)
+                        break;
+                    // lọc bài viết mới
+                   
+                }
+            }
+            return count;
+        }
+     
         public async Task<Posts> EditPostAsync(Posts posts)
         {
             try

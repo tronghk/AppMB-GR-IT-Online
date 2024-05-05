@@ -72,6 +72,7 @@ namespace AppGrIT.Data
             }
             return StatusResponse.STATUS_ERROR;
         }
+      
         public async Task<UserSells> GetUserSell(string userId)
         {
             FirebaseResponse response = await _firebase._client.GetAsync("UserSells");

@@ -1,12 +1,15 @@
 ﻿using AppChat.Entity;
 using AppChat.Models;
 using AppGrIT.Model;
+using AppGrIT.Models;
 
 namespace AppChat.Services
 {
     public interface IMessages
     {
         public Task<ChatModel>  CreateChatModelAsync(ChatModel model);
+        public Task<ChatModel> GetChatToId(string chatId);
+        public Task<ChatModel> GetChatToUserId(string chatId);
         public Task<GroupMemberModel> GetUserMemberToId(string groupId, string userId);
         public Task<GroupMemberModel> UpdateGroupMember(GroupMemberModel model, string roleName);
         public Task<ResponseModel> UpdateAdminGroupMember(GroupMemberModel admin, GroupMemberModel member);
@@ -33,5 +36,7 @@ namespace AppChat.Services
         public Task<ChatModel> GetChatModel(string chatId);
         public Task<DetailsChatModel> GetDetailsMessageToId(string details);
         public Task<bool> CheckRoleUser(string userId, List<GroupMemberModel> list);
+        public Task<List<UserModel>> GetListChat(string userId);
+        public Task<List<GroupMemberModel>> GetGroupMember(string groupId);
     }
 }

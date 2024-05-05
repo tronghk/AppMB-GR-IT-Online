@@ -7,10 +7,12 @@ import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.PostSellProductModel;
 import com.example.appgrit.models.ResponseModel;
 import com.example.appgrit.models.SharePostModel;
+import com.example.appgrit.models.UserModel;
 
 import java.util.List;
 
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -37,12 +39,54 @@ public interface PostApiService {
             @Header("Authorization") String token,
             @Part List<MultipartBody.Part> images
     );
+    @GET("get-sum-post-day")
+    Call<ResponseBody> GetSumPost(
+            @Header("Authorization") String token
+
+    );
+    @GET("get-user-locked")
+    Call<List<UserModel>> GetUserLocked(
+            @Header("Authorization") String token
+
+    );
+    @GET("get-sum-user")
+    Call<ResponseBody> GetSumUser(
+            @Header("Authorization") String token
+
+    );
+    @GET("sum-payment-of-month")
+    Call<ResponseBody> GetSumPayMent(
+            @Header("Authorization") String token
+
+    );
+    @POST("unlock-user")
+    Call<ResponseBody> UnlockUser(
+            @Header("Authorization") String token,
+            @Query("userId") String userId
+
+    );
+    @GET("get-sum-post-week")
+    Call<ResponseBody> GetSumPostWeek(
+            @Header("Authorization") String token
+
+    );
+    @GET("compare-gain-week")
+    Call<ResponseBody> GetSumPostComPa(
+            @Header("Authorization") String token
+
+    );
 
     @POST("add-post-user")
     Call<PostModel> addPost(
             @Header("Authorization") String token,
             @Body PostModel postModel
     );
+    @POST("add-image-instead-user")
+    Call<PostModel> addPostAvt(
+            @Header("Authorization") String token,
+            @Body PostModel postModel
+    );
+
     @POST("add-sell-post")
     Call<PostSellProductModel> addSellPost(
             @Header("Authorization") String token,

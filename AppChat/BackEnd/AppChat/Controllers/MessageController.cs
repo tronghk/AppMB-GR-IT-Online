@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Security.Principal;
+using System.Text.RegularExpressions;
 
 namespace AppChat.Controllers
 {
@@ -86,14 +87,39 @@ namespace AppChat.Controllers
                 });
             }
 
-                if (model.Content == null && model.ImagePath == null)
+            if (model.Content == null && model.ImagePath == null)
+            {
+                return NotFound(new ResponseModel
                 {
-                    return NotFound(new ResponseModel
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Content can not empty"
+                });
+            }
+            //kiểm tra đoạn chat tồn tài với đối phương hay chưa
+            var chat = await _messageManager.GetChatToId(model.ChatId);
+            // th 2 người
+            if (chat != null)
+            {
+                var chatUserOrther = await _messageManager.GetChatToUserId(chat.UserOrtherId);
+                var chatUser = await _messageManager.GetChatToUserId(chat.UserId);
+                if (chatUser == null)
+                {
+                    await _messageManager.CreateChatModelAsync(new ChatModel
                     {
-                        Status = StatusResponse.STATUS_ERROR,
-                        Message = "Content can not empty"
+                        UserId = chat.UserId,
+                        UserOrtherId = chat.UserOrtherId,
                     });
                 }
+                if (chatUserOrther == null)
+                {
+                    await _messageManager.CreateChatModelAsync(new ChatModel
+                    {
+                        UserId = chat.UserOrtherId,
+                        UserOrtherId = chat.UserId,
+                    });
+                }
+            }
+
                 var result = await _messageManager.CreateMessageModelAsync(model);
                 if (result != null)
                 {
@@ -533,6 +559,42 @@ namespace AppChat.Controllers
             return BadRequest(result);
            
         }
+        [HttpGet("/get-chat")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> GetChat()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userId = identity!.FindFirst("userId")!.Value;
+         
+            if (userId == null)
+            {
+                return NotFound(new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_NOTFOUND
+                });
+            }
+            var listChat = await _messageManager.GetListChat(userId);
+            return Ok(listChat);
+        }
+        [HttpGet("/get-group-member")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> GetGroupMember(string groupId)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userId = identity!.FindFirst("userId")!.Value;
+            var usAdmin = await _messageManager.GetUserMemberToId(groupId, userId);
+           
+            if (userId == null || usAdmin == null)
+            {
+                return NotFound(new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_NOTFOUND
+                });
+            }
+            var listChat = await _messageManager.GetGroupMember(groupId);
+            return Ok(listChat);
+        }
+
     }
   
    

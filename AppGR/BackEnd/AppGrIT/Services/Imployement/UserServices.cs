@@ -148,6 +148,49 @@ namespace AppGrIT.Services.Imployement
             }
 
         }
+        public async Task<ResponseModel> SignUpAdminAsync(SignUpModel model)
+        {
+            try
+            {
+
+
+                var us = new AccountIdentity
+                {
+                    Email = model.Email,
+
+                };
+
+                //tạo tk
+                FirebaseAuthLink link = await _firebaseAuth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password);
+
+                var result = await CreateAccount(us);
+                UserInforModel userInfos = new UserInforModel
+                {
+                    Firstname = model.FirstName,
+                    LastName = model.LastName,
+                    Birthday = model.Birthday
+
+                };
+                await CreateUserInfors(userInfos, model.Email);
+                //xét quyền mặc định
+                await SetRoleDefault(model.Email, SynthesizeRoles.ADMIN);
+
+                // tao anh dai dien mac dinh
+
+
+
+                return result;
+            }
+            catch
+            {
+                return new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = "Email exist"
+                };
+            }
+
+        }
         public async Task<ResponseModel> SignUpGoogleAsync(string link)
         {
             var user = await _firebaseAuth.GetUserAsync(link);
@@ -561,6 +604,33 @@ namespace AppGrIT.Services.Imployement
                 result.Add(us);
             }
             return result;
+        }
+
+        public async Task<int> GetSumUser()
+        {
+            var count = await _userDao.GetSumUser();
+            return count;
+
+
+        }
+
+        public async Task<List<UserModel>> GetUserLocked()
+        {
+            var list = await _userDao.GetUserLocked();
+            List<UserModel> result = new List<UserModel>();
+            foreach(var value in list)
+            {
+                var user = await GetInfoUser(value);
+
+                result.Add(user);
+            }
+            return result;
+        }
+
+        public async Task<ResponseModel> Unlock(string userId)
+        {
+           var re = await _userDao.UnLockUser(userId);
+            return re;
         }
     }
 }
