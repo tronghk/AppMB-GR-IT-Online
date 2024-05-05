@@ -54,7 +54,7 @@ public class ListUserLike extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     List<PostIconsModel> postExpressions = response.body();
                     for (PostIconsModel postExpression : postExpressions) {
-                        if (postExpression.getExpression() == 1) {
+                        if (postExpression.getExpression() == 0) {
                             userLikeList.add(postExpression);
                         }
                     }
