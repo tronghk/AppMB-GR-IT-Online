@@ -3,8 +3,12 @@ package com.example.appgrit.activities;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -108,6 +112,7 @@ public class activity_signin extends AppCompatActivity {
         }
 
         buttonSignIn.setOnClickListener(v -> {
+
             String email = editTextEmail.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
 
@@ -137,6 +142,20 @@ public class activity_signin extends AppCompatActivity {
                     GoogleSignIn();
             }
         });
+    }
+    public void changeAppChat(String appId){
+// Tên gói ứng dụng của ứng dụng bạn muốn mở
+        String packageName = appId;
+
+// Tạo một Intent để mở ứng dụng với tên gói ứng dụng đã biết
+        Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
+
+        if (intent != null) {
+            // Kiểm tra xem Intent có hợp lệ không trước khi mở ứng dụng
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(),intent.toString(),Toast.LENGTH_SHORT).show();
+        }
     }
     public void GoogleSignIn(){
         Intent intent = googleSignInClient.getSignInIntent();

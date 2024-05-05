@@ -26,8 +26,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            Intent intent = getIntent();
+            String token = intent.getStringExtra("accessToken");
+            String refreshToken = intent.getStringExtra("refreshToken");
+            String expiration = intent.getStringExtra("expiration");
+            if(token != null){
+                prefs.edit().putString("accessToken", token).apply();
+                prefs.edit().putString("refreshToken", refreshToken).apply();
+                prefs.edit().putString("expiration", expiration).apply();
+                getUserInfo(token);
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_SHORT).show();
+            }
 
-        signIn("abc@gmail.com", "123456");
+
 
         new Handler().postDelayed(new Runnable() {
             @Override

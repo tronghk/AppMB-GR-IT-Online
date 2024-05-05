@@ -77,10 +77,35 @@ public class activity_home extends AppCompatActivity {
             } else if (itemId == R.id.nav_more) {
                 showMoreMenu(findViewById(R.id.nav_more));
                 return true;
-            } else {
+            }
+            else if (itemId == R.id.nav_chat) {
+                changeAppChat("com.example.appchatit");
+                return true;
+            }
+            else {
                 return false;
             }
         });
+    }
+    public void changeAppChat(String appId){
+// Tên gói ứng dụng của ứng dụng bạn muốn mở
+        String packageName = appId;
+
+// Tạo một Intent để mở ứng dụng với tên gói ứng dụng đã biết
+        Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        String refreshToken = prefs.getString("refreshToken", "");
+        String expiration =  prefs.getString("expiration", "");
+        intent.putExtra("accessToken",token);
+        intent.putExtra("refreshToken",refreshToken);
+        intent.putExtra("expiration",expiration);
+        if (intent != null) {
+            // Kiểm tra xem Intent có hợp lệ không trước khi mở ứng dụng
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(),intent.toString(),Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setupImageViewClickListeners() {
