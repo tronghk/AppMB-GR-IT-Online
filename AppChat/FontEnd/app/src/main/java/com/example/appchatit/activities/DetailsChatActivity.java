@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -71,9 +72,21 @@ public class DetailsChatActivity extends AppCompatActivity {
 
     private void setupEventListeners(){
         btnSend.setOnClickListener(new View.OnClickListener() {
+            private boolean isClicked = false;
+
             @Override
             public void onClick(View v) {
-                createMessage();
+                if (!isClicked) {
+                    isClicked = true;
+                    createMessage();
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            isClicked = false;
+                        }
+                    }, 3000);
+                }
             }
         });
 
