@@ -96,9 +96,9 @@ namespace AppChat.Controllers
                 });
             }
             //kiểm tra đoạn chat tồn tài với đối phương hay chưa
-            var chat = await _messageManager.GetChatToId(model.ChatId);
+            // var chat = await _messageManager.GetChatToId(model.ChatId);
             // th 2 người
-            if (chat != null)
+            /*if (chat != null)
             {
                 var chatUserOrther = await _messageManager.GetChatToUserId(chat.UserOrtherId);
                 var chatUser = await _messageManager.GetChatToUserId(chat.UserId);
@@ -118,7 +118,7 @@ namespace AppChat.Controllers
                         UserOrtherId = chat.UserId,
                     });
                 }
-            }
+            }*/
 
                 var result = await _messageManager.CreateMessageModelAsync(model);
                 if (result != null)

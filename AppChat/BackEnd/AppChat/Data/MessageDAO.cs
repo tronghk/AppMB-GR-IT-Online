@@ -231,6 +231,10 @@ namespace AppChat.Data
                     {
                         return true;
                     }
+                    if (mess.UserId == userIdOrther && mess.UserOrtherId == userId)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -534,12 +538,26 @@ namespace AppChat.Data
                         var value = item.Value!.ToString();
                         //path Object
                         var mess = JsonConvert.DeserializeObject<ChatSegMent>(value);
+
                         if (mess.UserId == userId)
                         {
                             var user = await GetUserBasic(mess.UserOrtherId, mess.MessId);
                             if(user != null)
                             {
                                 list.Add(user);
+                            }
+                           
+                        }
+                        if(mess.UserOrtherId == userId)
+                        {
+                            var abc = await GetListDetailschat(mess.MessId);
+                            if(abc.Count > 0)
+                            {
+                                var user = await GetUserBasic(mess.UserId, mess.MessId);
+                                if (user != null)
+                                {
+                                    list.Add(user);
+                                }
                             }
                            
                         }
@@ -553,6 +571,28 @@ namespace AppChat.Data
             {
                 return list;
             }
+        }
+        public async Task<List<DetailsChat>> GetListDetailschat(string chatId)
+        {
+
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("DetailsChat");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            List<DetailsChat> list = new List<DetailsChat>();
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+
+                    var userc = JsonConvert.DeserializeObject<DetailsChat>(value);
+                    if (userc.ChatId.Equals(chatId))
+                    {
+                        list.Add(userc);
+                    }
+                }
+            }
+            return list;
+
         }
         public async Task<UserModel> GetUserBasic(string userId, string chatId)
         {

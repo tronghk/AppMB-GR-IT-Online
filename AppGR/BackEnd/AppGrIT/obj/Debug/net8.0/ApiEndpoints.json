@@ -923,6 +923,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "GetUserAddFriend",
+    "RelativePath": "get-user-add-friend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.UserFollowsController",
     "Method": "GetListUserFollow",
     "RelativePath": "get-user-follow",
@@ -1146,6 +1156,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "Unlock",
+    "RelativePath": "unlock-user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppGrIT.Controllers.UserFriendsController",
+    "Method": "UpdateFriendUser",
+    "RelativePath": "update-friend",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AppGrIT.Models.UserFriendsModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

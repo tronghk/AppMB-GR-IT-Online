@@ -17,5 +17,7 @@ namespace AppGrIT.Entity
         [Required]
         public string FriendShipTime
         { get; set; } = null!;
+        public string Status
+        { get; set; }
     }
 }

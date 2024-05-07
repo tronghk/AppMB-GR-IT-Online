@@ -10,7 +10,10 @@ namespace AppGrIT.Models
         [Required]
         public string UserFriendId 
         { get;  set; } = null!;
-       
-       
+        [Required]
+        public string Status
+        { get; set; } = null!;
+
+
     }
 }

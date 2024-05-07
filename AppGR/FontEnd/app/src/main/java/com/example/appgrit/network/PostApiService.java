@@ -7,6 +7,7 @@ import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.PostSellProductModel;
 import com.example.appgrit.models.ResponseModel;
 import com.example.appgrit.models.SharePostModel;
+import com.example.appgrit.models.UserFriendsModel;
 import com.example.appgrit.models.UserModel;
 
 import java.util.List;
@@ -46,6 +47,11 @@ public interface PostApiService {
     );
     @GET("get-user-locked")
     Call<List<UserModel>> GetUserLocked(
+            @Header("Authorization") String token
+
+    );
+    @GET("get-user-add-friend")
+    Call<List<UserModel>> GetUserAddFriends(
             @Header("Authorization") String token
 
     );
@@ -97,7 +103,10 @@ public interface PostApiService {
             @Header("Authorization") String token,
             @Body PostSellProductModel postSellProductModel
     );
-
+    @PUT("update-friend")
+    Call<UserFriendsModel> UpdateFriend(@Header("Authorization") String token, @Body UserFriendsModel model);
+    @DELETE("delete-friend")
+    Call<ResponseBody> DeleteFriend(@Header("Authorization") String token,@Body UserFriendsModel model);
 
     @GET("get-post")
     Call<List<PostModel>> getPostUser(
