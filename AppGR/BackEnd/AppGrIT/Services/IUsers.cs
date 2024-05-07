@@ -36,5 +36,6 @@ namespace AppGrIT.Services
         public Task<int> GetSumUser();
         public Task<List<UserModel>> GetUserLocked();
         public Task<ResponseModel> Unlock(string userId);
+       
     }
 }

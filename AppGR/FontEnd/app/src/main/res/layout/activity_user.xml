@@ -41,7 +41,24 @@
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách bạn bè"
+                android:id="@+id/list_friends">
 
+            </Button>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lời mời kết bạn"
+                android:id="@+id/list_add_friends">
+
+            </Button>
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

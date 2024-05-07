@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using AppGrIT.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Reflection;
+using System.Security.Claims;
 
 namespace AppGrIT.Controllers
 {
@@ -37,13 +39,39 @@ namespace AppGrIT.Controllers
         [HttpGet("/get-listUserFriend")]
         public async Task<IActionResult> GetListUserFriend(string userId)
         {
-            var user = await _friendsManager.GetListUserFriends(userId!);
+            var user = await _userManager.GetUserToUserId(userId);
 
             if (user != null)
             {             
                     var result = await _friendsManager.GetListUserFriends(userId);
                     return Ok(result);                          
             }
+            return NotFound();
+        }
+        [HttpGet("/get-user-add-friend")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> GetUserAddFriend()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                var userId = identity.FindFirst("userId")!.Value;
+                var user = await _userManager.GetUserToUserId(userId);
+
+                if (user != null)
+                {
+                    var result = await _friendsManager.GetListUserAddFriends(userId);
+                    List<UserModel> list = new List<UserModel>();
+                    foreach (var item in result)
+                    {
+                       var a = await _userManager.GetInfoUser(item.UserFriendId);
+                        list.Add(a);
+                    }
+
+                    return Ok(list);
+                }
+            }
+           
             return NotFound();
         }
         [HttpPost("/add-friend")]
@@ -65,6 +93,30 @@ namespace AppGrIT.Controllers
             if (user != null && userfr != null)
             {
                 var result = await _friendsManager.CreateUserFriend(model);
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(new ResponseModel
+                {
+                    Status = StatusResponse.STATUS_ERROR,
+                    Message = MessageResponse.MESSAGE_CREATE_FAIL
+                });
+            }
+            return NotFound();
+        }
+        [HttpPut("/update-friend")]
+        [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
+        public async Task<IActionResult> UpdateFriendUser([FromBody] UserFriendsModel model)
+        {
+            var user = await _userManager.GetUserToUserId(model.UserId!);
+            var userfr = await _userManager.GetUserToUserId(model.UserFriendId!);
+
+            var us = await _friendsManager.GetUserFriend(model.UserId, model.UserFriendId);
+           
+            if (user != null && userfr != null && us != null)
+            {
+                var result = await _friendsManager.UpdateUserFriend(model);
                 if (result != null)
                 {
                     return Ok(result);

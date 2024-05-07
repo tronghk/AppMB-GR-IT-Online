@@ -8,13 +8,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.appgrit.adapters.UserAdapter;
+import com.example.appgrit.adapters.UserFriendAdapter;
 import com.example.appgrit.models.UserFriendsModel;
 import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
+import com.example.appgrit.network.PostApiService;
 import com.example.appgrit.network.UserApiService;
 
 import java.util.ArrayList;
@@ -30,7 +33,11 @@ public class UserActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
+    private UserFriendAdapter userFriendsAdapter;
     private List<UserModel> userList;
+
+    private Button listFriends;
+    private Button listAddFriends;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +49,47 @@ public class UserActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        userList = new ArrayList<>();
-        userAdapter = new UserAdapter(this, userList);
-        recyclerView.setAdapter(userAdapter);
-
-        getUserFriends();
+        listFriends = findViewById(R.id.list_friends);
+        listAddFriends = findViewById(R.id.list_add_friends);
+        GetFriends();
+        EventGetFriend();
 
         // Xử lý sự kiện click cho nút back
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+    }
+    public void GetFriends(){
+        userList = new ArrayList<>();
+        userAdapter = new UserAdapter(this, userList);
+        recyclerView.setAdapter(userAdapter);
+        getUserFriends();
+    }
+    public void GetAddFriends(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String userId = sharedPreferences.getString("userId", "");
+        String token = sharedPreferences.getString("accessToken", "");
+        userList = new ArrayList<>();
+        userFriendsAdapter = new UserFriendAdapter(this, userList,userId,token);
+        recyclerView.setAdapter(userFriendsAdapter);
+        // api list get lời mời
+        loadUser();
+    }
+    public void  EventGetFriend(){
+        listFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetFriends();
+            }
+        });
+
+        listAddFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetAddFriends();
             }
         });
     }
@@ -71,7 +107,9 @@ public class UserActivity extends AppCompatActivity {
                     List<UserFriendsModel> userFriendsList = response.body();
                     if (userFriendsList != null && !userFriendsList.isEmpty()) {
                         for (UserFriendsModel userFriend : userFriendsList) {
+
                             String userFriendId = userFriend.getUserFriendId();
+
                             getUserInfo(userFriendId);
                         }
                     } else {
@@ -89,6 +127,29 @@ public class UserActivity extends AppCompatActivity {
                 // Xử lý khi có lỗi mạng
                 Toast.makeText(UserActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
                 Log.e("UserActivity", "Lỗi: " + t.getMessage());
+            }
+        });
+    }
+    private void loadUser() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        PostApiService service = ApiServiceProvider.getPostApiService();
+        Call<List<UserModel>> call = service.GetUserAddFriends("Bearer " + token);
+        call.enqueue(new Callback<List<UserModel>>() {
+            @Override
+            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
+                if (response.isSuccessful()) {
+                    List<UserModel> users = response.body();
+                    userFriendsAdapter.setData(users);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Failed to fetch posts: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<UserModel>> call, Throwable t) {
+
             }
         });
     }

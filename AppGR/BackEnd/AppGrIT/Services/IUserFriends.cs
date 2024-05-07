@@ -13,6 +13,9 @@ namespace AppGrIT.Services
         public Task<UserFriendsModel> GetUserFriend(string userId, string userFr);
 
         public Task<ResponseModel> DeleteUserFriend(UserFriendsModel model);
-        
+        public Task<List<UserFriendsModel>> GetListUserAddFriends(string userId);
+        public Task<UserFriendsModel> UpdateUserFriend(UserFriendsModel model);
+
+
     }
 }

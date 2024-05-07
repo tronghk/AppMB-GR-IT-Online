@@ -28,12 +28,36 @@ namespace AppGrIT.Services.Imployement
             var list = await _userFriendsDAO.GetListUserFriends(userId);
             foreach (var userFriends in list)
             {
-                var us = new UserFriendsModel
+                if (userFriends.Status == "True")
                 {
-                    UserId = userFriends.UserId,
-                    UserFriendId = userFriends.UserFriendId,                 
-                };
-                result.Add(us);
+                    var us = new UserFriendsModel
+                    {
+                        UserId = userFriends.UserId,
+                        UserFriendId = userFriends.UserFriendId,
+                        Status = userFriends.Status
+                    };
+                    result.Add(us);
+                }
+            }
+            return result;
+        }
+        public async Task<List<UserFriendsModel>> GetListUserAddFriends(string userId)
+        {
+            List<UserFriendsModel> result = new List<UserFriendsModel>();
+            var list = await _userFriendsDAO.GetListUserFriends(userId);
+            foreach (var userFriends in list)
+            {
+                
+                if(userFriends.Status == "False")
+                {
+                    var us = new UserFriendsModel
+                    {
+                        UserId = userFriends.UserId,
+                        UserFriendId = userFriends.UserFriendId,
+                        Status = userFriends.Status
+                    };
+                    result.Add(us);
+                }
             }
             return result;
         }
@@ -44,10 +68,26 @@ namespace AppGrIT.Services.Imployement
             var userfr = new UserFriends
             {
                 UserFriendId = model.UserFriendId,
-                UserId = model.UserId,           
+                UserId = model.UserId,      
+                Status = model.Status,
             };
 
             var result = await _userFriendsDAO.CreateFriendAsync(userfr);
+            if (result.Equals(StatusResponse.STATUS_SUCCESS))
+                return model;
+
+            return null;
+        }
+        public async Task<UserFriendsModel> UpdateUserFriend(UserFriendsModel model)
+        {
+            var userfr = new UserFriends
+            {
+                UserFriendId = model.UserFriendId,
+                UserId = model.UserId,
+                Status = model.Status,
+            };
+
+            var result = await _userFriendsDAO.UpdateFriendAsync(userfr);
             if (result.Equals(StatusResponse.STATUS_SUCCESS))
                 return model;
 
@@ -65,7 +105,8 @@ namespace AppGrIT.Services.Imployement
                 var us = new UserFriendsModel
                 {
                     UserId = userFriend.UserId,
-                    UserFriendId = userFriend.UserFriendId,                  
+                    UserFriendId = userFriend.UserFriendId,  
+                    Status = userFriend.Status,
                 };
 
                 return us;
@@ -83,6 +124,7 @@ namespace AppGrIT.Services.Imployement
             {
                 UserFriendId = model.UserFriendId,
                 UserId = model.UserId,
+                Status = model.Status,
             };
             var result = await _userFriendsDAO.DeleteUserFriend(userfr);
             if (result.Equals(StatusResponse.STATUS_SUCCESS))

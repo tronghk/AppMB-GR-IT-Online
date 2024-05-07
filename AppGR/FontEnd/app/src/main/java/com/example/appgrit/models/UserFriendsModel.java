@@ -3,13 +3,23 @@ package com.example.appgrit.models;
 public class UserFriendsModel {
     private String userId;
     private String userFriendId;
+    private String Status;
 
     public UserFriendsModel() {
     }
 
-    public UserFriendsModel(String userId, String userFriendId) {
-        userId = userId;
-        userFriendId = userFriendId;
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public UserFriendsModel(String userId, String userFriendId, String status) {
+        this.userId = userId;
+        this.userFriendId = userFriendId;
+        this.Status = status;
     }
 
     public String getUserId() {
