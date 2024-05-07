@@ -109,6 +109,14 @@ public class FragmentProfile extends AppCompatActivity {
         setupRecyclerView();
         AddAvater();
 
+        // Xử lý sự kiện click cho nút back
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
     public void AddAvater(){
         story_add.setOnClickListener(new View.OnClickListener() {
