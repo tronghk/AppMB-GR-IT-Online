@@ -77,7 +77,7 @@ public class ProfileOther extends AppCompatActivity {
         Intent intent = getIntent();
         String selectedUserId = intent.getStringExtra("selectedUserId");
         // Kiểm tra trạng thái kết bạn
-        checkFriendshipStatus(selectedUserId);
+//        checkFriendshipStatus(selectedUserId);
         // Kiểm tra trạng thái gửi lời mời
         updateFriendshipButtonState(selectedUserId);
 
@@ -108,7 +108,43 @@ public class ProfileOther extends AppCompatActivity {
         });
     }
 
-    private void checkFriendshipStatus(String selectedUserId) {
+//    private void checkFriendshipStatus(String selectedUserId) {
+//        String userId = prefs.getString("userId", "");
+//        String token = prefs.getString("accessToken", "");
+//        UserApiService service = ApiServiceProvider.getUserApiService();
+//
+//        Call<List<UserFriendsModel>> call = service.getListUserFriend(userId);
+//        call.enqueue(new Callback<List<UserFriendsModel>>() {
+//            @Override
+//            public void onResponse(Call<List<UserFriendsModel>> call, Response<List<UserFriendsModel>> response) {
+//                if (response.isSuccessful()) {
+//                    List<UserFriendsModel> friendList = response.body();
+//                    // Kiểm tra xem selectedUserId có trong danh sách bạn bè không
+//                    for (UserFriendsModel friend : friendList) {
+//                        if (friend.getUserFriendId().equals(selectedUserId)) {
+//                            // Nếu có, cập nhật trạng thái là bạn bè và giao diện
+//                            isFriendRequestSent = true;
+//                            addFriendButton.setText("Bạn Bè");
+//                            return;
+//                        }
+//                    }
+//                    // Nếu không tìm thấy, giữ nguyên trạng thái là chưa kết bạn
+//                    isFriendRequestSent = false;
+//                    addFriendButton.setText("Thêm Bạn Bè");
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Không thể tải danh sách bạn bè", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<UserFriendsModel>> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Log.e("API_Error", "Error: ", t);
+//            }
+//        });
+//    }
+
+    private void updateFriendshipButtonState(String selectedUserId) {
         String userId = prefs.getString("userId", "");
         String token = prefs.getString("accessToken", "");
         UserApiService service = ApiServiceProvider.getUserApiService();
@@ -119,18 +155,23 @@ public class ProfileOther extends AppCompatActivity {
             public void onResponse(Call<List<UserFriendsModel>> call, Response<List<UserFriendsModel>> response) {
                 if (response.isSuccessful()) {
                     List<UserFriendsModel> friendList = response.body();
-                    // Kiểm tra xem selectedUserId có trong danh sách bạn bè không
+                    boolean isRequestSent = prefs.getBoolean("FRIEND_REQUEST_SENT_" + selectedUserId, false);
+
                     for (UserFriendsModel friend : friendList) {
                         if (friend.getUserFriendId().equals(selectedUserId)) {
-                            // Nếu có, cập nhật trạng thái là bạn bè và giao diện
                             isFriendRequestSent = true;
                             addFriendButton.setText("Bạn Bè");
                             return;
                         }
                     }
-                    // Nếu không tìm thấy, giữ nguyên trạng thái là chưa kết bạn
-                    isFriendRequestSent = false;
-                    addFriendButton.setText("Thêm Bạn Bè");
+
+                    if (isRequestSent) {
+                        isFriendRequestSent = true;
+                        addFriendButton.setText("Đã Gửi Lời Mời");
+                    } else {
+                        isFriendRequestSent = false;
+                        addFriendButton.setText("Thêm Bạn Bè");
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Không thể tải danh sách bạn bè", Toast.LENGTH_SHORT).show();
                 }
@@ -144,22 +185,6 @@ public class ProfileOther extends AppCompatActivity {
         });
     }
 
-    // Phương thức để kiểm tra và cập nhật trạng thái nút kết bạn
-    private void updateFriendshipButtonState(String selectedUserId) {
-        // Lấy trạng thái từ SharedPreferences
-        boolean isRequestSent = prefs.getBoolean("FRIEND_REQUEST_SENT_" + selectedUserId, false);
-
-        // Kiểm tra trạng thái và cập nhật giao diện
-        if (isRequestSent) {
-            // Nếu đã gửi lời mời, cập nhật trạng thái và giao diện
-            isFriendRequestSent = true;
-            addFriendButton.setText("Đã Gửi Lời Mời");
-        } else {
-            // Nếu chưa gửi lời mời, giữ nguyên trạng thái là chưa kết bạn
-            isFriendRequestSent = false;
-            addFriendButton.setText("Thêm Bạn Bè");
-        }
-    }
 
     // Phương thức để gửi lời mời kết bạn
     private void sendFriendRequest(String friendId) {
