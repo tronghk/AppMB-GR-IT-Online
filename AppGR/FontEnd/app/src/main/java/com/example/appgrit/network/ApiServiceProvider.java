@@ -1,6 +1,7 @@
 package com.example.appgrit.network;
 
 import com.example.appgrit.services.MarketplaceApiService;
+import com.example.appgrit.services.PaymentApiService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -58,9 +59,12 @@ public class ApiServiceProvider {
     public static MarketplaceApiService getMarketplaceApiService() {
         return getRetrofitInstance().create(MarketplaceApiService.class);
     }
+
     public static ChangePassWordApiService getChangePasswordApiService() {
         return getRetrofitInstance().create(ChangePassWordApiService.class);
     }
 
-
+    public static PaymentApiService getPaymentApiService() {
+        return getRetrofitInstance().create(PaymentApiService.class);
+    }
 }

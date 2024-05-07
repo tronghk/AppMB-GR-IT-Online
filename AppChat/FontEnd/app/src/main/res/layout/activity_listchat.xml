@@ -33,14 +33,15 @@
             app:srcCompat="@drawable/ic_back_listchat" />
 
         <ImageView
-            android:id="@+id/btn_edit"
+            android:id="@+id/btn_create_chat"
             android:layout_width="25sp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_edit_listchat" />
+            app:menu="@menu/menu_create"
+            app:srcCompat="@drawable/ic_add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -153,6 +154,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_chat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:background="?android:attr/windowBackground"-->
+<!--        app:itemHorizontalTranslationEnabled="true"-->
+<!--        app:itemIconTint="@color/selector"-->
+<!--        app:itemTextColor="@color/selector"-->
+<!--        app:labelVisibilityMode="labeled"-->
+<!--        app:menu="@menu/menu_nav" />-->
 
 </LinearLayout>

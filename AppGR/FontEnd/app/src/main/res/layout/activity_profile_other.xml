@@ -1,7 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"    android:background="#eeeeee">
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
 
     <ImageView
         android:id="@+id/back"
@@ -39,10 +41,17 @@
                         android:layout_height="80dp"
                         android:src="@drawable/profile"
                         android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        tools:ignore="MissingClass" />
+                        android:layout_centerHorizontal="true"/>
 
 
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/story_add"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@android:color/white"
+                        android:src="@drawable/add"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
 
                 <LinearLayout
@@ -65,7 +74,7 @@
 
                             <TextView
                                 android:id="@+id/posts"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="0"
@@ -152,22 +161,12 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/setting"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"/>
 
-            <LinearLayout
-                android:id="@+id/last_bar"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="-5dp"
-                android:background="@drawable/button_black"
-                android:orientation="horizontal"/>
+                android:layout_height="wrap_content" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_save"

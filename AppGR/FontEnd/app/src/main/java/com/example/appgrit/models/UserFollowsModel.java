@@ -1,7 +1,11 @@
 package com.example.appgrit.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserFollowsModel {
+    @SerializedName("userId")
     private String UserId;
+    @SerializedName("userFollowId")
     private String UserFollowId;
 
     public UserFollowsModel() {

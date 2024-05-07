@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 public class TokenModel {
     private String accessToken;
     private String refreshToken;
-    private LocalDateTime expiration;
+    private String expiration;
 
     public TokenModel() {
     }
 
-    public TokenModel(String accessToken, String refreshToken, LocalDateTime expiration) {
+    public TokenModel(String accessToken, String refreshToken, String expiration) {
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
         this.expiration = expiration;
@@ -32,11 +32,11 @@ public class TokenModel {
         this.refreshToken = refreshToken;
     }
 
-    public LocalDateTime getExpiration() {
+    public String getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(LocalDateTime expiration) {
+    public void setExpiration(String expiration) {
         this.expiration = expiration;
     }
 }

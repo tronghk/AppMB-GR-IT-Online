@@ -1,11 +1,10 @@
 package com.example.appchatit.models;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class GroupChatModel {
     private String groupId;
-    private LocalDateTime timeCreate;
+    private String timeCreate;
     private String groupName;
     private String imagePath;
     private List<GroupMemberModel> groupMembers;
@@ -13,7 +12,7 @@ public class GroupChatModel {
     public GroupChatModel() {
     }
 
-    public GroupChatModel(String groupId, LocalDateTime timeCreate, String groupName, String imagePath, List<GroupMemberModel> groupMembers) {
+    public GroupChatModel(String groupId, String timeCreate, String groupName, String imagePath, List<GroupMemberModel> groupMembers) {
         this.groupId = groupId;
         this.timeCreate = timeCreate;
         this.groupName = groupName;
@@ -29,11 +28,11 @@ public class GroupChatModel {
         this.groupId = groupId;
     }
 
-    public LocalDateTime getTimeCreate() {
+    public String getTimeCreate() {
         return timeCreate;
     }
 
-    public void setTimeCreate(LocalDateTime timeCreate) {
+    public void setTimeCreate(String timeCreate) {
         this.timeCreate = timeCreate;
     }
 

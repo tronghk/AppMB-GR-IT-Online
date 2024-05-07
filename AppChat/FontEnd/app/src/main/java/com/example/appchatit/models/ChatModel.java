@@ -2,15 +2,15 @@ package com.example.appchatit.models;
 
 public class ChatModel {
     private String userId;
-    private String userOtherId;
+    private String userOrtherId;
     private String messId;
 
     public ChatModel() {
     }
 
-    public ChatModel(String userId, String userOtherId, String messId) {
+    public ChatModel(String userId, String userOrtherId, String messId) {
         this.userId = userId;
-        this.userOtherId = userOtherId;
+        this.userOrtherId = userOrtherId;
         this.messId = messId;
     }
 
@@ -22,12 +22,12 @@ public class ChatModel {
         this.userId = userId;
     }
 
-    public String getUserOtherId() {
-        return userOtherId;
+    public String getUserOrtherId() {
+        return userOrtherId;
     }
 
-    public void setUserOtherId(String userOtherId) {
-        this.userOtherId = userOtherId;
+    public void setUserOrtherId(String userOrtherId) {
+        this.userOrtherId = userOrtherId;
     }
 
     public String getMessId() {

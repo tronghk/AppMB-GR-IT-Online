@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appgrit.activities.CreatePostHome;
 import com.example.appgrit.activities.activity_home;
 import com.example.appgrit.adapters.PostAdapter;
 import com.example.appgrit.helper.JWTServices;
@@ -62,6 +63,7 @@ public class FragmentProfile extends AppCompatActivity {
     private Button btn_edit;
     private LinearLayout last_bar;
     private ImageView my_photo;
+    private  CircleImageView story_add;
     private ImageView share_photo;
     private RecyclerView recycler_view;
     private RecyclerView recycler_view_share;
@@ -92,6 +94,7 @@ public class FragmentProfile extends AppCompatActivity {
         my_photo = findViewById(R.id.my_photos);
         share_photo = findViewById(R.id.save_photos);
         recycler_view = findViewById(R.id.recycler_view);
+        story_add = findViewById(R.id.story_add);
         recycler_view_share = findViewById(R.id.recycler_view_save);
         _profileService = new ProfileServices();
         prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -104,7 +107,18 @@ public class FragmentProfile extends AppCompatActivity {
         tokenModel.setRefreshToken(refreshToken);
        // tokenModel.setExpiration(new Dat);
         setupRecyclerView();
+        AddAvater();
 
+    }
+    public void AddAvater(){
+        story_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreatePostHome.class);
+                intent.putExtra("avt","3");
+                startActivity(intent);
+            }
+        });
     }
     private void setupRecyclerView() {
         recyclerViewPosts = findViewById(R.id.recycler_view);

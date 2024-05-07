@@ -25,6 +25,7 @@ import com.example.appgrit.models.PostModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostApiService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -76,10 +77,35 @@ public class activity_home extends AppCompatActivity {
             } else if (itemId == R.id.nav_more) {
                 showMoreMenu(findViewById(R.id.nav_more));
                 return true;
-            } else {
+            }
+            else if (itemId == R.id.nav_chat) {
+                changeAppChat("com.example.appchatit");
+                return true;
+            }
+            else {
                 return false;
             }
         });
+    }
+    public void changeAppChat(String appId){
+// Tên gói ứng dụng của ứng dụng bạn muốn mở
+        String packageName = appId;
+
+// Tạo một Intent để mở ứng dụng với tên gói ứng dụng đã biết
+        Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        String refreshToken = prefs.getString("refreshToken", "");
+        String expiration =  prefs.getString("expiration", "");
+        intent.putExtra("accessToken",token);
+        intent.putExtra("refreshToken",refreshToken);
+        intent.putExtra("expiration",expiration);
+        if (intent != null) {
+            // Kiểm tra xem Intent có hợp lệ không trước khi mở ứng dụng
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(),intent.toString(),Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setupImageViewClickListeners() {
@@ -152,6 +178,9 @@ public class activity_home extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_edit_info) {
                 startActivity(new Intent(activity_home.this, edit_profile.class));
+                return true;
+            } else if (itemId == R.id.nav_upgrade_account) {
+                startActivity(new Intent(activity_home.this, UpgradeAccountActivity.class));
                 return true;
             } else if (itemId == R.id.nav_logout) {
                 // Xử lý đăng xuất ở đây

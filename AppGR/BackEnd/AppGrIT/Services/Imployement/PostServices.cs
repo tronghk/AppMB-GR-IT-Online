@@ -553,7 +553,7 @@ namespace AppGrIT.Services.Imployement
             };
             var image = model.imagePosts;
             var listPost = await _imageManager.GetImagePostToId(model.PostSellProductId);
-            foreach (var imagePost in listPost)
+            foreach (var imagePost in image)
             {
                 var result = CheckImageExsist(imagePost, listPost);
                 if (result != null)
@@ -679,6 +679,109 @@ namespace AppGrIT.Services.Imployement
                 result.Add(us);
             }
             return result;
+        }
+
+        public async Task<int> GetSumPostDay()
+        {
+           DateTime date = DateTime.Now;
+            var count = await _postDAO.GetSumPostOfDay(date);
+            return count;
+           
+        }
+
+        public async Task<int> GetSumPostWeek()
+        {
+            DateTime date = DateTime.Now;
+            var count = await _postDAO.GetSumPostOWeek(date);
+            return count;
+
+        }
+
+        public async Task<int> CompareGainPostLastWeek()
+        {
+            DateTime date = DateTime.Now;
+            var count = await _postDAO.GetSumPostOWeek(date);
+          
+            var day = date.Day;
+            var month = date.Month;
+            var sttDay = GetSttDayOfMonth(date);
+            while(sttDay != 1)
+            {
+                day = day - 1;
+                sttDay = sttDay - 1; 
+            }
+            if(day <= 0)
+            {
+                month = month - 1;
+                var d = 30;
+                if(month%2 != 0)
+                {
+                    d = 31;
+                }
+                while(day < 0)
+                {
+                    day = day + 1;
+                    d = d - 1;
+                }
+                day = d;
+            }
+            string dateTime = month+"/"+day+"/"+date.Year;
+            DateTime dt = Convert.ToDateTime(dateTime);
+            var re = await _postDAO.GetSumPostOWeek(dt);
+            return re-count;
+
+        }
+        public int GetSttDayOfMonth(DateTime date)
+        {
+            var day = date.Day;
+            var year = date.Year;
+            var month = date.Month;
+            var differenceYear = year - 2020;
+            var leapYear = differenceYear / 4 + 1;
+            if(month < 2  && year / 100 != 0 && year / 4 == 0)
+            {
+                leapYear = leapYear -1;
+            }
+            if (month == 2 && year / 100 != 0 && year / 4 == 0 && day < 29)
+            {
+                leapYear = leapYear - 1;
+            }
+
+            var sumDay = differenceYear * 365 + leapYear;
+            sumDay = sumDay + sumDayOfMonth(month) + day;
+
+            var dayOfToday = (sumDay-1) % 7;
+            var sttDayToDay = -1;
+            if(dayOfToday > DateOfMonth.FirstDayOfWeek1Year2020)
+            {
+                sttDayToDay = dayOfToday - DateOfMonth.FirstDayOfWeek1Year2020 + 1;
+            }
+            else
+            {
+                sttDayToDay = DateOfMonth.FirstDayOfWeek1Year2020 + dayOfToday;
+            }
+            return sttDayToDay;
+        }
+        public int sumDayOfMonth(int month)
+        {
+            var day = 0;
+            for(int i = 1;i< month; i++)
+            {
+                if(i%2 != 0)
+                {
+                    day = day + 31;
+                }
+                else if(i == 2)
+                {
+                    day = day + 28;
+                }
+                else
+                {
+                    day = day + 30;
+                }
+
+            }
+            return day;
         }
     }
 }

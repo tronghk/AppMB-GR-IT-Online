@@ -22,5 +22,10 @@ namespace AppChat.Entity
         [Required]
 
         public string PostType { get; set; } = null!;
+
+
+
+
+
     }
 }

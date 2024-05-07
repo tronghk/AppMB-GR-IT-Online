@@ -9,6 +9,8 @@ namespace AppGrIT.Services
 
         public Task<List<PostSellProductModel>> GetPostSellProductModel();
 
+        public Task<string> SumPayMentOfMonth();
+
 
     }
 }

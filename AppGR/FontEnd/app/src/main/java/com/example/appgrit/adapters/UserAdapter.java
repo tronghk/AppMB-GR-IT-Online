@@ -1,6 +1,7 @@
 package com.example.appgrit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.appgrit.ProfileOther;
 import com.example.appgrit.R;
+import com.example.appgrit.models.PostModel;
 import com.example.appgrit.models.UserModel;
 
 import java.util.List;
@@ -43,6 +46,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         String userName = user.getUserName();
         if (userName != null && !userName.isEmpty()) {
             holder.fullname.setText(userName);
+
         } else {
             holder.fullname.setText("Unknown");
         }
@@ -56,6 +60,34 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         } else {
             holder.imageProfile.setImageResource(R.drawable.profile);
         }
+
+        // Thêm sự kiện lắng nghe cho tên người dùng
+        holder.fullname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lấy userId của người dùng từ danh sách
+                String userId = userList.get(holder.getAdapterPosition()).getUserId();
+
+                // Tạo Intent để chuyển sang ProfileOther và truyền userId
+                Intent intent = new Intent(context, ProfileOther.class);
+                intent.putExtra("selectedUserId", userId);
+                context.startActivity(intent);
+            }
+        });
+
+        // Thêm sự kiện lắng nghe cho hình ảnh người dùng
+        holder.imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lấy userId của người dùng từ danh sách
+                String userId = userList.get(holder.getAdapterPosition()).getUserId();
+
+                // Tạo Intent để chuyển sang ProfileOther và truyền userId
+                Intent intent = new Intent(context, ProfileOther.class);
+                intent.putExtra("selectedUserId", userId);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -72,5 +104,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             fullname = itemView.findViewById(R.id.fullname);
             imageProfile = itemView.findViewById(R.id.image_profile);
         }
+    }
+    public void setData(List<UserModel> newData) {
+        userList.clear();
+        userList.addAll(newData);
+        notifyDataSetChanged();
     }
 }

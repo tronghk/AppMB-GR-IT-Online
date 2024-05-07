@@ -29,7 +29,6 @@ public class MarketplaceActivity extends AppCompatActivity {
     private MarketplaceAdapter marketplaceAdapter;
     private RecyclerView recyclerView;
     private List<PostSellProductModel> postList = new ArrayList<>();
-    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

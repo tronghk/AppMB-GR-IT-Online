@@ -3,8 +3,12 @@ package com.example.appgrit.activities;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -17,8 +21,10 @@ import android.widget.Toast;
 
 import com.auth0.android.jwt.Claim;
 import com.auth0.android.jwt.JWT;
+import com.example.appgrit.Admin_Home;
 import com.example.appgrit.ForgotPasswordActivity;
 import com.example.appgrit.R;
+import com.example.appgrit.helper.SynthesizeRoles;
 import com.example.appgrit.models.SignInModel;
 import com.example.appgrit.models.TokenModel;
 import com.example.appgrit.models.UserInforModel;
@@ -30,9 +36,20 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.nimbusds.jose.JWSObject;
+import com.nimbusds.jwt.JWTClaimsSet;
 
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,6 +112,7 @@ public class activity_signin extends AppCompatActivity {
         }
 
         buttonSignIn.setOnClickListener(v -> {
+
             String email = editTextEmail.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
 
@@ -124,6 +142,20 @@ public class activity_signin extends AppCompatActivity {
                     GoogleSignIn();
             }
         });
+    }
+    public void changeAppChat(String appId){
+// Tên gói ứng dụng của ứng dụng bạn muốn mở
+        String packageName = appId;
+
+// Tạo một Intent để mở ứng dụng với tên gói ứng dụng đã biết
+        Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
+
+        if (intent != null) {
+            // Kiểm tra xem Intent có hợp lệ không trước khi mở ứng dụng
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(),intent.toString(),Toast.LENGTH_SHORT).show();
+        }
     }
     public void GoogleSignIn(){
         Intent intent = googleSignInClient.getSignInIntent();
@@ -171,10 +203,15 @@ public class activity_signin extends AppCompatActivity {
                         prefs.edit().putString("accessToken", accessToken).apply();
                         prefs.edit().putString("refreshToken", refreshToken).apply();
                         prefs.edit().putString("expiration", date).apply();
-
+                        boolean isAdmin = CheckAdmin(accessToken);
+                        if(isAdmin){
+                            ChangeAcAdmin();
+                        }else {
+                            getUserInfo(accessToken);
+                            Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                        }
                         // Now get user info
-                        getUserInfo(accessToken);
-                        Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
                     }
                 }
                 else {
@@ -190,7 +227,31 @@ public class activity_signin extends AppCompatActivity {
             }
         });
     }
+    public boolean CheckAdmin(String token){
 
+        JWSObject jwsObject;
+        JWTClaimsSet claims = null;
+
+        try {
+            jwsObject = JWSObject.parse(token);
+            claims =  JWTClaimsSet.parse(jwsObject.getPayload().toJSONObject());
+            // now access any claims you want using the relevant key. It will be returned as an object
+            List<String> role = claims.getStringListClaim("http://schemas.microsoft.com/ws/2008/06/identity/claims/role");
+            Log.e("size_role",role.size()+"");
+            for(String value : role){
+                if(value.contains(SynthesizeRoles.ADMIN))
+                    return  true;
+            }
+        } catch (java.text.ParseException e) {
+
+            Log.e("error",e.toString());
+        }
+        return false;
+    }
+    public void ChangeAcAdmin(){
+        Intent intent = new Intent(getApplicationContext(), Admin_Home.class);
+        startActivity(intent);
+    }
     // Phương thức gọi API đăng nhập
     private void signIn(String email, String password) {
         SignInModel signInModel = new SignInModel(email, password);
@@ -228,6 +289,14 @@ public class activity_signin extends AppCompatActivity {
 
                         // Now get user info
                         getUserInfo(accessToken);
+                        boolean isAdmin = CheckAdmin(accessToken);
+                        Log.e("admin",isAdmin+"");
+                        if(isAdmin){
+                            ChangeAcAdmin();
+                        }else {
+                            getUserInfo(accessToken);
+                            Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                        }
                         Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
                     }

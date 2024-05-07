@@ -58,6 +58,38 @@ namespace AppGrIT.Data
             }
             return matchingProducts;
         }
+        public async Task<string> SumPayment(int month)
+        {
+            float sum = 0;
+            FirebaseResponse response = await _firebase._client.GetAsync("UserSells");
+            //path All Id
+            JObject jsonResponse = response.ResultAs<JObject>();
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var us = JsonConvert.DeserializeObject<UserSells>(value);
+                    var timeStart = us.TimeStart;
+                    var timeEnd = us.TimeEnd;
+
+                    if (timeEnd.Year == timeEnd.Year)
+                    {
+                        sum = (timeEnd.Month - timeStart.Month) * 30000;
+                    }
+                    else
+                    {
+                        sum = (12 - timeStart.Month) * 30000 + timeEnd.Month * 30000;
+                    }
+                }
+
+
+
+            }
+            return sum.ToString();
+
+        }
         public async Task<List<PostSellProduct>> GetPostSellProduct()
         {
             List<PostSellProduct> matchingProducts = new List<PostSellProduct>();
