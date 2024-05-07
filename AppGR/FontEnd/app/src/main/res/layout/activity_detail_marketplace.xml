@@ -32,20 +32,37 @@
     </androidx.appcompat.widget.Toolbar>
 
     <!-- Image of the product -->
-    <ImageView
-        android:id="@+id/image_product"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/toolbar_marketplace"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/productimage1" />
+        android:id="@+id/image_container">
 
-    <!-- Product title -->
+        <!-- Image of the product -->
+        <ImageView
+            android:id="@+id/image_product"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/productimage1" />
+
+        <!-- RecyclerView for Image Gallery -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/imageGallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
+
+    </FrameLayout>
+
     <TextView
         android:id="@+id/text_product_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image_product"
+        android:layout_below="@id/image_container"
         android:padding="16dp"
         android:text="MSI GF66 Katana i7-12650H"
         android:textSize="18sp"
@@ -232,14 +249,14 @@
                 android:text="Phạm Đông"
                 android:textSize="14sp" />
 
-            <!-- Chữ comment -->
-            <TextView
-                android:id="@+id/text_seller_comments"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="Comments"
-                android:textSize="14sp" />
+<!--            &lt;!&ndash; Chữ comment &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/text_seller_comments"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:text="Comments"-->
+<!--                android:textSize="14sp" />-->
         </RelativeLayout>
 
     </RelativeLayout>

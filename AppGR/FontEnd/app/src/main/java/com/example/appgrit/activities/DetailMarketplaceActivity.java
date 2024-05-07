@@ -1,6 +1,8 @@
 package com.example.appgrit.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,12 +14,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.appgrit.R;
+import com.example.appgrit.adapters.ImageGalleryAdapter;
 import com.example.appgrit.comment;
 import com.example.appgrit.models.ImagePostModel;
 import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.UserApiService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,6 +31,7 @@ import retrofit2.Response;
 public class DetailMarketplaceActivity extends AppCompatActivity {
     private ImageView sellerAvatarImageView;
     private TextView sellerUsernameTextView;
+    private RecyclerView imageGalleryRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,7 @@ public class DetailMarketplaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_marketplace);
         sellerAvatarImageView = findViewById(R.id.image_seller_avatar);
         sellerUsernameTextView = findViewById(R.id.text_seller_username);
+        imageGalleryRecyclerView = findViewById(R.id.imageGallery);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -59,22 +65,56 @@ public class DetailMarketplaceActivity extends AppCompatActivity {
             ImageView imageView = findViewById(R.id.image_product);
             ImagePostModel imagePost = imagePosts.get(0);
             Glide.with(this).load(imagePost.getImagePath()).into(imageView);
+
+            // Kiểm tra số lượng ảnh
+            if (imagePosts.size() > 1) {
+                // Ẩn ImageView nếu có nhiều hơn một ảnh
+                imageView.setVisibility(View.GONE);
+
+                // Hiển thị RecyclerView nếu có nhiều hơn một ảnh
+                imageGalleryRecyclerView.setVisibility(View.VISIBLE);
+
+                // Tạo và thiết lập adapter cho RecyclerView
+                List<String> imageUrls = new ArrayList<>();
+                for (ImagePostModel post : imagePosts) {
+                    imageUrls.add(post.getImagePath());
+                }
+                ImageGalleryAdapter adapter = new ImageGalleryAdapter(DetailMarketplaceActivity.this, imageUrls);
+                imageGalleryRecyclerView.setLayoutManager(new LinearLayoutManager(DetailMarketplaceActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                imageGalleryRecyclerView.setAdapter(adapter);
+
+                // Thêm lắng nghe sự kiện cho từng ảnh trong RecyclerView
+                adapter.setOnImageClickListener(new ImageGalleryAdapter.OnImageClickListener() {
+                    @Override
+                    public void onImageClick(int position) {
+                        // Xem chi tiết ảnh khi bấm vào
+                        Intent intent = new Intent(DetailMarketplaceActivity.this, ImageDetailActivity.class);
+                        intent.putExtra("imagePath", imageUrls.get(position));
+                        startActivity(intent);
+                    }
+                });
+            } else {
+                // Hiển thị ImageView nếu chỉ có một ảnh
+                imageView.setVisibility(View.VISIBLE);
+                imageGalleryRecyclerView.setVisibility(View.GONE);
+            }
         }
 
-        TextView textSellerComments = findViewById(R.id.text_seller_comments);
-        textSellerComments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Lấy postId từ bundle
-                String postSellProductId = bundle.getString("postSellProductId", "");
-                Intent intent = new Intent(DetailMarketplaceActivity.this, comment.class);
-                // Gửi postId qua intent
-                intent.putExtra("postId", postSellProductId);
-                startActivity(intent);
-            }
-        });
-
+//        TextView textSellerComments = findViewById(R.id.text_seller_comments);
+//        textSellerComments.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Lấy postId từ bundle
+//                String postSellProductId = bundle.getString("postSellProductId", "");
+//                Intent intent = new Intent(DetailMarketplaceActivity.this, comment.class);
+//                // Gửi postId qua intent
+//                intent.putExtra("postId", postSellProductId);
+//                startActivity(intent);
+//            }
+//        });
     }
+
+
 
     private String getTokenFromSharedPreferences() {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
