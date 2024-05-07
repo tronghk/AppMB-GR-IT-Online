@@ -48,6 +48,7 @@ public class ManageRoleActivity extends AppCompatActivity {
     private List<UserModel> userList = new ArrayList<>();
     private List<GroupMemberModel> memberList = new ArrayList<>();
     private ImageView btnUpdateRole;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,14 @@ public class ManageRoleActivity extends AppCompatActivity {
                         break;
                     }
                 }
+            }
+        });
+
+        btnBack = findViewById(R.id.btn_back_manage_role);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

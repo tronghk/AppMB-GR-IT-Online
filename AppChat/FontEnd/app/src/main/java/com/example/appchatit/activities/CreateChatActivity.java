@@ -2,6 +2,8 @@ package com.example.appchatit.activities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ public class CreateChatActivity extends AppCompatActivity {
     private CreateChatAdapter createChatAdapter;
     private RecyclerView recyclerView;
     private List<UserModel> userList = new ArrayList<>();
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,14 @@ public class CreateChatActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(createChatAdapter);
         loadListFriend();
+
+        btnBack = findViewById(R.id.btn_back_create_chat);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void loadListFriend() {

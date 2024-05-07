@@ -47,6 +47,7 @@ public class InfoGroupActivity extends AppCompatActivity {
     private ConstraintLayout admin_role_item;
     private ConstraintLayout out_group_item;
     private List<GroupMemberModel> memberList;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class InfoGroupActivity extends AppCompatActivity {
         manage_role_item = findViewById(R.id.btn_edit_role);
         admin_role_item = findViewById(R.id.btn_change_admin);
         out_group_item = findViewById(R.id.btn_leave_group);
+        btnBack = findViewById(R.id.btn_back_info_gr);
     }
 
     private void setupEventListeners() {
@@ -167,6 +169,13 @@ public class InfoGroupActivity extends AppCompatActivity {
                     }
                 });
                 animator.start();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

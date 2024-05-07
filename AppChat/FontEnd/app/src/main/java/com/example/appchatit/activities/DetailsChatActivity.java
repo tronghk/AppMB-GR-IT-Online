@@ -53,6 +53,7 @@ public class DetailsChatActivity extends AppCompatActivity {
     private EditText edtContent;
     private RecyclerView boxChat;
     private ImageView btnInfo;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class DetailsChatActivity extends AppCompatActivity {
     private void initializeViews(){
         btnInfo = findViewById(R.id.btn_info_chat);
         btnSend = findViewById(R.id.btn_send);
+        btnBack = findViewById(R.id.btn_back_boxchat);
         edtContent = findViewById(R.id.edt_message);
         boxChat = findViewById(R.id.box_chat);
     }
@@ -87,6 +89,13 @@ public class DetailsChatActivity extends AppCompatActivity {
                         }
                     }, 3000);
                 }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
