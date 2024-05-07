@@ -60,20 +60,6 @@ public class ManageRoleAdapter extends RecyclerView.Adapter<ManageRoleAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Comparator<GroupMemberModel> roleComparator = new Comparator<GroupMemberModel>() {
-            @Override
-            public int compare(GroupMemberModel member1, GroupMemberModel member2) {
-                if ("GR_MANAGER".equals(member1.getRole())) {
-                    return -1;
-                } else if ("GR_MANAGER".equals(member2.getRole())) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-        };
-        Collections.sort(memberList, roleComparator);
-
         List<String> list = new ArrayList<String>();
         list.add("Manager");
         list.add("Sub-manager");

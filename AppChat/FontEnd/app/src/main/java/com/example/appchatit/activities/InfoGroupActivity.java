@@ -30,6 +30,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -101,6 +103,20 @@ public class InfoGroupActivity extends AppCompatActivity {
         manage_role_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Comparator<GroupMemberModel> roleComparator = new Comparator<GroupMemberModel>() {
+                    @Override
+                    public int compare(GroupMemberModel member1, GroupMemberModel member2) {
+                        if ("GR_MANAGER".equals(member1.getRole())) {
+                            return -1;
+                        } else if ("GR_MANAGER".equals(member2.getRole())) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                };
+                Collections.sort(memberList, roleComparator);
+
                 Intent intent = new Intent(InfoGroupActivity.this, ManageRoleActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("chatId", chatId);
