@@ -55,26 +55,26 @@ public class ManageRoleAdapter extends RecyclerView.Adapter<ManageRoleAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        UserModel userModel = userList.get(position);
-
-        String otherUser = userModel.getUserName();
-        if (otherUser != null && !otherUser.isEmpty()) {
-            holder.nameUser.setText(otherUser);
-        } else {
-            holder.nameUser.setText("Unknown");
-        }
-
-        String imagePath = userModel.getImagePath();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            RequestOptions requestOptions = new RequestOptions();
-            requestOptions = requestOptions.transforms(new CircleCrop());
-            Glide.with(holder.imgUser.getContext())
-                    .load(imagePath)
-                    .apply(requestOptions)
-                    .into(holder.imgUser);
-        } else {
-            holder.imgUser.setImageResource(R.drawable.baseline_api_24);
-        }
+//        UserModel userModel = userList.get(position);
+//
+//        String otherUser = userModel.getUserName();
+//        if (otherUser != null && !otherUser.isEmpty()) {
+//            holder.nameUser.setText(otherUser);
+//        } else {
+//            holder.nameUser.setText("Unknown");
+//        }
+//
+//        String imagePath = userModel.getImagePath();
+//        if (imagePath != null && !imagePath.isEmpty()) {
+//            RequestOptions requestOptions = new RequestOptions();
+//            requestOptions = requestOptions.transforms(new CircleCrop());
+//            Glide.with(holder.imgUser.getContext())
+//                    .load(imagePath)
+//                    .apply(requestOptions)
+//                    .into(holder.imgUser);
+//        } else {
+//            holder.imgUser.setImageResource(R.drawable.baseline_api_24);
+//        }
 
         List<String> list = new ArrayList<String>();
         list.add("Manager");
@@ -94,6 +94,29 @@ public class ManageRoleAdapter extends RecyclerView.Adapter<ManageRoleAdapter.Vi
                 holder.spinner.setSelection(1);
             } else {
                 holder.spinner.setSelection(2);
+            }
+        }
+
+        for (UserModel userModel : userList) {
+            if (memberModel.getUserId().equals(userModel.getUserId())) {
+                String otherUser = userModel.getUserName();
+                if (otherUser != null && !otherUser.isEmpty()) {
+                    holder.nameUser.setText(otherUser);
+                } else {
+                    holder.nameUser.setText("Unknown");
+                }
+
+                String imagePath = userModel.getImagePath();
+                if (imagePath != null && !imagePath.isEmpty()) {
+                    RequestOptions requestOptions = new RequestOptions();
+                    requestOptions = requestOptions.transforms(new CircleCrop());
+                    Glide.with(holder.imgUser.getContext())
+                            .load(imagePath)
+                            .apply(requestOptions)
+                            .into(holder.imgUser);
+                } else {
+                    holder.imgUser.setImageResource(R.drawable.baseline_api_24);
+                }
             }
         }
 
