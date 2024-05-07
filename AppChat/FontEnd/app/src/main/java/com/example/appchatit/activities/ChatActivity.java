@@ -13,10 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchatit.R;
+import com.example.appchatit.adapters.ActiveAdapter;
 import com.example.appchatit.adapters.ChatAdapter;
+import com.example.appchatit.models.UserFriendModel;
 import com.example.appchatit.models.UserModel;
 import com.example.appchatit.network.ApiServiceProvider;
 import com.example.appchatit.services.ChatApiService;
+import com.example.appchatit.services.UserApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,9 @@ public class ChatActivity extends AppCompatActivity {
     private ChatAdapter chatAdapter;
     private RecyclerView recyclerView;
     private List<UserModel> userModelList = new ArrayList<>();
+    private ActiveAdapter activeAdapter;
+    private RecyclerView recyclerViewActive;
+    private List<UserModel> friendList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +57,15 @@ public class ChatActivity extends AppCompatActivity {
         chatAdapter = new ChatAdapter(this, userModelList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(chatAdapter);
+
+        recyclerViewActive = findViewById(R.id.recycler_view_active);
+        activeAdapter = new ActiveAdapter(this, friendList);
+        recyclerViewActive.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewActive.setAdapter(activeAdapter);
+
         loadListChat();
         loadListMessOrtherUser();
+        loadListFriend();
     }
 
 //    private void setupBottomNavigationView() {
@@ -133,6 +146,63 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<UserModel>> call, Throwable t) {
                 Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loadListFriend() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String userId = sharedPreferences.getString("userId", "");
+
+        UserApiService userApiService = ApiServiceProvider.getUserApiService();
+        Call<List<UserFriendModel>> call = userApiService.getListUserFriend(userId);
+        call.enqueue(new Callback<List<UserFriendModel>>() {
+            @Override
+            public void onResponse(Call<List<UserFriendModel>> call, Response<List<UserFriendModel>> response) {
+                if (response.isSuccessful()) {
+                    List<UserFriendModel> userFriendsList = response.body();
+                    if (userFriendsList != null && !userFriendsList.isEmpty()) {
+                        for (UserFriendModel userFriend : userFriendsList) {
+                            String userFriendId = userFriend.getUserFriendId();
+                            getUserInfo(userFriendId);
+                        }
+                    } else {
+                        Toast.makeText(ChatActivity.this, "Không có bạn bè", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(ChatActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<UserFriendModel>> call, Throwable t) {
+                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getUserInfo(String userFriendId) {
+        UserApiService userApiService = ApiServiceProvider.getUserApiService();
+        Call<UserModel> call = userApiService.getUserBasic(userFriendId);
+        call.enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                if (response.isSuccessful()) {
+                    UserModel user = response.body();
+                    if (user != null) {
+                        friendList.add(user);
+                        activeAdapter.notifyDataSetChanged();
+                    } else {
+                        Toast.makeText(ChatActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(ChatActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }
