@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class activity_home extends AppCompatActivity {
+
+    private ImageView btn_send_mess;
     private RecyclerView recyclerViewPosts;
     private PostAdapter postAdapter;
     private List<PostModel> postList = new ArrayList<>();
@@ -45,11 +48,17 @@ public class activity_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        btn_send_mess = findViewById(R.id.btn_send_mess);
+
         setupRecyclerView();
         setupBottomNavigationView();
 
         // Gán sự kiện onClick cho các ImageView như btn_add_post, btn_noti_post, v.v...
         setupImageViewClickListeners();
+
+        btn_send_mess.setOnClickListener(v -> {
+            changeAppChat("com.example.appchatit");
+        });
     }
 
     private void setupRecyclerView() {
@@ -78,10 +87,6 @@ public class activity_home extends AppCompatActivity {
                 showMoreMenu(findViewById(R.id.nav_more));
                 return true;
             }
-            else if (itemId == R.id.nav_chat) {
-                changeAppChat("com.example.appchatit");
-                return true;
-            }
             else {
                 return false;
             }
@@ -107,6 +112,7 @@ public class activity_home extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),intent.toString(),Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void setupImageViewClickListeners() {
         ImageView btnAddPost = findViewById(R.id.btn_add_post);

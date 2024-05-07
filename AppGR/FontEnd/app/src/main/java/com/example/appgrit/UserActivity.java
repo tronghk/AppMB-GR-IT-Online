@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.appgrit.adapters.UserAdapter;
@@ -28,6 +29,8 @@ import retrofit2.Response;
 
 public class UserActivity extends AppCompatActivity {
 
+    private ImageView back;
+
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private UserFriendAdapter userFriendsAdapter;
@@ -41,6 +44,8 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        back = findViewById(R.id.back);
+
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -48,6 +53,14 @@ public class UserActivity extends AppCompatActivity {
         listAddFriends = findViewById(R.id.list_add_friends);
         GetFriends();
         EventGetFriend();
+
+        // Xử lý sự kiện click cho nút back
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     public void GetFriends(){
         userList = new ArrayList<>();
