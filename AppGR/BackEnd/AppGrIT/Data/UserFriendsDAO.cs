@@ -172,6 +172,12 @@ namespace AppGrIT.Data
                             await _firebase._client.DeleteAsync($"UserFriends/{key}");
                             return StatusResponse.STATUS_SUCCESS;
                         }
+                        if (userc.UserId.Equals(user.UserFriendId) && userc.UserFriendId.Equals(user.UserId))
+                        {
+                            var key = item.Key!.ToString();
+                            await _firebase._client.DeleteAsync($"UserFriends/{key}");
+                            return StatusResponse.STATUS_SUCCESS;
+                        }
                     }
                 }
                 
