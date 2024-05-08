@@ -57,6 +57,20 @@ public interface UserApiService {
     @GET("get-listUserFriend")
     Call<List<UserFriendsModel>> getListUserFriend(@Query("userId") String userId);
 
+    @POST("add-friend")
+    Call<ResponseBody> addFriend(@Header("Authorization") String token, @Body UserFriendsModel model);
+
+
+    @HTTP(method = "DELETE", path = "/delete-friend", hasBody = true)
+    Call<ResponseBody> deleteFriend(@Header("Authorization") String token, @Body UserFriendsModel model);
+
+
+
+
+
+
+
+
     @GET("get-user-id")
     Call<UserModel> getUserInfo(@Query("userId") String userId);
 
