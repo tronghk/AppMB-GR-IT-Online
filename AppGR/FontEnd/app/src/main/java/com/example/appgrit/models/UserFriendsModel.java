@@ -9,7 +9,8 @@ public class UserFriendsModel {
     public UserFriendsModel() {
     }
 
-    // Constructor với tham số
+
+
     public UserFriendsModel(String userId, String userFriendId, String status) {
         this.userId = userId;
         this.userFriendId = userFriendId;

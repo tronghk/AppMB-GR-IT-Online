@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MarketplaceActivity extends AppCompatActivity {
+
+    private ImageView back;
     private MarketplaceAdapter marketplaceAdapter;
     private RecyclerView recyclerView;
     private List<PostSellProductModel> postList = new ArrayList<>();
@@ -36,6 +39,7 @@ public class MarketplaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_marketplace);
 
         Button btnUpload = findViewById(R.id.btn_upload);
+        back = findViewById(R.id.back);
 
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +56,14 @@ public class MarketplaceActivity extends AppCompatActivity {
 //        postList = new ArrayList<>();
 //        marketplaceAdapter = new MarketplaceAdapter(this, postList);
 //        recyclerView.setAdapter(marketplaceAdapter);
+
+        // Xử lý sự kiện click cho nút back
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void setupRecyclerView() {

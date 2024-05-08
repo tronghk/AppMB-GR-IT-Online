@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -52,6 +53,7 @@ public class DetailsChatActivity extends AppCompatActivity {
     private EditText edtContent;
     private RecyclerView boxChat;
     private ImageView btnInfo;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,15 +67,35 @@ public class DetailsChatActivity extends AppCompatActivity {
     private void initializeViews(){
         btnInfo = findViewById(R.id.btn_info_chat);
         btnSend = findViewById(R.id.btn_send);
+        btnBack = findViewById(R.id.btn_back_boxchat);
         edtContent = findViewById(R.id.edt_message);
         boxChat = findViewById(R.id.box_chat);
     }
 
     private void setupEventListeners(){
         btnSend.setOnClickListener(new View.OnClickListener() {
+            private boolean isClicked = false;
+
             @Override
             public void onClick(View v) {
-                createMessage();
+                if (!isClicked) {
+                    isClicked = true;
+                    createMessage();
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            isClicked = false;
+                        }
+                    }, 3000);
+                }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

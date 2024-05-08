@@ -30,6 +30,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -47,6 +49,7 @@ public class InfoGroupActivity extends AppCompatActivity {
     private ConstraintLayout admin_role_item;
     private ConstraintLayout out_group_item;
     private List<GroupMemberModel> memberList;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class InfoGroupActivity extends AppCompatActivity {
         manage_role_item = findViewById(R.id.btn_edit_role);
         admin_role_item = findViewById(R.id.btn_change_admin);
         out_group_item = findViewById(R.id.btn_leave_group);
+        btnBack = findViewById(R.id.btn_back_info_gr);
     }
 
     private void setupEventListeners() {
@@ -99,6 +103,20 @@ public class InfoGroupActivity extends AppCompatActivity {
         manage_role_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Comparator<GroupMemberModel> roleComparator = new Comparator<GroupMemberModel>() {
+                    @Override
+                    public int compare(GroupMemberModel member1, GroupMemberModel member2) {
+                        if ("GR_MANAGER".equals(member1.getRole())) {
+                            return -1;
+                        } else if ("GR_MANAGER".equals(member2.getRole())) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                };
+                Collections.sort(memberList, roleComparator);
+
                 Intent intent = new Intent(InfoGroupActivity.this, ManageRoleActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("chatId", chatId);
@@ -167,6 +185,13 @@ public class InfoGroupActivity extends AppCompatActivity {
                     }
                 });
                 animator.start();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

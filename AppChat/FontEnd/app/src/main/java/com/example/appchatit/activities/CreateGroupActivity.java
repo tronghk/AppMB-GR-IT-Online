@@ -64,6 +64,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
     private List<GroupMemberModel> listMember = new ArrayList<>();
     private LinearLayout parentLayout;
     private List<GroupMemberModel> memberList;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
         imgGroup = findViewById(R.id.img_group);
         nameGroup = findViewById(R.id.edt_name_group);
         parentLayout = findViewById(R.id.layoutMain);
+        btnBack = findViewById(R.id.btn_back_add_member);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -118,6 +120,13 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                     }
                 }
                 return false;
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -197,6 +206,13 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                     }
                 }
                 return false;
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

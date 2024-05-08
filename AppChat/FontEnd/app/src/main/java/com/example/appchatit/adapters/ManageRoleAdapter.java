@@ -1,6 +1,9 @@
 package com.example.appchatit.adapters;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,8 @@ import com.example.appchatit.services.OnMemberListChangeListener;
 import com.example.appchatit.services.OnRoleSelectedListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ManageRoleAdapter extends RecyclerView.Adapter<ManageRoleAdapter.ViewHolder> {
@@ -55,27 +60,6 @@ public class ManageRoleAdapter extends RecyclerView.Adapter<ManageRoleAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        UserModel userModel = userList.get(position);
-
-        String otherUser = userModel.getUserName();
-        if (otherUser != null && !otherUser.isEmpty()) {
-            holder.nameUser.setText(otherUser);
-        } else {
-            holder.nameUser.setText("Unknown");
-        }
-
-        String imagePath = userModel.getImagePath();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            RequestOptions requestOptions = new RequestOptions();
-            requestOptions = requestOptions.transforms(new CircleCrop());
-            Glide.with(holder.imgUser.getContext())
-                    .load(imagePath)
-                    .apply(requestOptions)
-                    .into(holder.imgUser);
-        } else {
-            holder.imgUser.setImageResource(R.drawable.baseline_api_24);
-        }
-
         List<String> list = new ArrayList<String>();
         list.add("Manager");
         list.add("Sub-manager");
@@ -90,10 +74,40 @@ public class ManageRoleAdapter extends RecyclerView.Adapter<ManageRoleAdapter.Vi
             String role = memberModel.getRole();
             if ("GR_MANAGER".equals(role)) {
                 holder.spinner.setSelection(0);
+                holder.spinner.setEnabled(false);
             } else if ("GR_SUB_MANAGER".equals(role)) {
                 holder.spinner.setSelection(1);
             } else {
                 holder.spinner.setSelection(2);
+            }
+        }
+
+        for (UserModel userModel : userList) {
+            if (memberModel.getUserId().equals(userModel.getUserId())) {
+                String otherUser = userModel.getUserName();
+                if (otherUser != null && !otherUser.isEmpty()) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                    String myId = sharedPreferences.getString("userId", "");
+                    if (userModel.getUserId().equals(myId)) {
+                        holder.nameUser.setText(otherUser + " (You)");
+                    } else {
+                        holder.nameUser.setText(otherUser);
+                    }
+                } else {
+                    holder.nameUser.setText("Unknown");
+                }
+
+                String imagePath = userModel.getImagePath();
+                if (imagePath != null && !imagePath.isEmpty()) {
+                    RequestOptions requestOptions = new RequestOptions();
+                    requestOptions = requestOptions.transforms(new CircleCrop());
+                    Glide.with(holder.imgUser.getContext())
+                            .load(imagePath)
+                            .apply(requestOptions)
+                            .into(holder.imgUser);
+                } else {
+                    holder.imgUser.setImageResource(R.drawable.baseline_api_24);
+                }
             }
         }
 

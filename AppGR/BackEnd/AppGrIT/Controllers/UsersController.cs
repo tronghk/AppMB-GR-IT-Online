@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Reflection;
+using System.Security.Claims;
 using System.Text.Json.Nodes;
 
 namespace AppGrIT.Controllers
@@ -216,17 +217,17 @@ namespace AppGrIT.Controllers
             return Unauthorized();
 
         }
-       
+
         [HttpPost("/sign-in-google")]
         public async Task<IActionResult> SignInGoogle(string idToken)
         {
             var result = await _userManager.SignInGoogleAsync(idToken);
-            if(result.Status == StatusResponse.STATUS_SUCCESS)
+            if (result.Status == StatusResponse.STATUS_SUCCESS)
             {
                 var link = result.Message;
                 var email = await _userManager.GetEmailModelFromLink(link!);
                 var account = await _userManager.GetUserAsync(email);
-                if(account == null)
+                if (account == null)
                 {
                     var response = await _userManager.SignUpGoogleAsync(link!);
                     var user = await _userManager.GetUserAsync(email);
@@ -266,11 +267,11 @@ namespace AppGrIT.Controllers
 
         [Authorize(Roles = SynthesizeRoles.CUSTOMER)]
         [HttpPost("/add-image-instead-user")]
-        public async Task<IActionResult> AddImageInsteadUser([FromBody]PostModel model)
+        public async Task<IActionResult> AddImageInsteadUser([FromBody] PostModel model)
         {
             var user = await _userManager.GetUserToUserId(model.UserId!);
             model.PostType = "3";
-            if (user != null )
+            if (user != null)
             {
                 var token = HttpContext.GetTokenAsync(JwtBearerDefaults.AuthenticationScheme, "access_token");
                 string accesss_token = token.Result!;
@@ -278,9 +279,9 @@ namespace AppGrIT.Controllers
                 {
                     var result = await _postManager.CreatePostAsync(model);
 
-                    if (result!= null)
+                    if (result != null)
                     {
-                       
+
                         return Ok(result);
                     }
                     else
@@ -417,14 +418,15 @@ namespace AppGrIT.Controllers
 
             return Ok(result);
         }
+
         [HttpPost("/unlock-user")]
         [Authorize(Roles = SynthesizeRoles.ADMIN)]
         public async Task<IActionResult> Unlock(string userId)
         {
             var result = await _userManager.Unlock(userId);
-            if(result.Status == StatusResponse.STATUS_SUCCESS)
+            if (result.Status == StatusResponse.STATUS_SUCCESS)
 
-            return Ok(result);
+                return Ok(result);
             else
             {
                 return BadRequest(result);
@@ -435,7 +437,7 @@ namespace AppGrIT.Controllers
         public async Task<IActionResult> GetSumUser()
         {
             var count = await _userManager.GetSumUser();
-           
+
             return Ok(count);
         }
         [HttpGet("/FindUserByLastName")]
@@ -445,7 +447,7 @@ namespace AppGrIT.Controllers
 
             if (result != null)
             {
-               
+
                 return Ok(result);
             }
             return NotFound();
@@ -458,7 +460,7 @@ namespace AppGrIT.Controllers
 
             if (user != null)
             {
-               
+
                 return Ok(user);
             }
             return NotFound();
@@ -470,7 +472,7 @@ namespace AppGrIT.Controllers
 
             if (result != null)
             {
-                
+
                 return Ok(result);
             }
             return NotFound();
@@ -521,6 +523,8 @@ namespace AppGrIT.Controllers
 
             return Ok(token);
         }
+ 
+    
 
 
     }

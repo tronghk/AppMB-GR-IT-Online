@@ -3,6 +3,8 @@ using FireSharp.Response;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using AppGrIT.Helper;
+using System.Collections.Generic;
+using Firebase.Auth;
 
 namespace AppGrIT.Data
 {
@@ -49,6 +51,16 @@ namespace AppGrIT.Data
                     if (userc.UserId.Equals(userId))
                     {
                         list.Add(userc);
+                        
+                    }
+                    if (userc.UserFriendId == userId)
+                    {
+                        var a = userc.UserId;
+                        var b = userc.UserFriendId;
+                        userc.UserId = b;
+                        userc.UserFriendId = a;
+                        list.Add(userc);
+
                     }
                 }
             }
@@ -70,6 +82,37 @@ namespace AppGrIT.Data
                 return null!;
             }
         }
+        public async Task<string> UpdateFriendAsync(UserFriends fr)
+        {
+            FirebaseResponse firebaseResponse = await _firebase._client.GetAsync("UserFriends");
+            JObject jsonResponse = firebaseResponse.ResultAs<JObject>();
+            
+            if (jsonResponse != null)
+            {
+                foreach (var item in jsonResponse)
+                {
+                    var value = item.Value!.ToString();
+                    //path Object
+                    var userc = JsonConvert.DeserializeObject<UserFriends>(value);
+                    if (userc.UserId.Equals(fr.UserId) && userc.UserFriendId == fr.UserFriendId)
+                    {
+                        userc.Status = "True";
+                        var key = item.Key;
+                        SetResponse setResponse = await _firebase._client.SetAsync("UserFriends/" + key, userc);
+
+
+                    }
+                    if (userc.UserFriendId.Equals(fr.UserId) && userc.UserId == fr.UserFriendId)
+                    {
+                        userc.Status = "True";
+                        var key = item.Key;
+                        SetResponse setResponse = await _firebase._client.SetAsync("UserFriends/" + key, userc);
+
+                    }
+                }
+            }
+            return StatusResponse.STATUS_SUCCESS;
+        }
 
         public async Task<UserFriends> GetUserFriend(string userId, string unUserFriend)
         {
@@ -87,7 +130,19 @@ namespace AppGrIT.Data
                     var userc = JsonConvert.DeserializeObject<UserFriends>(value);
                     if (userc.UserId.Equals(userId) && userc.UserFriendId.Equals(unUserFriend))
                     {
-                        return userc;
+                       
+                            
+                            return userc;
+                       
+                        
+                    }
+                    if (userc.UserFriendId == userId && userc.UserId == unUserFriend)
+                    {
+                            var a = userc.UserId;
+                            var b = userc.UserFriendId;
+                            userc.UserId = b;
+                            userc.UserFriendId = a;
+                            return userc;
                     }
                 }
             }
@@ -114,6 +169,12 @@ namespace AppGrIT.Data
                         {
                             var key = item.Key!.ToString();
                             
+                            await _firebase._client.DeleteAsync($"UserFriends/{key}");
+                            return StatusResponse.STATUS_SUCCESS;
+                        }
+                        if (userc.UserId.Equals(user.UserFriendId) && userc.UserFriendId.Equals(user.UserId))
+                        {
+                            var key = item.Key!.ToString();
                             await _firebase._client.DeleteAsync($"UserFriends/{key}");
                             return StatusResponse.STATUS_SUCCESS;
                         }
