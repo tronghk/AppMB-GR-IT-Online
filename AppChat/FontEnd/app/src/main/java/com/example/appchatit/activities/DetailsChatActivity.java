@@ -186,13 +186,13 @@ public class DetailsChatActivity extends AppCompatActivity {
                         loadListMessage();
                         edtContent.setText("");
                     } else {
-                        Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<DetailsChatModel> call, Throwable t) {
-                    Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.e("API_Error", "Error fetching users: ", t);
                 }
             });
@@ -245,13 +245,13 @@ public class DetailsChatActivity extends AppCompatActivity {
                     recyclerView.smoothScrollToPosition(detailsChatModelList.size());
                     startLoadingMessagesPeriodically();
                 } else {
-                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<DetailsChatModel>> call, Throwable t) {
-                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("API_Error", "Error fetching users: ", t);
             }
         });
@@ -288,13 +288,13 @@ public class DetailsChatActivity extends AppCompatActivity {
                     detailsChatAdapter.setData(detailsChatModelList);
                     recyclerView.smoothScrollToPosition(detailsChatModelList.size());
                 } else {
-                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<DetailsChatModel>> call, Throwable t) {
-                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("API_Error", "Error fetching users: ", t);
             }
         });

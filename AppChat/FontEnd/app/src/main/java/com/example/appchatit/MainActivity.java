@@ -49,41 +49,41 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    private void signIn(String email, String password) {
-        SignInModel signInModel = new SignInModel(email, password);
-        UserApiService service = ApiServiceProvider.getUserApiService();
-        Call<TokenModel> call = service.signIn(signInModel);
-        call.enqueue(new Callback<TokenModel>() {
-            @Override
-            public void onResponse(Call<TokenModel> call, Response<TokenModel> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        String accessToken = response.body().getAccessToken();
-                        String refreshToken = response.body().getRefreshToken();
-                        String date = response.body().getExpiration();
-
-                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-
-                        prefs.edit().putString("accessToken", accessToken).apply();
-                        prefs.edit().putString("refreshToken", refreshToken).apply();
-                        prefs.edit().putString("expiration", date).apply();
-
-                        getUserInfo(accessToken);
-
-                        Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<TokenModel> call, Throwable t) {
-                Log.d("Error: ", t.getMessage());
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    private void signIn(String email, String password) {
+//        SignInModel signInModel = new SignInModel(email, password);
+//        UserApiService service = ApiServiceProvider.getUserApiService();
+//        Call<TokenModel> call = service.signIn(signInModel);
+//        call.enqueue(new Callback<TokenModel>() {
+//            @Override
+//            public void onResponse(Call<TokenModel> call, Response<TokenModel> response) {
+//                if (response.isSuccessful()) {
+//                    if (response.body() != null) {
+//                        String accessToken = response.body().getAccessToken();
+//                        String refreshToken = response.body().getRefreshToken();
+//                        String date = response.body().getExpiration();
+//
+//                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//
+//                        prefs.edit().putString("accessToken", accessToken).apply();
+//                        prefs.edit().putString("refreshToken", refreshToken).apply();
+//                        prefs.edit().putString("expiration", date).apply();
+//
+//                        getUserInfo(accessToken);
+//
+//                        Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<TokenModel> call, Throwable t) {
+//                Log.d("Error: ", t.getMessage());
+//                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
     private void getUserInfo(String accessToken) {
         JWT parsedJWT = new JWT(accessToken);

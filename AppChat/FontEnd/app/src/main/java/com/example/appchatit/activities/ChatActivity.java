@@ -3,15 +3,21 @@ package com.example.appchatit.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.appchatit.MainActivity;
 import com.example.appchatit.R;
 import com.example.appchatit.adapters.ActiveAdapter;
 import com.example.appchatit.adapters.ChatAdapter;
@@ -38,6 +44,8 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView recyclerViewActive;
     private List<UserModel> friendList = new ArrayList<>();
     private Timer timer;
+    private ImageView imgUser;
+    private TextView nameUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +61,9 @@ public class ChatActivity extends AppCompatActivity {
                 showPopupMenu(v);
             }
         });
+
+        imgUser = findViewById(R.id.btn_back);
+        nameUser = findViewById(R.id.txt_name_account);
     }
 
     private void setupRecyclerView() {
@@ -66,6 +77,7 @@ public class ChatActivity extends AppCompatActivity {
         recyclerViewActive.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewActive.setAdapter(activeAdapter);
 
+        getInfo();
         loadListChat();
         loadListMessOrtherUser();
         loadListFriend();
@@ -207,6 +219,32 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
 //                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getInfo() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String userId = sharedPreferences.getString("userId", "");
+        UserApiService userApiService = ApiServiceProvider.getUserApiService();
+        Call<UserModel> call = userApiService.getUserBasic(userId);
+        call.enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                if (response.isSuccessful()) {
+                    UserModel user = response.body();
+                    nameUser.setText(user.getUserName());
+                    RequestOptions requestOptions = new RequestOptions();
+                    requestOptions = requestOptions.transforms(new CircleCrop());
+                    Glide.with(ChatActivity.this).load(user.getImagePath()).apply(requestOptions).into(imgUser);
+                } else {
+                    //
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                //
             }
         });
     }
