@@ -70,16 +70,16 @@ public class CreateChatActivity extends AppCompatActivity {
                             getUserInfo(userFriendId);
                         }
                     } else {
-                        Toast.makeText(CreateChatActivity.this, "Không có bạn bè", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateChatActivity.this, "No friend", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(CreateChatActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CreateChatActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<UserFriendModel>> call, Throwable t) {
-                Toast.makeText(CreateChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CreateChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -96,16 +96,16 @@ public class CreateChatActivity extends AppCompatActivity {
                         userList.add(user);
                         createChatAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(CreateChatActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(CreateChatActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(CreateChatActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CreateChatActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                Toast.makeText(CreateChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CreateChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }

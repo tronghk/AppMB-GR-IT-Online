@@ -27,21 +27,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-            Intent intent = getIntent();
-            String token = intent.getStringExtra("accessToken");
-            String refreshToken = intent.getStringExtra("refreshToken");
-            String expiration = intent.getStringExtra("expiration");
-            if(token != null){
-                prefs.edit().putString("accessToken", token).apply();
-                prefs.edit().putString("refreshToken", refreshToken).apply();
-                prefs.edit().putString("expiration", expiration).apply();
-                getUserInfo(token);
-            }
-            else {
-                Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_SHORT).show();
-            }
-
-
+        Intent intent = getIntent();
+        String token = intent.getStringExtra("accessToken");
+        String refreshToken = intent.getStringExtra("refreshToken");
+        String expiration = intent.getStringExtra("expiration");
+        if (token != null) {
+            prefs.edit().putString("accessToken", token).apply();
+            prefs.edit().putString("refreshToken", refreshToken).apply();
+            prefs.edit().putString("expiration", expiration).apply();
+            getUserInfo(token);
+        } else {
+//            Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+        }
 
         new Handler().postDelayed(new Runnable() {
             @Override

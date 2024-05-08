@@ -146,7 +146,7 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                         }
                     }
                 }
-                Toast.makeText(mContext, "Member list " + memberList.size(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, "Member list " + memberList.size(), Toast.LENGTH_SHORT).show();
             }
             if (listener != null) {
                 listener.onMemberListChange(memberList);
@@ -178,15 +178,15 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                 @Override
                 public void onResponse(Call<GroupMemberModel> call, Response<GroupMemberModel> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(mContext, "Add member", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "Add member", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<GroupMemberModel> call, Throwable t) {
-                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -203,15 +203,15 @@ public class CreateGroupAdapter extends RecyclerView.Adapter<CreateGroupAdapter.
                 @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(mContext, "Delete member", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "Delete member", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseModel> call, Throwable t) {
-                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

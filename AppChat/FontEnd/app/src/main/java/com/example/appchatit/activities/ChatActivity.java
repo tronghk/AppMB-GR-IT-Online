@@ -23,6 +23,8 @@ import com.example.appchatit.services.UserApiService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +37,7 @@ public class ChatActivity extends AppCompatActivity {
     private ActiveAdapter activeAdapter;
     private RecyclerView recyclerViewActive;
     private List<UserModel> friendList = new ArrayList<>();
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +106,7 @@ public class ChatActivity extends AppCompatActivity {
         popupMenu.show();
     }
 
-    private void loadListChat() {
+    public void loadListChat() {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("accessToken", "");
         String userId = prefs.getString("userId", "");
@@ -116,13 +119,13 @@ public class ChatActivity extends AppCompatActivity {
                     List<UserModel> userList = response.body();
                     chatAdapter.setData(userList);
                 } else {
-                    Toast.makeText(ChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<UserModel>> call, Throwable t) {
-                Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -139,13 +142,13 @@ public class ChatActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     chatAdapter.updateMessOrtherUser(response.body());
                 } else {
-                    Toast.makeText(ChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<UserModel>> call, Throwable t) {
-                Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -165,18 +168,19 @@ public class ChatActivity extends AppCompatActivity {
                         for (UserFriendModel userFriend : userFriendsList) {
                             String userFriendId = userFriend.getUserFriendId();
                             getUserInfo(userFriendId);
+                            startLoadingMessagesPeriodically();
                         }
                     } else {
-                        Toast.makeText(ChatActivity.this, "Không có bạn bè", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChatActivity.this, "No friend", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(ChatActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChatActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<UserFriendModel>> call, Throwable t) {
-                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -193,17 +197,27 @@ public class ChatActivity extends AppCompatActivity {
                         friendList.add(user);
                         activeAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(ChatActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ChatActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(ChatActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChatActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ChatActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void startLoadingMessagesPeriodically() {
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                loadListChat();
+            }
+        }, 0, 5000);
     }
 }

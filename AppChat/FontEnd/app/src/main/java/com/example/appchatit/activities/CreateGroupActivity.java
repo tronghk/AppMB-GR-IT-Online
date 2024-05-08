@@ -179,7 +179,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
             @Override
             public void onClick(View v) {
                 editGroup();
-                Toast.makeText(CreateGroupActivity.this, "Press button edit", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CreateGroupActivity.this, "Press button edit", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -242,12 +242,12 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                     RequestOptions requestOptions = new RequestOptions();
                     requestOptions = requestOptions.transforms(new CircleCrop());
                     Glide.with(CreateGroupActivity.this).load(selectedImageUri).apply(requestOptions).into(imgGroup);
-                    Toast.makeText(CreateGroupActivity.this, "Read image successful", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CreateGroupActivity.this, "Read image successful", Toast.LENGTH_SHORT).show();
 
                     RequestBody requestBody = RequestBody.create(MediaType.parse(getContentResolver().getType(selectedImageUri)), buffer);
                     part = MultipartBody.Part.createFormData("image", "file.jpg", requestBody);
                 } catch (Exception e) {
-                    Toast.makeText(CreateGroupActivity.this, "Failed to read image data", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CreateGroupActivity.this, "Failed to read image data", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -260,15 +260,15 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                     public void onResponse(Call<List<String>> call, Response<List<String>> response) {
                         if (response.isSuccessful() && response.body() != null && response.body().size() > 0) {
                             imgGroupUrl = response.body().get(0);
-                            Toast.makeText(CreateGroupActivity.this, "OK " + response.message(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(CreateGroupActivity.this, "OK " + response.message(), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(CreateGroupActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(CreateGroupActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<List<String>> call, Throwable t) {
-                        Toast.makeText(CreateGroupActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(CreateGroupActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                         Log.d("API_Error", "Error fetching users: ", t);
                     }
                 });
@@ -295,16 +295,16 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                             getUserInfo(userFriendId);
                         }
                     } else {
-                        Toast.makeText(CreateGroupActivity.this, "Không có bạn bè", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateGroupActivity.this, "No friend", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(CreateGroupActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CreateGroupActivity.this, "Lỗi khi lấy danh sách bạn bè", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<UserFriendModel>> call, Throwable t) {
-                Toast.makeText(CreateGroupActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CreateGroupActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -321,16 +321,16 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                         userList.add(user);
                         createGroupAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(CreateGroupActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(CreateGroupActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(CreateGroupActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CreateGroupActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                Toast.makeText(CreateGroupActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CreateGroupActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -342,7 +342,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
 
         String nameGr = nameGroup.getText().toString().trim();
 
-        Toast.makeText(CreateGroupActivity.this, "list " + listMember.size(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(CreateGroupActivity.this, "list " + listMember.size(), Toast.LENGTH_SHORT).show();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
         sdf.setTimeZone(TimeZone.getTimeZone("GMT+07:00"));
@@ -359,7 +359,7 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                     newGroup.setGroupName(nameGr);
                     newGroup.setTimeCreate(timeString);
                     newGroup.setGroupMembers(listMember);
-                    Toast.makeText(CreateGroupActivity.this, "Created", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateGroupActivity.this, "Created group successfully", Toast.LENGTH_SHORT).show();
 
                     ChatApiService service = ApiServiceProvider.getChatApiService();
                     Call<GroupChatModel> call = service.createGroupChat("Bearer " + token, newGroup);
@@ -373,13 +373,13 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                                 String newGroupImagePath = newGroup.getImagePath();
                                 startDetailsChatActivity(newGroupId, newGroupName, newGroupImagePath);
                             } else {
-                                Toast.makeText(CreateGroupActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(CreateGroupActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<GroupChatModel> call, Throwable t) {
-                            Toast.makeText(CreateGroupActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(CreateGroupActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
@@ -430,15 +430,14 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                         GroupMemberModel admin = new GroupMemberModel(null, userId, "GR_MANAGER");
                         listMember.add(admin);
                     }
-                    Toast.makeText(CreateGroupActivity.this, "Memberlist " + listMember.size(), Toast.LENGTH_SHORT).show();
-
+//                    Toast.makeText(CreateGroupActivity.this, "Memberlist " + listMember.size(), Toast.LENGTH_SHORT).show();
                     GroupChatModel newGroup = new GroupChatModel();
                     newGroup.setGroupId(groupId);
                     newGroup.setImagePath(imgGroupUrl);
                     newGroup.setGroupName(nameGr);
                     newGroup.setTimeCreate(timeString);
                     newGroup.setGroupMembers(listMember);
-                    Toast.makeText(CreateGroupActivity.this, "Edited", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateGroupActivity.this, "Edited group successfully", Toast.LENGTH_SHORT).show();
 
                     ChatApiService service = ApiServiceProvider.getChatApiService();
                     Call<GroupChatModel> call = service.updateGroupChat("Bearer " + token, newGroup);
@@ -452,13 +451,13 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
                                 String newGroupImagePath = newGroup.getImagePath();
                                 startInfoGroupActivity(newGroupId, newGroupName, newGroupImagePath);
                             } else {
-                                Toast.makeText(CreateGroupActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(CreateGroupActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<GroupChatModel> call, Throwable t) {
-                            Toast.makeText(CreateGroupActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(CreateGroupActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
@@ -495,6 +494,6 @@ public class CreateGroupActivity extends AppCompatActivity implements OnMemberLi
     @Override
     public void onMemberListChange(List<GroupMemberModel> memberList) {
         this.listMember = memberList;
-        Toast.makeText(CreateGroupActivity.this, memberList.size() + " member(s)", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(CreateGroupActivity.this, memberList.size() + " member(s)", Toast.LENGTH_SHORT).show();
     }
 }
