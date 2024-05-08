@@ -139,13 +139,13 @@ public class ManageRoleActivity extends AppCompatActivity {
                                 startInfoGroupActivity();
                             }
                         } else {
-                            Toast.makeText(ManageRoleActivity.this, "Failed to update member role: " + response.message(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(ManageRoleActivity.this, "Failed to update member role: " + response.message(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<GroupMemberModel> call, Throwable t) {
-                        Toast.makeText(ManageRoleActivity.this, "Error updating member role: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ManageRoleActivity.this, "Error updating member role: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -177,16 +177,16 @@ public class ManageRoleActivity extends AppCompatActivity {
                         userList.add(user);
                         manageRoleAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(ManageRoleActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ManageRoleActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(ManageRoleActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ManageRoleActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                Toast.makeText(ManageRoleActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ManageRoleActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }

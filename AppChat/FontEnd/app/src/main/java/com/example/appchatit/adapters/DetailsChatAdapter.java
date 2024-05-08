@@ -167,15 +167,15 @@ public class DetailsChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     if (response.isSuccessful()) {
                         messageLeft.setText("Message recalled");
-                        Toast.makeText(mContext, "Delete message successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "Recall message successfully", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseModel> call, Throwable t) {
-                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

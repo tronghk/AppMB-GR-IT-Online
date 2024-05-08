@@ -123,13 +123,13 @@ public class AdminRoleAdapter extends RecyclerView.Adapter<AdminRoleAdapter.View
                         startInfoGroupActivity();
                         Toast.makeText(mContext, "Change admin group successfully", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseModel> call, Throwable t) {
-                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

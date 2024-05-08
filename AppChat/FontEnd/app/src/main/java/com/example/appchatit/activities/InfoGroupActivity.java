@@ -217,21 +217,21 @@ public class InfoGroupActivity extends AppCompatActivity {
                             if ("Please change role before out group".equals(errorMessage)) {
                                 Toast.makeText(InfoGroupActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(InfoGroupActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(InfoGroupActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException | IOException e) {
                             e.printStackTrace();
-                            Toast.makeText(InfoGroupActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(InfoGroupActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(InfoGroupActivity.this, "Unknown error occurred", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(InfoGroupActivity.this, "Unknown error occurred", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
-                Toast.makeText(InfoGroupActivity.this, "Error fetching group: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(InfoGroupActivity.this, "Error fetching group: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -265,15 +265,15 @@ public class InfoGroupActivity extends AppCompatActivity {
                 public void onResponse(Call<List<GroupMemberModel>> call, Response<List<GroupMemberModel>> response) {
                     if (response.isSuccessful()) {
                         memberList = response.body();
-                        Toast.makeText(InfoGroupActivity.this, "Get member list successfully", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(InfoGroupActivity.this, "Get member list successfully", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(InfoGroupActivity.this, "Failed to fetch member list: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(InfoGroupActivity.this, "Failed to fetch member list: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<GroupMemberModel>> call, Throwable t) {
-                    Toast.makeText(InfoGroupActivity.this, "Error fetching member list: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(InfoGroupActivity.this, "Error fetching member list: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

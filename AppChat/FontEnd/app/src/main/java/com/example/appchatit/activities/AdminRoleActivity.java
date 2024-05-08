@@ -95,16 +95,16 @@ public class AdminRoleActivity extends AppCompatActivity {
                         userList.add(user);
                         adminRoleAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(AdminRoleActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AdminRoleActivity.this, "Không có thông tin người dùng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(AdminRoleActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(AdminRoleActivity.this, "Không thể lấy thông tin người dùng", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                Toast.makeText(AdminRoleActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AdminRoleActivity.this, "Lỗi mạng", Toast.LENGTH_SHORT).show();
             }
         });
     }

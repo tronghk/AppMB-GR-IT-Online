@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.appchatit.R;
+import com.example.appchatit.activities.ChatActivity;
 import com.example.appchatit.activities.DetailsChatActivity;
 import com.example.appchatit.models.ChatModel;
 import com.example.appchatit.models.UserModel;
@@ -135,6 +136,7 @@ public class CreateChatAdapter extends RecyclerView.Adapter<CreateChatAdapter.Vi
         private void startDetailsChatActivity(String newChatId, String userName, String imagePath) {
             Intent intent = new Intent(mContext, DetailsChatActivity.class);
             Bundle bundle = new Bundle();
+            bundle.putBoolean("isUser", true);
             bundle.putString("chatId", newChatId);
             bundle.putString("userName", userName);
             bundle.putString("imagePath", imagePath);

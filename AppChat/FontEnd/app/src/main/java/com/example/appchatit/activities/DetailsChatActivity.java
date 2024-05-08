@@ -33,6 +33,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,6 +56,7 @@ public class DetailsChatActivity extends AppCompatActivity {
     private RecyclerView boxChat;
     private ImageView btnInfo;
     private ImageView btnBack;
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +141,8 @@ public class DetailsChatActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        startLoadingMessagesPeriodically();
     }
 
     private void setupRecyclerView() {
@@ -181,13 +186,13 @@ public class DetailsChatActivity extends AppCompatActivity {
                         loadListMessage();
                         edtContent.setText("");
                     } else {
-                        Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<DetailsChatModel> call, Throwable t) {
-                    Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.e("API_Error", "Error fetching users: ", t);
                 }
             });
@@ -238,14 +243,58 @@ public class DetailsChatActivity extends AppCompatActivity {
                     });
                     detailsChatAdapter.setData(detailsChatModelList);
                     recyclerView.smoothScrollToPosition(detailsChatModelList.size());
+                    startLoadingMessagesPeriodically();
                 } else {
-                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<DetailsChatModel>> call, Throwable t) {
-                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("API_Error", "Error fetching users: ", t);
+            }
+        });
+    }
+
+    private void startLoadingMessagesPeriodically() {
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                fetchDataFromApi();
+            }
+        }, 0, 2000);
+    }
+
+    private void fetchDataFromApi() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String token = prefs.getString("accessToken", "");
+        ChatApiService service = ApiServiceProvider.getChatApiService();
+        Call<List<DetailsChatModel>> call = service.getListDetailsChat("Bearer " + token, chatId);
+
+        call.enqueue(new Callback<List<DetailsChatModel>>() {
+            @Override
+            public void onResponse(Call<List<DetailsChatModel>> call, Response<List<DetailsChatModel>> response) {
+                if (response.isSuccessful()) {
+                    detailsChatModelList.clear();
+                    detailsChatModelList = response.body();
+                    Collections.sort(detailsChatModelList, new Comparator<DetailsChatModel>() {
+                        @Override
+                        public int compare(DetailsChatModel detailChat1, DetailsChatModel detailChat2) {
+                            return detailChat1.getTime().compareTo(detailChat2.getTime());
+                        }
+                    });
+                    detailsChatAdapter.setData(detailsChatModelList);
+                    recyclerView.smoothScrollToPosition(detailsChatModelList.size());
+                } else {
+//                    Toast.makeText(DetailsChatActivity.this, "Failed to fetch users: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<DetailsChatModel>> call, Throwable t) {
+//                Toast.makeText(DetailsChatActivity.this, "Error fetching users: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("API_Error", "Error fetching users: ", t);
             }
         });
