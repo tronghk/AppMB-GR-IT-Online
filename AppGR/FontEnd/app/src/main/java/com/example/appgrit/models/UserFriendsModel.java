@@ -14,7 +14,6 @@ public class UserFriendsModel {
         this.userFriendId = userFriendId;
         this.Status = status;
     }
-
     // Getter cho userId
     public String getUserId() {
         return userId;
