@@ -9,5 +9,5 @@ Cách cài đặt:
 -User:
  + tk: abc@gmail.com
  + pass: string
-Tính năng:
+- Tính năng:
 xem bài viết, đăng bài, thả biểu cảm, bình luận, tạo mua bán, thanh toán, chỉnh sửa thông tin,.... 
