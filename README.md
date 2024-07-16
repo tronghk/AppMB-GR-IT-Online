@@ -7,7 +7,7 @@ Cách cài đặt:
   + tk: user@example.com
   + pass: string
 - User:
- + tk: abc@gmail.com
- + pass: string
+  + tk: abc@gmail.com
+  + pass: string
 - Tính năng:
 xem bài viết, đăng bài, thả biểu cảm, bình luận, tạo mua bán, thanh toán, chỉnh sửa thông tin,.... 
