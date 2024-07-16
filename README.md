@@ -6,8 +6,7 @@ Cách cài đặt:
 - Amdin:
   + tk: user@example.com
   + pass: string
-  + 
--User:
+- User:
  + tk: abc@gmail.com
  + pass: string
 - Tính năng:
