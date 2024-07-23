@@ -123,9 +123,6 @@ public class UserFriendAdapter extends RecyclerView.Adapter<UserFriendAdapter.Vi
                             intent.putExtra("selectedUserId", userId);
                             context.startActivity(intent);
                         }else {
-                            Log.e("tokenTest",response.message());
-                            Log.e("userId",userId);
-                            Log.e("userIdOrther",userIdOrther);
                             Toast.makeText(context.getApplicationContext(),"Fail",Toast.LENGTH_SHORT).show();
                         }
                     }

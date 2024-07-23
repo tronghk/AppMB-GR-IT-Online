@@ -208,7 +208,7 @@ public class activity_signin extends AppCompatActivity {
                             ChangeAcAdmin();
                         }else {
                             getUserInfo(accessToken);
-                            Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
                         }
                         // Now get user info
 

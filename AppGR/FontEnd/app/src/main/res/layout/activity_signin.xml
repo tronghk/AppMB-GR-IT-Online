@@ -8,20 +8,34 @@
     android:padding="16dp">
 
     <!-- Logo -->
-    <ImageView
-        android:id="@+id/image_view_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-        android:layout_marginBottom="16dp"/>
+        android:id="@+id/img_avatar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="20dp"
+        tools:layout_editor_absoluteX="16dp">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/image_view_logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/app"
+            />
+    </androidx.cardview.widget.CardView>
 
     <!-- Sign In TextView -->
     <TextView
         android:id="@+id/text_view_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image_view_logo"
+        android:layout_below="@id/img_avatar"
         android:layout_centerHorizontal="true"
         android:text="Sign In"
         android:textSize="18sp"

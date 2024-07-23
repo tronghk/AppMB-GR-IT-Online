@@ -697,6 +697,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AppGrIT.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signInModel",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AppGrIT.Controllers.PostsController",
     "Method": "GetListAvatarUser",
     "RelativePath": "get-avatar-user-post",

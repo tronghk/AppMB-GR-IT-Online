@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -53,11 +54,11 @@ public class activity_signup extends AppCompatActivity implements DatePickerDial
 
         bindViews();
         setupGenderRadioGroup();
-        editTextBirthday.setOnClickListener(v -> showDatePickerDialog());
+
         buttonSignUp.setOnClickListener(v -> attemptSignUp());
         imageButtonTogglePasswordVisibility.setOnClickListener(v -> togglePasswordVisibility(editTextPassword));
         imageButtonToggleConfirmPasswordVisibility.setOnClickListener(v -> togglePasswordVisibility(editTextConfirmPassword));
-
+        eventDate();
     }
     private void togglePasswordVisibility(EditText editText) {
         int selection = editText.getSelectionEnd();
@@ -98,8 +99,37 @@ public class activity_signup extends AppCompatActivity implements DatePickerDial
 
     }
 
+
+
+    public void eventDate(){
+        editTextBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+    }
     private void showDatePickerDialog() {
-        new DatePickerDialog(this, this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+        // Lấy ngày tháng năm hiện tại
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+
+        // Tạo DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // Xử lý khi người dùng chọn ngày tháng năm
+                        String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                        editTextBirthday.setText(date);
+                    }
+                }, year, month, day);
+
+        // Hiển thị DatePickerDialog
+        datePickerDialog.show();
     }
 
     @Override

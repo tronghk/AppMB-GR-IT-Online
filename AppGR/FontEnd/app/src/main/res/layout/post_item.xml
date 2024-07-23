@@ -14,6 +14,7 @@
         android:layout_margin="20dp"/>
 
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -109,32 +110,47 @@
 <!--                android:src="@drawable/save_home" />-->
 
         </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#A9A9A9">
 
+        </ImageView>
         <RelativeLayout
+            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp">
 
             <TextView
+
                 android:id="@+id/likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+
                 android:text="1933 likes"/>
 
             <TextView
                 android:id="@+id/comments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+
                 android:text="Comments"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#A9A9A9">
+
+        </ImageView>
 
 
 
@@ -165,5 +181,11 @@
             android:text="31 tháng 1"/>
 
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/layout1"
+        android:background="#A9A9A9">
 
+    </ImageView>
 </RelativeLayout>
