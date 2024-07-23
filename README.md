@@ -6,7 +6,7 @@ Cách cài đặt:
 - Tài khoản 1
   + tk: user@example.com
   + pass: string
--Tài khoản 2:
+- Tài khoản 2:
   trongnguyen220602@gmail.com
   037818aA
 - Database: Firebase, Storage
