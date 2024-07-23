@@ -10,4 +10,5 @@ Cách cài đặt:
   + tk: abc@gmail.com
   + pass: string
 - Tính năng:
+- Database: Firebase, Storage
 xem bài viết, đăng bài, thả biểu cảm, bình luận, tạo mua bán, thanh toán, chỉnh sửa thông tin,.... 
