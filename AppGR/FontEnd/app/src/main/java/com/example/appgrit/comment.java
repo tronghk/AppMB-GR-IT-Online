@@ -10,17 +10,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.appgrit.adapters.CommentAdapter;
+import com.example.appgrit.helper.JWTServices;
 import com.example.appgrit.models.PostCommentModel;
+import com.example.appgrit.models.UserModel;
 import com.example.appgrit.network.ApiServiceProvider;
 import com.example.appgrit.network.PostCommentApiService;
+import com.example.appgrit.network.UserApiService;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +40,7 @@ public class comment extends AppCompatActivity {
     private String postId; // Biến lưu trữ postId
     private EditText editComment;
     private Button btnPostComment;
-
+    private CircleImageView imageUserAvatar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +51,7 @@ public class comment extends AppCompatActivity {
         recyclerViewComments = findViewById(R.id.recycler_view);
         editComment = findViewById(R.id.editComment);
         btnPostComment = findViewById(R.id.buttonSend);
-
+        imageUserAvatar = findViewById(R.id.imageUserAvatar);
         commentList = new ArrayList<>();
         commentAdapter = new CommentAdapter(this, commentList, postId); // Truyền postId vào constructor của CommentAdapter
         recyclerViewComments.setLayoutManager(new LinearLayoutManager(this));
@@ -58,6 +64,37 @@ public class comment extends AppCompatActivity {
             public void onClick(View v) {
                 postComment();
             }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        GetImage();
+    }
+
+    private void GetImage(){
+        String userId = JWTServices.GetUserId(getUserToken());
+        UserApiService service = ApiServiceProvider.getUserApiService();
+        Call<UserModel> call = service.getUserInfo(userId);
+        call.enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                if (response.isSuccessful()) {
+
+                    UserModel user = response.body();
+
+                    Picasso.get().load(user.getImagePath()).into(imageUserAvatar);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error fetching count fl: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("API_Error", "Error fetching posts: ", t);
+            }
+
         });
     }
 
@@ -122,7 +159,7 @@ public class comment extends AppCompatActivity {
                                 // Clear the edit text after successfully posting the comment
                                 editComment.setText("");
                                 // Show a toast message indicating success
-                                Toast.makeText(comment.this, "Comment added successfully", Toast.LENGTH_SHORT).show();
+
                             } else {
                                 // Show a toast message indicating failure with the error message from the response
                                 Toast.makeText(comment.this, "Failed to add comment: Comment ID is null", Toast.LENGTH_SHORT).show();

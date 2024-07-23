@@ -9,11 +9,13 @@
 
     <!-- Tiêu đề "Bình Luận" -->
     <TextView
+
         android:id="@+id/tvbinhluan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:padding="10dp"
         android:text=" Bình Luận "
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -36,7 +38,7 @@
         android:layout_marginTop="16dp">
 
         <!-- Avatar -->
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageUserAvatar"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -49,6 +51,7 @@
         <EditText
             android:id="@+id/editComment"
             android:layout_width="0dp"
+            android:inputType="text"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/imageUserAvatar"
             android:layout_alignBottom="@id/imageUserAvatar"
@@ -56,7 +59,7 @@
             android:layout_marginEnd="5dp"
             android:layout_toStartOf="@id/buttonSend"
             android:layout_toEndOf="@id/imageUserAvatar"
-            android:hint="Nhập bình luận của bạn..." />
+            android:hint="Nhập bình luận" />
 
         <!-- Nút gửi -->
         <Button

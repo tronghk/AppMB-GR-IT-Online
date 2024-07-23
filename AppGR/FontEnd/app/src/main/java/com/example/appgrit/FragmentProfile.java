@@ -91,8 +91,8 @@ public class FragmentProfile extends AppCompatActivity {
         btn_edit = findViewById(R.id.btn_edit);
         btn_share = findViewById(R.id.btn_share);
         last_bar = findViewById(R.id.last_bar);
-        my_photo = findViewById(R.id.my_photos);
-        share_photo = findViewById(R.id.save_photos);
+/*        my_photo = findViewById(R.id.my_photos);
+        share_photo = findViewById(R.id.save_photos);*/
         recycler_view = findViewById(R.id.recycler_view);
         story_add = findViewById(R.id.story_add);
         recycler_view_share = findViewById(R.id.recycler_view_save);
@@ -118,6 +118,13 @@ public class FragmentProfile extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        loadPosts();
+    }
+
     public void AddAvater(){
         story_add.setOnClickListener(new View.OnClickListener() {
             @Override

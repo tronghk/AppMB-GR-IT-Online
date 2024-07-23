@@ -92,8 +92,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.updateLikeButton(); // Cập nhật giao diện nút like
         holder.likesTextView.setText(likesCount + " likes");
 
+        String date = post.getPostTimeString();
+        String s[] = date.split("T");
+        String da[] = s[0].split("-");
+        date = da[2] + "-" + da[1] + "-" + da[0];
         holder.txtContent.setText(post.getContent());
-        holder.txtTime.setText(post.getPostTimeString());
+        holder.txtTime.setText(date);
         //countLikes(post.getPostId(), holder.likesTextView, holder);
         loadUserData(post.getUserId(), holder);
         // Cập nhật trạng thái của nút "more"

@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:padding="8dp">
+    android:padding="4dp"
+    android:orientation="horizontal">
 
     <!-- Avatar của người bình luận -->
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageAvatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/avatar"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+
         android:layout_marginBottom="16dp"/>
 
     <!-- Tên của người bình luận -->
+<LinearLayout
+    android:layout_width="0dp"
+    android:orientation="vertical"
+    android:layout_weight="10"
+
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
@@ -28,14 +34,7 @@
         android:layout_marginStart="16dp"/>
 
     <!-- Icon thả tim -->
-    <ImageView
-        android:id="@+id/imageHeart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/heart"
-        android:layout_alignTop="@id/textName"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"/>
+
 
     <!-- Nội dung bình luận -->
     <TextView
@@ -48,31 +47,42 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/buttonMore"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
 
-    <!-- Nút more -->
 
-    <!-- Số lượng lượt thích -->
+            android:src="@drawable/ic_morehor_black" />
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/imageHeart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart"
+           />
 
-    <ImageView
-        android:id="@+id/buttonMore"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="171dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_morehor_black" />
+        <!-- Nút more -->
 
-    <TextView
-        android:id="@+id/textLikes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textComment"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="-197dp"
-        android:layout_toStartOf="@id/buttonMore"
-        android:text="" />
+        <!-- Số lượng lượt thích -->
 
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/textLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

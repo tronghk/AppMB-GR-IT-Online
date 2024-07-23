@@ -208,7 +208,6 @@ public class activity_signin extends AppCompatActivity {
                             ChangeAcAdmin();
                         }else {
                             getUserInfo(accessToken);
-
                         }
                         // Now get user info
 
@@ -288,16 +287,16 @@ public class activity_signin extends AppCompatActivity {
                         editor.apply();
 
                         // Now get user info
-                        getUserInfo(accessToken);
+
                         boolean isAdmin = CheckAdmin(accessToken);
                         Log.e("admin",isAdmin+"");
                         if(isAdmin){
                             ChangeAcAdmin();
                         }else {
                             getUserInfo(accessToken);
-                            Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
                         }
-                        Toast.makeText(activity_signin.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
 
                     }
 
@@ -309,7 +308,7 @@ public class activity_signin extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TokenModel> call, Throwable t) {
-                Toast.makeText(activity_signin.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -320,7 +319,6 @@ public class activity_signin extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         prefs.edit().putString("userId", userId).apply();
         navigateToHome();
-
     }
 
     private void navigateToHome() {
